@@ -17,6 +17,7 @@ from pathlib import Path
 
 LZ = re.compile(r"^0\d+$")
 TIME = re.compile(r"\d{1,2}:\d{2}")
+MIDNIGHT = re.compile(r"(?<!\d)0?0:00(:00(\.0+)?)?(?!\d)")  # exactly midnight carries no time (date-only value)
 
 
 def damage(c: dict) -> str | None:
@@ -28,11 +29,40 @@ def damage(c: dict) -> str | None:
         return "long digit code became a float"
     if "e+" in as_.lower() and "e+" not in bs.lower() and re.fullmatch(r"[\d.]+e\+\d+", as_.lower()):
         return "scientific notation introduced"
-    if TIME.search(bs) and not TIME.search(as_) and rule.startswith("D"):
+    if TIME.search(bs) and not MIDNIGHT.search(bs) and not TIME.search(as_) and rule.startswith("D"):
         return "time of day dropped"
     if bs.strip() and not as_.strip() and rule not in ("M1-PLACEHOLDER", "S3-SHIFT"):
         return "value blanked"
     return None
+
+
+PLACEHOLDERS = {"-", "--", "—", "n/a", "na", "#n/a", "null", "none", "nan", "?", "없음", "미입력", "해당없음", "x", "#value!", "#ref!", "#div/0!"}
+
+
+def num(x):
+    try:
+        return float(str(x).replace(",", "").strip())
+    except ValueError:
+        return None
+
+
+def mechanical(c: dict) -> bool:
+    """True when the change is provably value-preserving (checked from before/after alone)."""
+    b, a, rule = c["before"], c["after"], c["rule"]
+    if rule == "N1-NUMBER":
+        return num(b) is not None and num(b) == num(a)
+    if rule == "D1-DATE":       # same calendar digits, same time if one was given
+        db, da = re.findall(r"\d+", str(b)), re.findall(r"\d+", str(a))
+        return len(da) >= 3 and [int(x) for x in da] == [int(x) for x in db[:len(da)]] and all(int(x) == 0 for x in db[len(da):])
+    if rule == "T1-WS":
+        return isinstance(b, str) and " ".join(b.split()) == a
+    if rule == "M1-PLACEHOLDER":
+        return a is None and str(b).strip().casefold() in PLACEHOLDERS
+    return False
+
+
+def key(c: dict) -> str:
+    return f"{c['rule']}|{c['column']}|{c['before']!r}|{c['after']!r}"
 
 
 def main() -> int:
@@ -41,6 +71,8 @@ def main() -> int:
     ap.add_argument("--sample", type=int, default=60)
     ap.add_argument("--seed", type=int, default=7)
     ap.add_argument("--json", type=Path)
+    ap.add_argument("--judgments", type=Path, default=Path(__file__).parent / "judgments.json",
+                    help="hand labels: list of {rule, column?, before?, after? (regexes), verdict: ok|wrong|debatable, why}")
     a = ap.parse_args()
     audit = json.loads((a.out / "audit.json").read_text())
     summ = json.loads((a.out / "run_summary.json").read_text())
@@ -64,6 +96,32 @@ def main() -> int:
     for rule in sorted(by_rule):
         for c in rnd.sample(by_rule[rule], min(per, len(by_rule[rule]))):
             sample.append({k: c[k] for k in ("table", "source_row", "column", "before", "after", "rule", "evidence")})
+    # every change is either mechanically verified or belongs to a distinct mapping that gets a label
+    labels = json.loads(a.judgments.read_text()) if a.judgments and a.judgments.exists() else []
+
+    def label(c: dict) -> str:
+        for j in labels:
+            if j["rule"] == c["rule"] and re.fullmatch(j.get("column", ".*"), str(c["column"])) \
+                    and re.search(j.get("before", ""), repr(c["before"])) and re.search(j.get("after", ""), repr(c["after"])):
+                return j["verdict"]
+        return "unlabelled"
+    first: dict[str, dict] = {}
+    mech, damaged, classes = 0, 0, collections.Counter()
+    for c in ch:
+        if damage(c):
+            damaged += 1          # silent damage is a wrong change whatever the rule
+        elif c["rule"] == "S2-MERGE" or mechanical(c):
+            mech += 1
+        else:
+            classes[key(c)] += 1
+            first.setdefault(key(c), c)
+    verdict = collections.Counter()
+    judg = {k: label(first[k]) for k in classes}
+    for k, n in classes.items():
+        verdict[judg[k]] += n
+    verdict["mechanical"] = mech
+    verdict["wrong"] += damaged
+    judged = sum(n for v, n in verdict.items() if v in ("ok", "wrong", "debatable", "mechanical"))
     pat = collections.Counter((r["table"], r["column"], r["flag"]) for r in audit["review"])
     vals = collections.Counter((r["column"], r["flag"], str(r["value"])[:40]) for r in audit["review"])
     res = {"out": str(a.out), "rows_out": rows, "changes": len(ch), "changes_by_rule": summ["changes_by_rule"],
@@ -74,11 +132,14 @@ def main() -> int:
            "dup_groups": len(audit["dups"]), "silent_damage": dict(dmg), "damage_examples": examples,
            "self_check_failed": [c["check"] for c in summ["self_check"] if not c["ok"]],
            "dropped_by_kind": dict(collections.Counter(d["kind"] for d in audit["dropped"])),
+           "verdicts": dict(verdict), "wrong_rate": round(verdict["wrong"] / judged, 5) if judged else None,
+           "debatable_rate": round(verdict["debatable"] / judged, 5) if judged else None,
+           "mappings": [[k, n, judg[k]] for k, n in classes.most_common()],
            "sample": sample}
     txt = json.dumps(res, ensure_ascii=False, indent=1, default=str)
     if a.json:
         a.json.write_text(txt)
-    print(json.dumps({k: v for k, v in res.items() if k not in ("sample", "damage_examples")}, ensure_ascii=False, default=str))
+    print(json.dumps({k: v for k, v in res.items() if k not in ("sample", "damage_examples", "mappings")}, ensure_ascii=False, default=str))
     return 0
 
 

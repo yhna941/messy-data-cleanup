@@ -80,7 +80,8 @@ def repair_mojibake(s: str) -> tuple[str, str] | None:
 
 def nfkc(s: str) -> str:
     """NFKC per character, except where it changes meaning or makes broken text: Hangul compatibility
-    jamo (ㅋㅋ, ㄹ, ㆍ) would become conjoining jamo, superscripts (m², m³) would become plain digits, and
+    jamo (ㅋㅋ, ㄹ, ㆍ) would become conjoining jamo, superscripts (m², m³) would become plain digits, vulgar fractions ('2½') would become
+    '21⁄2', and
     spacing accents (˙ ˝) would become a space plus a combining mark."""
     return "".join(ch if _keep(ch) else unicodedata.normalize("NFKC", ch) for ch in s)
 
@@ -89,7 +90,8 @@ def _keep(ch: str) -> bool:
     if ch.isascii() or "\u3131" <= ch <= "\u318e":
         return True
     d = unicodedata.decomposition(ch)
-    return d.startswith(("<super>", "<sub>")) or (d.startswith("<compat> 0020") and len(d.split()) > 2)
+    # <fraction>: '2½' would become '21⁄2' (reads as 21/2)
+    return d.startswith(("<super>", "<sub>", "<fraction>")) or (d.startswith("<compat> 0020") and len(d.split()) > 2)
 
 
 def normalize_text(v: Any, freetext: bool = False) -> Outcome:

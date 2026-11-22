@@ -167,6 +167,9 @@ class Run:
         if t.file not in self.grids:
             with self.timed("read", t.file):
                 self.grids[t.file] = read_any(self.input_dir / t.file)
+            for g in self.grids[t.file]:
+                if g.encoding == "cp1252+holes":
+                    self.audit.notes.append(f"{t.file}: read as cp1252; the few bytes cp1252 leaves undefined were read as cp850 (0x90 -> 'É')")
         for g in self.grids[t.file]:
             if g.sheet == t.sheet or (not t.sheet and len(self.grids[t.file]) == 1):
                 return g

@@ -1,6 +1,7 @@
 """Boundary: read files into Grids without changing a single value."""
 from __future__ import annotations
 
+import codecs
 import csv
 import io
 from pathlib import Path
@@ -10,6 +11,9 @@ from .model import Grid
 ENCODINGS = ("utf-8-sig", "cp949", "euc-kr", "cp1252")
 
 
+CP1252_HOLES = {0x81: "\u00fc", 0x8D: "\u00ec", 0x8F: "\u00c5", 0x90: "\u00c9", 0x9D: "\u00d8"}  # cp850 meaning
+
+
 def detect_encoding(data: bytes) -> str:
     for enc in ENCODINGS:
         try:
@@ -17,6 +21,13 @@ def detect_encoding(data: bytes) -> str:
             return enc
         except UnicodeDecodeError:
             continue
+    # A Western file with a few stray DOS bytes fails strict cp1252 on the 5 bytes cp1252 leaves undefined;
+    # charset detection then picks a code page where every byte decodes (the Powerhouse TSV came out as
+    # cp775: 'née' -> 'nķe' in every row). Tolerate a handful of holes and read them as cp850 does.
+    holes = sum(data.count(bytes([b])) for b in CP1252_HOLES)
+    high = sum(1 for b in data if b > 127) if holes else 0
+    if holes and holes <= max(20, high // 50):
+        return "cp1252+holes"
     try:
         from charset_normalizer import from_bytes
         best = from_bytes(data).best()
@@ -25,6 +36,19 @@ def detect_encoding(data: bytes) -> str:
     except ImportError:
         pass
     return "latin-1"
+
+
+def decode(data: bytes, enc: str) -> str:
+    if enc == "cp1252+holes":
+        return data.decode("cp1252", errors="cp1252holes")
+    return data.decode(enc)
+
+
+def _holes(e: UnicodeDecodeError):
+    return "".join(CP1252_HOLES.get(b, "\ufffd") for b in e.object[e.start:e.end]), e.end
+
+
+codecs.register_error("cp1252holes", _holes)
 
 
 def sniff_delimiter(sample: str) -> str:
@@ -48,7 +72,7 @@ def sniff_delimiter(sample: str) -> str:
 def read_csv(path: Path) -> list[Grid]:
     data = path.read_bytes()
     enc = detect_encoding(data)
-    text = data.decode(enc)
+    text = decode(data, enc)
     delim = "\t" if path.suffix.lower() == ".tsv" else sniff_delimiter("\n".join(text.splitlines()[:30]))
     del data
     reader = csv.reader(io.StringIO(text), delimiter=delim)

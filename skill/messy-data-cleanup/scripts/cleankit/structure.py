@@ -133,6 +133,16 @@ def block_starts(cells: list[list[Any]], headers: list[Header]) -> list[Header]:
     return out
 
 
+def banner_text(v: str, n: int) -> bool:
+    """A sentence (> 20 chars), or a label of 4+ letters spread over 3+ columns ('Suggested Citation:');
+    placeholders ('해당없음', 'N/A') repeated across a row stay data."""
+    from .normalize import PLACEHOLDERS
+    v = v.strip()
+    if v.casefold() in PLACEHOLDERS:
+        return False
+    return len(v) > 20 or (n >= 3 and sum(ch.isalpha() for ch in v) >= 4)
+
+
 def classify(row: list[Any], header_labels: set[str], key_ok: Callable[[Any], bool], key_value: Any) -> RowKind:
     nonblank = [v for v in row if not is_blank(v)]
     if not nonblank:
@@ -146,8 +156,8 @@ def classify(row: list[Any], header_labels: set[str], key_ok: Callable[[Any], bo
         return RowKind.SUBTOTAL
     if len(nonblank) == 1 or (isinstance(nonblank[0], str) and NOTE_RE.match(nonblank[0])):
         return RowKind.NOTE
-    if len(texts) == len(nonblank) > 1 and len(set(nonblank)) == 1 and len(nonblank[0]) > 20:
-        return RowKind.NOTE   # one long sentence repeated across the row = a merged footnote banner (filled by fill_merges)
+    if len(texts) == len(nonblank) > 1 and len(set(nonblank)) == 1 and banner_text(nonblank[0], len(nonblank)):
+        return RowKind.NOTE   # one text repeated across the row = a merged banner/footnote (filled by fill_merges)
     return RowKind.DATA
 
 

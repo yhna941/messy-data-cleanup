@@ -1,0 +1,9 @@
+[
+ {"rule": "T1-NFKC", "column": "name", "before": "[（）㈜]", "verdict": "ok", "why": "full-width parentheses / ㈜ in company names: same name, half-width form"},
+ {"rule": "T1-NFKC", "before": "[…µ]", "verdict": "ok", "why": "ellipsis -> '...', micro sign -> Greek mu: same reading (PHM marks/descriptions)"},
+ {"rule": "C1-CANON", "verdict": "ok", "why": "case/spacing variant of a vocabulary value ('RESIDENTIAL BUILDING')"},
+ {"rule": "C1-FUZZY", "column": "location_type", "before": "^'Comercial'$", "verdict": "ok", "why": "typo of Commercial"},
+ {"rule": "C1-ALIAS", "column": "location_type", "before": "Restaurant/Bar/Deli/Bakery", "verdict": "debatable", "why": "deli/bakery are not club/bar/restaurant; the contract alias is coarser than the source"},
+ {"rule": "C1-ALIAS", "column": "location_type", "before": "Business", "verdict": "debatable", "why": "'Business' -> 'Commercial' is a judgement call written into the contract"},
+ {"rule": "C1-ALIAS", "column": "location_type", "verdict": "ok", "why": "NYC 311 location_type synonyms mapped by the contract vocabulary (Street/Sidewalk, Residential Building, ...)"}
+]
