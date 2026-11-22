@@ -1216,5 +1216,65 @@
    "MemoryError"
   ],
   "label": "final"
+ },
+ {
+  "dataset": "nps",
+  "subset": "full",
+  "status": "ok",
+  "rows": 589414,
+  "wall_s": 306.73,
+  "rows_per_s": 1922,
+  "peak_rss_mb": 3172,
+  "stages": {
+   "read": 4.155,
+   "structure": 25.241,
+   "text": 35.744,
+   "shift": 8.545,
+   "types": 76.171,
+   "llm": 0.0,
+   "required": 0.707,
+   "dedup": 5.293,
+   "checks": 0.0,
+   "joins": 0.0,
+   "reconcile": 0.0,
+   "self_check": 62.966,
+   "write": 82.906
+  },
+  "tail": [
+   "PASS workplaces: every changed cell has a consistent change chain (0 broken chains, 0 unlogged changes)",
+   "PASS workplaces: no value became blank except placeholders (0 cells)",
+   "wrote /workspace/rw/out_cap8g/nps/full"
+  ],
+  "label": "final_cap8g"
+ },
+ {
+  "dataset": "nyc311",
+  "subset": "n1000000",
+  "status": "ok",
+  "rows": 1000188,
+  "wall_s": 401.83,
+  "rows_per_s": 2489,
+  "peak_rss_mb": 4231,
+  "stages": {
+   "read": 7.314,
+   "structure": 22.227,
+   "text": 42.656,
+   "shift": 15.131,
+   "types": 96.374,
+   "llm": 0.0,
+   "required": 0.882,
+   "dedup": 13.73,
+   "checks": 0.0,
+   "joins": 2.015,
+   "reconcile": 0.0,
+   "self_check": 62.426,
+   "write": 131.34
+  },
+  "tail": [
+   "PASS sr: every changed cell has a consistent change chain (0 broken chains, 0 unlogged changes)",
+   "PASS sr: no value became blank except placeholders (0 cells)",
+   "wrote /workspace/rw/out_cap8g/nyc311/n1000000"
+  ],
+  "label": "final_cap8g"
  }
 ]
