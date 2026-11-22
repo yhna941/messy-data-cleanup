@@ -1,0 +1,32 @@
+# Same as nps/contract.yaml but with the codes typed as the old profile draft proposed (우편번호, 업종코드 = number).
+# 국민연금공단 국민연금 가입 사업장 내역 (data.go.kr 15083277), cp949 CSV.
+# Codes keep their leading zeros: 우편번호 06164, 업종코드 000000, 법정동코드 10 digits.
+dataset: 국민연금 가입 사업장 내역
+tables:
+  workplaces:
+    file: nps.csv
+    columns:
+      period: {type: text, aliases: [자료생성년월]}
+      name: {type: text, aliases: [사업장명], required: true}
+      bizno: {type: text, aliases: [사업자등록번호]}
+      status: {type: category, aliases: [사업장가입상태코드 1 등록 2 탈퇴], vocab: {"1": [], "2": []}}
+      zip: {type: number, aliases: [우편번호]}
+      addr_jibun: {type: text, aliases: [사업장지번상세주소]}
+      addr_road: {type: text, aliases: [사업장도로명상세주소]}
+      bjd_code: {type: id, aliases: [고객법정동주소코드], regex: '(?P<n>\d{10})', format: '{n:010d}'}
+      hjd_code: {type: id, aliases: [고객행정동주소코드], regex: '(?P<n>\d{10})', format: '{n:010d}'}
+      sido_code: {type: text, aliases: [법정동주소광역시도코드]}
+      sigungu_code: {type: text, aliases: [법정동주소광역시시군구코드]}
+      emd_code: {type: text, aliases: [법정동주소광역시시군구읍면동코드]}
+      kind: {type: category, aliases: [사업장형태구분코드 1 법인 2 개인], vocab: {"1": [], "2": []}}
+      industry_code: {type: number, aliases: [사업장업종코드]}
+      industry_name: {type: text, aliases: [사업장업종코드명]}
+      applied_date: {type: date, aliases: [적용일자], required: true}
+      rereg_date: {type: date, aliases: [재등록일자]}
+      quit_date: {type: date, aliases: [탈퇴일자]}
+      members: {type: count, aliases: [가입자수], min: 0}
+      billed: {type: money, aliases: [당월고지금액], min: 0}
+      new_members: {type: count, aliases: [신규취득자수], min: 0}
+      lost_members: {type: count, aliases: [상실가입자수], min: 0}
+    dedup:
+      suspect_keys: [[name, bizno, zip, addr_road]]

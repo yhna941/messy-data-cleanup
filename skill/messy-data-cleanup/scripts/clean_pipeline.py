@@ -24,6 +24,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from cleankit.contract import load  # noqa: E402
 from cleankit.llm import LLM  # noqa: E402
 from cleankit.pipeline import Run  # noqa: E402
+from cleankit import write as W  # noqa: E402
 from cleankit.write import write_all  # noqa: E402
 
 
@@ -37,8 +38,11 @@ def main() -> int:
     ap.add_argument("--llm-provider", default="auto", choices=["auto", "openrouter", "gemini"])
     ap.add_argument("--llm-model")
     ap.add_argument("--llm-cache", type=Path)
+    ap.add_argument("--xlsx-rows", type=int, default=W.XLSX_ROWS,
+                    help="rows per sheet in the workbook (default %(default)s); longer tables are previews there and complete in csv/")
     ap.add_argument("--perf", type=Path, help="write per-stage wall time and memory (JSON) here; not part of the audit outputs")
     a = ap.parse_args()
+    W.XLSX_ROWS = max(1, a.xlsx_rows)
     contract = load(a.contract)
     input_dir = a.input_dir or a.contract.parent
     out = a.out or input_dir / "cleaned"

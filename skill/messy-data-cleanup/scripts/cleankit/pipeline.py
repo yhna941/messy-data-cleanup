@@ -213,11 +213,10 @@ class Run:
             n_in += 1
             row = cells[r] + [None] * max(0, width + 3 - len(cells[r]))
             rawrow = g.cells[r] + [None] * max(0, width + 3 - len(g.cells[r]))
-            show = " | ".join("" if v is None else str(v) for v in g.cells[r]).strip(" |")
             if h.start <= r < h.start + h.depth:
                 self.audit.dropped.append(Dropped(t.name, sheet, g.row_no(r), RowKind.HEADER.value, "header row (mapped to contract columns)",
                                                   "; ".join(f"{col_letter(c)}={h.labels.get(c)}→{n}" for n, c in sorted(h.mapping.items(), key=lambda x: x[1])) +
-                                                  (" [S1-HEADER2: 2-row header combined]" if h.depth == 2 else ""), show))
+                                                  (" [S1-HEADER2: 2-row header combined]" if h.depth == 2 else ""), show_row(g.cells[r])))
                 continue
             if r < h.start:
                 kind = RowKind.BLANK if all(N.is_blank(v) for v in row) else RowKind.TITLE
@@ -226,7 +225,7 @@ class Run:
             if kind != RowKind.DATA:
                 rule = {RowKind.TITLE: "S1-TITLE", RowKind.REPEATED_HEADER: "S1-REPHEADER", RowKind.SUBTOTAL: "S1-SUBTOTAL",
                         RowKind.NOTE: "S1-NOTE", RowKind.BLANK: "S1-BLANK"}[kind]
-                self.audit.dropped.append(Dropped(t.name, sheet, g.row_no(r), kind.value, f"{rule}: {RULES[rule][1]}", "", show))
+                self.audit.dropped.append(Dropped(t.name, sheet, g.row_no(r), kind.value, f"{rule}: {RULES[rule][1]}", "", show_row(g.cells[r])))
                 if kind == RowKind.SUBTOTAL and SUM_RE.search(next(str(v) for v in row if isinstance(v, str) and v.strip())):
                     label = next(str(v) for v in row if isinstance(v, str) and v.strip())
                     self.subtotals[t.name].append({"row": g.row_no(r), "label": label, "grand": bool(GRAND_RE.search(label)),
@@ -719,6 +718,11 @@ class Run:
             checks = self.self_check()
         return {"self_check": checks}
 
+
+
+def show_row(row: list) -> str:
+    """' | '-joined raw row, built only for rows that end up in Dropped."""
+    return " | ".join("" if v is None else str(v) for v in row).strip(" |")
 
 
 def rss_mb() -> float:

@@ -83,7 +83,7 @@ tables:
       cervix_target: {type: count, aliases: [자궁경부암 대상자수], min: 0}
       cervix_screened: {type: count, aliases: [자궁경부암 수검자수], min: 0}
     dedup:
-      suspect_keys: [[sigungu, sex, age]]
+      suspect_keys: [[sido, sigungu, sex, age]]
   cancer_2019:
     file: nhis_2.xlsx
     sheet: '2019'
@@ -103,7 +103,7 @@ tables:
       cervix_target: {type: count, aliases: [자궁경부암 대상자수], min: 0}
       cervix_screened: {type: count, aliases: [자궁경부암 수검자수], min: 0}
     dedup:
-      suspect_keys: [[sigungu, sex, age]]
+      suspect_keys: [[sido, sigungu, sex, age]]
   cancer_2020:
     file: nhis_2.xlsx
     sheet: '2020'
@@ -123,7 +123,7 @@ tables:
       cervix_target: {type: count, aliases: [자궁경부암 대상자수], min: 0}
       cervix_screened: {type: count, aliases: [자궁경부암 수검자수], min: 0}
     dedup:
-      suspect_keys: [[sigungu, sex, age]]
+      suspect_keys: [[sido, sigungu, sex, age]]
   cancer_2022:
     file: nhis_2.xlsx
     sheet: '2022'
@@ -143,7 +143,7 @@ tables:
       cervix_target: {type: count, aliases: [자궁경부암 대상자수], min: 0}
       cervix_screened: {type: count, aliases: [자궁경부암 수검자수], min: 0}
     dedup:
-      suspect_keys: [[sigungu, sex, age]]
+      suspect_keys: [[sido, sigungu, sex, age]]
   cancer_2023:
     file: nhis_2.xlsx
     sheet: '2023'
@@ -163,4 +163,4 @@ tables:
       cervix_target: {type: count, aliases: [자궁경부암 대상자수], min: 0}
       cervix_screened: {type: count, aliases: [자궁경부암 수검자수], min: 0}
     dedup:
-      suspect_keys: [[sigungu, sex, age]]
+      suspect_keys: [[sido, sigungu, sex, age]]
