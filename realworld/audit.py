@@ -29,6 +29,8 @@ def damage(c: dict) -> str | None:
         return "long digit code became a float"
     if "e+" in as_.lower() and "e+" not in bs.lower() and re.fullmatch(r"[\d.]+e\+\d+", as_.lower()):
         return "scientific notation introduced"
+    if rule == "N1-NUMBER" and isinstance(a, float) and num(b) is not None and num(b) != a and abs(num(b) - a) <= 1e-6 * max(1.0, abs(a)):
+        return "number rounded (digits dropped)"
     if TIME.search(bs) and not MIDNIGHT.search(bs) and not TIME.search(as_) and rule.startswith("D"):
         return "time of day dropped"
     if bs.strip() and not as_.strip() and rule not in ("M1-PLACEHOLDER", "S3-SHIFT"):
@@ -88,8 +90,7 @@ def main() -> int:
                 examples[d].append({k: c[k] for k in ("table", "source_row", "column", "before", "after", "rule")})
     by_rule = collections.defaultdict(list)
     for c in ch:
-        if c["rule"] not in ("S2-MERGE",):    # merge fills are structural copies, checked by the self-check
-            by_rule[c["rule"]].append(c)
+        by_rule[c["rule"]].append(c)
     rnd = random.Random(a.seed)
     per = max(1, a.sample // max(1, len(by_rule)))
     sample = []
@@ -110,7 +111,7 @@ def main() -> int:
     for c in ch:
         if damage(c):
             damaged += 1          # silent damage is a wrong change whatever the rule
-        elif c["rule"] == "S2-MERGE" or mechanical(c):
+        elif mechanical(c):
             mech += 1
         else:
             classes[key(c)] += 1

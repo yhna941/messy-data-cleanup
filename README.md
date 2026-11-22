@@ -12,6 +12,7 @@ An Agent Skill that cleans badly broken Excel/CSV files and logs every change. A
 | `demo/`, `blind/` | messy datasets with planted ground truth, scorer, report generator |
 | `semantic/`, `semantic_blind/` | planted semantic/unstructured problems and traps for the LLM layer |
 | `docs/LLM_LAYER_PLAN.md` | the LLM-layer design, written before the code |
+| `realworld/` | real public datasets (NYC 311, 국민연금 사업장, NYC sales, 국가건강검진, Census, Powerhouse): contracts, `bench.py`, `audit.py`, `collect.py`, `judgments.json`, results in `realworld/results/`, a 200-row sample in `realworld/sample/` |
 | `REPORT.md` | Korean report with every number generated from the outputs |
 | `ablation.json` | rules-only vs rules+LLM on 4 datasets (`ablation_live_run.json` = the live run with usage) |
 
@@ -55,6 +56,19 @@ ABL_LLM=live bash demo/run_demo.sh   # call the provider for anything not cached
 ```
 
 `--llm off|cache|live`, `--llm-provider auto|openrouter|gemini`, `--llm-model`. Answers are cached by input hash in `llm_cache/` next to the contract. Reruns and `--llm cache` replays give byte-identical outputs.
+
+## Real-world benchmark
+
+The raw data (~430 MB) is not in git. Fetch it, then benchmark and audit:
+
+```bash
+bash scripts/fetch_realworld.sh                      # downloads into data/raw, lays out data/rw/<set>/<subset>
+python3 realworld/bench.py --label mine --mem-cap-mb 2200 census:full nps:n10000 nyc311:n100000 nhis:full phm:full nycsales:full
+python3 realworld/collect.py mine=realworld/out      # audit every output -> realworld/results/audits.json
+python3 demo/make_report.py                          # REPORT.md section 14 is generated from realworld/results/*.json
+```
+
+`bench.py` runs each set in a fresh subprocess under an address-space cap (a run that does not fit fails with MemoryError instead of taking the machine down) and records wall time, peak RSS, and per-stage seconds. `audit.py` checks every change: number/date/whitespace/placeholder changes are verified mechanically, everything else belongs to a distinct before→after mapping that is labelled by hand in `realworld/judgments.json`, and a separate scan looks for silent damage (lost leading zeros, rounded numbers, dropped times, floats from long codes, blanked values).
 
 ## Credits
 

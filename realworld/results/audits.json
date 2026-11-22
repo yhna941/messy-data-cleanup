@@ -1,0 +1,1216 @@
+{
+ "before": {
+  "census:full": {
+   "changes": 31,
+   "changes_by_rule": {
+    "S2-MERGE": 25,
+    "T1-WS": 6
+   },
+   "damage_examples": {},
+   "debatable_rate": 0.0,
+   "dropped_by_kind": {
+    "header": 2,
+    "note": 1,
+    "subtotal": 1,
+    "title": 2
+   },
+   "dup_groups": 0,
+   "mappings": [
+    [
+     "S2-MERGE|base_2020|None|'Vintage 2023 data products are associated with Data Management System projects P-6000042, P-7501659, and P-7527355. The U.S. Census Bureau reviewed these data products for unauthorized disclosure of confidential information and approved the disclosure avoidance practices applied to this release (CBDRB-FY24-0085).  '",
+     1,
+     "wrong"
+    ],
+    [
+     "S2-MERGE|pop_2020|None|'Vintage 2023 data products are associated with Data Management System projects P-6000042, P-7501659, and P-7527355. The U.S. Census Bureau reviewed these data products for unauthorized disclosure of confidential information and approved the disclosure avoidance practices applied to this release (CBDRB-FY24-0085).  '",
+     1,
+     "wrong"
+    ],
+    [
+     "S2-MERGE|pop_2021|None|'Vintage 2023 data products are associated with Data Management System projects P-6000042, P-7501659, and P-7527355. The U.S. Census Bureau reviewed these data products for unauthorized disclosure of confidential information and approved the disclosure avoidance practices applied to this release (CBDRB-FY24-0085).  '",
+     1,
+     "wrong"
+    ],
+    [
+     "S2-MERGE|pop_2022|None|'Vintage 2023 data products are associated with Data Management System projects P-6000042, P-7501659, and P-7527355. The U.S. Census Bureau reviewed these data products for unauthorized disclosure of confidential information and approved the disclosure avoidance practices applied to this release (CBDRB-FY24-0085).  '",
+     1,
+     "wrong"
+    ],
+    [
+     "S2-MERGE|pop_2023|None|'Vintage 2023 data products are associated with Data Management System projects P-6000042, P-7501659, and P-7527355. The U.S. Census Bureau reviewed these data products for unauthorized disclosure of confidential information and approved the disclosure avoidance practices applied to this release (CBDRB-FY24-0085).  '",
+     1,
+     "wrong"
+    ],
+    [
+     "S2-MERGE|base_2020|None|'Suggested Citation:'",
+     1,
+     "wrong"
+    ],
+    [
+     "S2-MERGE|pop_2020|None|'Suggested Citation:'",
+     1,
+     "wrong"
+    ],
+    [
+     "S2-MERGE|pop_2021|None|'Suggested Citation:'",
+     1,
+     "wrong"
+    ],
+    [
+     "S2-MERGE|pop_2022|None|'Suggested Citation:'",
+     1,
+     "wrong"
+    ],
+    [
+     "S2-MERGE|pop_2023|None|'Suggested Citation:'",
+     1,
+     "wrong"
+    ],
+    [
+     "S2-MERGE|base_2020|None|'Annual Estimates of the Resident Population for Counties in the United States: April 1, 2020 to July 1, 2023 (CO-EST2023-POP)'",
+     1,
+     "wrong"
+    ],
+    [
+     "S2-MERGE|pop_2020|None|'Annual Estimates of the Resident Population for Counties in the United States: April 1, 2020 to July 1, 2023 (CO-EST2023-POP)'",
+     1,
+     "wrong"
+    ],
+    [
+     "S2-MERGE|pop_2021|None|'Annual Estimates of the Resident Population for Counties in the United States: April 1, 2020 to July 1, 2023 (CO-EST2023-POP)'",
+     1,
+     "wrong"
+    ],
+    [
+     "S2-MERGE|pop_2022|None|'Annual Estimates of the Resident Population for Counties in the United States: April 1, 2020 to July 1, 2023 (CO-EST2023-POP)'",
+     1,
+     "wrong"
+    ],
+    [
+     "S2-MERGE|pop_2023|None|'Annual Estimates of the Resident Population for Counties in the United States: April 1, 2020 to July 1, 2023 (CO-EST2023-POP)'",
+     1,
+     "wrong"
+    ],
+    [
+     "S2-MERGE|base_2020|None|'Source: U.S. Census Bureau, Population Division'",
+     1,
+     "wrong"
+    ],
+    [
+     "S2-MERGE|pop_2020|None|'Source: U.S. Census Bureau, Population Division'",
+     1,
+     "wrong"
+    ],
+    [
+     "S2-MERGE|pop_2021|None|'Source: U.S. Census Bureau, Population Division'",
+     1,
+     "wrong"
+    ],
+    [
+     "S2-MERGE|pop_2022|None|'Source: U.S. Census Bureau, Population Division'",
+     1,
+     "wrong"
+    ],
+    [
+     "S2-MERGE|pop_2023|None|'Source: U.S. Census Bureau, Population Division'",
+     1,
+     "wrong"
+    ],
+    [
+     "S2-MERGE|base_2020|None|'Release Date: March 2024'",
+     1,
+     "wrong"
+    ],
+    [
+     "S2-MERGE|pop_2020|None|'Release Date: March 2024'",
+     1,
+     "wrong"
+    ],
+    [
+     "S2-MERGE|pop_2021|None|'Release Date: March 2024'",
+     1,
+     "wrong"
+    ],
+    [
+     "S2-MERGE|pop_2022|None|'Release Date: March 2024'",
+     1,
+     "wrong"
+    ],
+    [
+     "S2-MERGE|pop_2023|None|'Release Date: March 2024'",
+     1,
+     "wrong"
+    ]
+   ],
+   "review": 25,
+   "review_patterns": 5,
+   "review_per_1k_rows": 7.9,
+   "rows_out": 3149,
+   "self_check_failed": [],
+   "silent_damage": {},
+   "top_review_patterns": [
+    [
+     "counties",
+     "base_2020",
+     "R2-NUMBER",
+     5
+    ],
+    [
+     "counties",
+     "pop_2020",
+     "R2-NUMBER",
+     5
+    ],
+    [
+     "counties",
+     "pop_2021",
+     "R2-NUMBER",
+     5
+    ],
+    [
+     "counties",
+     "pop_2022",
+     "R2-NUMBER",
+     5
+    ],
+    [
+     "counties",
+     "pop_2023",
+     "R2-NUMBER",
+     5
+    ]
+   ],
+   "verdicts": {
+    "mechanical": 6,
+    "wrong": 25
+   },
+   "wrong_rate": 0.80645
+  },
+  "nhis:full": {
+   "changes": 159170,
+   "changes_by_rule": {
+    "M1-PLACEHOLDER": 123255,
+    "S2-MERGE": 35915
+   },
+   "damage_examples": {},
+   "debatable_rate": 0.0,
+   "dropped_by_kind": {
+    "header": 22,
+    "subtotal": 1602,
+    "title": 22
+   },
+   "dup_groups": 840,
+   "mappings": [
+    [
+     "S2-MERGE|sido|None|'경기도'",
+     5539,
+     "ok"
+    ],
+    [
+     "S2-MERGE|sido|None|'서울특별시'",
+     3295,
+     "ok"
+    ],
+    [
+     "S2-MERGE|sido|None|'경상북도'",
+     3137,
+     "ok"
+    ],
+    [
+     "S2-MERGE|sido|None|'전라남도'",
+     2899,
+     "ok"
+    ],
+    [
+     "S2-MERGE|sido|None|'경상남도'",
+     2899,
+     "ok"
+    ],
+    [
+     "S2-MERGE|sido|None|'부산광역시'",
+     2107,
+     "ok"
+    ],
+    [
+     "S2-MERGE|sido|None|'충청남도'",
+     2107,
+     "ok"
+    ],
+    [
+     "S2-MERGE|sido|None|'전라북도'",
+     1975,
+     "ok"
+    ],
+    [
+     "S2-MERGE|sido|None|'강원도'",
+     1904,
+     "ok"
+    ],
+    [
+     "S2-MERGE|sido|None|'충청북도'",
+     1843,
+     "ok"
+    ],
+    [
+     "S2-MERGE|sido|None|'인천광역시'",
+     1315,
+     "ok"
+    ],
+    [
+     "S2-MERGE|sido|None|'대구광역시'",
+     1077,
+     "ok"
+    ],
+    [
+     "S2-MERGE|sido|None|'광주광역시'",
+     655,
+     "ok"
+    ],
+    [
+     "S2-MERGE|sido|None|'대전광역시'",
+     655,
+     "ok"
+    ],
+    [
+     "S2-MERGE|sido|None|'울산광역시'",
+     655,
+     "ok"
+    ],
+    [
+     "S2-MERGE|sido|None|'강원특별자치도'",
+     467,
+     "ok"
+    ],
+    [
+     "S2-MERGE|sido|None|'제주특별자치도'",
+     259,
+     "ok"
+    ],
+    [
+     "S2-MERGE|sido|None|'세종특별자치시'",
+     104,
+     "ok"
+    ],
+    [
+     "S2-MERGE|sigungu|None|'중구'",
+     72,
+     "ok"
+    ],
+    [
+     "S2-MERGE|sigungu|None|'동구'",
+     72,
+     "ok"
+    ],
+    [
+     "S2-MERGE|sigungu|None|'서구'",
+     60,
+     "ok"
+    ],
+    [
+     "S2-MERGE|sigungu|None|'남구'",
+     50,
+     "ok"
+    ],
+    [
+     "S2-MERGE|sigungu|None|'북구'",
+     48,
+     "ok"
+    ],
+    [
+     "S2-MERGE|sigungu|None|'강서구'",
+     24,
+     "ok"
+    ],
+    [
+     "S2-MERGE|sigungu|None|'고성군'",
+     24,
+     "ok"
+    ],
+    [
+     "S2-MERGE|sido|None|'세종특별시'",
+     23,
+     "ok"
+    ],
+    [
+     "S2-MERGE|sigungu|None|'종로구'",
+     12,
+     "ok"
+    ],
+    [
+     "S2-MERGE|sigungu|None|'용산구'",
+     12,
+     "ok"
+    ],
+    [
+     "S2-MERGE|sigungu|None|'성동구'",
+     12,
+     "ok"
+    ],
+    [
+     "S2-MERGE|sigungu|None|'광진구'",
+     12,
+     "ok"
+    ],
+    [
+     "S2-MERGE|sigungu|None|'동대문구'",
+     12,
+     "ok"
+    ],
+    [
+     "S2-MERGE|sigungu|None|'중랑구'",
+     12,
+     "ok"
+    ],
+    [
+     "S2-MERGE|sigungu|None|'성북구'",
+     12,
+     "ok"
+    ],
+    [
+     "S2-MERGE|sigungu|None|'강북구'",
+     12,
+     "ok"
+    ],
+    [
+     "S2-MERGE|sigungu|None|'도봉구'",
+     12,
+     "ok"
+    ],
+    [
+     "S2-MERGE|sigungu|None|'노원구'",
+     12,
+     "ok"
+    ],
+    [
+     "S2-MERGE|sigungu|None|'은평구'",
+     12,
+     "ok"
+    ],
+    [
+     "S2-MERGE|sigungu|None|'서대문구'",
+     12,
+     "ok"
+    ],
+    [
+     "S2-MERGE|sigungu|None|'마포구'",
+     12,
+     "ok"
+    ],
+    [
+     "S2-MERGE|sigungu|None|'양천구'",
+     12,
+     "ok"
+    ]
+   ],
+   "review": 3510,
+   "review_patterns": 11,
+   "review_per_1k_rows": 106.3,
+   "rows_out": 33006,
+   "self_check_failed": [
+    "general_2018: every changed cell has a consistent change chain",
+    "general_2019: every changed cell has a consistent change chain",
+    "general_2020: every changed cell has a consistent change chain",
+    "general_2021: every changed cell has a consistent change chain",
+    "general_2022: every changed cell has a consistent change chain",
+    "general_2023: every changed cell has a consistent change chain"
+   ],
+   "silent_damage": {},
+   "top_review_patterns": [
+    [
+     "cancer_2018",
+     "(row)",
+     "U2-SUSPECT",
+     720
+    ],
+    [
+     "cancer_2019",
+     "(row)",
+     "U2-SUSPECT",
+     696
+    ],
+    [
+     "cancer_2020",
+     "(row)",
+     "U2-SUSPECT",
+     696
+    ],
+    [
+     "cancer_2022",
+     "(row)",
+     "U2-SUSPECT",
+     696
+    ],
+    [
+     "cancer_2023",
+     "(row)",
+     "U2-SUSPECT",
+     696
+    ],
+    [
+     "general_2018",
+     "sigungu",
+     "R7-REQUIRED",
+     1
+    ],
+    [
+     "general_2019",
+     "sigungu",
+     "R7-REQUIRED",
+     1
+    ],
+    [
+     "general_2020",
+     "sigungu",
+     "R7-REQUIRED",
+     1
+    ]
+   ],
+   "verdicts": {
+    "mechanical": 123255,
+    "ok": 35915,
+    "wrong": 0
+   },
+   "wrong_rate": 0.0
+  },
+  "nps:n10000": {
+   "changes": 52317,
+   "changes_by_rule": {
+    "D1-DATE": 10278,
+    "M1-PLACEHOLDER": 271,
+    "N1-NUMBER": 39996,
+    "T1-NFKC": 38,
+    "T1-WS": 1734
+   },
+   "damage_examples": {},
+   "debatable_rate": 0.0,
+   "dropped_by_kind": {
+    "header": 1,
+    "subtotal": 1
+   },
+   "dup_groups": 4,
+   "mappings": [
+    [
+     "T1-NFKC|name|'대건운수(주）'|'대건운수(주)'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'（주）타워홀딩스'|'(주)타워홀딩스'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'일신하이폴리(주）'|'일신하이폴리(주)'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'（주）대진유통'|'(주)대진유통'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'（주）빌텍'|'(주)빌텍'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'（주)서연탑메탈'|'(주)서연탑메탈'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'（주）희앤썬'|'(주)희앤썬'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'에쓰오씨소프트 주식회사(SOC Soft Inc.）'|'에쓰오씨소프트 주식회사(SOC Soft Inc.)'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'아디다스코리아（유）'|'아디다스코리아(유)'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'（주）성동환경'|'(주)성동환경'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'（주）대한여행사'|'(주)대한여행사'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'(사）한국섬유수출입협회'|'(사)한국섬유수출입협회'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'CJ씨푸드(주）'|'CJ씨푸드(주)'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'한국에셋솔루션（주）목동9단지아파트'|'한국에셋솔루션(주)목동9단지아파트'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'해영글로벌로지스틱스(주）'|'해영글로벌로지스틱스(주)'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'DB생명보험（주）'|'DB생명보험(주)'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'(주）엘앤비인베스트먼트'|'(주)엘앤비인베스트먼트'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'신세계음향공업(주）'|'신세계음향공업(주)'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'지산（주）'|'지산(주)'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'（주）건축사사무소우리공간'|'(주)건축사사무소우리공간'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'세양물산（주）'|'세양물산(주)'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'(주）드림비'|'(주)드림비'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'현민아이디（주）'|'현민아이디(주)'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'(주）호성알앤피'|'(주)호성알앤피'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'주）에덴글라스'|'주)에덴글라스'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'㈜케이티나스미디어'|'(주)케이티나스미디어'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'（주）쓰리다임'|'(주)쓰리다임'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'（주）강남캐피탈대부'|'(주)강남캐피탈대부'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'（유）스튜어드파트너스'|'(유)스튜어드파트너스'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'그린지에스（주）'|'그린지에스(주)'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'고산공영（주）'|'고산공영(주)'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'인터젠컨설팅(주）'|'인터젠컨설팅(주)'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'광성피앤드씨（주）'|'광성피앤드씨(주)'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'대성건설（주）'|'대성건설(주)'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'（주）코렘시스'|'(주)코렘시스'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'（주）터치더월드'|'(주)터치더월드'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'한전케이피에스（주）서울경기전력지사'|'한전케이피에스(주)서울경기전력지사'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'（주）야심'|'(주)야심'",
+     1,
+     "ok"
+    ]
+   ],
+   "review": 27,
+   "review_patterns": 2,
+   "review_per_1k_rows": 2.7,
+   "rows_out": 9999,
+   "self_check_failed": [],
+   "silent_damage": {},
+   "top_review_patterns": [
+    [
+     "workplaces",
+     "zip",
+     "R5-INVALID",
+     19
+    ],
+    [
+     "workplaces",
+     "(row)",
+     "U2-SUSPECT",
+     8
+    ]
+   ],
+   "verdicts": {
+    "mechanical": 52279,
+    "ok": 38,
+    "wrong": 0
+   },
+   "wrong_rate": 0.0
+  },
+  "nps_naive:n10000": {
+   "changes": 72296,
+   "changes_by_rule": {
+    "D1-DATE": 10278,
+    "M1-PLACEHOLDER": 271,
+    "N1-NUMBER": 59975,
+    "T1-NFKC": 38,
+    "T1-WS": 1734
+   },
+   "damage_examples": {
+    "leading zero lost": [
+     {
+      "after": 8501,
+      "before": "08501",
+      "column": "zip",
+      "rule": "N1-NUMBER",
+      "source_row": 2,
+      "table": "workplaces"
+     },
+     {
+      "after": 3656,
+      "before": "03656",
+      "column": "zip",
+      "rule": "N1-NUMBER",
+      "source_row": 4,
+      "table": "workplaces"
+     },
+     {
+      "after": 6339,
+      "before": "06339",
+      "column": "zip",
+      "rule": "N1-NUMBER",
+      "source_row": 5,
+      "table": "workplaces"
+     },
+     {
+      "after": 6627,
+      "before": "06627",
+      "column": "zip",
+      "rule": "N1-NUMBER",
+      "source_row": 6,
+      "table": "workplaces"
+     },
+     {
+      "after": 4559,
+      "before": "04559",
+      "column": "zip",
+      "rule": "N1-NUMBER",
+      "source_row": 7,
+      "table": "workplaces"
+     }
+    ]
+   },
+   "debatable_rate": 0.0,
+   "dropped_by_kind": {
+    "header": 1,
+    "subtotal": 1
+   },
+   "dup_groups": 4,
+   "mappings": [
+    [
+     "T1-NFKC|name|'대건운수(주）'|'대건운수(주)'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'（주）타워홀딩스'|'(주)타워홀딩스'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'일신하이폴리(주）'|'일신하이폴리(주)'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'（주）대진유통'|'(주)대진유통'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'（주）빌텍'|'(주)빌텍'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'（주)서연탑메탈'|'(주)서연탑메탈'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'（주）희앤썬'|'(주)희앤썬'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'에쓰오씨소프트 주식회사(SOC Soft Inc.）'|'에쓰오씨소프트 주식회사(SOC Soft Inc.)'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'아디다스코리아（유）'|'아디다스코리아(유)'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'（주）성동환경'|'(주)성동환경'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'（주）대한여행사'|'(주)대한여행사'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'(사）한국섬유수출입협회'|'(사)한국섬유수출입협회'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'CJ씨푸드(주）'|'CJ씨푸드(주)'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'한국에셋솔루션（주）목동9단지아파트'|'한국에셋솔루션(주)목동9단지아파트'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'해영글로벌로지스틱스(주）'|'해영글로벌로지스틱스(주)'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'DB생명보험（주）'|'DB생명보험(주)'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'(주）엘앤비인베스트먼트'|'(주)엘앤비인베스트먼트'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'신세계음향공업(주）'|'신세계음향공업(주)'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'지산（주）'|'지산(주)'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'（주）건축사사무소우리공간'|'(주)건축사사무소우리공간'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'세양물산（주）'|'세양물산(주)'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'(주）드림비'|'(주)드림비'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'현민아이디（주）'|'현민아이디(주)'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'(주）호성알앤피'|'(주)호성알앤피'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'주）에덴글라스'|'주)에덴글라스'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'㈜케이티나스미디어'|'(주)케이티나스미디어'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'（주）쓰리다임'|'(주)쓰리다임'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'（주）강남캐피탈대부'|'(주)강남캐피탈대부'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'（유）스튜어드파트너스'|'(유)스튜어드파트너스'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'그린지에스（주）'|'그린지에스(주)'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'고산공영（주）'|'고산공영(주)'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'인터젠컨설팅(주）'|'인터젠컨설팅(주)'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'광성피앤드씨（주）'|'광성피앤드씨(주)'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'대성건설（주）'|'대성건설(주)'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'（주）코렘시스'|'(주)코렘시스'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'（주）터치더월드'|'(주)터치더월드'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'한전케이피에스（주）서울경기전력지사'|'한전케이피에스(주)서울경기전력지사'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'（주）야심'|'(주)야심'",
+     1,
+     "ok"
+    ]
+   ],
+   "review": 27,
+   "review_patterns": 2,
+   "review_per_1k_rows": 2.7,
+   "rows_out": 9999,
+   "self_check_failed": [],
+   "silent_damage": {
+    "leading zero lost": 7659
+   },
+   "top_review_patterns": [
+    [
+     "workplaces",
+     "zip",
+     "R2-NUMBER",
+     19
+    ],
+    [
+     "workplaces",
+     "(row)",
+     "U2-SUSPECT",
+     8
+    ]
+   ],
+   "verdicts": {
+    "mechanical": 64599,
+    "ok": 38,
+    "wrong": 7659
+   },
+   "wrong_rate": 0.10594
+  },
+  "nyc311:n10000": {
+   "changes": 26170,
+   "changes_by_rule": {
+    "C1-ALIAS": 2578,
+    "C1-CANON": 1536,
+    "C1-FUZZY": 21,
+    "M1-PLACEHOLDER": 333,
+    "N1-NUMBER": 19862,
+    "T1-WS": 1840
+   },
+   "damage_examples": {
+    "number rounded (digits dropped)": [
+     {
+      "after": 40.7325215925,
+      "before": "40.73252159248742",
+      "column": "latitude",
+      "rule": "N1-NUMBER",
+      "source_row": 2,
+      "table": "sr"
+     },
+     {
+      "after": 40.7321649391,
+      "before": "40.73216493913612",
+      "column": "latitude",
+      "rule": "N1-NUMBER",
+      "source_row": 3,
+      "table": "sr"
+     },
+     {
+      "after": 40.6861768544,
+      "before": "40.6861768543833",
+      "column": "latitude",
+      "rule": "N1-NUMBER",
+      "source_row": 4,
+      "table": "sr"
+     },
+     {
+      "after": 40.7432280808,
+      "before": "40.743228080818334",
+      "column": "latitude",
+      "rule": "N1-NUMBER",
+      "source_row": 5,
+      "table": "sr"
+     },
+     {
+      "after": 40.6770875175,
+      "before": "40.677087517514266",
+      "column": "latitude",
+      "rule": "N1-NUMBER",
+      "source_row": 6,
+      "table": "sr"
+     }
+    ]
+   },
+   "debatable_rate": 0.00149,
+   "dropped_by_kind": {
+    "header": 2
+   },
+   "dup_groups": 110,
+   "mappings": [
+    [
+     "C1-ALIAS|location_type|'Residential Building/House'|'Residential Building'",
+     1744,
+     "ok"
+    ],
+    [
+     "C1-CANON|location_type|'RESIDENTIAL BUILDING'|'Residential Building'",
+     1536,
+     "ok"
+    ],
+    [
+     "C1-ALIAS|location_type|'Street'|'Street/Sidewalk'",
+     315,
+     "ok"
+    ],
+    [
+     "C1-ALIAS|location_type|'Sidewalk'|'Street/Sidewalk'",
+     205,
+     "ok"
+    ],
+    [
+     "C1-ALIAS|location_type|'Store/Commercial'|'Commercial'",
+     152,
+     "ok"
+    ],
+    [
+     "C1-ALIAS|location_type|'3+ Family Apt. Building'|'Residential Building'",
+     45,
+     "ok"
+    ],
+    [
+     "C1-ALIAS|location_type|'Restaurant/Bar/Deli/Bakery'|'Club/Bar/Restaurant'",
+     27,
+     "debatable"
+    ],
+    [
+     "C1-ALIAS|location_type|'Park/Playground'|'Park'",
+     21,
+     "ok"
+    ],
+    [
+     "C1-FUZZY|location_type|'Comercial'|'Commercial'",
+     21,
+     "ok"
+    ],
+    [
+     "C1-ALIAS|location_type|'1-2 Family Dwelling'|'Residential Building'",
+     15,
+     "ok"
+    ],
+    [
+     "C1-ALIAS|location_type|'Other (Explain Below)'|'Other'",
+     12,
+     "ok"
+    ],
+    [
+     "C1-ALIAS|location_type|'Business'|'Commercial'",
+     12,
+     "debatable"
+    ],
+    [
+     "C1-ALIAS|location_type|'Residential'|'Residential Building'",
+     6,
+     "ok"
+    ],
+    [
+     "C1-ALIAS|location_type|'3+ Family Apartment Building'|'Residential Building'",
+     6,
+     "ok"
+    ],
+    [
+     "C1-ALIAS|location_type|'Commercial Building'|'Commercial'",
+     5,
+     "ok"
+    ],
+    [
+     "C1-ALIAS|location_type|'3+ Family Mixed Use Building'|'Mixed Use'",
+     4,
+     "ok"
+    ],
+    [
+     "C1-ALIAS|location_type|'Gutter'|'Street/Sidewalk'",
+     2,
+     "ok"
+    ],
+    [
+     "C1-ALIAS|location_type|'Crosswalk'|'Street/Sidewalk'",
+     2,
+     "ok"
+    ],
+    [
+     "C1-ALIAS|location_type|'Curb'|'Street/Sidewalk'",
+     2,
+     "ok"
+    ],
+    [
+     "C1-ALIAS|location_type|'Vacant Lot'|'Lot'",
+     1,
+     "ok"
+    ],
+    [
+     "C1-ALIAS|location_type|'Residence'|'Residential Building'",
+     1,
+     "ok"
+    ],
+    [
+     "C1-ALIAS|location_type|'Street/Curbside'|'Street/Sidewalk'",
+     1,
+     "ok"
+    ]
+   ],
+   "review": 20256,
+   "review_patterns": 6,
+   "review_per_1k_rows": 1988.6,
+   "rows_out": 10186,
+   "self_check_failed": [],
+   "silent_damage": {
+    "number rounded (digits dropped)": 19862
+   },
+   "top_review_patterns": [
+    [
+     "sr",
+     "created_date",
+     "R1-DATE",
+     10000
+    ],
+    [
+     "sr",
+     "closed_date",
+     "R1-DATE",
+     9952
+    ],
+    [
+     "sr",
+     "unique_key",
+     "U2-SUSPECT",
+     248
+    ],
+    [
+     "sr",
+     "location_type",
+     "R4-CATEGORY",
+     31
+    ],
+    [
+     "sr",
+     "incident_zip",
+     "J2-ORPHAN",
+     21
+    ],
+    [
+     "sr",
+     "borough",
+     "R6-CROSS",
+     4
+    ]
+   ],
+   "verdicts": {
+    "debatable": 39,
+    "mechanical": 2173,
+    "ok": 4096,
+    "wrong": 19862
+   },
+   "wrong_rate": 0.75896
+  }
+ }
+}

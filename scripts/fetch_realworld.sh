@@ -49,7 +49,7 @@ with open(f"{raw}/zips.csv", "w", newline="") as f:
         if k: w.writerow([f"{k:05d}", z[k].most_common(1)[0][0]])
 PY
 lnk() { mkdir -p "$RW/$1"; ln -sf "$A/$2" "$RW/$1/${3:-$2}"; }
-for n in 1000 10000 100000; do
+for n in 1000 10000 100000 300000; do
   mkdir -p "$RW/nyc311/n$n" "$RW/nps/n$n"
   head -$((n+1)) "$A/nyc311_1m.csv" > "$RW/nyc311/n$n/sr.csv"; ln -sf "$A/zips.csv" "$RW/nyc311/n$n/zips.csv"
   head -$((n+1)) "$A/nps_workplaces.csv" > "$RW/nps/n$n/nps.csv"
@@ -60,4 +60,5 @@ lnk nycsales/full nyc_rolling_sales_2022_2023.xlsx
 for i in 1 2 3; do lnk nhis/full nhis_$i.xlsx; done
 lnk census/full co-est2023-pop.xlsx
 lnk phm/full phm-collection.tsv
+mkdir -p "$RW/nps_naive"; ln -sfn "$(cd "$RW/nps/n10000" && pwd)" "$RW/nps_naive/n10000"   # same rows, codes typed as numbers
 echo "layout ready in $RW"

@@ -16,9 +16,12 @@ Requires Python 3.9+ with `openpyxl` and `pyyaml`. Scripts are in `scripts/`. `p
    - Put only **semantic synonyms** in vocab lists (card→카드, 서울특별시→서울, Goods→굿즈, 완납→납부완료). Do not list typos. Fuzzy matching must find them, so the log shows evidence.
    - Name a master column with `vocab_from: table.column` instead of copying its values (product names in orders, for example).
    - For a column of 2-letter codes, a Y/N flag, or a grade, use a `category` with an explicit vocab. Do not use free text.
-   - `suspect_keys` takes the business fields that identify a duplicate *event*. `contact_keys` takes the phone/email that identify a *person*. A shared name alone never counts.
+   - Type codes with leading zeros (우편번호, 업종코드, 법정동코드, ZIP) as `id`/`text` with a `format`, never `number`. As a number they are flagged R2, not converted, so a wrong type shows up as a large review pattern instead of lost zeros.
+   - `suspect_keys` takes the business fields that identify a duplicate *event*. Include every level of a hierarchy: 시군구 names repeat across 시도 (중구, 동구, 고성군), so `[sigungu, sex, age]` without `sido` flagged 3,504 false duplicates in NHIS data. `contact_keys` takes the phone/email that identify a *person*. A shared name alone never counts.
 3. **Run.** `python3 scripts/clean_pipeline.py --contract contract.yaml --input-dir <dir> --out <dir>/cleaned --name <name> [--llm live]`. A non-zero exit means a self-check failed. Read the `Summary` sheet first.
-4. **Iterate on the contract**, not the data. Open `Needs human review` and `Contract checks`. A value flagged R4 that is a real synonym goes into vocab. A review item the owner has answered goes into `overrides:` (table, column, before, after, optional row). Rerun. The output is byte-identical for identical inputs, so a diff between runs shows exactly what a contract edit changed.
+   - Big files: `--xlsx-rows N` (default 100,000) caps each workbook sheet; longer tables are previews in the workbook and complete in `csv/` (a pointer row and a Summary note say so). `--xlsx-rows 10000` cut a 100k-row NYC 311 run from 72 s to 35 s. `--perf perf.json` writes wall time and memory per stage.
+   - Measured on real public data (`realworld/`): about 1,400–2,900 rows/s and about 4–5 KB of memory per row, so 2 GB holds roughly 300–400k rows. Split larger files.
+4. **Iterate on the contract**, not the data. Open `Review patterns` first: it groups review items by table, column, and flag. One pattern covering most of a column is a contract mistake (a code typed as a number, a missing vocab value), fixed once in the contract. Then open `Needs human review` and `Contract checks`. A value flagged R4 that is a real synonym goes into vocab. A review item the owner has answered goes into `overrides:` (table, column, before, after, optional row). Rerun. The output is byte-identical for identical inputs, so a diff between runs shows exactly what a contract edit changed.
 5. **Report.** Lead with what the owner must decide, then rows in → out → dropped by reason, changes per rule, join match rates (raw keys vs normalized keys), and the subtotal reconciliation. Quote the evidence column for the non-obvious fixes.
 
 ## Optional LLM layer (`--llm live`)
@@ -44,6 +47,8 @@ The order is fixed: structure → text → shifted rows → types → categories
 - Every removed row appears in `Dropped rows` with its kind and its original values. Self-check: rows in = rows out + dropped.
 - **Blanks are never filled.** Placeholders (`-`, N/A, 없음, #N/A) become blank and are logged. A required blank is flagged R7. An Excel error is flagged.
 - **No guessing.** These are flagged, not changed: dates no rule can decide (03/02/2024), impossible dates, text that is not a number ("two"), a percent column that mixes 0.1 with 10%, a malformed phone or email (including a lost leading zero), an ID that does not fit the pattern, a category below the fuzzy threshold or margin, and near-matches where only digits or a variant suffix differ (수학 심화B vs 수학 심화A, 200g vs 500g).
+- Number and date parsing keeps information. Text with a leading zero (`007`, `06164`) is flagged, not converted. Parsed numbers are not rounded. A non-midnight time is kept (`2024-02-19T14:30:00` becomes a datetime, not a date). 소계/합계/총계 match only as whole words (소계동, (주)소계상사 and Summers County are data). NFKC folding keeps compatibility jamo, super/subscripts, and vulgar fractions (`2½` would become `21⁄2`).
+- Encodings: UTF-8, cp949/EUC-KR, then cp1252. A cp1252 file with a few undefined bytes is still read as cp1252 (the stray bytes as cp850), and the run says so. Without this, charset detection guessed cp775 for a museum export and garbled every accented word.
 - Units are applied only when the value itself states them (천원, 만원, 4만5천, △ = minus). A unit written nowhere is never converted.
 - Exact duplicates (equal after normalization, ignoring a running `No.` column) are dropped with evidence. Near duplicates, same-key conflicts, and shared contacts are listed in `Suspected duplicates` and never merged.
 - A join reports the match rate before and after key normalization, plus orphans, ambiguous keys, and the fallback matches. An ambiguous key stays unjoined, so rows never multiply.
@@ -63,11 +68,12 @@ The order is fixed: structure → text → shifted rows → types → categories
 | Dropped rows | row, kind (title/header/subtotal/note/blank/duplicate), reason, evidence, original values |
 | Suspected duplicates | exact / key_conflict / suspected groups, rows, similarity, evidence |
 | Join report | per step: match rate, raw-key rate, exact vs fallback, orphans, ambiguous; then one line per issue |
+| Review patterns | review items grouped by (table, column, flag): cells, distinct values, share of rows, example, hint |
 | Needs human review | row, column, value, flag, suggestion, question, empty `decision` column |
 | Contract checks | violations per column before and after |
 | Reconcile | subtotal stated vs cleaned sum, with the explanation |
 
-The run also writes `csv/*.csv` (UTF-8 with BOM), `run_summary.json`, and `audit.json`.
+The run also writes `csv/*.csv` (UTF-8 with BOM), `run_summary.json`, and `audit.json`. When a sheet is cut at `--xlsx-rows`, the full log is in `csv/_change_log.csv`, `_needs_review.csv`, `_dropped_rows.csv`, and `_suspected_duplicates.csv`.
 
 ## Boundaries
 
