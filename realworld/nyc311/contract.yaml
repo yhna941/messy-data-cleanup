@@ -1,0 +1,55 @@
+# NYC 311 service requests (Socrata erm2-nwe9, created 2024-01-01 or later, 14 columns).
+# Written after profile.py on a 10k-row head. Vocabularies list canonical values and the
+# spelling variants seen in the profile; the typo 'Comercial' is NOT listed (fuzzy must find it).
+dataset: NYC 311 service requests
+tables:
+  zips:
+    file: zips.csv
+    key: zip
+    columns:
+      zip: {type: id, aliases: [zip], regex: '(?P<n>\d{5})', format: '{n:05d}', required: true}
+      borough: {type: category, aliases: [borough], vocab: [MANHATTAN, BRONX, BROOKLYN, QUEENS, STATEN ISLAND]}
+  sr:
+    file: sr.csv
+    key: unique_key
+    columns:
+      unique_key: {type: id, aliases: [unique_key], regex: '(?P<n>\d{5,10})', format: '{n}', required: true}
+      created_date: {type: date, aliases: [created_date], required: true}
+      closed_date: {type: date, aliases: [closed_date]}
+      agency: {type: category, aliases: [agency], vocab: [NYPD, HPD, DSNY, DOT, DEP, DOB, DPR, DOHMH, TLC, DHS, EDC, DCWP, DOE, OTI]}
+      complaint_type: {type: text, aliases: [complaint_type]}
+      descriptor: {type: text, aliases: [descriptor]}
+      location_type:
+        type: category
+        aliases: [location_type]
+        vocab:
+          Street/Sidewalk: [Street, Sidewalk, Street/Curbside, Curb, Gutter, Crosswalk, Intersection]
+          Residential Building: [Residential Building/House, Residential, Residence, 3+ Family Apt. Building, 3+ Family Apartment Building, 1-2 Family Dwelling, Apartment, Private House]
+          Commercial: [Store/Commercial, Commercial Building, Business, Retail Store]
+          Club/Bar/Restaurant: [Restaurant/Bar/Deli/Bakery, Food Establishment or Vendor]
+          Park: [Park/Playground]
+          Mixed Use: [3+ Family Mixed Use Building, 1-2 Family Mixed Use Building, House and Store]
+          Lot: [Vacant Lot, Parking Lot/Garage]
+          Other: [Other (Explain Below)]
+          Above Address: []
+          Subway: []
+          Highway: []
+          Taxi: []
+          Mobile Food Vendor: []
+          Yard: []
+          School: []
+          Bridge: []
+      incident_zip: {type: id, aliases: [incident_zip], regex: '(?P<n>\d{5})(?:-\d{4})?', format: '{n:05d}'}
+      incident_address: {type: text, aliases: [incident_address]}
+      city: {type: text, aliases: [city]}
+      borough: {type: category, aliases: [borough], vocab: [MANHATTAN, BRONX, BROOKLYN, QUEENS, STATEN ISLAND, Unspecified]}
+      status: {type: category, aliases: [status], vocab: [Closed, In Progress, Pending, Assigned, Open, Started, Unspecified]}
+      latitude: {type: number, aliases: [latitude], min: 40.4, max: 41.0}
+      longitude: {type: number, aliases: [longitude], min: -74.3, max: -73.6}
+    dedup:
+      suspect_keys: [[created_date, complaint_type, incident_address]]
+joins:
+  - name: sr_zip
+    left: sr
+    steps:
+      - {right: zips, keys: [incident_zip, zip], prefix: zip_, expect: many_to_one, compare: [[borough, borough]]}

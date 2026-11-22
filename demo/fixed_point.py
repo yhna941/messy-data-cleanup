@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import datetime as dt
 import json
+import re
 import subprocess
 import sys
 import tempfile
@@ -25,7 +26,7 @@ def canon(v):
         return ""
     if isinstance(v, float) and v.is_integer():
         return str(int(v))
-    return str(v)
+    return str(v).replace("T", " ") if re.fullmatch(r"\d{4}-\d\d-\d\dT\d\d:\d\d(:\d\d)?", str(v)) else str(v)   # ISO vs str(datetime)
 
 
 def main(base: Path) -> int:

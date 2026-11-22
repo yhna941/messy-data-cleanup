@@ -87,7 +87,7 @@
   "C1-ALIAS": 11,
   "C1-CANON": 11,
   "C1-FUZZY": 2,
-  "D1-DATE": 37,
+  "D1-DATE": 35,
   "E1-EMAIL": 1,
   "I1-ID": 5,
   "M1-PLACEHOLDER": 1,
@@ -465,7 +465,7 @@
   "students: rows 14, 15 share phone but names differ (name similarity 0.71); not listed as duplicates (shared family/company contact?)"
  ],
  "n_llm_changes": 0,
- "n_changes": 106,
+ "n_changes": 104,
  "n_review": 16,
  "n_dropped": 9,
  "n_dup_groups": 3

@@ -1,3 +1,10 @@
 __pycache__/
 *.pyc
 .env
+
+# real-world benchmark data and outputs (fetch with scripts/fetch_realworld.sh)
+/data/
+realworld/out/
+demo/output/.inputs.before
+demo/output/.run*.sha
+*/output_llm_replay/

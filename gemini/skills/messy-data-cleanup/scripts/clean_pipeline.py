@@ -37,6 +37,7 @@ def main() -> int:
     ap.add_argument("--llm-provider", default="auto", choices=["auto", "openrouter", "gemini"])
     ap.add_argument("--llm-model")
     ap.add_argument("--llm-cache", type=Path)
+    ap.add_argument("--perf", type=Path, help="write per-stage wall time and memory (JSON) here; not part of the audit outputs")
     a = ap.parse_args()
     contract = load(a.contract)
     input_dir = a.input_dir or a.contract.parent
@@ -47,7 +48,10 @@ def main() -> int:
     run = Run(contract, input_dir, llm)
     run.self_checks = run.run()["self_check"]
     name = a.name or a.contract.stem.replace(".contract", "")
-    s = write_all(run, out, name)
+    with run.timed("write"):
+        s = write_all(run, out, name)
+    if a.perf:
+        a.perf.write_text(json.dumps(run.perf, indent=1), encoding="utf-8")
     u = llm.usage
     if llm.on:   # usage differs between a live run and a cached rerun, so it stays out of the audit files
         (out / "llm_usage.json").write_text(json.dumps({"llm": llm.label, "mode": llm.mode, "calls": u.calls, "cache_hits": u.cache_hits,

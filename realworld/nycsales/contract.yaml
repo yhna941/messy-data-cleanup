@@ -1,0 +1,266 @@
+# NYC Dept. of Finance annualized rolling sales 2022-2023, 10 borough workbooks combined into one
+# 10-sheet workbook by scripts/combine_nyc_sales.py (values and number formats copied as-is).
+# Each sheet: 4 title/note rows, header on row 5, a blank row, then data. year_built 0 and
+# sale_price 0 (transfers between relatives) are real values the contract treats as out of range / review.
+dataset: NYC rolling sales 2022-2023
+tables:
+  s2022_manhattan:
+    file: nyc_rolling_sales_2022_2023.xlsx
+    sheet: 2022 Manhattan
+    columns:
+      borough: {type: category, aliases: [BOROUGH], vocab: {"1": [], "2": [], "3": [], "4": [], "5": []}}
+      neighborhood: {type: text, aliases: [NEIGHBORHOOD], required: true}
+      building_class_category: {type: text, aliases: [BUILDING CLASS CATEGORY]}
+      tax_class_present: {type: text, aliases: [TAX CLASS AT PRESENT]}
+      block: {type: count, aliases: [BLOCK], min: 1, max: 99999}
+      lot: {type: count, aliases: [LOT], min: 1, max: 9999}
+      building_class_present: {type: text, aliases: [BUILDING CLASS AT PRESENT]}
+      address: {type: text, aliases: [ADDRESS], required: true}
+      apartment: {type: text, aliases: [APARTMENT NUMBER]}
+      zip: {type: id, aliases: [ZIP CODE], regex: '(?P<n>\d{5})', format: '{n:05d}'}
+      residential_units: {type: count, aliases: [RESIDENTIAL UNITS], min: 0}
+      commercial_units: {type: count, aliases: [COMMERCIAL UNITS], min: 0}
+      total_units: {type: count, aliases: [TOTAL UNITS], min: 0}
+      land_sqft: {type: number, aliases: [LAND SQUARE FEET], min: 0}
+      gross_sqft: {type: number, aliases: [GROSS SQUARE FEET], min: 0}
+      year_built: {type: count, aliases: [YEAR BUILT], min: 1700, max: 2024}
+      tax_class_sale: {type: text, aliases: [TAX CLASS AT TIME OF SALE]}
+      building_class_sale: {type: text, aliases: [BUILDING CLASS AT TIME OF SALE]}
+      sale_price: {type: money, aliases: [SALE PRICE], min: 0}
+      sale_date: {type: date, aliases: [SALE DATE], required: true}
+    dedup:
+      suspect_keys: [[block, lot, apartment, sale_date]]
+  s2022_bronx:
+    file: nyc_rolling_sales_2022_2023.xlsx
+    sheet: 2022 Bronx
+    columns:
+      borough: {type: category, aliases: [BOROUGH], vocab: {"1": [], "2": [], "3": [], "4": [], "5": []}}
+      neighborhood: {type: text, aliases: [NEIGHBORHOOD], required: true}
+      building_class_category: {type: text, aliases: [BUILDING CLASS CATEGORY]}
+      tax_class_present: {type: text, aliases: [TAX CLASS AT PRESENT]}
+      block: {type: count, aliases: [BLOCK], min: 1, max: 99999}
+      lot: {type: count, aliases: [LOT], min: 1, max: 9999}
+      building_class_present: {type: text, aliases: [BUILDING CLASS AT PRESENT]}
+      address: {type: text, aliases: [ADDRESS], required: true}
+      apartment: {type: text, aliases: [APARTMENT NUMBER]}
+      zip: {type: id, aliases: [ZIP CODE], regex: '(?P<n>\d{5})', format: '{n:05d}'}
+      residential_units: {type: count, aliases: [RESIDENTIAL UNITS], min: 0}
+      commercial_units: {type: count, aliases: [COMMERCIAL UNITS], min: 0}
+      total_units: {type: count, aliases: [TOTAL UNITS], min: 0}
+      land_sqft: {type: number, aliases: [LAND SQUARE FEET], min: 0}
+      gross_sqft: {type: number, aliases: [GROSS SQUARE FEET], min: 0}
+      year_built: {type: count, aliases: [YEAR BUILT], min: 1700, max: 2024}
+      tax_class_sale: {type: text, aliases: [TAX CLASS AT TIME OF SALE]}
+      building_class_sale: {type: text, aliases: [BUILDING CLASS AT TIME OF SALE]}
+      sale_price: {type: money, aliases: [SALE PRICE], min: 0}
+      sale_date: {type: date, aliases: [SALE DATE], required: true}
+    dedup:
+      suspect_keys: [[block, lot, apartment, sale_date]]
+  s2022_brooklyn:
+    file: nyc_rolling_sales_2022_2023.xlsx
+    sheet: 2022 Brooklyn
+    columns:
+      borough: {type: category, aliases: [BOROUGH], vocab: {"1": [], "2": [], "3": [], "4": [], "5": []}}
+      neighborhood: {type: text, aliases: [NEIGHBORHOOD], required: true}
+      building_class_category: {type: text, aliases: [BUILDING CLASS CATEGORY]}
+      tax_class_present: {type: text, aliases: [TAX CLASS AT PRESENT]}
+      block: {type: count, aliases: [BLOCK], min: 1, max: 99999}
+      lot: {type: count, aliases: [LOT], min: 1, max: 9999}
+      building_class_present: {type: text, aliases: [BUILDING CLASS AT PRESENT]}
+      address: {type: text, aliases: [ADDRESS], required: true}
+      apartment: {type: text, aliases: [APARTMENT NUMBER]}
+      zip: {type: id, aliases: [ZIP CODE], regex: '(?P<n>\d{5})', format: '{n:05d}'}
+      residential_units: {type: count, aliases: [RESIDENTIAL UNITS], min: 0}
+      commercial_units: {type: count, aliases: [COMMERCIAL UNITS], min: 0}
+      total_units: {type: count, aliases: [TOTAL UNITS], min: 0}
+      land_sqft: {type: number, aliases: [LAND SQUARE FEET], min: 0}
+      gross_sqft: {type: number, aliases: [GROSS SQUARE FEET], min: 0}
+      year_built: {type: count, aliases: [YEAR BUILT], min: 1700, max: 2024}
+      tax_class_sale: {type: text, aliases: [TAX CLASS AT TIME OF SALE]}
+      building_class_sale: {type: text, aliases: [BUILDING CLASS AT TIME OF SALE]}
+      sale_price: {type: money, aliases: [SALE PRICE], min: 0}
+      sale_date: {type: date, aliases: [SALE DATE], required: true}
+    dedup:
+      suspect_keys: [[block, lot, apartment, sale_date]]
+  s2022_queens:
+    file: nyc_rolling_sales_2022_2023.xlsx
+    sheet: 2022 Queens
+    columns:
+      borough: {type: category, aliases: [BOROUGH], vocab: {"1": [], "2": [], "3": [], "4": [], "5": []}}
+      neighborhood: {type: text, aliases: [NEIGHBORHOOD], required: true}
+      building_class_category: {type: text, aliases: [BUILDING CLASS CATEGORY]}
+      tax_class_present: {type: text, aliases: [TAX CLASS AT PRESENT]}
+      block: {type: count, aliases: [BLOCK], min: 1, max: 99999}
+      lot: {type: count, aliases: [LOT], min: 1, max: 9999}
+      building_class_present: {type: text, aliases: [BUILDING CLASS AT PRESENT]}
+      address: {type: text, aliases: [ADDRESS], required: true}
+      apartment: {type: text, aliases: [APARTMENT NUMBER]}
+      zip: {type: id, aliases: [ZIP CODE], regex: '(?P<n>\d{5})', format: '{n:05d}'}
+      residential_units: {type: count, aliases: [RESIDENTIAL UNITS], min: 0}
+      commercial_units: {type: count, aliases: [COMMERCIAL UNITS], min: 0}
+      total_units: {type: count, aliases: [TOTAL UNITS], min: 0}
+      land_sqft: {type: number, aliases: [LAND SQUARE FEET], min: 0}
+      gross_sqft: {type: number, aliases: [GROSS SQUARE FEET], min: 0}
+      year_built: {type: count, aliases: [YEAR BUILT], min: 1700, max: 2024}
+      tax_class_sale: {type: text, aliases: [TAX CLASS AT TIME OF SALE]}
+      building_class_sale: {type: text, aliases: [BUILDING CLASS AT TIME OF SALE]}
+      sale_price: {type: money, aliases: [SALE PRICE], min: 0}
+      sale_date: {type: date, aliases: [SALE DATE], required: true}
+    dedup:
+      suspect_keys: [[block, lot, apartment, sale_date]]
+  s2022_staten_island:
+    file: nyc_rolling_sales_2022_2023.xlsx
+    sheet: 2022 Staten Island
+    columns:
+      borough: {type: category, aliases: [BOROUGH], vocab: {"1": [], "2": [], "3": [], "4": [], "5": []}}
+      neighborhood: {type: text, aliases: [NEIGHBORHOOD], required: true}
+      building_class_category: {type: text, aliases: [BUILDING CLASS CATEGORY]}
+      tax_class_present: {type: text, aliases: [TAX CLASS AT PRESENT]}
+      block: {type: count, aliases: [BLOCK], min: 1, max: 99999}
+      lot: {type: count, aliases: [LOT], min: 1, max: 9999}
+      building_class_present: {type: text, aliases: [BUILDING CLASS AT PRESENT]}
+      address: {type: text, aliases: [ADDRESS], required: true}
+      apartment: {type: text, aliases: [APARTMENT NUMBER]}
+      zip: {type: id, aliases: [ZIP CODE], regex: '(?P<n>\d{5})', format: '{n:05d}'}
+      residential_units: {type: count, aliases: [RESIDENTIAL UNITS], min: 0}
+      commercial_units: {type: count, aliases: [COMMERCIAL UNITS], min: 0}
+      total_units: {type: count, aliases: [TOTAL UNITS], min: 0}
+      land_sqft: {type: number, aliases: [LAND SQUARE FEET], min: 0}
+      gross_sqft: {type: number, aliases: [GROSS SQUARE FEET], min: 0}
+      year_built: {type: count, aliases: [YEAR BUILT], min: 1700, max: 2024}
+      tax_class_sale: {type: text, aliases: [TAX CLASS AT TIME OF SALE]}
+      building_class_sale: {type: text, aliases: [BUILDING CLASS AT TIME OF SALE]}
+      sale_price: {type: money, aliases: [SALE PRICE], min: 0}
+      sale_date: {type: date, aliases: [SALE DATE], required: true}
+    dedup:
+      suspect_keys: [[block, lot, apartment, sale_date]]
+  s2023_manhattan:
+    file: nyc_rolling_sales_2022_2023.xlsx
+    sheet: 2023 Manhattan
+    columns:
+      borough: {type: category, aliases: [BOROUGH], vocab: {"1": [], "2": [], "3": [], "4": [], "5": []}}
+      neighborhood: {type: text, aliases: [NEIGHBORHOOD], required: true}
+      building_class_category: {type: text, aliases: [BUILDING CLASS CATEGORY]}
+      tax_class_present: {type: text, aliases: [TAX CLASS AT PRESENT]}
+      block: {type: count, aliases: [BLOCK], min: 1, max: 99999}
+      lot: {type: count, aliases: [LOT], min: 1, max: 9999}
+      building_class_present: {type: text, aliases: [BUILDING CLASS AT PRESENT]}
+      address: {type: text, aliases: [ADDRESS], required: true}
+      apartment: {type: text, aliases: [APARTMENT NUMBER]}
+      zip: {type: id, aliases: [ZIP CODE], regex: '(?P<n>\d{5})', format: '{n:05d}'}
+      residential_units: {type: count, aliases: [RESIDENTIAL UNITS], min: 0}
+      commercial_units: {type: count, aliases: [COMMERCIAL UNITS], min: 0}
+      total_units: {type: count, aliases: [TOTAL UNITS], min: 0}
+      land_sqft: {type: number, aliases: [LAND SQUARE FEET], min: 0}
+      gross_sqft: {type: number, aliases: [GROSS SQUARE FEET], min: 0}
+      year_built: {type: count, aliases: [YEAR BUILT], min: 1700, max: 2024}
+      tax_class_sale: {type: text, aliases: [TAX CLASS AT TIME OF SALE]}
+      building_class_sale: {type: text, aliases: [BUILDING CLASS AT TIME OF SALE]}
+      sale_price: {type: money, aliases: [SALE PRICE], min: 0}
+      sale_date: {type: date, aliases: [SALE DATE], required: true}
+    dedup:
+      suspect_keys: [[block, lot, apartment, sale_date]]
+  s2023_bronx:
+    file: nyc_rolling_sales_2022_2023.xlsx
+    sheet: 2023 Bronx
+    columns:
+      borough: {type: category, aliases: [BOROUGH], vocab: {"1": [], "2": [], "3": [], "4": [], "5": []}}
+      neighborhood: {type: text, aliases: [NEIGHBORHOOD], required: true}
+      building_class_category: {type: text, aliases: [BUILDING CLASS CATEGORY]}
+      tax_class_present: {type: text, aliases: [TAX CLASS AT PRESENT]}
+      block: {type: count, aliases: [BLOCK], min: 1, max: 99999}
+      lot: {type: count, aliases: [LOT], min: 1, max: 9999}
+      building_class_present: {type: text, aliases: [BUILDING CLASS AT PRESENT]}
+      address: {type: text, aliases: [ADDRESS], required: true}
+      apartment: {type: text, aliases: [APARTMENT NUMBER]}
+      zip: {type: id, aliases: [ZIP CODE], regex: '(?P<n>\d{5})', format: '{n:05d}'}
+      residential_units: {type: count, aliases: [RESIDENTIAL UNITS], min: 0}
+      commercial_units: {type: count, aliases: [COMMERCIAL UNITS], min: 0}
+      total_units: {type: count, aliases: [TOTAL UNITS], min: 0}
+      land_sqft: {type: number, aliases: [LAND SQUARE FEET], min: 0}
+      gross_sqft: {type: number, aliases: [GROSS SQUARE FEET], min: 0}
+      year_built: {type: count, aliases: [YEAR BUILT], min: 1700, max: 2024}
+      tax_class_sale: {type: text, aliases: [TAX CLASS AT TIME OF SALE]}
+      building_class_sale: {type: text, aliases: [BUILDING CLASS AT TIME OF SALE]}
+      sale_price: {type: money, aliases: [SALE PRICE], min: 0}
+      sale_date: {type: date, aliases: [SALE DATE], required: true}
+    dedup:
+      suspect_keys: [[block, lot, apartment, sale_date]]
+  s2023_brooklyn:
+    file: nyc_rolling_sales_2022_2023.xlsx
+    sheet: 2023 Brooklyn
+    columns:
+      borough: {type: category, aliases: [BOROUGH], vocab: {"1": [], "2": [], "3": [], "4": [], "5": []}}
+      neighborhood: {type: text, aliases: [NEIGHBORHOOD], required: true}
+      building_class_category: {type: text, aliases: [BUILDING CLASS CATEGORY]}
+      tax_class_present: {type: text, aliases: [TAX CLASS AT PRESENT]}
+      block: {type: count, aliases: [BLOCK], min: 1, max: 99999}
+      lot: {type: count, aliases: [LOT], min: 1, max: 9999}
+      building_class_present: {type: text, aliases: [BUILDING CLASS AT PRESENT]}
+      address: {type: text, aliases: [ADDRESS], required: true}
+      apartment: {type: text, aliases: [APARTMENT NUMBER]}
+      zip: {type: id, aliases: [ZIP CODE], regex: '(?P<n>\d{5})', format: '{n:05d}'}
+      residential_units: {type: count, aliases: [RESIDENTIAL UNITS], min: 0}
+      commercial_units: {type: count, aliases: [COMMERCIAL UNITS], min: 0}
+      total_units: {type: count, aliases: [TOTAL UNITS], min: 0}
+      land_sqft: {type: number, aliases: [LAND SQUARE FEET], min: 0}
+      gross_sqft: {type: number, aliases: [GROSS SQUARE FEET], min: 0}
+      year_built: {type: count, aliases: [YEAR BUILT], min: 1700, max: 2024}
+      tax_class_sale: {type: text, aliases: [TAX CLASS AT TIME OF SALE]}
+      building_class_sale: {type: text, aliases: [BUILDING CLASS AT TIME OF SALE]}
+      sale_price: {type: money, aliases: [SALE PRICE], min: 0}
+      sale_date: {type: date, aliases: [SALE DATE], required: true}
+    dedup:
+      suspect_keys: [[block, lot, apartment, sale_date]]
+  s2023_queens:
+    file: nyc_rolling_sales_2022_2023.xlsx
+    sheet: 2023 Queens
+    columns:
+      borough: {type: category, aliases: [BOROUGH], vocab: {"1": [], "2": [], "3": [], "4": [], "5": []}}
+      neighborhood: {type: text, aliases: [NEIGHBORHOOD], required: true}
+      building_class_category: {type: text, aliases: [BUILDING CLASS CATEGORY]}
+      tax_class_present: {type: text, aliases: [TAX CLASS AT PRESENT]}
+      block: {type: count, aliases: [BLOCK], min: 1, max: 99999}
+      lot: {type: count, aliases: [LOT], min: 1, max: 9999}
+      building_class_present: {type: text, aliases: [BUILDING CLASS AT PRESENT]}
+      address: {type: text, aliases: [ADDRESS], required: true}
+      apartment: {type: text, aliases: [APARTMENT NUMBER]}
+      zip: {type: id, aliases: [ZIP CODE], regex: '(?P<n>\d{5})', format: '{n:05d}'}
+      residential_units: {type: count, aliases: [RESIDENTIAL UNITS], min: 0}
+      commercial_units: {type: count, aliases: [COMMERCIAL UNITS], min: 0}
+      total_units: {type: count, aliases: [TOTAL UNITS], min: 0}
+      land_sqft: {type: number, aliases: [LAND SQUARE FEET], min: 0}
+      gross_sqft: {type: number, aliases: [GROSS SQUARE FEET], min: 0}
+      year_built: {type: count, aliases: [YEAR BUILT], min: 1700, max: 2024}
+      tax_class_sale: {type: text, aliases: [TAX CLASS AT TIME OF SALE]}
+      building_class_sale: {type: text, aliases: [BUILDING CLASS AT TIME OF SALE]}
+      sale_price: {type: money, aliases: [SALE PRICE], min: 0}
+      sale_date: {type: date, aliases: [SALE DATE], required: true}
+    dedup:
+      suspect_keys: [[block, lot, apartment, sale_date]]
+  s2023_staten_island:
+    file: nyc_rolling_sales_2022_2023.xlsx
+    sheet: 2023 Staten Island
+    columns:
+      borough: {type: category, aliases: [BOROUGH], vocab: {"1": [], "2": [], "3": [], "4": [], "5": []}}
+      neighborhood: {type: text, aliases: [NEIGHBORHOOD], required: true}
+      building_class_category: {type: text, aliases: [BUILDING CLASS CATEGORY]}
+      tax_class_present: {type: text, aliases: [TAX CLASS AT PRESENT]}
+      block: {type: count, aliases: [BLOCK], min: 1, max: 99999}
+      lot: {type: count, aliases: [LOT], min: 1, max: 9999}
+      building_class_present: {type: text, aliases: [BUILDING CLASS AT PRESENT]}
+      address: {type: text, aliases: [ADDRESS], required: true}
+      apartment: {type: text, aliases: [APARTMENT NUMBER]}
+      zip: {type: id, aliases: [ZIP CODE], regex: '(?P<n>\d{5})', format: '{n:05d}'}
+      residential_units: {type: count, aliases: [RESIDENTIAL UNITS], min: 0}
+      commercial_units: {type: count, aliases: [COMMERCIAL UNITS], min: 0}
+      total_units: {type: count, aliases: [TOTAL UNITS], min: 0}
+      land_sqft: {type: number, aliases: [LAND SQUARE FEET], min: 0}
+      gross_sqft: {type: number, aliases: [GROSS SQUARE FEET], min: 0}
+      year_built: {type: count, aliases: [YEAR BUILT], min: 1700, max: 2024}
+      tax_class_sale: {type: text, aliases: [TAX CLASS AT TIME OF SALE]}
+      building_class_sale: {type: text, aliases: [BUILDING CLASS AT TIME OF SALE]}
+      sale_price: {type: money, aliases: [SALE PRICE], min: 0}
+      sale_date: {type: date, aliases: [SALE DATE], required: true}
+    dedup:
+      suspect_keys: [[block, lot, apartment, sale_date]]

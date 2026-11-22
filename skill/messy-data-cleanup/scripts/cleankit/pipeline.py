@@ -8,7 +8,10 @@ from __future__ import annotations
 
 import datetime as dt
 import re
+import resource
+import time
 from collections import Counter, defaultdict
+from contextlib import contextmanager
 from pathlib import Path
 from typing import Any
 
@@ -50,6 +53,16 @@ class Run:
         self.dup_dropped: dict[str, list[Record]] = defaultdict(list)
         self.joined: dict[str, tuple[list[str], list[dict]]] = {}
         self.layout: dict[str, list[str]] = {}
+        self.perf: list[dict] = []   # per-stage wall time and memory; kept out of the audit files
+
+    @contextmanager
+    def timed(self, stage: str, table: str = ""):
+        t0 = time.perf_counter()
+        try:
+            yield
+        finally:
+            self.perf.append({"stage": stage, "table": table, "sec": round(time.perf_counter() - t0, 3),
+                              "rss_mb": round(rss_mb()), "peak_mb": round(resource.getrusage(resource.RUSAGE_SELF).ru_maxrss / 1024)})
 
     # ------------------------------------------------------------ logging helpers
     def log(self, t: str, row: int, col: str, steps: list[N.Step]) -> None:
@@ -86,8 +99,19 @@ class Run:
         return self.vocabs[key]
 
     def fits(self, t: Table, col: Column):
-        """Loose 'could this value belong here' test, used only to detect shifted rows."""
+        """Loose 'could this value belong here' test, used only to detect shifted rows. Memoized per value."""
+        memo: dict[tuple[type, Any], bool | None] = {}
+
         def f(v: Any) -> bool | None:
+            try:
+                key = (type(v), v)
+                if key not in memo:
+                    memo[key] = g(v)
+                return memo[key]
+            except TypeError:
+                return g(v)
+
+        def g(v: Any) -> bool | None:
             if col.type in ("text", "freetext"):
                 return None
             if col.type == "id":
@@ -141,7 +165,8 @@ class Run:
     # ------------------------------------------------------------ stage 1: structure
     def grid_for(self, t: Table) -> Grid:
         if t.file not in self.grids:
-            self.grids[t.file] = read_any(self.input_dir / t.file)
+            with self.timed("read", t.file):
+                self.grids[t.file] = read_any(self.input_dir / t.file)
         for g in self.grids[t.file]:
             if g.sheet == t.sheet or (not t.sheet and len(self.grids[t.file]) == 1):
                 return g
@@ -149,6 +174,10 @@ class Run:
 
     def extract(self, t: Table) -> list[Record]:
         g = self.grid_for(t)
+        with self.timed("structure", t.name):
+            return self._extract(t, g)
+
+    def _extract(self, t: Table, g: Grid) -> list[Record]:
         self.sheet_of[t.name] = g.sheet or Path(g.source).stem
         cells, origin = fill_merges(g)
         aliases = {c: col.aliases for c, col in t.columns.items()}
@@ -233,8 +262,29 @@ class Run:
     # ------------------------------------------------------------ stage 2-4: values
     def clean_table(self, t: Table) -> None:
         recs = self.extract(t)
+        with self.timed("text", t.name):
+            self.text_stage(t, recs)
+        with self.timed("shift", t.name):
+            self.shift_stage(t, recs)
+        with self.timed("types", t.name):
+            self.types_stage(t, recs)
+        with self.timed("llm", t.name):
+            self.apply_overrides(t, recs)
+            L.resolve_open_items(self, t, recs)   # owner overrides first: a human decision always wins
+            L.extract_fields(self, t, recs)
+        with self.timed("required", t.name):
+            self.required_stage(t, recs)
+        self.raw_tables[t.name] = recs
+        with self.timed("dedup", t.name):
+            self.tables[t.name] = self.dedup(t, recs)
+            gone = {r.source_row for r in self.dup_dropped[t.name]}   # a dropped copy repeats its kept twin's flags
+            self.audit.review = [x for x in self.audit.review if not (x.table == t.name and x.source_row in gone)]
+        with self.timed("checks", t.name):
+            self.cross_checks(t, self.tables[t.name])
+
+    def text_stage(self, t: Table, recs: list[Record]) -> None:
+        """Text normalization + placeholders (all cells)."""
         cols = t.columns
-        # text normalization + placeholders (all cells)
         for rec in recs:
             for name in list(rec.values):
                 col = cols.get(name)
@@ -243,7 +293,9 @@ class Run:
                 if (col is None or col.type != "freetext") and not is_vocab_word:   # 'X' can mean 'N' in a Y/N vocab
                     N.placeholder(o)
                 self.apply(t.name, rec, name, o)
-        # shifted rows
+
+    def shift_stage(self, t: Table, recs: list[Record]) -> None:
+        cols = t.columns
         order = self.layout[t.name]
         fits = [self.fits(t, cols[n]) if n in cols else (lambda v: None) for n in order]
         for rec in recs:
@@ -263,8 +315,10 @@ class Run:
         for rec in recs:
             for k in [k for k in rec.values if k.startswith("_overflow")]:
                 del rec.values[k]
-        # typed columns, column by column, with a no-regression guard
-        for name, col in cols.items():
+
+    def types_stage(self, t: Table, recs: list[Record]) -> None:
+        """Typed columns, column by column, with a no-regression guard."""
+        for name, col in t.columns.items():
             before = [r.values.get(name) for r in recs]
             v0 = sum(not self.conforms(t, col, v) for v in before)
             snapshot = (len(self.audit.changes), len(self.audit.review))
@@ -276,19 +330,13 @@ class Run:
                 del self.audit.changes[snapshot[0]:]
                 del self.audit.review[snapshot[1]:]
                 self.audit.notes.append(f"{t.name}.{name}: typed stage rejected (violations {v0} -> {v1})")
-        self.apply_overrides(t, recs)
-        L.resolve_open_items(self, t, recs)   # owner overrides first: a human decision always wins
-        L.extract_fields(self, t, recs)
+
+    def required_stage(self, t: Table, recs: list[Record]) -> None:
         for rec in recs:
-            for name, col in cols.items():
+            for name, col in t.columns.items():
                 if col.required and N.is_blank(rec.values.get(name)) and not any(
                         rv.source_row == rec.source_row and rv.column == name and rv.table == t.name for rv in self.audit.review):
                     self.flag(t.name, rec.source_row, name, "", ("R7-REQUIRED", "", f"{name} is required but blank: what is it? (not imputed)"))
-        self.raw_tables[t.name] = recs
-        self.tables[t.name] = self.dedup(t, recs)
-        gone = {r.source_row for r in self.dup_dropped[t.name]}   # a dropped copy repeats its kept twin's flags
-        self.audit.review = [x for x in self.audit.review if not (x.table == t.name and x.source_row in gone)]
-        self.cross_checks(t, self.tables[t.name])
 
     def type_column(self, t: Table, col: Column, recs: list[Record]) -> None:
         name = col.name
@@ -663,11 +711,22 @@ class Run:
     def run(self) -> dict:
         for t in self.c.tables.values():
             self.clean_table(t)
-        self.run_joins()
-        self.reconcile()
-        checks = self.self_check()
+        with self.timed("joins"):
+            self.run_joins()
+        with self.timed("reconcile"):
+            self.reconcile()
+        with self.timed("self_check"):
+            checks = self.self_check()
         return {"self_check": checks}
 
+
+
+def rss_mb() -> float:
+    try:
+        with open("/proc/self/statm") as f:
+            return int(f.read().split()[1]) * resource.getpagesize() / 2 ** 20
+    except OSError:
+        return 0.0
 
 
 def same(a: Any, b: Any) -> bool:

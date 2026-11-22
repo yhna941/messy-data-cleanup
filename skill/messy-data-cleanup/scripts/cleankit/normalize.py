@@ -8,7 +8,7 @@ from dataclasses import dataclass, field
 from typing import Any
 
 
-@dataclass
+@dataclass(slots=True)
 class Step:
     rule: str
     before: Any
@@ -17,7 +17,7 @@ class Step:
     evidence: str
 
 
-@dataclass
+@dataclass(slots=True)
 class Outcome:
     value: Any
     steps: list[Step] = field(default_factory=list)
@@ -79,8 +79,17 @@ def repair_mojibake(s: str) -> tuple[str, str] | None:
 
 
 def nfkc(s: str) -> str:
-    """NFKC, except Hangul compatibility jamo (ㅋㅋ, ㄹ) which NFKC would turn into conjoining jamo."""
-    return "".join(ch if "\u3131" <= ch <= "\u318e" else unicodedata.normalize("NFKC", ch) for ch in s)
+    """NFKC per character, except where it changes meaning or makes broken text: Hangul compatibility
+    jamo (ㅋㅋ, ㄹ, ㆍ) would become conjoining jamo, superscripts (m², m³) would become plain digits, and
+    spacing accents (˙ ˝) would become a space plus a combining mark."""
+    return "".join(ch if _keep(ch) else unicodedata.normalize("NFKC", ch) for ch in s)
+
+
+def _keep(ch: str) -> bool:
+    if ch.isascii() or "\u3131" <= ch <= "\u318e":
+        return True
+    d = unicodedata.decomposition(ch)
+    return d.startswith(("<super>", "<sub>")) or (d.startswith("<compat> 0020") and len(d.split()) > 2)
 
 
 def normalize_text(v: Any, freetext: bool = False) -> Outcome:
@@ -127,6 +136,7 @@ COUNT_SUFFIX = re.compile(r"\s*(개|ea|pcs|pc|건|잔|병|박스|box|set|세트)
 CURRENCY = re.compile(r"(₩|\\|krw|won|원|\$|usd)", re.I)
 KUNIT = re.compile(r"^(?:(?P<eok>\d+(?:\.\d+)?)억)?(?:(?P<man>\d+(?:\.\d+)?)만)?(?:(?P<cheon>\d+(?:\.\d+)?)천)?(?P<rest>\d+)?$")
 COMMA_DECIMAL_HINT = re.compile(r"^-?\d{1,3}(\.\d{3})+,\d+$|^-?\d+,\d{1,2}$")
+LEADING_ZERO = re.compile(r"0\d+")
 POINT_DECIMAL_HINT = re.compile(r"^-?\d{1,3}(,\d{3})+\.\d+$|^-?\d+\.\d{1,2}$")
 
 
@@ -145,8 +155,10 @@ def decide_decimal(values: list[Any]) -> tuple[str, str]:
     return ".", "decimal point (default)"
 
 
-def _num(x: float) -> int | float:
-    return int(x) if float(x).is_integer() else round(float(x), 10)
+def _num(x: float, digits: int | None = None) -> int | float:
+    """45000.0 -> 45000. Only arithmetic results (Korean units) are rounded; a parsed or stored float is kept exactly."""
+    x = float(x) if digits is None else round(float(x), digits)
+    return int(x) if x.is_integer() else x
 
 
 def parse_number(v: Any, decimal: str = ".", allow_percent: bool = False) -> Outcome:
@@ -182,8 +194,12 @@ def parse_number(v: Any, decimal: str = ".", allow_percent: bool = False) -> Out
     m = KUNIT.match(s2.replace(",", ""))
     if m and any(m.group(g) for g in ("eok", "man", "cheon")):
         total = sum(float(m.group(g) or 0) * mult for g, mult in (("eok", 1e8), ("man", 1e4), ("cheon", 1e3))) + float(m.group("rest") or 0)
-        return o.step("N1-KUNIT", _num(-total if neg else total), 0.95, f"{v!r}: Korean magnitude units applied")
+        return o.step("N1-KUNIT", _num(-total if neg else total, 10), 0.95, f"{v!r}: Korean magnitude units applied")
     t = s2.replace(".", "").replace(",", ".") if decimal == "," else s2.replace(",", "")
+    if LEADING_ZERO.fullmatch(t):   # 06164, 000123: a code (zip, account, industry) - a number would lose the zeros
+        o.flag = ("R2-NUMBER", "", f"{v!r} has a leading zero, so it looks like a code, not a number: keep it as text "
+                                   f"(type text/id in the contract)? (not converted)")
+        return o
     try:
         num = float(t)
     except ValueError:
@@ -196,7 +212,8 @@ def parse_number(v: Any, decimal: str = ".", allow_percent: bool = False) -> Out
 
 # ---------------------------------------------------------------- dates
 EXCEL_EPOCH = dt.date(1899, 12, 30)
-RE_YMD = re.compile(r"^(\d{4})\s*[.\-/년]\s*(\d{1,2})\s*[.\-/월]\s*(\d{1,2})\s*일?\.?(?:\s+\d{1,2}:\d{2}(?::\d{2})?)?$")
+RE_YMD = re.compile(r"^(\d{4})\s*[.\-/년]\s*(\d{1,2})\s*[.\-/월]\s*(\d{1,2})\s*일?\.?"
+                    r"(?:(?:\s+|T)(\d{1,2}):(\d{2})(?::(\d{2})(?:\.\d+)?)?(?:Z|[+-]\d{2}:?\d{2})?)?$")   # ISO 2024-01-05T13:22:08.000
 RE_COMPACT = re.compile(r"^(\d{4})(\d{2})(\d{2})$")
 RE_SHORT3 = re.compile(r"^(\d{1,2})[.\-/](\d{1,2})[.\-/](\d{1,2})$")      # 24/03/05
 RE_XXY4 = re.compile(r"^(\d{1,2})[.\-/](\d{1,2})[.\-/](\d{4})$")          # 05/03/2024
@@ -226,7 +243,7 @@ def date_candidates(v: Any, year_hint: int | None) -> tuple[list[tuple[str, dt.d
     else:
         s = str(v).strip()
     if m := RE_YMD.match(s):
-        d = _mk(*map(int, m.groups()))
+        d = _mk(*map(int, m.groups()[:3]))
         return ([("YMD", d)] if d else []), s
     if m := RE_COMPACT.match(s):
         d = _mk(*map(int, m.groups()))
@@ -250,6 +267,20 @@ def date_candidates(v: Any, year_hint: int | None) -> tuple[list[tuple[str, dt.d
         d = _mk(year_hint, *map(int, m.groups()))
         return ([("MD", d)] if d else []), s
     return [], s
+
+
+def time_of_day(v: Any) -> dt.time | None:
+    """The non-midnight time carried by a datetime cell or a 'YYYY-MM-DD hh:mm[:ss]' string, else None."""
+    if isinstance(v, dt.datetime):
+        t = v.time().replace(microsecond=0)
+    elif isinstance(v, str) and (m := RE_YMD.match(v.strip())) and m.group(4) is not None:
+        try:
+            t = dt.time(int(m.group(4)), int(m.group(5)), int(m.group(6) or 0))
+        except ValueError:
+            return None
+    else:
+        return None
+    return None if t == dt.time(0) else t
 
 
 def parse_date(v: Any, order_pref: list[str], year_hint: int | None,
@@ -280,9 +311,16 @@ def parse_date(v: Any, order_pref: list[str], year_hint: int | None,
     if isinstance(v, dt.datetime) and v.time() == dt.time(0):
         o.value = chosen  # same date, just drop the 00:00 time: not a value change
         return o
+    day = chosen
+    tod = time_of_day(v)
+    if tod is not None:   # keep the time: 2024-01-05 13:22 must not silently become 2024-01-05
+        chosen = dt.datetime.combine(chosen, tod)
+        ev += f" (time {tod.isoformat()} kept)"
+        if isinstance(v, dt.datetime) and v == chosen:
+            return o
     o.step(rule, chosen, conf, ev)
-    if window and not (window[0] <= chosen <= window[1]) and o.flag is None:
-        o.flag = ("R1-DATE", "", f"{chosen.isoformat()} is outside the expected range {window[0]}..{window[1]}")
+    if window and not (window[0] <= day <= window[1]) and o.flag is None:
+        o.flag = ("R1-DATE", "", f"{day.isoformat()} is outside the expected range {window[0]}..{window[1]}")
     return o
 
 

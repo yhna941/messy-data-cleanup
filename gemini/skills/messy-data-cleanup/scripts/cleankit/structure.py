@@ -9,16 +9,22 @@ from .match import fold
 from .model import Grid, RowKind
 from .normalize import is_blank
 
-SUBTOTAL_RE = re.compile(r"(소\s*계|합\s*계|총\s*계|누\s*계|^계$|sub\s*total|grand\s*total|^total|summe|^평\s*균$|^average$|^avg\.?$|^mean$|^최대$|^최소$|^max$|^min$)", re.I)
-SUM_RE = re.compile(r"(소\s*계|합\s*계|총\s*계|누\s*계|^계$|total|summe)", re.I)   # aggregates that are sums (reconcilable)
-GRAND_RE = re.compile(r"(합\s*계|총\s*계|grand|^total$)", re.I)
+# Aggregate labels must stand alone as words: '소계동' (a place), '합계출산율', '현대종합계기', 'Summers County'
+# and 'Totalizer Inc' are data, not subtotal rows.
+_KO = r"(?<![가-힣])(?:{})(?![가-힣])"
+SUBTOTAL_RE = re.compile(_KO.format(r"소\s*계|합\s*계|총\s*계|누\s*계") + r"|^계$|\bsub\s*-?\s*totals?\b|\bgrand\s*totals?\b|^totals?\b|\bsumme\b"
+                         r"|^평\s*균$|^average$|^avg\.?$|^mean$|^최대$|^최소$|^max$|^min$", re.I)
+SUM_RE = re.compile(_KO.format(r"소\s*계|합\s*계|총\s*계|누\s*계") + r"|^계$|\btotals?\b|\bsumme\b", re.I)   # aggregates that are sums (reconcilable)
+GRAND_RE = re.compile(_KO.format(r"합\s*계|총\s*계") + r"|\bgrand\b|^totals?$", re.I)
 NOTE_RE = re.compile(r"^\s*(※|\*|#|주\)|참고|비고\s*:|note)", re.I)
 
 
 def fill_merges(g: Grid) -> tuple[list[list[Any]], dict[tuple[int, int], tuple[int, int]]]:
     """Copy each merged range's top-left value into every cell. Returns cells and {filled cell: origin}."""
-    cells = [list(r) for r in g.cells]
     origin: dict[tuple[int, int], tuple[int, int]] = {}
+    if not g.merges:
+        return g.cells, origin   # nothing to fill: share the rows (callers never write into cells)
+    cells = [list(r) for r in g.cells]
     for r1, c1, r2, c2 in g.merges:
         v = cells[r1][c1]
         for r in range(r1, r2 + 1):
@@ -38,8 +44,7 @@ class Header:
     extras: dict[int, str]        # labelled grid columns not in the contract
 
 
-def _labels(cells: list[list[Any]], r: int, depth: int) -> dict[int, list[str]]:
-    width = max(len(x) for x in cells)
+def _labels(cells: list[list[Any]], r: int, depth: int, width: int) -> dict[int, list[str]]:
     out: dict[int, list[str]] = {}
     for c in range(width):
         parent = cells[r][c] if c < len(cells[r]) else None
@@ -52,27 +57,50 @@ def _labels(cells: list[list[Any]], r: int, depth: int) -> dict[int, list[str]]:
     return out
 
 
-def _match(labels: dict[int, list[str]], aliases: dict[str, list[str]]) -> dict[str, int]:
-    folded = {col: {fold(a) for a in al} for col, al in aliases.items()}
+def _match(labels: dict[int, list[str]], aliases: dict[str, list[str]], index: dict[str, list[str]] | None = None) -> dict[str, int]:
+    if index is None:
+        index = _alias_index(aliases)
     mapping: dict[str, int] = {}
     for c, cands in labels.items():
         for cand in cands:
-            hit = next((col for col, al in folded.items() if col not in mapping and fold(cand) in al), None)
+            hit = next((col for col in index.get(fold(cand), ()) if col not in mapping), None)
             if hit:
                 mapping[hit] = c
                 break
     return mapping
 
 
+def _alias_index(aliases: dict[str, list[str]]) -> dict[str, list[str]]:
+    """folded alias -> contract columns (in contract order) that list it."""
+    index: dict[str, list[str]] = {}
+    for col, al in aliases.items():
+        for f in dict.fromkeys(fold(a) for a in al):
+            index.setdefault(f, []).append(col)
+    return index
+
+
 def find_headers(cells: list[list[Any]], aliases: dict[str, list[str]], min_share: float = 0.6) -> list[Header]:
     """Every row (or row pair) whose labels cover >= min_share of the contract columns."""
     need = max(2, int(len(aliases) * min_share + 0.999))
     found: list[Header] = []
+    width = max((len(x) for x in cells), default=0)
+    index = _alias_index(aliases)
+    # A cell can only take part in a header match if its folded text is an alias, or the start
+    # (parent) or end (child) of one. Rows with fewer such cells than `need` cannot be headers,
+    # so the full match is skipped for them (same result, linear time on big sheets).
+    parts = set(index)
+    for f in index:
+        parts.update(f[:i] for i in range(1, len(f)))
+        parts.update(f[i:] for i in range(1, len(f)))
+    hits = [sum(1 for v in row if not is_blank(v) and fold(v) in parts) for row in cells] + [0]
+
     def try_at(r: int, depth: int) -> Header | None:
         if r + depth > len(cells):
             return None
-        labs = _labels(cells, r, depth)
-        mp = _match(labs, aliases)
+        if (hits[r] if depth == 1 else hits[r] + hits[r + 1]) < need:
+            return None
+        labs = _labels(cells, r, depth, width)
+        mp = _match(labs, aliases, index)
         # [child, parent+child, parent] -> "parent child"; single label otherwise
         joined = {c: f"{v[2]} {v[0]}" if len(v) == 3 else v[0] for c, v in labs.items() if v}
         return Header(r, depth, mp, joined, {c: joined[c] for c in joined if c not in mp.values()})

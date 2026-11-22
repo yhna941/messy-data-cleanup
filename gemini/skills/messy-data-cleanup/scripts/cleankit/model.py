@@ -31,7 +31,7 @@ class Grid:
         return self.row_numbers[r] if self.row_numbers else r + 1
 
 
-@dataclass
+@dataclass(slots=True)
 class Record:
     """One data row of a table. values keyed by contract column name."""
     table: str
@@ -40,7 +40,7 @@ class Record:
     raw: dict[str, Any]             # values as they were mapped from the grid (before any fix)
 
 
-@dataclass
+@dataclass(slots=True)   # millions of these on big files: no per-instance __dict__
 class Change:
     table: str
     sheet: str
@@ -53,7 +53,7 @@ class Change:
     evidence: str
 
 
-@dataclass
+@dataclass(slots=True)
 class Dropped:
     table: str
     sheet: str
@@ -64,7 +64,7 @@ class Dropped:
     raw_values: str
 
 
-@dataclass
+@dataclass(slots=True)
 class Review:
     table: str
     sheet: str
@@ -76,7 +76,7 @@ class Review:
     question: str
 
 
-@dataclass
+@dataclass(slots=True)
 class DupGroup:
     group: str
     table: str

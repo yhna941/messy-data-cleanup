@@ -1,0 +1,25 @@
+# Powerhouse Museum collection (the Programming Historian / OpenRefine 'Cleaning data' sample), TSV.
+# Known mess: duplicate records, '|'-joined categories with case/whitespace variants, HTML in text,
+# sizes as text ('990 mm').
+dataset: Powerhouse Museum collection (OpenRefine sample)
+tables:
+  objects:
+    file: phm-collection.tsv
+    key: record_id
+    columns:
+      record_id: {type: id, aliases: [Record ID], regex: '(?P<n>\d{1,7})', format: '{n}', required: true}
+      title: {type: text, aliases: [Object Title]}
+      registration: {type: text, aliases: [Registration Number]}
+      description: {type: freetext, aliases: [Description.]}
+      marks: {type: freetext, aliases: [Marks]}
+      production_date: {type: text, aliases: [Production Date]}
+      provenance_production: {type: freetext, aliases: [Provenance (Production)]}
+      provenance_history: {type: freetext, aliases: [Provenance (History)]}
+      categories: {type: text, aliases: [Categories]}
+      link: {type: text, aliases: [Persistent Link]}
+      height: {type: text, aliases: [Height]}
+      width: {type: text, aliases: [Width]}
+      depth: {type: text, aliases: [Depth]}
+      diameter: {type: text, aliases: [Diameter]}
+      weight: {type: text, aliases: [Weight]}
+      license: {type: freetext, aliases: [License info]}

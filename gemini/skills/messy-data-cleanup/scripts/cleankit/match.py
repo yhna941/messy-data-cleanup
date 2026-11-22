@@ -4,6 +4,7 @@ from __future__ import annotations
 import re
 import unicodedata
 from difflib import SequenceMatcher
+from functools import lru_cache
 from typing import Any
 
 from .normalize import Outcome, is_blank
@@ -25,6 +26,14 @@ BUILTIN_VOCAB: dict[str, dict[str, list[str]]] = {
 
 
 def fold(s: Any) -> str:
+    try:
+        return _fold(s)
+    except TypeError:   # unhashable
+        return _fold.__wrapped__(s)
+
+
+@lru_cache(maxsize=1 << 18)
+def _fold(s: Any) -> str:
     return PUNCT.sub("", unicodedata.normalize("NFKC", str(s)).casefold())
 
 
@@ -33,8 +42,13 @@ def jamo(s: str) -> str:
     return unicodedata.normalize("NFD", unicodedata.normalize("NFKC", s))   # NFKC maps compatibility ㄹ to conjoining ᄅ
 
 
+@lru_cache(maxsize=1 << 16)
+def _jf(s: str) -> str:
+    return jamo(fold(s))
+
+
 def similarity(a: str, b: str) -> float:
-    return SequenceMatcher(None, jamo(fold(a)), jamo(fold(b))).ratio()
+    return SequenceMatcher(None, _jf(str(a)), _jf(str(b))).ratio()
 
 
 class Vocab:
@@ -47,11 +61,23 @@ class Vocab:
             for s in syns:
                 self.alias[fold(s)] = c
         self.auto, self.margin, self.review = auto, margin, review
+        self._memo: dict[tuple[type, Any], Outcome] = {}
 
     def contains(self, v: Any) -> bool:
         return v in self.exact
 
     def match(self, v: Any) -> Outcome:
+        """Pure in v, so each distinct value is matched once (a 1M-row column has few distinct values)."""
+        try:
+            key = (type(v), v)
+            hit = self._memo.get(key)
+        except TypeError:
+            return self._match(v)
+        if hit is None:
+            hit = self._memo[key] = self._match(v)
+        return Outcome(hit.value, list(hit.steps), hit.flag)
+
+    def _match(self, v: Any) -> Outcome:
         o = Outcome(v)
         if is_blank(v) or v in self.exact:
             return o

@@ -1,0 +1,196 @@
+[
+ {
+  "dataset": "census",
+  "subset": "full",
+  "status": "ok",
+  "rows": 3155,
+  "wall_s": 1.87,
+  "rows_per_s": 1689,
+  "peak_rss_mb": 74,
+  "stages": {
+   "read": 0.221,
+   "structure": 1.006,
+   "text": 0.024,
+   "shift": 0.02,
+   "types": 0.045,
+   "llm": 0.0,
+   "required": 0.001,
+   "dedup": 0.006,
+   "checks": 0.0,
+   "joins": 0.0,
+   "reconcile": 0.003,
+   "self_check": 0.043,
+   "write": 0.282
+  },
+  "tail": [
+   "PASS counties: every changed cell has a consistent change chain (0 broken chains, 0 unlogged changes)",
+   "PASS counties: no value became blank except placeholders (0 cells)",
+   "wrote /workspace/rw/out/census/full"
+  ],
+  "label": "before"
+ },
+ {
+  "dataset": "nhis",
+  "subset": "full",
+  "status": "exit 1",
+  "rows": 34652,
+  "wall_s": 58.8,
+  "rows_per_s": 589,
+  "peak_rss_mb": 1033,
+  "stages": {
+   "read": 7.23,
+   "structure": 26.267,
+   "text": 0.873,
+   "shift": 0.285,
+   "types": 0.933,
+   "llm": 0.0,
+   "required": 0.015,
+   "dedup": 0.171,
+   "checks": 0.0,
+   "joins": 0.0,
+   "reconcile": 0.0,
+   "self_check": 1.021,
+   "write": 20.834
+  },
+  "tail": [
+   "PASS cancer_2023: every changed cell has a consistent change chain (0 broken chains, 0 unlogged changes)",
+   "PASS cancer_2023: no value became blank except placeholders (0 cells)",
+   "wrote /workspace/rw/out/nhis/full"
+  ],
+  "label": "before"
+ },
+ {
+  "dataset": "nps",
+  "subset": "n1000",
+  "status": "ok",
+  "rows": 1001,
+  "wall_s": 2.15,
+  "rows_per_s": 466,
+  "peak_rss_mb": 86,
+  "stages": {
+   "read": 0.009,
+   "structure": 1.053,
+   "text": 0.056,
+   "shift": 0.026,
+   "types": 0.098,
+   "llm": 0.0,
+   "required": 0.001,
+   "dedup": 0.005,
+   "checks": 0.0,
+   "joins": 0.0,
+   "reconcile": 0.0,
+   "self_check": 0.081,
+   "write": 0.605
+  },
+  "tail": [
+   "PASS workplaces: every changed cell has a consistent change chain (0 broken chains, 0 unlogged changes)",
+   "PASS workplaces: no value became blank except placeholders (0 cells)",
+   "wrote /workspace/rw/out/nps/n1000"
+  ],
+  "label": "before"
+ },
+ {
+  "dataset": "nyc311",
+  "subset": "n1000",
+  "status": "ok",
+  "rows": 1188,
+  "wall_s": 13.31,
+  "rows_per_s": 89,
+  "peak_rss_mb": 80,
+  "stages": {
+   "read": 0.005,
+   "structure": 0.583,
+   "text": 0.046,
+   "shift": 11.758,
+   "types": 0.074,
+   "llm": 0.0,
+   "required": 0.001,
+   "dedup": 0.005,
+   "checks": 0.0,
+   "joins": 0.002,
+   "reconcile": 0.0,
+   "self_check": 0.049,
+   "write": 0.582
+  },
+  "tail": [
+   "PASS sr: every changed cell has a consistent change chain (0 broken chains, 0 unlogged changes)",
+   "PASS sr: no value became blank except placeholders (0 cells)",
+   "wrote /workspace/rw/out/nyc311/n1000"
+  ],
+  "label": "before"
+ },
+ {
+  "dataset": "nps",
+  "subset": "n10000",
+  "status": "ok",
+  "rows": 10001,
+  "wall_s": 26.17,
+  "rows_per_s": 382,
+  "peak_rss_mb": 359,
+  "stages": {
+   "read": 0.055,
+   "structure": 16.484,
+   "text": 0.595,
+   "shift": 0.279,
+   "types": 1.07,
+   "llm": 0.0,
+   "required": 0.009,
+   "dedup": 0.057,
+   "checks": 0.0,
+   "joins": 0.0,
+   "reconcile": 0.0,
+   "self_check": 0.866,
+   "write": 6.413
+  },
+  "tail": [
+   "PASS workplaces: every changed cell has a consistent change chain (0 broken chains, 0 unlogged changes)",
+   "PASS workplaces: no value became blank except placeholders (0 cells)",
+   "wrote /workspace/rw/out/nps/n10000"
+  ],
+  "label": "before"
+ },
+ {
+  "dataset": "nyc311",
+  "subset": "n10000",
+  "status": "ok",
+  "rows": 10188,
+  "wall_s": 117.8,
+  "rows_per_s": 86,
+  "peak_rss_mb": 365,
+  "stages": {
+   "read": 0.04,
+   "structure": 11.172,
+   "text": 0.454,
+   "shift": 97.883,
+   "types": 0.73,
+   "llm": 0.0,
+   "required": 0.006,
+   "dedup": 0.059,
+   "checks": 0.0,
+   "joins": 0.017,
+   "reconcile": 0.0,
+   "self_check": 0.473,
+   "write": 6.613
+  },
+  "tail": [
+   "PASS sr: every changed cell has a consistent change chain (0 broken chains, 0 unlogged changes)",
+   "PASS sr: no value became blank except placeholders (0 cells)",
+   "wrote /workspace/rw/out/nyc311/n10000"
+  ],
+  "label": "before"
+ },
+ {
+  "dataset": "phm",
+  "subset": "full",
+  "status": "exit 1",
+  "rows": 0,
+  "wall_s": 534.8,
+  "rows_per_s": null,
+  "peak_rss_mb": null,
+  "stages": {},
+  "tail": [
+   "objects: header block 1 not found in phm-collection.tsv/"
+  ],
+  "label": "before"
+ }
+]

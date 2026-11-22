@@ -1,0 +1,166 @@
+# 국민건강보험공단 시군구별 국가건강검진 현황 (data.go.kr 15149732): a zip of 3 workbooks.
+# nhis_1: 일반검진, one sheet per year, 2-row merged header (합계/연령대 x 대상자수/수검자수/수검률),
+#   시군구 merged vertically over its 합계/남자/여자 rows; 합계 rows come BEFORE their parts.
+# nhis_2: 암검진, 2-row header (위암/대장암/... x 대상자수/수검자수), 시도 merged over hundreds of rows, '-' = not eligible.
+dataset: 국민건강보험공단 시군구별 국가건강검진
+tables:
+  general_2018:
+    file: nhis_1.xlsx
+    sheet: '2018'
+    columns:
+      sido: {type: text, aliases: [시도]}
+      sigungu: {type: text, aliases: [시군구], required: true}
+      sex: {type: category, aliases: [성별], vocab: [남자, 여자]}
+      target: {type: count, aliases: [합계 대상자수], min: 0}
+      screened: {type: count, aliases: [합계 수검자수], min: 0}
+      rate: {type: percent, aliases: [합계 수검률], min: 0, max: 100}
+  general_2019:
+    file: nhis_1.xlsx
+    sheet: '2019'
+    columns:
+      sido: {type: text, aliases: [시도]}
+      sigungu: {type: text, aliases: [시군구], required: true}
+      sex: {type: category, aliases: [성별], vocab: [남자, 여자]}
+      target: {type: count, aliases: [합계 대상자수], min: 0}
+      screened: {type: count, aliases: [합계 수검자수], min: 0}
+      rate: {type: percent, aliases: [합계 수검률], min: 0, max: 100}
+  general_2020:
+    file: nhis_1.xlsx
+    sheet: '2020'
+    columns:
+      sido: {type: text, aliases: [시도]}
+      sigungu: {type: text, aliases: [시군구], required: true}
+      sex: {type: category, aliases: [성별], vocab: [남자, 여자]}
+      target: {type: count, aliases: [합계 대상자수], min: 0}
+      screened: {type: count, aliases: [합계 수검자수], min: 0}
+      rate: {type: percent, aliases: [합계 수검률], min: 0, max: 100}
+  general_2021:
+    file: nhis_1.xlsx
+    sheet: '2021'
+    columns:
+      sido: {type: text, aliases: [시도]}
+      sigungu: {type: text, aliases: [시군구], required: true}
+      sex: {type: category, aliases: [성별], vocab: [남자, 여자]}
+      target: {type: count, aliases: [합계 대상자수], min: 0}
+      screened: {type: count, aliases: [합계 수검자수], min: 0}
+      rate: {type: percent, aliases: [합계 수검률], min: 0, max: 100}
+  general_2022:
+    file: nhis_1.xlsx
+    sheet: '2022'
+    columns:
+      sido: {type: text, aliases: [시도]}
+      sigungu: {type: text, aliases: [시군구], required: true}
+      sex: {type: category, aliases: [성별], vocab: [남자, 여자]}
+      target: {type: count, aliases: [합계 대상자수], min: 0}
+      screened: {type: count, aliases: [합계 수검자수], min: 0}
+      rate: {type: percent, aliases: [합계 수검률], min: 0, max: 100}
+  general_2023:
+    file: nhis_1.xlsx
+    sheet: '2023'
+    columns:
+      sido: {type: text, aliases: [시도]}
+      sigungu: {type: text, aliases: [시군구], required: true}
+      sex: {type: category, aliases: [성별], vocab: [남자, 여자]}
+      target: {type: count, aliases: [합계 대상자수], min: 0}
+      screened: {type: count, aliases: [합계 수검자수], min: 0}
+      rate: {type: percent, aliases: [합계 수검률], min: 0, max: 100}
+  cancer_2018:
+    file: nhis_2.xlsx
+    sheet: '2018'
+    columns:
+      sido: {type: text, aliases: [시도]}
+      sigungu: {type: text, aliases: [시군구명], required: true}
+      sex: {type: category, aliases: [성별], vocab: [남자, 여자]}
+      age: {type: text, aliases: [연령구분]}
+      stomach_target: {type: count, aliases: [위암 대상자수], min: 0}
+      stomach_screened: {type: count, aliases: [위암 수검자수], min: 0}
+      colon_target: {type: count, aliases: [대장암 대상자수], min: 0}
+      colon_screened: {type: count, aliases: [대장암 수검자수], min: 0}
+      liver_target: {type: count, aliases: [간암 대상자수], min: 0}
+      liver_screened: {type: count, aliases: [간암 수검자수], min: 0}
+      breast_target: {type: count, aliases: [유방암 대상자수], min: 0}
+      breast_screened: {type: count, aliases: [유방암 수검자수], min: 0}
+      cervix_target: {type: count, aliases: [자궁경부암 대상자수], min: 0}
+      cervix_screened: {type: count, aliases: [자궁경부암 수검자수], min: 0}
+    dedup:
+      suspect_keys: [[sigungu, sex, age]]
+  cancer_2019:
+    file: nhis_2.xlsx
+    sheet: '2019'
+    columns:
+      sido: {type: text, aliases: [시도]}
+      sigungu: {type: text, aliases: [시군구명], required: true}
+      sex: {type: category, aliases: [성별], vocab: [남자, 여자]}
+      age: {type: text, aliases: [연령구분]}
+      stomach_target: {type: count, aliases: [위암 대상자수], min: 0}
+      stomach_screened: {type: count, aliases: [위암 수검자수], min: 0}
+      colon_target: {type: count, aliases: [대장암 대상자수], min: 0}
+      colon_screened: {type: count, aliases: [대장암 수검자수], min: 0}
+      liver_target: {type: count, aliases: [간암 대상자수], min: 0}
+      liver_screened: {type: count, aliases: [간암 수검자수], min: 0}
+      breast_target: {type: count, aliases: [유방암 대상자수], min: 0}
+      breast_screened: {type: count, aliases: [유방암 수검자수], min: 0}
+      cervix_target: {type: count, aliases: [자궁경부암 대상자수], min: 0}
+      cervix_screened: {type: count, aliases: [자궁경부암 수검자수], min: 0}
+    dedup:
+      suspect_keys: [[sigungu, sex, age]]
+  cancer_2020:
+    file: nhis_2.xlsx
+    sheet: '2020'
+    columns:
+      sido: {type: text, aliases: [시도]}
+      sigungu: {type: text, aliases: [시군구명], required: true}
+      sex: {type: category, aliases: [성별], vocab: [남자, 여자]}
+      age: {type: text, aliases: [연령구분]}
+      stomach_target: {type: count, aliases: [위암 대상자수], min: 0}
+      stomach_screened: {type: count, aliases: [위암 수검자수], min: 0}
+      colon_target: {type: count, aliases: [대장암 대상자수], min: 0}
+      colon_screened: {type: count, aliases: [대장암 수검자수], min: 0}
+      liver_target: {type: count, aliases: [간암 대상자수], min: 0}
+      liver_screened: {type: count, aliases: [간암 수검자수], min: 0}
+      breast_target: {type: count, aliases: [유방암 대상자수], min: 0}
+      breast_screened: {type: count, aliases: [유방암 수검자수], min: 0}
+      cervix_target: {type: count, aliases: [자궁경부암 대상자수], min: 0}
+      cervix_screened: {type: count, aliases: [자궁경부암 수검자수], min: 0}
+    dedup:
+      suspect_keys: [[sigungu, sex, age]]
+  cancer_2022:
+    file: nhis_2.xlsx
+    sheet: '2022'
+    columns:
+      sido: {type: text, aliases: [시도]}
+      sigungu: {type: text, aliases: [시군구명], required: true}
+      sex: {type: category, aliases: [성별], vocab: [남자, 여자]}
+      age: {type: text, aliases: [연령구분]}
+      stomach_target: {type: count, aliases: [위암 대상자수], min: 0}
+      stomach_screened: {type: count, aliases: [위암 수검자수], min: 0}
+      colon_target: {type: count, aliases: [대장암 대상자수], min: 0}
+      colon_screened: {type: count, aliases: [대장암 수검자수], min: 0}
+      liver_target: {type: count, aliases: [간암 대상자수], min: 0}
+      liver_screened: {type: count, aliases: [간암 수검자수], min: 0}
+      breast_target: {type: count, aliases: [유방암 대상자수], min: 0}
+      breast_screened: {type: count, aliases: [유방암 수검자수], min: 0}
+      cervix_target: {type: count, aliases: [자궁경부암 대상자수], min: 0}
+      cervix_screened: {type: count, aliases: [자궁경부암 수검자수], min: 0}
+    dedup:
+      suspect_keys: [[sigungu, sex, age]]
+  cancer_2023:
+    file: nhis_2.xlsx
+    sheet: '2023'
+    columns:
+      sido: {type: text, aliases: [시도]}
+      sigungu: {type: text, aliases: [시군구명], required: true}
+      sex: {type: category, aliases: [성별], vocab: [남자, 여자]}
+      age: {type: text, aliases: [연령구분]}
+      stomach_target: {type: count, aliases: [위암 대상자수], min: 0}
+      stomach_screened: {type: count, aliases: [위암 수검자수], min: 0}
+      colon_target: {type: count, aliases: [대장암 대상자수], min: 0}
+      colon_screened: {type: count, aliases: [대장암 수검자수], min: 0}
+      liver_target: {type: count, aliases: [간암 대상자수], min: 0}
+      liver_screened: {type: count, aliases: [간암 수검자수], min: 0}
+      breast_target: {type: count, aliases: [유방암 대상자수], min: 0}
+      breast_screened: {type: count, aliases: [유방암 수검자수], min: 0}
+      cervix_target: {type: count, aliases: [자궁경부암 대상자수], min: 0}
+      cervix_screened: {type: count, aliases: [자궁경부암 수검자수], min: 0}
+    dedup:
+      suspect_keys: [[sigungu, sex, age]]

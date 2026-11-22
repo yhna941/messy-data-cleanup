@@ -237,10 +237,10 @@
    "source_row": 8,
    "column": "reg_date",
    "before": "2024-02-19 14:30",
-   "after": "2024-02-19",
+   "after": "2024-02-19 14:30:00",
    "rule": "D1-DATE",
    "confidence": 1.0,
-   "evidence": "2024-02-19 14:30 read as YMD"
+   "evidence": "2024-02-19 14:30 read as YMD (time 14:30:00 kept)"
   },
   {
    "table": "students",
@@ -252,28 +252,6 @@
    "rule": "D1-DATE",
    "confidence": 1.0,
    "evidence": "Excel serial 45342 read as serial"
-  },
-  {
-   "table": "students",
-   "sheet": "원생",
-   "source_row": 10,
-   "column": "reg_date",
-   "before": "2024-02-21 09:15:00",
-   "after": "2024-02-21",
-   "rule": "D1-DATE",
-   "confidence": 1.0,
-   "evidence": "date cell read as cell"
-  },
-  {
-   "table": "students",
-   "sheet": "원생",
-   "source_row": 11,
-   "column": "reg_date",
-   "before": "2024-02-21 09:15:00",
-   "after": "2024-02-21",
-   "rule": "D1-DATE",
-   "confidence": 1.0,
-   "evidence": "date cell read as cell"
   },
   {
    "table": "students",

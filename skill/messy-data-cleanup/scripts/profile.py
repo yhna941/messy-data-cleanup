@@ -26,7 +26,7 @@ import yaml  # noqa: E402
 
 from cleankit import normalize as N  # noqa: E402
 from cleankit.io_read import read_any  # noqa: E402
-from cleankit.match import similarity  # noqa: E402
+from cleankit.match import _jf, similarity  # noqa: E402
 from cleankit.structure import NOTE_RE, SUBTOTAL_RE, fill_merges  # noqa: E402
 
 
@@ -56,8 +56,13 @@ def guess_type(vals: list) -> str:
     share = lambda f: sum(1 for v in s if f(v)) / len(s)  # noqa: E731
     if share(lambda v: isinstance(v, str) and "@" in v) > 0.6:
         return "email"
+    # digit strings with leading zeros (zip 06164, industry 000000) are codes: a number type would drop the zeros
+    if share(lambda v: isinstance(v, str) and v.strip().isdigit()) > 0.9 and share(lambda v: isinstance(v, str) and N.LEADING_ZERO.fullmatch(v.strip())) > 0.01:
+        return "code"
+    # a phone has a leading 0 / +82 or separators; bare 10-digit integers are codes (법정동코드 1165010800)
     if share(lambda v: len(re.sub(r"\D", "", str(v))) in (10, 11) and str(re.sub(r"\D", "", str(v))).lstrip("0").startswith(("1", "2", "3", "4", "5", "6"))
-             and len(re.sub(r"[\d\s\-.+–()]", "", str(v))) == 0) > 0.6:
+             and len(re.sub(r"[\d\s\-.+–()]", "", str(v))) == 0
+             and (str(v).strip().startswith(("0", "+")) or not re.fullmatch(r"\d+", str(v).strip()))) > 0.6:
         return "phone"
     if share(lambda v: bool(N.date_candidates(v, 2000)[0]) and not (isinstance(v, (int, float)) and v < 20000)) > 0.6:
         return "date"
@@ -77,13 +82,34 @@ def guess_type(vals: list) -> str:
     return "text"
 
 
+CLUSTER_TOP = 400   # near-duplicate spellings are searched among the most frequent distinct values only
+
+
 def clusters(values: Counter) -> list[list[str]]:
-    keys = [k for k in values if isinstance(k, str)]
+    """Groups of near-identical spellings among the CLUSTER_TOP most frequent values (pairwise is O(k^2)).
+
+    Same test as before (similarity >= 0.7), with two exact upper bounds checked first: the length
+    bound 2*min/(la+lb) and the shared-character bound (difflib's quick_ratio).
+    """
+    top = set([k for k, _ in values.most_common() if isinstance(k, str)][:CLUSTER_TOP])
+    keys = [k for k in values if k in top]          # first-seen order (group member order)
+    jf = {k: _jf(k) for k in keys}
+    bag = {k: Counter(v) for k, v in jf.items()}
     seen, out = set(), []
-    for k in sorted(keys, key=lambda x: -values[x]):
+    for k in sorted(keys, key=lambda x: -values[x]):   # most frequent first (group leaders)
         if k in seen:
             continue
-        grp = [k] + [o for o in keys if o != k and o not in seen and similarity(k, o) >= 0.7]
+        grp = [k]
+        for o in keys:
+            if o == k or o in seen:
+                continue
+            la, lb = len(jf[k]), len(jf[o])
+            if la + lb == 0 or 2 * min(la, lb) / (la + lb) < 0.7:
+                continue
+            if 2 * sum((bag[k] & bag[o]).values()) / (la + lb) < 0.7:
+                continue
+            if similarity(k, o) >= 0.7:
+                grp.append(o)
         seen.update(grp)
         if len(grp) > 1:
             out.append(grp)
@@ -137,7 +163,7 @@ def profile_grid(g, md: list[str], draft: dict) -> None:
         typ = guess_type(vals)
         strs = [v for v in vals if isinstance(v, str)]
         ph = sum(1 for v in strs if v.strip().casefold() in N.PLACEHOLDERS)
-        fwc = sum(1 for v in strs if unicodedata.normalize("NFKC", v) != v)
+        fwc = sum(1 for v in strs if N.nfkc(v) != v)
         moj = sum(1 for v in strs if N.repair_mojibake(v))
         sp = sum(1 for v in strs if v != v.strip() or "  " in v or "\u200b" in v)
         cnt = Counter(N.normalize_text(v).value for v in vals if not N.is_blank(v))
@@ -151,6 +177,8 @@ def profile_grid(g, md: list[str], draft: dict) -> None:
             spec = {"type": "category", "aliases": spec["aliases"], "vocab_builtin": "ko_region"}
         elif typ == "category":
             spec["vocab"] = {k: [] for k, _ in cnt.most_common(12) if isinstance(k, str)}
+        if typ == "code":
+            spec = {"type": "text", "aliases": spec["aliases"]}   # keeps leading zeros; use id + '{n:0Nd}' for fixed-width codes
         if typ == "id":
             spec.update({"regex": r"(?i)[a-z]{0,3}[-_ ]?0*(?P<n>\d{1,8})", "format": "X{n:04d}"})
         tcols[key] = spec

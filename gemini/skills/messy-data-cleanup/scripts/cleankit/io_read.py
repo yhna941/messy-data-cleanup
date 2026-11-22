@@ -36,16 +36,22 @@ def read_csv(path: Path) -> list[Grid]:
         delim = csv.Sniffer().sniff(sample, delimiters=",;\t|").delimiter
     except csv.Error:
         delim = ","
+    del data
     reader = csv.reader(io.StringIO(text), delimiter=delim)
+    del text
     rows, starts, line = [], [], 1
+    # Repeated values ('Closed', 'NYPD', '11201') share one string object: on a 1M-row file this is
+    # the difference between ~14M and a few hundred thousand string objects. Values are unchanged.
+    pool: dict[str, str] = {"": None}  # type: ignore[dict-item]
     for rec in reader:
-        rows.append(list(rec))
+        rows.append([pool.setdefault(v, v) for v in rec])
         starts.append(line)
         line = reader.line_num + 1   # next record starts after the physical lines consumed so far
     width = max((len(r) for r in rows), default=0)
-    cells = [r + [""] * (width - len(r)) for r in rows]
-    cells = [[None if v == "" else v for v in r] for r in cells]
-    return [Grid(source=path.name, sheet="", cells=cells, encoding=enc, row_numbers=starts)]
+    for r in rows:
+        if len(r) < width:
+            r.extend([None] * (width - len(r)))
+    return [Grid(source=path.name, sheet="", cells=rows, encoding=enc, row_numbers=starts)]
 
 
 def read_xlsx(path: Path) -> list[Grid]:
