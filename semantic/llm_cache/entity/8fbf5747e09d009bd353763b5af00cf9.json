@@ -1,0 +1,325 @@
+{
+ "request": {
+  "task": "entity",
+  "prompt_version": "v1",
+  "model": "google/gemini-2.5-flash",
+  "instructions": "Each item is a row from the left table whose join key found no match (item.left) and up to 5 candidate rows from the master table (item.candidates, each with its key). Answer the key of the candidate that is clearly the same real-world entity (same person/product: e.g. the same name in another script or romanization, plus a matching phone/email/other field), or null if none clearly is. A similar-looking key alone is not enough. evidence_quote: copy the exact text from the item that proves the match.",
+  "data": {
+   "join": "orders_customers",
+   "key_column": "customer_id",
+   "items": [
+    {
+     "id": "10",
+     "left": {
+      "order_id": "S-009",
+      "order_date": "2024-02-09",
+      "customer_id": "C0099",
+      "customer_name": "Kim Minsu",
+      "email": "minsu.kim@example.com",
+      "payment": "카드",
+      "status": "배송완료",
+      "discount_pct": "0"
+     },
+     "candidates": [
+      {
+       "key": "C0001",
+       "customer_id": "C0001",
+       "name": "김민수",
+       "email": "minsu.kim@example.com",
+       "city": "서울"
+      },
+      {
+       "key": "C0008",
+       "customer_id": "C0008",
+       "name": "한지민",
+       "email": "jimin.han@example.com",
+       "city": "서울"
+      },
+      {
+       "key": "C0004",
+       "customer_id": "C0004",
+       "name": "최유진",
+       "email": "yujin.choi@example.com",
+       "city": "인천"
+      },
+      {
+       "key": "C0003",
+       "customer_id": "C0003",
+       "name": "박지훈",
+       "email": "jihoon.park@example.com",
+       "city": "대구"
+      },
+      {
+       "key": "C0002",
+       "customer_id": "C0002",
+       "name": "이수진",
+       "email": "sujin.lee@example.com",
+       "city": "부산"
+      }
+     ]
+    },
+    {
+     "id": "14",
+     "left": {
+      "order_id": "S-013",
+      "order_date": "2024-02-14",
+      "customer_name": "Lee Sujin",
+      "email": "sujin.lee@example.com",
+      "payment": "카드",
+      "status": "배송완료",
+      "discount_pct": "0"
+     },
+     "candidates": [
+      {
+       "key": "C0002",
+       "customer_id": "C0002",
+       "name": "이수진",
+       "email": "sujin.lee@example.com",
+       "city": "부산"
+      },
+      {
+       "key": "C0004",
+       "customer_id": "C0004",
+       "name": "최유진",
+       "email": "yujin.choi@example.com",
+       "city": "인천"
+      },
+      {
+       "key": "C0001",
+       "customer_id": "C0001",
+       "name": "김민수",
+       "email": "minsu.kim@example.com",
+       "city": "서울"
+      },
+      {
+       "key": "C0008",
+       "customer_id": "C0008",
+       "name": "한지민",
+       "email": "jimin.han@example.com",
+       "city": "서울"
+      },
+      {
+       "key": "C0003",
+       "customer_id": "C0003",
+       "name": "박지훈",
+       "email": "jihoon.park@example.com",
+       "city": "대구"
+      }
+     ]
+    },
+    {
+     "id": "16",
+     "left": {
+      "order_id": "S-015",
+      "order_date": "2024-02-16",
+      "customer_id": "C00O3",
+      "customer_name": "박지훈",
+      "email": "jihoon.park@example.com",
+      "payment": "카드",
+      "status": "배송완료",
+      "discount_pct": "0"
+     },
+     "candidates": [
+      {
+       "key": "C0003",
+       "customer_id": "C0003",
+       "name": "박지훈",
+       "email": "jihoon.park@example.com",
+       "city": "대구"
+      },
+      {
+       "key": "C0008",
+       "customer_id": "C0008",
+       "name": "한지민",
+       "email": "jimin.han@example.com",
+       "city": "서울"
+      },
+      {
+       "key": "C0004",
+       "customer_id": "C0004",
+       "name": "최유진",
+       "email": "yujin.choi@example.com",
+       "city": "인천"
+      },
+      {
+       "key": "C0001",
+       "customer_id": "C0001",
+       "name": "김민수",
+       "email": "minsu.kim@example.com",
+       "city": "서울"
+      },
+      {
+       "key": "C0002",
+       "customer_id": "C0002",
+       "name": "이수진",
+       "email": "sujin.lee@example.com",
+       "city": "부산"
+      }
+     ]
+    },
+    {
+     "id": "19",
+     "left": {
+      "order_id": "S-018",
+      "order_date": "2024-02-21",
+      "customer_id": "C0042",
+      "customer_name": "최유나",
+      "email": "yuna.choi@mail.net",
+      "payment": "카드",
+      "status": "배송완료",
+      "discount_pct": "0"
+     },
+     "candidates": [
+      {
+       "key": "C0002",
+       "customer_id": "C0002",
+       "name": "이수진",
+       "email": "sujin.lee@example.com",
+       "city": "부산"
+      },
+      {
+       "key": "C0004",
+       "customer_id": "C0004",
+       "name": "최유진",
+       "email": "yujin.choi@example.com",
+       "city": "인천"
+      },
+      {
+       "key": "C0001",
+       "customer_id": "C0001",
+       "name": "김민수",
+       "email": "minsu.kim@example.com",
+       "city": "서울"
+      },
+      {
+       "key": "C0003",
+       "customer_id": "C0003",
+       "name": "박지훈",
+       "email": "jihoon.park@example.com",
+       "city": "대구"
+      },
+      {
+       "key": "C0005",
+       "customer_id": "C0005",
+       "name": "정하늘",
+       "email": "haneul.jung@example.com",
+       "city": "광주"
+      }
+     ]
+    },
+    {
+     "id": "28",
+     "left": {
+      "order_id": "S-027",
+      "order_date": "2024-03-26",
+      "customer_name": "김민수",
+      "email": "mskim77@other.net",
+      "payment": "카드",
+      "status": "배송완료",
+      "discount_pct": "0"
+     },
+     "candidates": [
+      {
+       "key": "C0001",
+       "customer_id": "C0001",
+       "name": "김민수",
+       "email": "minsu.kim@example.com",
+       "city": "서울"
+      },
+      {
+       "key": "C0008",
+       "customer_id": "C0008",
+       "name": "한지민",
+       "email": "jimin.han@example.com",
+       "city": "서울"
+      },
+      {
+       "key": "C0002",
+       "customer_id": "C0002",
+       "name": "이수진",
+       "email": "sujin.lee@example.com",
+       "city": "부산"
+      },
+      {
+       "key": "C0004",
+       "customer_id": "C0004",
+       "name": "최유진",
+       "email": "yujin.choi@example.com",
+       "city": "인천"
+      },
+      {
+       "key": "C0007",
+       "customer_id": "C0007",
+       "name": "윤서아",
+       "email": "seoa.yoon@example.com",
+       "city": "울산"
+      }
+     ]
+    }
+   ]
+  }
+ },
+ "response": {
+  "items": [
+   {
+    "id": "10",
+    "answer": "C0001",
+    "confidence": 1.0,
+    "evidence_quote": "customer_name\": \"Kim Minsu\", \"email\": \"minsu.kim@example.com\", \"name\": \"김민수\", \"email\": \"minsu.kim@example.com",
+    "rationale": "The customer name 'Kim Minsu' in the left table matches '김민수' (Korean for Kim Minsu) in the candidate table, and both entries share the same email 'minsu.kim@example.com'. This combination strongly indicates they are the same person."
+   },
+   {
+    "id": "14",
+    "answer": "C0002",
+    "confidence": 1.0,
+    "evidence_quote": "customer_name\": \"Lee Sujin\", \"email\": \"sujin.lee@example.com\", \"name\": \"이수진\", \"email\": \"sujin.lee@example.com",
+    "rationale": "The customer name 'Lee Sujin' in the left table matches '이수진' (Korean for Lee Sujin) in the candidate table, and both entries share the same email 'sujin.lee@example.com'. This combination strongly indicates they are the same person."
+   },
+   {
+    "id": "16",
+    "answer": "C0003",
+    "confidence": 1.0,
+    "evidence_quote": "customer_name\": \"박지훈\", \"email\": \"jihoon.park@example.com\", \"name\": \"박지훈\", \"email\": \"jihoon.park@example.com",
+    "rationale": "The customer name '박지훈' and email 'jihoon.park@example.com' from the left table exactly match the name and email of candidate 'C0003'. This is a clear match."
+   },
+   {
+    "id": "19",
+    "answer": null,
+    "confidence": 0.0,
+    "evidence_quote": "customer_name\": \"최유나\", \"email\": \"yuna.choi@mail.net\"",
+    "rationale": "No candidate has a matching name or email address. The names '최유나' and '최유진' are similar but not identical, and the emails are completely different. Therefore, no clear match can be made."
+   },
+   {
+    "id": "28",
+    "answer": null,
+    "confidence": 0.0,
+    "evidence_quote": "customer_name\": \"김민수\", \"email\": \"mskim77@other.net\"",
+    "rationale": "While the name '김민수' matches candidate 'C0001', the email addresses 'mskim77@other.net' and 'minsu.kim@example.com' are different. A similar-looking name alone is not enough to confirm a match without other matching fields."
+   }
+  ]
+ },
+ "provider": "openrouter",
+ "usage": {
+  "prompt_tokens": 1972,
+  "completion_tokens": 617,
+  "total_tokens": 2589,
+  "cost": 0.0021341,
+  "is_byok": false,
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "cache_write_tokens": 0,
+   "audio_tokens": 0,
+   "video_tokens": 0
+  },
+  "cost_details": {
+   "upstream_inference_cost": 0.0021341,
+   "upstream_inference_prompt_cost": 0.0005916,
+   "upstream_inference_completions_cost": 0.0015425
+  },
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "image_tokens": 0,
+   "audio_tokens": 0
+  }
+ }
+}

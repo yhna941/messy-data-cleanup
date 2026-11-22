@@ -1,0 +1,1 @@
+fixed-point check: 0 value changes, 0 rows dropped on the second pass (211 representation-only log lines such as '12000' -> 12000; 31 review items carried over)

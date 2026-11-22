@@ -1,0 +1,395 @@
+{
+ "request": {
+  "task": "choice",
+  "prompt_version": "v1",
+  "model": "google/gemini-2.5-flash-lite",
+  "instructions": "Each item is one spreadsheet cell the rule engine could not decide. Choose the item's answer from item.candidates (copy the candidate string exactly) or null. task=synonym: is item.value the same thing as one candidate (a synonym, abbreviation, English/Korean name, brand name, or obvious typo)? If it is a different thing or not clearly one candidate, answer null. task=resolve (date): rows are in time order, so the right reading lies between item.previous_row and item.next_row; if both or neither do, null. task=resolve (percent): which reading matches the scale of item.other_values_in_column? If the context does not clearly decide, null. evidence_quote: copy the exact text from the item that supports the choice.",
+  "data": [
+   {
+    "id": "5:pickup_date",
+    "task": "resolve",
+    "column": "pickup_date",
+    "column_type": "date",
+    "value": "05/04/2024",
+    "candidates": [
+     "2024-04-05",
+     "2024-05-04"
+    ],
+    "row": {
+     "order_id": "B-004",
+     "customer_id": "K004",
+     "customer_name": "최서윤",
+     "phone": "010-1234-0004",
+     "payment": "toss",
+     "status": "완료"
+    },
+    "previous_row": {
+     "row": 4,
+     "pickup_date": "2024-04-03"
+    },
+    "next_row": {
+     "row": 6,
+     "pickup_date": "2024-04-06"
+    }
+   },
+   {
+    "id": "13:pickup_date",
+    "task": "resolve",
+    "column": "pickup_date",
+    "column_type": "date",
+    "value": "10/05/2024",
+    "candidates": [
+     "2024-05-10",
+     "2024-10-05"
+    ],
+    "row": {
+     "order_id": "B-012",
+     "customer_id": "K004",
+     "customer_name": "최서윤",
+     "phone": "010-1234-0004",
+     "payment": "카드",
+     "status": "완료"
+    },
+    "previous_row": {
+     "row": 12,
+     "pickup_date": "2024-04-13"
+    },
+    "next_row": {
+     "row": 14,
+     "pickup_date": "2024-11-30"
+    }
+   },
+   {
+    "id": "3:payment",
+    "task": "synonym",
+    "column": "payment",
+    "column_type": "category",
+    "value": "Master카드",
+    "candidates": [
+     "카드",
+     "계좌이체",
+     "카카오페이",
+     "토스페이",
+     "현금"
+    ],
+    "row": {
+     "order_id": "B-002",
+     "pickup_date": "2024-04-02",
+     "customer_id": "K002",
+     "customer_name": "김하린",
+     "phone": "010-1234-0002",
+     "status": "완료"
+    },
+    "listed_synonyms": {
+     "카드": [
+      "card"
+     ]
+    }
+   },
+   {
+    "id": "5:payment",
+    "task": "synonym",
+    "column": "payment",
+    "column_type": "category",
+    "value": "toss",
+    "candidates": [
+     "카드",
+     "계좌이체",
+     "카카오페이",
+     "토스페이",
+     "현금"
+    ],
+    "row": {
+     "order_id": "B-004",
+     "pickup_date": "2024-05-04",
+     "customer_id": "K004",
+     "customer_name": "최서윤",
+     "phone": "010-1234-0004",
+     "status": "완료"
+    },
+    "listed_synonyms": {
+     "카드": [
+      "card"
+     ]
+    }
+   },
+   {
+    "id": "6:payment",
+    "task": "synonym",
+    "column": "payment",
+    "column_type": "category",
+    "value": "삼성페이",
+    "candidates": [
+     "카드",
+     "계좌이체",
+     "카카오페이",
+     "토스페이",
+     "현금"
+    ],
+    "row": {
+     "order_id": "B-005",
+     "pickup_date": "2024-04-06",
+     "customer_id": "K005",
+     "customer_name": "정민재",
+     "phone": "010-1234-0005",
+     "status": "완료"
+    },
+    "listed_synonyms": {
+     "카드": [
+      "card"
+     ]
+    }
+   },
+   {
+    "id": "8:payment",
+    "task": "synonym",
+    "column": "payment",
+    "column_type": "category",
+    "value": "외상",
+    "candidates": [
+     "카드",
+     "계좌이체",
+     "카카오페이",
+     "토스페이",
+     "현금"
+    ],
+    "row": {
+     "order_id": "B-007",
+     "pickup_date": "2024-04-09",
+     "customer_id": "K001",
+     "customer_name": "박지훈",
+     "phone": "010-1234-0001",
+     "status": "완료"
+    },
+    "listed_synonyms": {
+     "카드": [
+      "card"
+     ]
+    }
+   },
+   {
+    "id": "11:payment",
+    "task": "synonym",
+    "column": "payment",
+    "column_type": "category",
+    "value": "온라인 송금",
+    "candidates": [
+     "카드",
+     "계좌이체",
+     "카카오페이",
+     "토스페이",
+     "현금"
+    ],
+    "row": {
+     "order_id": "B-010",
+     "pickup_date": "2024-04-12",
+     "customer_id": "K003",
+     "customer_name": "이도현",
+     "phone": "010-1234-0003",
+     "status": "완료"
+    },
+    "listed_synonyms": {
+     "카드": [
+      "card"
+     ]
+    }
+   },
+   {
+    "id": "4:status",
+    "task": "synonym",
+    "column": "status",
+    "column_type": "category",
+    "value": "ready for pickup",
+    "candidates": [
+     "접수",
+     "제작중",
+     "픽업대기",
+     "완료",
+     "취소"
+    ],
+    "row": {
+     "order_id": "B-003",
+     "pickup_date": "2024-04-03",
+     "customer_id": "K003",
+     "customer_name": "이도현",
+     "phone": "010-1234-0003",
+     "payment": "카드"
+    },
+    "listed_synonyms": {}
+   },
+   {
+    "id": "7:status",
+    "task": "synonym",
+    "column": "status",
+    "column_type": "category",
+    "value": "다 만들었어요 찾아가세요",
+    "candidates": [
+     "접수",
+     "제작중",
+     "픽업대기",
+     "완료",
+     "취소"
+    ],
+    "row": {
+     "order_id": "B-006",
+     "pickup_date": "2024-04-08",
+     "customer_id": "K006",
+     "customer_name": "오유나",
+     "phone": "010-1234-0006",
+     "payment": "카드"
+    },
+    "listed_synonyms": {}
+   },
+   {
+    "id": "9:status",
+    "task": "synonym",
+    "column": "status",
+    "column_type": "category",
+    "value": "노쇼",
+    "candidates": [
+     "접수",
+     "제작중",
+     "픽업대기",
+     "완료",
+     "취소"
+    ],
+    "row": {
+     "order_id": "B-008",
+     "pickup_date": "2024-04-10",
+     "customer_id": "K002",
+     "customer_name": "김하린",
+     "phone": "010-1234-0002",
+     "payment": "카드"
+    },
+    "listed_synonyms": {}
+   },
+   {
+    "id": "12:status",
+    "task": "synonym",
+    "column": "status",
+    "column_type": "category",
+    "value": "done",
+    "candidates": [
+     "접수",
+     "제작중",
+     "픽업대기",
+     "완료",
+     "취소"
+    ],
+    "row": {
+     "order_id": "B-011",
+     "pickup_date": "2024-04-13",
+     "customer_name": "Kim Harin",
+     "phone": "010-1234-0002",
+     "payment": "카드"
+    },
+    "listed_synonyms": {}
+   }
+  ]
+ },
+ "response": {
+  "items": [
+   {
+    "id": "5:pickup_date",
+    "answer": "2024-05-04",
+    "confidence": 1.0,
+    "evidence_quote": "05/04/2024",
+    "rationale": "The value 05/04/2024 is a date in MM/DD/YYYY format. The candidate 2024-05-04 is the same date in YYYY-MM-DD format. The previous row's date is 2024-04-03 and the next row's date is 2024-04-06, making 2024-05-04 an outlier. However, the task is to resolve the date, and 2024-05-04 is a valid interpretation of 05/04/2024."
+   },
+   {
+    "id": "13:pickup_date",
+    "answer": "2024-10-05",
+    "confidence": 0.5,
+    "evidence_quote": "10/05/2024",
+    "rationale": "The value 10/05/2024 is a date in MM/DD/YYYY format. The candidate 2024-10-05 is the same date in YYYY-MM-DD format. The previous row's date is 2024-04-13 and the next row's date is 2024-11-30. Both candidates 2024-05-10 and 2024-10-05 are plausible given the surrounding dates. However, 2024-10-05 is closer to the next row's date."
+   },
+   {
+    "id": "3:payment",
+    "answer": "카드",
+    "confidence": 1.0,
+    "evidence_quote": "Master카드",
+    "rationale": "The value 'Master카드' is a type of card payment. The candidate '카드' is a direct match."
+   },
+   {
+    "id": "5:payment",
+    "answer": "토스페이",
+    "confidence": 1.0,
+    "evidence_quote": "toss",
+    "rationale": "The value 'toss' is a payment service. The candidate '토스페이' is the Korean name for Toss Pay."
+   },
+   {
+    "id": "6:payment",
+    "answer": "null",
+    "confidence": 0.5,
+    "evidence_quote": "삼성페이",
+    "rationale": "The value '삼성페이' (Samsung Pay) is a payment method. None of the candidates directly match '삼성페이'. While it is a form of card payment, it is not explicitly listed as a candidate."
+   },
+   {
+    "id": "8:payment",
+    "answer": "null",
+    "confidence": 0.5,
+    "evidence_quote": "외상",
+    "rationale": "The value '외상' means credit or on account. None of the candidates directly match '외상'. It is not a type of card, bank transfer, KakaoPay, TossPay, or cash."
+   },
+   {
+    "id": "11:payment",
+    "answer": "계좌이체",
+    "confidence": 1.0,
+    "evidence_quote": "온라인 송금",
+    "rationale": "The value '온라인 송금' means online remittance or bank transfer. The candidate '계좌이체' means bank transfer, which is a synonym."
+   },
+   {
+    "id": "4:status",
+    "answer": "픽업대기",
+    "confidence": 1.0,
+    "evidence_quote": "ready for pickup",
+    "rationale": "The value 'ready for pickup' is an English phrase. The candidate '픽업대기' is the Korean translation for 'ready for pickup'."
+   },
+   {
+    "id": "7:status",
+    "answer": "완료",
+    "confidence": 1.0,
+    "evidence_quote": "다 만들었어요 찾아가세요",
+    "rationale": "The value '다 만들었어요 찾아가세요' translates to 'It's all made, please come pick it up.' This implies the order is complete and ready for pickup, which aligns with the '완료' (completed) status."
+   },
+   {
+    "id": "9:status",
+    "answer": "null",
+    "confidence": 0.5,
+    "evidence_quote": "노쇼",
+    "rationale": "The value '노쇼' means 'no-show'. None of the candidates ('접수', '제작중', '픽업대기', '완료', '취소') directly represent 'no-show'. While '취소' (cancellation) might be related, 'no-show' is a distinct status."
+   },
+   {
+    "id": "12:status",
+    "answer": "완료",
+    "confidence": 1.0,
+    "evidence_quote": "done",
+    "rationale": "The value 'done' is an English word. The candidate '완료' is the Korean translation for 'done' or 'completed'."
+   }
+  ]
+ },
+ "provider": "openrouter",
+ "usage": {
+  "prompt_tokens": 2030,
+  "completion_tokens": 1268,
+  "total_tokens": 3298,
+  "cost": 0.0007102,
+  "is_byok": false,
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "cache_write_tokens": 0,
+   "audio_tokens": 0,
+   "video_tokens": 0
+  },
+  "cost_details": {
+   "upstream_inference_cost": 0.0007102,
+   "upstream_inference_prompt_cost": 0.000203,
+   "upstream_inference_completions_cost": 0.0005072
+  },
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "image_tokens": 0,
+   "audio_tokens": 0
+  }
+ }
+}

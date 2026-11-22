@@ -1,0 +1,307 @@
+{
+ "changes": [
+  {
+   "table": "orders",
+   "sheet": "주문",
+   "source_row": 4,
+   "column": "order_date",
+   "before": "03/02/2024",
+   "after": "2024-03-02",
+   "rule": "D1-ORDER",
+   "confidence": 0.5,
+   "evidence": "03/02/2024 is ambiguous (MDY=2024-03-02, DMY=2024-02-03); used contract order MDY"
+  },
+  {
+   "table": "orders",
+   "sheet": "주문",
+   "source_row": 23,
+   "column": "order_date",
+   "before": "04/03/2024",
+   "after": "2024-04-03",
+   "rule": "D1-ORDER",
+   "confidence": 0.5,
+   "evidence": "04/03/2024 is ambiguous (MDY=2024-04-03, DMY=2024-03-04); used contract order MDY"
+  },
+  {
+   "table": "orders",
+   "sheet": "주문",
+   "source_row": 26,
+   "column": "order_date",
+   "before": "05/03/2024",
+   "after": "2024-05-03",
+   "rule": "D1-ORDER",
+   "confidence": 0.5,
+   "evidence": "05/03/2024 is ambiguous (MDY=2024-05-03, DMY=2024-03-05); used contract order MDY"
+  },
+  {
+   "table": "orders",
+   "sheet": "주문",
+   "source_row": 29,
+   "column": "payment",
+   "before": "계좌 이체",
+   "after": "계좌이체",
+   "rule": "C1-CANON",
+   "confidence": 1.0,
+   "evidence": "'계좌 이체' equals '계좌이체' after case/space/punctuation folding"
+  }
+ ],
+ "dropped": [
+  {
+   "table": "customers",
+   "sheet": "고객",
+   "source_row": 1,
+   "kind": "header",
+   "reason": "header row (mapped to contract columns)",
+   "evidence": "A=고객ID→customer_id; B=이름→name; C=이메일→email; D=지역→city",
+   "raw_values": "고객ID | 이름 | 이메일 | 지역"
+  },
+  {
+   "table": "orders",
+   "sheet": "주문",
+   "source_row": 1,
+   "kind": "header",
+   "reason": "header row (mapped to contract columns)",
+   "evidence": "A=주문번호→order_id; B=주문일→order_date; C=고객ID→customer_id; D=고객명→customer_name; E=이메일→email; F=결제수단→payment; G=상태→status; H=할인율→discount_pct; I=요청사항→note",
+   "raw_values": "주문번호 | 주문일 | 고객ID | 고객명 | 이메일 | 결제수단 | 상태 | 할인율 | 요청사항"
+  }
+ ],
+ "review": [
+  {
+   "table": "orders",
+   "sheet": "주문",
+   "source_row": 4,
+   "column": "order_date",
+   "value": "2024-03-02",
+   "flag": "R1-DATE",
+   "suggestion": "2024-03-02",
+   "question": "'03/02/2024' could be MDY=2024-03-02, DMY=2024-02-03: which one?"
+  },
+  {
+   "table": "orders",
+   "sheet": "주문",
+   "source_row": 23,
+   "column": "order_date",
+   "value": "2024-04-03",
+   "flag": "R1-DATE",
+   "suggestion": "2024-04-03",
+   "question": "'04/03/2024' could be MDY=2024-04-03, DMY=2024-03-04: which one?"
+  },
+  {
+   "table": "orders",
+   "sheet": "주문",
+   "source_row": 26,
+   "column": "order_date",
+   "value": "2024-05-03",
+   "flag": "R1-DATE",
+   "suggestion": "2024-05-03",
+   "question": "'05/03/2024' could be MDY=2024-05-03, DMY=2024-03-05: which one?"
+  },
+  {
+   "table": "orders",
+   "sheet": "주문",
+   "source_row": 16,
+   "column": "customer_id",
+   "value": "C00O3",
+   "flag": "R5-INVALID",
+   "suggestion": "",
+   "question": "ID 'C00O3' does not match the expected pattern: which record is it?"
+  },
+  {
+   "table": "orders",
+   "sheet": "주문",
+   "source_row": 3,
+   "column": "payment",
+   "value": "무통장입금",
+   "flag": "R4-CATEGORY",
+   "suggestion": "",
+   "question": "'무통장입금' is not in the vocabulary (closest '현금' at 0.30, runner-up '계좌이체' at 0.27): map it, or add it as a new value?"
+  },
+  {
+   "table": "orders",
+   "sheet": "주문",
+   "source_row": 5,
+   "column": "payment",
+   "value": "Visa",
+   "flag": "R4-CATEGORY",
+   "suggestion": "",
+   "question": "'Visa' is not in the vocabulary (closest '카드' at 0.25, runner-up '현금' at 0.00): map it, or add it as a new value?"
+  },
+  {
+   "table": "orders",
+   "sheet": "주문",
+   "source_row": 7,
+   "column": "payment",
+   "value": "포인트",
+   "flag": "R4-CATEGORY",
+   "suggestion": "네이버페이",
+   "question": "'포인트' is not in the vocabulary (closest '네이버페이' at 0.50, runner-up '카카오페이' at 0.35): map it, or add it as a new value?"
+  },
+  {
+   "table": "orders",
+   "sheet": "주문",
+   "source_row": 8,
+   "column": "payment",
+   "value": "naver pay",
+   "flag": "R4-CATEGORY",
+   "suggestion": "",
+   "question": "'naver pay' is not in the vocabulary (closest '카드' at 0.33, runner-up '네이버페이' at 0.15): map it, or add it as a new value?"
+  },
+  {
+   "table": "orders",
+   "sheet": "주문",
+   "source_row": 12,
+   "column": "payment",
+   "value": "KakaoPay",
+   "flag": "R4-CATEGORY",
+   "suggestion": "",
+   "question": "'KakaoPay' is not in the vocabulary (closest '카드' at 0.17, runner-up '현금' at 0.00): map it, or add it as a new value?"
+  },
+  {
+   "table": "orders",
+   "sheet": "주문",
+   "source_row": 15,
+   "column": "payment",
+   "value": "체크카드",
+   "flag": "R4-CATEGORY",
+   "suggestion": "카드",
+   "question": "'체크카드' is not in the vocabulary (closest '카드' at 0.67, runner-up '계좌이체' at 0.25): map it, or add it as a new value?"
+  },
+  {
+   "table": "orders",
+   "sheet": "주문",
+   "source_row": 20,
+   "column": "payment",
+   "value": "상품권",
+   "flag": "R4-CATEGORY",
+   "suggestion": "",
+   "question": "'상품권' is not in the vocabulary (closest '카카오페이' at 0.21, runner-up '카드' at 0.15): map it, or add it as a new value?"
+  },
+  {
+   "table": "orders",
+   "sheet": "주문",
+   "source_row": 6,
+   "column": "status",
+   "value": "delivered",
+   "flag": "R4-CATEGORY",
+   "suggestion": "",
+   "question": "'delivered' is not in the vocabulary (closest '취소' at 0.00, runner-up '배송중' at 0.00): map it, or add it as a new value?"
+  },
+  {
+   "table": "orders",
+   "sheet": "주문",
+   "source_row": 11,
+   "column": "status",
+   "value": "배달 끝났어요",
+   "flag": "R4-CATEGORY",
+   "suggestion": "",
+   "question": "'배달 끝났어요' is not in the vocabulary (closest '배송완료' at 0.32, runner-up '결제완료' at 0.24): map it, or add it as a new value?"
+  },
+  {
+   "table": "orders",
+   "sheet": "주문",
+   "source_row": 13,
+   "column": "status",
+   "value": "보류",
+   "flag": "R4-CATEGORY",
+   "suggestion": "",
+   "question": "'보류' is not in the vocabulary (closest '배송완료' at 0.43, runner-up '배송중' at 0.33): map it, or add it as a new value?"
+  },
+  {
+   "table": "orders",
+   "sheet": "주문",
+   "source_row": 17,
+   "column": "status",
+   "value": "shipped",
+   "flag": "R4-CATEGORY",
+   "suggestion": "",
+   "question": "'shipped' is not in the vocabulary (closest '취소' at 0.00, runner-up '배송중' at 0.00): map it, or add it as a new value?"
+  },
+  {
+   "table": "orders",
+   "sheet": "주문",
+   "source_row": 18,
+   "column": "status",
+   "value": "환불 요청 접수",
+   "flag": "R4-CATEGORY",
+   "suggestion": "",
+   "question": "'환불 요청 접수' is not in the vocabulary (closest '배송중' at 0.33, runner-up '배송완료' at 0.23): map it, or add it as a new value?"
+  },
+  {
+   "table": "orders",
+   "sheet": "주문",
+   "source_row": 21,
+   "column": "status",
+   "value": "고객 변심 취소",
+   "flag": "R4-CATEGORY",
+   "suggestion": "",
+   "question": "'고객 변심 취소' is not in the vocabulary (closest '취소' at 0.42, runner-up '반품' at 0.29): map it, or add it as a new value?"
+  },
+  {
+   "table": "orders",
+   "sheet": "주문",
+   "source_row": 9,
+   "column": "discount_pct",
+   "value": 0.15,
+   "flag": "R2-NUMBER",
+   "suggestion": "15.0",
+   "question": "0.15 looks like a fraction in a 0-100 percent column: is it 15%? (not converted)"
+  },
+  {
+   "table": "orders",
+   "sheet": "주문",
+   "source_row": 10,
+   "column": "customer_id",
+   "value": "C0099",
+   "flag": "J2-ORPHAN",
+   "suggestion": "",
+   "question": "customer_id='C0099' not found in customers: typo, or missing master row?"
+  },
+  {
+   "table": "orders",
+   "sheet": "주문",
+   "source_row": 16,
+   "column": "customer_id",
+   "value": "C00O3",
+   "flag": "J2-ORPHAN",
+   "suggestion": "",
+   "question": "customer_id='C00O3' not found in customers: typo, or missing master row?"
+  },
+  {
+   "table": "orders",
+   "sheet": "주문",
+   "source_row": 19,
+   "column": "customer_id",
+   "value": "C0042",
+   "flag": "J2-ORPHAN",
+   "suggestion": "",
+   "question": "customer_id='C0042' not found in customers: typo, or missing master row?"
+  }
+ ],
+ "dups": [],
+ "join_details": [
+  {
+   "join": "orders_customers",
+   "step": "customers",
+   "left_row": 10,
+   "key": "C0099",
+   "issue": "J2-ORPHAN",
+   "detail": "no row in customers with customer_id='C0099'"
+  },
+  {
+   "join": "orders_customers",
+   "step": "customers",
+   "left_row": 16,
+   "key": "C00O3",
+   "issue": "J2-ORPHAN",
+   "detail": "no row in customers with customer_id='C00O3'"
+  },
+  {
+   "join": "orders_customers",
+   "step": "customers",
+   "left_row": 19,
+   "key": "C0042",
+   "issue": "J2-ORPHAN",
+   "detail": "no row in customers with customer_id='C0042'"
+  }
+ ]
+}

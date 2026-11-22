@@ -1,0 +1,313 @@
+{
+ "request": {
+  "task": "layout",
+  "prompt_version": "v1",
+  "model": "google/gemini-2.5-flash-lite",
+  "instructions": "DATA is a preview of one spreadsheet sheet: each row is [row_number, cell1, cell2, ...] (1-based, blank cells are ''). Find every table in it. For each table give: header_rows (row numbers of its header, 1 or 2 rows), first_data_row, last_data_row (data rows only: not titles, notes, subtotals or blank rows at the end), a short snake_case name, and its columns (header = the header text exactly as in the cells, joined with a space for 2-row headers; name = snake_case English; type). evidence_quote = copy one header cell exactly.",
+  "data": {
+   "sheet": "고객명단",
+   "rows": [
+    [
+     1,
+     "고객 명단 (2024.03 기준)",
+     "",
+     "",
+     "",
+     "",
+     "",
+     "",
+     ""
+    ],
+    [
+     2,
+     "",
+     "",
+     "",
+     "",
+     "",
+     "",
+     "",
+     ""
+    ],
+    [
+     3,
+     "고객번호",
+     "이름",
+     "지역",
+     "연락처",
+     "이메일",
+     "가입일",
+     "등급",
+     "메모"
+    ],
+    [
+     4,
+     "C0001",
+     "김민수",
+     "서울특별시",
+     "010-1111-2222",
+     "MINSU.KIM@NAVER.COM ",
+     "2023-01-15 00:00:00",
+     "VIP",
+     ""
+    ],
+    [
+     5,
+     "c-2",
+     "이수진 ",
+     "서울특별시",
+     "01022223333",
+     "sujin@gmail",
+     "44960",
+     "일반회원",
+     "단골"
+    ],
+    [
+     6,
+     "C 0003",
+     "박지훈",
+     "서을",
+     "010 3333 4444",
+     "jihoon.park@@daum.net",
+     "2023.3.12",
+     "일반",
+     ""
+    ],
+    [
+     7,
+     "4",
+     "최유리",
+     "경기도",
+     "+82 10-4444-5555",
+     "yuri.choi@naver.com",
+     "23/04/01",
+     "vip",
+     "-"
+    ],
+    [
+     8,
+     "Ｃ０００５",
+     "정다은",
+     "경기도",
+     "010.5555.6666",
+     "daeun@kakao.com",
+     "2023년 5월 20일",
+     "신규 회원",
+     ""
+    ],
+    [
+     9,
+     "Ｃ０００５",
+     "정다은",
+     "경기도",
+     "010.5555.6666",
+     "daeun@kakao.com",
+     "2023년 5월 20일",
+     "신규 회원",
+     ""
+    ],
+    [
+     10,
+     "c0006 ",
+     "강호동",
+     "겅기",
+     "1066667777",
+     "hodong@naver.com",
+     "20230611",
+     "일반",
+     "VIP 승급 검토"
+    ],
+    [
+     11,
+     "C0007",
+     "최유진",
+     "부산광역시",
+     "010-7777-8888",
+     "yujin.choi@gmail.com",
+     "2023-07-07",
+     "일 반",
+     ""
+    ],
+    [
+     12,
+     "C0008",
+     "윤서연",
+     "부산광역시",
+     "010-8888-9999",
+     "seoyeon@naver.com",
+     "2023/8/8",
+     "신규",
+     ""
+    ],
+    [
+     13,
+     "C0009",
+     "김민수",
+     "busan",
+     "010-9999-0000",
+     "kms1990@gmail.com",
+     "2023-13-01",
+     "일반",
+     "동명이인 주의"
+    ],
+    [
+     14,
+     "C0016",
+     "최 유진",
+     "부산",
+     "01077778888",
+     "YUJIN.CHOI@GMAIL.COM",
+     "2024.2.1",
+     "일반",
+     "재가입?"
+    ],
+    [
+     15,
+     "C0010",
+     "한지민",
+     "인천시",
+     "010-1212-3434",
+     "jimin@daum.net",
+     "２０２３．１０．１０",
+     "V.I.P",
+     ""
+    ],
+    [
+     16,
+     "C0011",
+     "오세훈",
+     "Incheon",
+     "010-565-7878",
+     "sehoon@naver.com",
+     "2023-11-11 00:00:00",
+     "일반",
+     ""
+    ],
+    [
+     17,
+     "C0012",
+     "서지수",
+     "대구 ",
+     "01090901212",
+     "jisu@gmail.com",
+     "2023.12.1",
+     "신규",
+     ""
+    ],
+    [
+     18,
+     "C0013",
+     "임재범",
+     "대구광역시",
+     "010-3434-5656",
+     "jaebum@naver.com",
+     "45296",
+     "일반",
+     ""
+    ],
+    [
+     19,
+     "C0014",
+     "송하늘",
+     "제주도",
+     "010–7878–9090",
+     "haneul@kakao.com",
+     "2024-01-20",
+     "신규",
+     ""
+    ],
+    [
+     20,
+     "C0015",
+     "배수지",
+     "Jeju",
+     "010-2468-1357",
+     "suzy@naver.com",
+     "2024.2.14",
+     "VlP",
+     ""
+    ]
+   ]
+  }
+ },
+ "response": {
+  "tables": [
+   {
+    "sheet": "고객명단",
+    "name": "customer_list",
+    "header_rows": [
+     3
+    ],
+    "first_data_row": 4,
+    "last_data_row": 20,
+    "evidence_quote": "고객번호",
+    "columns": [
+     {
+      "header": "고객번호",
+      "name": "customer_id",
+      "type": "id"
+     },
+     {
+      "header": "이름",
+      "name": "name",
+      "type": "text"
+     },
+     {
+      "header": "지역",
+      "name": "region",
+      "type": "text"
+     },
+     {
+      "header": "연락처",
+      "name": "phone_number",
+      "type": "phone"
+     },
+     {
+      "header": "이메일",
+      "name": "email",
+      "type": "email"
+     },
+     {
+      "header": "가입일",
+      "name": "signup_date",
+      "type": "date"
+     },
+     {
+      "header": "등급",
+      "name": "grade",
+      "type": "category"
+     },
+     {
+      "header": "메모",
+      "name": "memo",
+      "type": "freetext"
+     }
+    ]
+   }
+  ]
+ },
+ "provider": "openrouter",
+ "usage": {
+  "prompt_tokens": 1398,
+  "completion_tokens": 345,
+  "total_tokens": 1743,
+  "cost": 0.0002778,
+  "is_byok": false,
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "cache_write_tokens": 0,
+   "audio_tokens": 0,
+   "video_tokens": 0
+  },
+  "cost_details": {
+   "upstream_inference_cost": 0.0002778,
+   "upstream_inference_prompt_cost": 0.0001398,
+   "upstream_inference_completions_cost": 0.000138
+  },
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "image_tokens": 0,
+   "audio_tokens": 0
+  }
+ }
+}

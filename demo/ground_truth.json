@@ -1,0 +1,4654 @@
+{
+ "tables": {
+  "orders": {
+   "6": {
+    "order_id": "O-2024-0001",
+    "order_date": "2024-01-03",
+    "customer_id": "C0001",
+    "customer_name": "김민수",
+    "product_code": "P001",
+    "product_name": "하우스블렌드 원두 200g",
+    "qty": 2,
+    "unit_price": 12000,
+    "discount_pct": 10,
+    "amount": 21600,
+    "payment": "카드",
+    "status": "배송완료"
+   },
+   "7": {
+    "order_id": "O-2024-0002",
+    "order_date": "2024-01-05",
+    "customer_id": "C0002",
+    "customer_name": "이수진",
+    "product_code": "P009",
+    "product_name": "시즌 블렌드 200g",
+    "qty": 1,
+    "unit_price": 13000,
+    "discount_pct": null,
+    "amount": 13000,
+    "payment": "계좌이체",
+    "status": "배송완료"
+   },
+   "8": {
+    "order_id": "O-2024-0003",
+    "order_date": "2024-01-07",
+    "customer_id": "C0003",
+    "customer_name": "박지훈",
+    "product_code": "P005",
+    "product_name": "콜드브루 원액 500ml",
+    "qty": 1,
+    "unit_price": 18000,
+    "discount_pct": 0,
+    "amount": 18000,
+    "payment": "네이버페이",
+    "status": "배송완료"
+   },
+   "9": {
+    "order_id": "O-2024-0004",
+    "order_date": "2024-01-07",
+    "customer_id": "C0004",
+    "customer_name": "최유리",
+    "product_code": "P002",
+    "product_name": "에티오피아 예가체프 200g",
+    "qty": 2,
+    "unit_price": 15000,
+    "discount_pct": 5,
+    "amount": 28500,
+    "payment": "카드",
+    "status": "배송완료"
+   },
+   "10": {
+    "order_id": "O-2024-0005",
+    "order_date": "2024-01-09",
+    "customer_id": "C0005",
+    "customer_name": "정다은",
+    "product_code": "P004",
+    "product_name": "드립백 10입 세트",
+    "qty": 1,
+    "unit_price": 13500,
+    "discount_pct": null,
+    "amount": 13500,
+    "payment": "카카오페이",
+    "status": "배송완료"
+   },
+   "12": {
+    "order_id": "O-2024-0006",
+    "order_date": "2024-01-12",
+    "customer_id": "C0006",
+    "customer_name": "강호동",
+    "product_code": null,
+    "product_name": "콜드브루 원액 500ml",
+    "qty": 2,
+    "unit_price": 18000,
+    "discount_pct": 10,
+    "amount": 32400,
+    "payment": "카드",
+    "status": "반품"
+   },
+   "13": {
+    "order_id": "O-2024-0007",
+    "order_date": "2024-01-15",
+    "customer_id": "C0007",
+    "customer_name": "최유진",
+    "product_code": "P004",
+    "product_name": "드립백 10입 세트",
+    "qty": 1,
+    "unit_price": 13500,
+    "discount_pct": null,
+    "amount": 13500,
+    "payment": "네이버페이",
+    "status": "반품"
+   },
+   "14": {
+    "order_id": "O-2024-0008",
+    "order_date": "2024-01-16",
+    "customer_id": "C0008",
+    "customer_name": "윤서연",
+    "product_code": "P003",
+    "product_name": "콜롬비아 수프리모 1kg",
+    "qty": 1,
+    "unit_price": 45000,
+    "discount_pct": 0,
+    "amount": 45000,
+    "payment": "카드",
+    "status": "배송완료"
+   },
+   "15": {
+    "order_id": "O-2024-0009",
+    "order_date": "2024-01-18",
+    "customer_id": "C0003",
+    "customer_name": "박지훈",
+    "product_code": "P007",
+    "product_name": "하루 머그컵",
+    "qty": 2,
+    "unit_price": 9000,
+    "discount_pct": null,
+    "amount": 18000,
+    "payment": "카드",
+    "status": "배송완료"
+   },
+   "16": {
+    "order_id": "O-2024-0010",
+    "order_date": "2024-01-20",
+    "customer_id": "C0005",
+    "customer_name": "정다은",
+    "product_code": "P008",
+    "product_name": "텀블러 473ml",
+    "qty": 1,
+    "unit_price": 25000,
+    "discount_pct": 5,
+    "amount": 23750,
+    "payment": "계좌이체",
+    "status": "취소"
+   },
+   "17": {
+    "order_id": "O-2024-0011",
+    "order_date": "2024-01-24",
+    "customer_id": "C0010",
+    "customer_name": "한지민",
+    "product_code": "P006",
+    "product_name": "디카페인 콜드브루 500ml",
+    "qty": 2,
+    "unit_price": 19500,
+    "discount_pct": 10,
+    "amount": 35100,
+    "payment": "카카오페이",
+    "status": "배송완료"
+   },
+   "18": {
+    "order_id": "O-2024-0012",
+    "order_date": "2024-01-29",
+    "customer_id": "C0011",
+    "customer_name": "오세훈",
+    "product_code": "P001",
+    "product_name": "하우스블렌드 원두 200g",
+    "qty": 3,
+    "unit_price": 12000,
+    "discount_pct": null,
+    "amount": 36000,
+    "payment": "카드",
+    "status": "배송완료"
+   },
+   "22": {
+    "order_id": "O-2024-0013",
+    "order_date": "2024-02-01",
+    "customer_id": "C0012",
+    "customer_name": "서지수",
+    "product_code": "P002",
+    "product_name": "에티오피아 예가체프 200g",
+    "qty": 1,
+    "unit_price": 15000,
+    "discount_pct": 0,
+    "amount": 15000,
+    "payment": "네이버페이",
+    "status": "배송완료"
+   },
+   "24": {
+    "order_id": "O-2024-0014",
+    "order_date": "2024-02-03",
+    "customer_id": "C0013",
+    "customer_name": "임재범",
+    "product_code": "P005",
+    "product_name": "콜드브루 원액 500ml",
+    "qty": 2,
+    "unit_price": 18000,
+    "discount_pct": 10,
+    "amount": 32400,
+    "payment": "카드",
+    "status": "배송완료"
+   },
+   "25": {
+    "order_id": "O-2024-0015",
+    "order_date": "2024-02-03",
+    "customer_id": "C0014",
+    "customer_name": "송하늘",
+    "product_code": "P004",
+    "product_name": "드립백 10입 세트",
+    "qty": 1,
+    "unit_price": 13500,
+    "discount_pct": null,
+    "amount": 13500,
+    "payment": "카카오페이",
+    "status": "배송완료"
+   },
+   "26": {
+    "order_id": "O-2024-0016",
+    "order_date": "2024-02-06",
+    "customer_id": "C0015",
+    "customer_name": "배수지",
+    "product_code": "P008",
+    "product_name": "텀블러 473ml",
+    "qty": 1,
+    "unit_price": 25000,
+    "discount_pct": 5,
+    "amount": 23750,
+    "payment": "카드",
+    "status": "배송완료"
+   },
+   "27": {
+    "order_id": "O-2024-0017",
+    "order_date": "2024-02-08",
+    "customer_id": "C0003",
+    "customer_name": "박지훈",
+    "product_code": "P001",
+    "product_name": "하우스블렌드 원두 200g",
+    "qty": 1,
+    "unit_price": 12000,
+    "discount_pct": null,
+    "amount": 12000,
+    "payment": "계좌이체",
+    "status": "배송완료"
+   },
+   "28": {
+    "order_id": "O-2024-0018",
+    "order_date": "2024-02-09",
+    "customer_id": "C0001",
+    "customer_name": "김민수",
+    "product_code": "P007",
+    "product_name": "하루 머그컵",
+    "qty": 2,
+    "unit_price": 9000,
+    "discount_pct": 0,
+    "amount": 18000,
+    "payment": "카드",
+    "status": "배송완료"
+   },
+   "29": {
+    "order_id": "O-2024-0019",
+    "order_date": "2024-02-13",
+    "customer_id": "C0002",
+    "customer_name": "이수진",
+    "product_code": "P006",
+    "product_name": "디카페인 콜드브루 500ml",
+    "qty": 1,
+    "unit_price": 19500,
+    "discount_pct": 10,
+    "amount": 17550,
+    "payment": "네이버페이",
+    "status": "배송완료"
+   },
+   "30": {
+    "order_id": "O-2024-0020",
+    "order_date": "2024-02-20",
+    "customer_id": "C0004",
+    "customer_name": "최유리",
+    "product_code": "P003",
+    "product_name": "콜롬비아 수프리모 1kg",
+    "qty": 1,
+    "unit_price": 45000,
+    "discount_pct": null,
+    "amount": 45000,
+    "payment": "카드",
+    "status": "배송중"
+   },
+   "31": {
+    "order_id": "O-2024-0021",
+    "order_date": "2024-02-22",
+    "customer_id": "C0009",
+    "customer_name": "김민수",
+    "product_code": "P002",
+    "product_name": "에티오피아 예가체프 200g",
+    "qty": 2,
+    "unit_price": 15000,
+    "discount_pct": 5,
+    "amount": 28500,
+    "payment": "카카오페이",
+    "status": "반품"
+   },
+   "32": {
+    "order_id": "O-2024-0022",
+    "order_date": "2024-02-24",
+    "customer_id": "C0010",
+    "customer_name": "한지민",
+    "product_code": null,
+    "product_name": "콜드브루 원액 500ml",
+    "qty": 1,
+    "unit_price": 18000,
+    "discount_pct": null,
+    "amount": 18000,
+    "payment": "카드",
+    "status": "배송완료"
+   },
+   "33": {
+    "order_id": "O-2024-0023",
+    "order_date": "2024-02-27",
+    "customer_id": "C0011",
+    "customer_name": "오세훈",
+    "product_code": "P004",
+    "product_name": "드립백 10입 세트",
+    "qty": 3,
+    "unit_price": 13500,
+    "discount_pct": 10,
+    "amount": 36450,
+    "payment": "카드",
+    "status": "배송완료"
+   },
+   "34": {
+    "order_id": "O-2024-0024",
+    "order_date": "2024-02-29",
+    "customer_id": "C0012",
+    "customer_name": "서지수",
+    "product_code": "P001",
+    "product_name": "하우스블렌드 원두 200g",
+    "qty": 1,
+    "unit_price": 12000,
+    "discount_pct": null,
+    "amount": 12000,
+    "payment": "계좌이체",
+    "status": "배송완료"
+   },
+   "36": {
+    "order_id": "O-2024-0025",
+    "order_date": "2024-03-02",
+    "customer_id": "C0013",
+    "customer_name": "임재범",
+    "product_code": "P005",
+    "product_name": "콜드브루 원액 500ml",
+    "qty": 1,
+    "unit_price": 18000,
+    "discount_pct": 0,
+    "amount": 18000,
+    "payment": "카드",
+    "status": "배송완료"
+   },
+   "38": {
+    "order_id": "O-2024-0026",
+    "order_date": "2024-03-05",
+    "customer_id": "C0014",
+    "customer_name": "송하늘",
+    "product_code": "P006",
+    "product_name": "디카페인 콜드브루 500ml",
+    "qty": 2,
+    "unit_price": 19500,
+    "discount_pct": null,
+    "amount": 39000,
+    "payment": "네이버페이",
+    "status": "배송완료"
+   },
+   "39": {
+    "order_id": "O-2024-0027",
+    "order_date": "2024-03-05",
+    "customer_id": "C0015",
+    "customer_name": "배수지",
+    "product_code": "P007",
+    "product_name": "하루 머그컵",
+    "qty": 1,
+    "unit_price": 9000,
+    "discount_pct": 5,
+    "amount": 8550,
+    "payment": "카드",
+    "status": "배송완료"
+   },
+   "40": {
+    "order_id": "O-2024-0028",
+    "order_date": "2024-03-08",
+    "customer_id": "C0001",
+    "customer_name": "김민수",
+    "product_code": "P004",
+    "product_name": "드립백 10입 세트",
+    "qty": 1,
+    "unit_price": 13500,
+    "discount_pct": null,
+    "amount": 13500,
+    "payment": "카카오페이",
+    "status": "배송완료"
+   },
+   "41": {
+    "order_id": "O-2024-0029",
+    "order_date": "2024-03-11",
+    "customer_id": "C0002",
+    "customer_name": "이수진",
+    "product_code": "P008",
+    "product_name": "텀블러 473ml",
+    "qty": 2,
+    "unit_price": 25000,
+    "discount_pct": 10,
+    "amount": 45000,
+    "payment": "카드",
+    "status": "배송완료"
+   },
+   "42": {
+    "order_id": "O-2024-0030",
+    "order_date": "2024-03-14",
+    "customer_id": "C0099",
+    "customer_name": "문지호",
+    "product_code": "P001",
+    "product_name": "하우스블렌드 원두 200g",
+    "qty": 1,
+    "unit_price": 12000,
+    "discount_pct": null,
+    "amount": 12000,
+    "payment": "카드",
+    "status": "배송완료"
+   },
+   "43": {
+    "order_id": "O-2024-0031",
+    "order_date": "2024-03-18",
+    "customer_id": "C0006",
+    "customer_name": "강호동",
+    "product_code": "P003",
+    "product_name": "콜롬비아 수프리모 1kg",
+    "qty": 1,
+    "unit_price": 45000,
+    "discount_pct": null,
+    "amount": 45000,
+    "payment": "계좌이체",
+    "status": "배송완료"
+   },
+   "44": {
+    "order_id": "O-2024-0032",
+    "order_date": "2024-03-18",
+    "customer_id": "C0006",
+    "customer_name": "강호동",
+    "product_code": "P003",
+    "product_name": "콜롬비아 수프리모 1kg",
+    "qty": 1,
+    "unit_price": 45000,
+    "discount_pct": null,
+    "amount": 45000,
+    "payment": "계좌이체",
+    "status": "배송완료"
+   },
+   "45": {
+    "order_id": "O-2024-0033",
+    "order_date": "2024-03-21",
+    "customer_id": "C0007",
+    "customer_name": "최유진",
+    "product_code": "P002",
+    "product_name": "에티오피아 예가체프 200g",
+    "qty": 1,
+    "unit_price": 15000,
+    "discount_pct": 5,
+    "amount": 14250,
+    "payment": "카드",
+    "status": "배송완료"
+   },
+   "46": {
+    "order_id": "O-2024-0034",
+    "order_date": "2024-03-25",
+    "customer_id": "C0008",
+    "customer_name": "윤서연",
+    "product_code": "P005",
+    "product_name": "콜드브루 원액 500ml",
+    "qty": 2,
+    "unit_price": 18000,
+    "discount_pct": null,
+    "amount": 36000,
+    "payment": "네이버페이",
+    "status": "배송중"
+   },
+   "47": {
+    "order_id": "O-2024-0035",
+    "order_date": "2024-03-27",
+    "customer_id": "C0014",
+    "customer_name": "송하늘",
+    "product_code": "P001",
+    "product_name": "하우스블렌드 원두 200g",
+    "qty": 2,
+    "unit_price": 12000,
+    "discount_pct": 10,
+    "amount": 21600,
+    "payment": "카드",
+    "status": "배송완료"
+   },
+   "48": {
+    "order_id": "O-2024-0036",
+    "order_date": "2024-03-29",
+    "customer_id": "C0015",
+    "customer_name": "배수지",
+    "product_code": "P006",
+    "product_name": "디카페인 콜드브루 500ml",
+    "qty": 1,
+    "unit_price": 19500,
+    "discount_pct": null,
+    "amount": 19500,
+    "payment": "카카오페이",
+    "status": "배송완료"
+   }
+  },
+  "customers": {
+   "4": {
+    "customer_id": "C0001",
+    "name": "김민수",
+    "region": "서울",
+    "phone": "010-1111-2222",
+    "email": "minsu.kim@naver.com",
+    "join_date": "2023-01-15",
+    "grade": "VIP"
+   },
+   "5": {
+    "customer_id": "C0002",
+    "name": "이수진",
+    "region": "서울",
+    "phone": "010-2222-3333",
+    "email": "sujin@gmail.com",
+    "join_date": "2023-02-03",
+    "grade": "일반"
+   },
+   "6": {
+    "customer_id": "C0003",
+    "name": "박지훈",
+    "region": "서울",
+    "phone": "010-3333-4444",
+    "email": "jihoon.park@daum.net",
+    "join_date": "2023-03-12",
+    "grade": "일반"
+   },
+   "7": {
+    "customer_id": "C0004",
+    "name": "최유리",
+    "region": "경기",
+    "phone": "010-4444-5555",
+    "email": "yuri.choi@naver.com",
+    "join_date": "2023-04-01",
+    "grade": "VIP"
+   },
+   "8": {
+    "customer_id": "C0005",
+    "name": "정다은",
+    "region": "경기",
+    "phone": "010-5555-6666",
+    "email": "daeun@kakao.com",
+    "join_date": "2023-05-20",
+    "grade": "신규"
+   },
+   "10": {
+    "customer_id": "C0006",
+    "name": "강호동",
+    "region": "경기",
+    "phone": "010-6666-7777",
+    "email": "hodong@naver.com",
+    "join_date": "2023-06-11",
+    "grade": "일반"
+   },
+   "11": {
+    "customer_id": "C0007",
+    "name": "최유진",
+    "region": "부산",
+    "phone": "010-7777-8888",
+    "email": "yujin.choi@gmail.com",
+    "join_date": "2023-07-07",
+    "grade": "일반"
+   },
+   "12": {
+    "customer_id": "C0008",
+    "name": "윤서연",
+    "region": "부산",
+    "phone": "010-8888-9999",
+    "email": "seoyeon@naver.com",
+    "join_date": "2023-08-08",
+    "grade": "신규"
+   },
+   "13": {
+    "customer_id": "C0009",
+    "name": "김민수",
+    "region": "부산",
+    "phone": "010-9999-0000",
+    "email": "kms1990@gmail.com",
+    "join_date": "2023-09-09",
+    "grade": "일반"
+   },
+   "14": {
+    "customer_id": "C0016",
+    "name": "최 유진",
+    "region": "부산",
+    "phone": "010-7777-8888",
+    "email": "yujin.choi@gmail.com",
+    "join_date": "2024-02-01",
+    "grade": "일반"
+   },
+   "15": {
+    "customer_id": "C0010",
+    "name": "한지민",
+    "region": "인천",
+    "phone": "010-1212-3434",
+    "email": "jimin@daum.net",
+    "join_date": "2023-10-10",
+    "grade": "VIP"
+   },
+   "16": {
+    "customer_id": "C0011",
+    "name": "오세훈",
+    "region": "인천",
+    "phone": "010-5656-7878",
+    "email": "sehoon@naver.com",
+    "join_date": "2023-11-11",
+    "grade": "일반"
+   },
+   "17": {
+    "customer_id": "C0012",
+    "name": "서지수",
+    "region": "대구",
+    "phone": "010-9090-1212",
+    "email": "jisu@gmail.com",
+    "join_date": "2023-12-01",
+    "grade": "신규"
+   },
+   "18": {
+    "customer_id": "C0013",
+    "name": "임재범",
+    "region": "대구",
+    "phone": "010-3434-5656",
+    "email": "jaebum@naver.com",
+    "join_date": "2024-01-05",
+    "grade": "일반"
+   },
+   "19": {
+    "customer_id": "C0014",
+    "name": "송하늘",
+    "region": "제주",
+    "phone": "010-7878-9090",
+    "email": "haneul@kakao.com",
+    "join_date": "2024-01-20",
+    "grade": "신규"
+   },
+   "20": {
+    "customer_id": "C0015",
+    "name": "배수지",
+    "region": "제주",
+    "phone": "010-2468-1357",
+    "email": "suzy@naver.com",
+    "join_date": "2024-02-14",
+    "grade": "VIP"
+   }
+  },
+  "products": {
+   "3": {
+    "product_code": "P001",
+    "product_name": "하우스블렌드 원두 200g",
+    "category": "원두",
+    "price": 12000,
+    "launch_date": "2023-03-01"
+   },
+   "4": {
+    "product_code": "P002",
+    "product_name": "에티오피아 예가체프 200g",
+    "category": "원두",
+    "price": 15000,
+    "launch_date": "2023-03-01"
+   },
+   "5": {
+    "product_code": "P003",
+    "product_name": "콜롬비아 수프리모 1kg",
+    "category": "원두",
+    "price": 45000,
+    "launch_date": "2023-05-10"
+   },
+   "6": {
+    "product_code": "P004",
+    "product_name": "드립백 10입 세트",
+    "category": "드립백",
+    "price": 13500,
+    "launch_date": "2023-06-01"
+   },
+   "7": {
+    "product_code": "P005",
+    "product_name": "콜드브루 원액 500ml",
+    "category": "콜드브루",
+    "price": 18000,
+    "launch_date": "2023-07-01"
+   },
+   "8": {
+    "product_code": "P006",
+    "product_name": "디카페인 콜드브루 500ml",
+    "category": "콜드브루",
+    "price": 19500,
+    "launch_date": "2023-09-15"
+   },
+   "9": {
+    "product_code": "P007",
+    "product_name": "하루 머그컵",
+    "category": "굿즈",
+    "price": 9000,
+    "launch_date": "2023-10-01"
+   },
+   "10": {
+    "product_code": "P008",
+    "product_name": "텀블러 473ml",
+    "category": "굿즈",
+    "price": 25000,
+    "launch_date": "2023-11-20"
+   }
+  },
+  "discontinued_products": {
+   "15": {
+    "product_code": "P009",
+    "product_name": "시즌 블렌드 200g",
+    "category": "원두",
+    "price": 13000,
+    "discontinued_date": "2023-12-31"
+   },
+   "16": {
+    "product_code": "P010",
+    "product_name": "드립백 5입",
+    "category": "드립백",
+    "price": 7000,
+    "discontinued_date": "2024-01-15"
+   }
+  },
+  "returns": {
+   "3": {
+    "return_id": "R-001",
+    "order_id": "O-2024-0007",
+    "return_date": "2024-01-15",
+    "reason": "단순변심",
+    "refund": 13500,
+    "status": "환불완료"
+   },
+   "4": {
+    "return_id": "R-002",
+    "order_id": "O-2024-0010",
+    "return_date": "2024-02-02",
+    "reason": "파손",
+    "refund": 9000,
+    "status": "환불완료"
+   },
+   "5": {
+    "return_id": "R-003",
+    "order_id": "O-2024-0015",
+    "return_date": "2024-03-13",
+    "reason": "오배송",
+    "refund": 18000,
+    "status": "교환완료"
+   },
+   "6": {
+    "return_id": "R-004",
+    "order_id": "O-2024-0099",
+    "return_date": "2024-03-20",
+    "reason": "단순변심",
+    "refund": 45000,
+    "status": "처리중"
+   },
+   "7": {
+    "return_id": "R-005",
+    "order_id": "O-2024-0021",
+    "return_date": "2024-03-05",
+    "reason": "파손",
+    "refund": 6750,
+    "status": "환불완료"
+   },
+   "8": {
+    "return_id": "R-006",
+    "order_id": "O-2024-0026",
+    "return_date": "2024-03-28",
+    "reason": "부분환불",
+    "refund": 12000,
+    "status": "환불완료"
+   }
+  }
+ },
+ "issues": [
+  {
+   "id": "ord-001",
+   "table": "orders",
+   "category": "structure",
+   "row": 1,
+   "column": null,
+   "expect": "drop",
+   "truth": null,
+   "note": "title/caption or header row"
+  },
+  {
+   "id": "ord-002",
+   "table": "orders",
+   "category": "structure",
+   "row": 2,
+   "column": null,
+   "expect": "drop",
+   "truth": null,
+   "note": "title/caption or header row"
+  },
+  {
+   "id": "ord-003",
+   "table": "orders",
+   "category": "structure",
+   "row": 4,
+   "column": null,
+   "expect": "drop",
+   "truth": null,
+   "note": "title/caption or header row"
+  },
+  {
+   "id": "ord-004",
+   "table": "orders",
+   "category": "duplicate",
+   "row": 11,
+   "column": null,
+   "expect": "dup_drop",
+   "truth": null,
+   "note": "verbatim copy of O-2024-0005"
+  },
+  {
+   "id": "ord-005",
+   "table": "orders",
+   "category": "structure",
+   "row": 19,
+   "column": null,
+   "expect": "drop",
+   "truth": null,
+   "note": "1월 소계 row"
+  },
+  {
+   "id": "ord-006",
+   "table": "orders",
+   "category": "reconcile",
+   "row": 19,
+   "column": "amount",
+   "expect": "reconcile",
+   "truth": null,
+   "note": "1월 소계 stated 311850"
+  },
+  {
+   "id": "ord-007",
+   "table": "orders",
+   "category": "structure",
+   "row": 20,
+   "column": null,
+   "expect": "drop",
+   "truth": null,
+   "note": "repeated header mid-sheet"
+  },
+  {
+   "id": "ord-008",
+   "table": "orders",
+   "category": "structure",
+   "row": 21,
+   "column": null,
+   "expect": "drop",
+   "truth": null,
+   "note": "note row"
+  },
+  {
+   "id": "ord-009",
+   "table": "orders",
+   "category": "key_conflict",
+   "row": 23,
+   "column": "order_id",
+   "expect": "conflict",
+   "truth": null,
+   "note": "O-2024-0010 entered again with qty 3"
+  },
+  {
+   "id": "ord-010",
+   "table": "orders",
+   "category": "structure",
+   "row": 35,
+   "column": null,
+   "expect": "drop",
+   "truth": null,
+   "note": "2월 소계 row"
+  },
+  {
+   "id": "ord-011",
+   "table": "orders",
+   "category": "reconcile",
+   "row": 35,
+   "column": "amount",
+   "expect": "reconcile",
+   "truth": null,
+   "note": "2월 소계 stated 343400"
+  },
+  {
+   "id": "ord-012",
+   "table": "orders",
+   "category": "duplicate",
+   "row": 37,
+   "column": null,
+   "expect": "dup_drop",
+   "truth": null,
+   "note": "same order, different formatting of O-2024-0025"
+  },
+  {
+   "id": "ord-013",
+   "table": "orders",
+   "category": "structure",
+   "row": 49,
+   "column": null,
+   "expect": "drop",
+   "truth": null,
+   "note": "3월 소계 row"
+  },
+  {
+   "id": "ord-014",
+   "table": "orders",
+   "category": "reconcile",
+   "row": 49,
+   "column": "amount",
+   "expect": "reconcile",
+   "truth": null,
+   "note": "3월 소계 stated 456900"
+  },
+  {
+   "id": "ord-015",
+   "table": "orders",
+   "category": "structure",
+   "row": 51,
+   "column": null,
+   "expect": "drop",
+   "truth": null,
+   "note": "합계 row"
+  },
+  {
+   "id": "ord-016",
+   "table": "orders",
+   "category": "reconcile",
+   "row": 51,
+   "column": "amount",
+   "expect": "reconcile",
+   "truth": null,
+   "note": "합계 stated 1112150"
+  },
+  {
+   "id": "ord-017",
+   "table": "orders",
+   "category": "structure",
+   "row": 53,
+   "column": null,
+   "expect": "drop",
+   "truth": null,
+   "note": "note row"
+  },
+  {
+   "id": "ord-018",
+   "table": "orders",
+   "category": "merged_cell",
+   "row": 9,
+   "column": "order_date",
+   "expect": "fix",
+   "truth": "2024-01-07",
+   "note": "date lives only in the merged range's top cell"
+  },
+  {
+   "id": "ord-019",
+   "table": "orders",
+   "category": "merged_cell",
+   "row": 39,
+   "column": "order_date",
+   "expect": "fix",
+   "truth": "2024-03-05",
+   "note": "date lives only in the merged range's top cell"
+  },
+  {
+   "id": "ord-020",
+   "table": "orders",
+   "category": "date_format",
+   "row": 6,
+   "column": "order_date",
+   "expect": "fix",
+   "truth": "2024-01-03",
+   "note": "45294"
+  },
+  {
+   "id": "ord-021",
+   "table": "orders",
+   "category": "id_format",
+   "row": 6,
+   "column": "customer_id",
+   "expect": "fix",
+   "truth": "C0001",
+   "note": "'c-1'"
+  },
+  {
+   "id": "ord-022",
+   "table": "orders",
+   "category": "id_format",
+   "row": 6,
+   "column": "product_code",
+   "expect": "fix",
+   "truth": "P001",
+   "note": "'p-01'"
+  },
+  {
+   "id": "ord-023",
+   "table": "orders",
+   "category": "name_typo",
+   "row": 6,
+   "column": "product_name",
+   "expect": "fix",
+   "truth": "하우스블렌드 원두 200g",
+   "note": "'하우스 블렌드 원두200g'"
+  },
+  {
+   "id": "ord-024",
+   "table": "orders",
+   "category": "number_text",
+   "row": 6,
+   "column": "qty",
+   "expect": "fix",
+   "truth": 2,
+   "note": "'２'"
+  },
+  {
+   "id": "ord-025",
+   "table": "orders",
+   "category": "number_text",
+   "row": 6,
+   "column": "unit_price",
+   "expect": "fix",
+   "truth": 12000,
+   "note": "'12000원'"
+  },
+  {
+   "id": "ord-026",
+   "table": "orders",
+   "category": "number_text",
+   "row": 6,
+   "column": "amount",
+   "expect": "fix",
+   "truth": 21600,
+   "note": "'₩21,600'"
+  },
+  {
+   "id": "ord-027",
+   "table": "orders",
+   "category": "category",
+   "row": 6,
+   "column": "payment",
+   "expect": "fix",
+   "truth": "카드",
+   "note": "'신용카드'"
+  },
+  {
+   "id": "ord-028",
+   "table": "orders",
+   "category": "category",
+   "row": 6,
+   "column": "status",
+   "expect": "fix",
+   "truth": "배송완료",
+   "note": "'배송 완료'"
+  },
+  {
+   "id": "ord-029",
+   "table": "orders",
+   "category": "date_format",
+   "row": 7,
+   "column": "order_date",
+   "expect": "fix",
+   "truth": "2024-01-05",
+   "note": "'2024.1.5'"
+  },
+  {
+   "id": "ord-030",
+   "table": "orders",
+   "category": "id_format",
+   "row": 7,
+   "column": "customer_id",
+   "expect": "fix",
+   "truth": "C0002",
+   "note": "'C 0002'"
+  },
+  {
+   "id": "ord-031",
+   "table": "orders",
+   "category": "number_text",
+   "row": 7,
+   "column": "qty",
+   "expect": "fix",
+   "truth": 1,
+   "note": "'1개'"
+  },
+  {
+   "id": "ord-032",
+   "table": "orders",
+   "category": "blank_placeholder",
+   "row": 7,
+   "column": "discount_pct",
+   "expect": "fix",
+   "truth": null,
+   "note": "'N/A'"
+  },
+  {
+   "id": "ord-033",
+   "table": "orders",
+   "category": "number_text",
+   "row": 7,
+   "column": "amount",
+   "expect": "fix",
+   "truth": 13000,
+   "note": "'13,000원'"
+  },
+  {
+   "id": "ord-034",
+   "table": "orders",
+   "category": "category",
+   "row": 7,
+   "column": "payment",
+   "expect": "fix",
+   "truth": "계좌이체",
+   "note": "'계좌 이체'"
+  },
+  {
+   "id": "ord-035",
+   "table": "orders",
+   "category": "category",
+   "row": 7,
+   "column": "status",
+   "expect": "fix",
+   "truth": "배송완료",
+   "note": "'완료'"
+  },
+  {
+   "id": "ord-036",
+   "table": "orders",
+   "category": "id_format",
+   "row": 8,
+   "column": "customer_id",
+   "expect": "fix",
+   "truth": "C0003",
+   "note": "'0003'"
+  },
+  {
+   "id": "ord-037",
+   "table": "orders",
+   "category": "name_typo",
+   "row": 8,
+   "column": "product_name",
+   "expect": "fix",
+   "truth": "콜드브루 원액 500ml",
+   "note": "'콜드브루 원액 500 ml'"
+  },
+  {
+   "id": "ord-038",
+   "table": "orders",
+   "category": "number_text",
+   "row": 8,
+   "column": "qty",
+   "expect": "fix",
+   "truth": 1,
+   "note": "'1 EA'"
+  },
+  {
+   "id": "ord-039",
+   "table": "orders",
+   "category": "number_text",
+   "row": 8,
+   "column": "unit_price",
+   "expect": "fix",
+   "truth": 18000,
+   "note": "'18,000'"
+  },
+  {
+   "id": "ord-040",
+   "table": "orders",
+   "category": "number_text",
+   "row": 8,
+   "column": "amount",
+   "expect": "fix",
+   "truth": 18000,
+   "note": "'18,000'"
+  },
+  {
+   "id": "ord-041",
+   "table": "orders",
+   "category": "category",
+   "row": 8,
+   "column": "payment",
+   "expect": "fix",
+   "truth": "네이버페이",
+   "note": "'네이버 페이'"
+  },
+  {
+   "id": "ord-042",
+   "table": "orders",
+   "category": "category",
+   "row": 8,
+   "column": "status",
+   "expect": "fix",
+   "truth": "배송완료",
+   "note": "'배송완ㄹ'"
+  },
+  {
+   "id": "ord-043",
+   "table": "orders",
+   "category": "id_format",
+   "row": 9,
+   "column": "customer_id",
+   "expect": "fix",
+   "truth": "C0004",
+   "note": "'Ｃ０００４'"
+  },
+  {
+   "id": "ord-044",
+   "table": "orders",
+   "category": "number_text",
+   "row": 9,
+   "column": "unit_price",
+   "expect": "fix",
+   "truth": 15000,
+   "note": "'1.5만원'"
+  },
+  {
+   "id": "ord-045",
+   "table": "orders",
+   "category": "number_text",
+   "row": 9,
+   "column": "discount_pct",
+   "expect": "fix",
+   "truth": 5,
+   "note": "'5%'"
+  },
+  {
+   "id": "ord-046",
+   "table": "orders",
+   "category": "number_text",
+   "row": 9,
+   "column": "amount",
+   "expect": "fix",
+   "truth": 28500,
+   "note": "'28500'"
+  },
+  {
+   "id": "ord-047",
+   "table": "orders",
+   "category": "category",
+   "row": 9,
+   "column": "payment",
+   "expect": "fix",
+   "truth": "카드",
+   "note": "'카느'"
+  },
+  {
+   "id": "ord-048",
+   "table": "orders",
+   "category": "category",
+   "row": 9,
+   "column": "status",
+   "expect": "fix",
+   "truth": "배송완료",
+   "note": "'Delivered'"
+  },
+  {
+   "id": "ord-049",
+   "table": "orders",
+   "category": "date_format",
+   "row": 10,
+   "column": "order_date",
+   "expect": "fix",
+   "truth": "2024-01-09",
+   "note": "'20240109'"
+  },
+  {
+   "id": "ord-050",
+   "table": "orders",
+   "category": "id_format",
+   "row": 10,
+   "column": "customer_id",
+   "expect": "fix",
+   "truth": "C0005",
+   "note": "'c0005 '"
+  },
+  {
+   "id": "ord-051",
+   "table": "orders",
+   "category": "id_format",
+   "row": 10,
+   "column": "product_code",
+   "expect": "fix",
+   "truth": "P004",
+   "note": "'p-04'"
+  },
+  {
+   "id": "ord-052",
+   "table": "orders",
+   "category": "name_typo",
+   "row": 10,
+   "column": "product_name",
+   "expect": "fix",
+   "truth": "드립백 10입 세트",
+   "note": "'드립백10입세트'"
+  },
+  {
+   "id": "ord-053",
+   "table": "orders",
+   "category": "number_text",
+   "row": 10,
+   "column": "qty",
+   "expect": "fix",
+   "truth": 1,
+   "note": "'１'"
+  },
+  {
+   "id": "ord-054",
+   "table": "orders",
+   "category": "number_text",
+   "row": 10,
+   "column": "unit_price",
+   "expect": "fix",
+   "truth": 13500,
+   "note": "'13.5천원'"
+  },
+  {
+   "id": "ord-055",
+   "table": "orders",
+   "category": "blank_placeholder",
+   "row": 10,
+   "column": "discount_pct",
+   "expect": "fix",
+   "truth": null,
+   "note": "'-'"
+  },
+  {
+   "id": "ord-056",
+   "table": "orders",
+   "category": "category",
+   "row": 10,
+   "column": "payment",
+   "expect": "fix",
+   "truth": "카카오페이",
+   "note": "'kakaopay'"
+  },
+  {
+   "id": "ord-057",
+   "table": "orders",
+   "category": "category",
+   "row": 10,
+   "column": "status",
+   "expect": "fix",
+   "truth": "배송완료",
+   "note": "'배송완료 '"
+  },
+  {
+   "id": "ord-058",
+   "table": "orders",
+   "category": "date_format",
+   "row": 12,
+   "column": "order_date",
+   "expect": "fix",
+   "truth": "2024-01-12",
+   "note": "'2024년 1월 12일'"
+  },
+  {
+   "id": "ord-059",
+   "table": "orders",
+   "category": "name_typo",
+   "row": 12,
+   "column": "product_name",
+   "expect": "fix",
+   "truth": "콜드브루 원액 500ml",
+   "note": "'콜드브루원액500ml'"
+  },
+  {
+   "id": "ord-060",
+   "table": "orders",
+   "category": "number_text",
+   "row": 12,
+   "column": "qty",
+   "expect": "fix",
+   "truth": 2,
+   "note": "'2개'"
+  },
+  {
+   "id": "ord-061",
+   "table": "orders",
+   "category": "number_text",
+   "row": 12,
+   "column": "unit_price",
+   "expect": "fix",
+   "truth": 18000,
+   "note": "'18,000 원'"
+  },
+  {
+   "id": "ord-062",
+   "table": "orders",
+   "category": "number_text",
+   "row": 12,
+   "column": "discount_pct",
+   "expect": "fix",
+   "truth": 10,
+   "note": "'10%'"
+  },
+  {
+   "id": "ord-063",
+   "table": "orders",
+   "category": "number_text",
+   "row": 12,
+   "column": "amount",
+   "expect": "fix",
+   "truth": 32400,
+   "note": "'₩32,400'"
+  },
+  {
+   "id": "ord-064",
+   "table": "orders",
+   "category": "date_format",
+   "row": 13,
+   "column": "order_date",
+   "expect": "fix",
+   "truth": "2024-01-15",
+   "note": "'2024-01-15 '"
+  },
+  {
+   "id": "ord-065",
+   "table": "orders",
+   "category": "id_format",
+   "row": 13,
+   "column": "customer_id",
+   "expect": "fix",
+   "truth": "C0007",
+   "note": "'c-7'"
+  },
+  {
+   "id": "ord-066",
+   "table": "orders",
+   "category": "name_typo",
+   "row": 13,
+   "column": "product_name",
+   "expect": "fix",
+   "truth": "드립백 10입 세트",
+   "note": "'드립백10입세트'"
+  },
+  {
+   "id": "ord-067",
+   "table": "orders",
+   "category": "number_text",
+   "row": 13,
+   "column": "qty",
+   "expect": "fix",
+   "truth": 1,
+   "note": "'1 EA'"
+  },
+  {
+   "id": "ord-068",
+   "table": "orders",
+   "category": "number_text",
+   "row": 13,
+   "column": "unit_price",
+   "expect": "fix",
+   "truth": 13500,
+   "note": "'₩13,500'"
+  },
+  {
+   "id": "ord-069",
+   "table": "orders",
+   "category": "blank_placeholder",
+   "row": 13,
+   "column": "discount_pct",
+   "expect": "fix",
+   "truth": null,
+   "note": "'없음'"
+  },
+  {
+   "id": "ord-070",
+   "table": "orders",
+   "category": "number_text",
+   "row": 13,
+   "column": "amount",
+   "expect": "fix",
+   "truth": 13500,
+   "note": "'13,500원'"
+  },
+  {
+   "id": "ord-071",
+   "table": "orders",
+   "category": "category",
+   "row": 13,
+   "column": "payment",
+   "expect": "fix",
+   "truth": "네이버페이",
+   "note": "'naverpay'"
+  },
+  {
+   "id": "ord-072",
+   "table": "orders",
+   "category": "category",
+   "row": 13,
+   "column": "status",
+   "expect": "fix",
+   "truth": "반품",
+   "note": "'반품접수'"
+  },
+  {
+   "id": "ord-073",
+   "table": "orders",
+   "category": "date_format",
+   "row": 14,
+   "column": "order_date",
+   "expect": "fix",
+   "truth": "2024-01-16",
+   "note": "'２０２４．１．１６'"
+  },
+  {
+   "id": "ord-074",
+   "table": "orders",
+   "category": "id_format",
+   "row": 14,
+   "column": "customer_id",
+   "expect": "fix",
+   "truth": "C0008",
+   "note": "'C 0008'"
+  },
+  {
+   "id": "ord-075",
+   "table": "orders",
+   "category": "number_text",
+   "row": 14,
+   "column": "unit_price",
+   "expect": "fix",
+   "truth": 45000,
+   "note": "'45000원'"
+  },
+  {
+   "id": "ord-076",
+   "table": "orders",
+   "category": "number_text",
+   "row": 14,
+   "column": "amount",
+   "expect": "fix",
+   "truth": 45000,
+   "note": "'45,000'"
+  },
+  {
+   "id": "ord-077",
+   "table": "orders",
+   "category": "category",
+   "row": 14,
+   "column": "payment",
+   "expect": "fix",
+   "truth": "카드",
+   "note": "'card'"
+  },
+  {
+   "id": "ord-078",
+   "table": "orders",
+   "category": "category",
+   "row": 14,
+   "column": "status",
+   "expect": "fix",
+   "truth": "배송완료",
+   "note": "'완료'"
+  },
+  {
+   "id": "ord-079",
+   "table": "orders",
+   "category": "date_format",
+   "row": 15,
+   "column": "order_date",
+   "expect": "fix",
+   "truth": "2024-01-18",
+   "note": "'2024/1/18'"
+  },
+  {
+   "id": "ord-080",
+   "table": "orders",
+   "category": "id_format",
+   "row": 15,
+   "column": "customer_id",
+   "expect": "fix",
+   "truth": "C0003",
+   "note": "'0003'"
+  },
+  {
+   "id": "ord-081",
+   "table": "orders",
+   "category": "text",
+   "row": 15,
+   "column": "customer_name",
+   "expect": "fix",
+   "truth": "박지훈",
+   "note": "'ë°•ì§€í›ˆ'"
+  },
+  {
+   "id": "ord-082",
+   "table": "orders",
+   "category": "id_format",
+   "row": 15,
+   "column": "product_code",
+   "expect": "fix",
+   "truth": "P007",
+   "note": "'p-07'"
+  },
+  {
+   "id": "ord-083",
+   "table": "orders",
+   "category": "number_text",
+   "row": 15,
+   "column": "qty",
+   "expect": "fix",
+   "truth": 2,
+   "note": "'２'"
+  },
+  {
+   "id": "ord-084",
+   "table": "orders",
+   "category": "blank_placeholder",
+   "row": 15,
+   "column": "discount_pct",
+   "expect": "fix",
+   "truth": null,
+   "note": "'-'"
+  },
+  {
+   "id": "ord-085",
+   "table": "orders",
+   "category": "number_text",
+   "row": 15,
+   "column": "amount",
+   "expect": "fix",
+   "truth": 18000,
+   "note": "'18000'"
+  },
+  {
+   "id": "ord-086",
+   "table": "orders",
+   "category": "category",
+   "row": 15,
+   "column": "payment",
+   "expect": "fix",
+   "truth": "카드",
+   "note": "'CARD'"
+  },
+  {
+   "id": "ord-087",
+   "table": "orders",
+   "category": "category",
+   "row": 15,
+   "column": "status",
+   "expect": "fix",
+   "truth": "배송완료",
+   "note": "'배송완ㄹ'"
+  },
+  {
+   "id": "ord-088",
+   "table": "orders",
+   "category": "id_format",
+   "row": 16,
+   "column": "customer_id",
+   "expect": "fix",
+   "truth": "C0005",
+   "note": "'Ｃ０００５'"
+  },
+  {
+   "id": "ord-089",
+   "table": "orders",
+   "category": "id_format",
+   "row": 16,
+   "column": "product_code",
+   "expect": "fix",
+   "truth": "P008",
+   "note": "'Ｐ００８'"
+  },
+  {
+   "id": "ord-090",
+   "table": "orders",
+   "category": "number_text",
+   "row": 16,
+   "column": "qty",
+   "expect": "fix",
+   "truth": 1,
+   "note": "'1개'"
+  },
+  {
+   "id": "ord-091",
+   "table": "orders",
+   "category": "number_text",
+   "row": 16,
+   "column": "unit_price",
+   "expect": "fix",
+   "truth": 25000,
+   "note": "'25,000'"
+  },
+  {
+   "id": "ord-092",
+   "table": "orders",
+   "category": "number_text",
+   "row": 16,
+   "column": "discount_pct",
+   "expect": "fix",
+   "truth": 5,
+   "note": "'5%'"
+  },
+  {
+   "id": "ord-093",
+   "table": "orders",
+   "category": "category",
+   "row": 16,
+   "column": "payment",
+   "expect": "fix",
+   "truth": "계좌이체",
+   "note": "'무통장입금'"
+  },
+  {
+   "id": "ord-094",
+   "table": "orders",
+   "category": "category",
+   "row": 16,
+   "column": "status",
+   "expect": "fix",
+   "truth": "취소",
+   "note": "'주문취소'"
+  },
+  {
+   "id": "ord-095",
+   "table": "orders",
+   "category": "date_format",
+   "row": 17,
+   "column": "order_date",
+   "expect": "fix",
+   "truth": "2024-01-24",
+   "note": "45315"
+  },
+  {
+   "id": "ord-096",
+   "table": "orders",
+   "category": "id_format",
+   "row": 17,
+   "column": "customer_id",
+   "expect": "fix",
+   "truth": "C0010",
+   "note": "'c0010 '"
+  },
+  {
+   "id": "ord-097",
+   "table": "orders",
+   "category": "text",
+   "row": 17,
+   "column": "customer_name",
+   "expect": "fix",
+   "truth": "한지민",
+   "note": "'\\u200b한지민'"
+  },
+  {
+   "id": "ord-098",
+   "table": "orders",
+   "category": "number_text",
+   "row": 17,
+   "column": "qty",
+   "expect": "fix",
+   "truth": 2,
+   "note": "'2 EA'"
+  },
+  {
+   "id": "ord-099",
+   "table": "orders",
+   "category": "number_text",
+   "row": 17,
+   "column": "unit_price",
+   "expect": "fix",
+   "truth": 19500,
+   "note": "'19,500원'"
+  },
+  {
+   "id": "ord-100",
+   "table": "orders",
+   "category": "number_text",
+   "row": 17,
+   "column": "discount_pct",
+   "expect": "fix",
+   "truth": 10,
+   "note": "'10 %'"
+  },
+  {
+   "id": "ord-101",
+   "table": "orders",
+   "category": "number_text",
+   "row": 17,
+   "column": "amount",
+   "expect": "fix",
+   "truth": 35100,
+   "note": "'₩35,100'"
+  },
+  {
+   "id": "ord-102",
+   "table": "orders",
+   "category": "category",
+   "row": 17,
+   "column": "payment",
+   "expect": "fix",
+   "truth": "카카오페이",
+   "note": "'카카오패이'"
+  },
+  {
+   "id": "ord-103",
+   "table": "orders",
+   "category": "category",
+   "row": 17,
+   "column": "status",
+   "expect": "fix",
+   "truth": "배송완료",
+   "note": "'배송완료 '"
+  },
+  {
+   "id": "ord-104",
+   "table": "orders",
+   "category": "date_format",
+   "row": 18,
+   "column": "order_date",
+   "expect": "fix",
+   "truth": "2024-01-29",
+   "note": "'2024.1.29'"
+  },
+  {
+   "id": "ord-105",
+   "table": "orders",
+   "category": "number_text",
+   "row": 18,
+   "column": "unit_price",
+   "expect": "fix",
+   "truth": 12000,
+   "note": "'12천원'"
+  },
+  {
+   "id": "ord-106",
+   "table": "orders",
+   "category": "number_text",
+   "row": 18,
+   "column": "amount",
+   "expect": "fix",
+   "truth": 36000,
+   "note": "'36,000원'"
+  },
+  {
+   "id": "ord-107",
+   "table": "orders",
+   "category": "date_format",
+   "row": 22,
+   "column": "order_date",
+   "expect": "fix",
+   "truth": "2024-02-01",
+   "note": "'24/02/01'"
+  },
+  {
+   "id": "ord-108",
+   "table": "orders",
+   "category": "id_format",
+   "row": 22,
+   "column": "customer_id",
+   "expect": "fix",
+   "truth": "C0012",
+   "note": "'c-12'"
+  },
+  {
+   "id": "ord-109",
+   "table": "orders",
+   "category": "id_format",
+   "row": 22,
+   "column": "product_code",
+   "expect": "fix",
+   "truth": "P002",
+   "note": "'p-02'"
+  },
+  {
+   "id": "ord-110",
+   "table": "orders",
+   "category": "name_typo",
+   "row": 22,
+   "column": "product_name",
+   "expect": "fix",
+   "truth": "에티오피아 예가체프 200g",
+   "note": "'에티오피아 예가채프 200g'"
+  },
+  {
+   "id": "ord-111",
+   "table": "orders",
+   "category": "number_text",
+   "row": 22,
+   "column": "qty",
+   "expect": "fix",
+   "truth": 1,
+   "note": "'１'"
+  },
+  {
+   "id": "ord-112",
+   "table": "orders",
+   "category": "number_text",
+   "row": 22,
+   "column": "unit_price",
+   "expect": "fix",
+   "truth": 15000,
+   "note": "'15,000 원'"
+  },
+  {
+   "id": "ord-113",
+   "table": "orders",
+   "category": "number_text",
+   "row": 22,
+   "column": "amount",
+   "expect": "fix",
+   "truth": 15000,
+   "note": "'15,000'"
+  },
+  {
+   "id": "ord-114",
+   "table": "orders",
+   "category": "category",
+   "row": 22,
+   "column": "payment",
+   "expect": "fix",
+   "truth": "네이버페이",
+   "note": "'네이버 페이'"
+  },
+  {
+   "id": "ord-115",
+   "table": "orders",
+   "category": "category",
+   "row": 22,
+   "column": "status",
+   "expect": "fix",
+   "truth": "배송완료",
+   "note": "'배송 완료'"
+  },
+  {
+   "id": "ord-116",
+   "table": "orders",
+   "category": "date_format",
+   "row": 24,
+   "column": "order_date",
+   "expect": "fix",
+   "truth": "2024-02-03",
+   "note": "'2월 3일'"
+  },
+  {
+   "id": "ord-117",
+   "table": "orders",
+   "category": "id_format",
+   "row": 24,
+   "column": "customer_id",
+   "expect": "fix",
+   "truth": "C0013",
+   "note": "'C 0013'"
+  },
+  {
+   "id": "ord-118",
+   "table": "orders",
+   "category": "id_format",
+   "row": 24,
+   "column": "product_code",
+   "expect": "fix",
+   "truth": "P005",
+   "note": "'Ｐ００５'"
+  },
+  {
+   "id": "ord-119",
+   "table": "orders",
+   "category": "number_text",
+   "row": 24,
+   "column": "qty",
+   "expect": "fix",
+   "truth": 2,
+   "note": "'2개'"
+  },
+  {
+   "id": "ord-120",
+   "table": "orders",
+   "category": "number_text",
+   "row": 24,
+   "column": "unit_price",
+   "expect": "fix",
+   "truth": 18000,
+   "note": "'₩18,000'"
+  },
+  {
+   "id": "ord-121",
+   "table": "orders",
+   "category": "number_scale",
+   "row": 24,
+   "column": "discount_pct",
+   "expect": "flag",
+   "truth": 10,
+   "note": "0.1 among 0-100 percents"
+  },
+  {
+   "id": "ord-122",
+   "table": "orders",
+   "category": "number_text",
+   "row": 24,
+   "column": "amount",
+   "expect": "fix",
+   "truth": 32400,
+   "note": "'32400'"
+  },
+  {
+   "id": "ord-123",
+   "table": "orders",
+   "category": "category",
+   "row": 24,
+   "column": "payment",
+   "expect": "fix",
+   "truth": "카드",
+   "note": "'CARD'"
+  },
+  {
+   "id": "ord-124",
+   "table": "orders",
+   "category": "category",
+   "row": 24,
+   "column": "status",
+   "expect": "fix",
+   "truth": "배송완료",
+   "note": "'배송완ㄹ'"
+  },
+  {
+   "id": "ord-125",
+   "table": "orders",
+   "category": "date_ambiguous",
+   "row": 25,
+   "column": "order_date",
+   "expect": "flag",
+   "truth": "2024-02-03",
+   "note": "03/02/2024 ambiguous DMY/MDY"
+  },
+  {
+   "id": "ord-126",
+   "table": "orders",
+   "category": "id_format",
+   "row": 25,
+   "column": "customer_id",
+   "expect": "fix",
+   "truth": "C0014",
+   "note": "'0014'"
+  },
+  {
+   "id": "ord-127",
+   "table": "orders",
+   "category": "name_typo",
+   "row": 25,
+   "column": "product_name",
+   "expect": "fix",
+   "truth": "드립백 10입 세트",
+   "note": "'드립백10입세트'"
+  },
+  {
+   "id": "ord-128",
+   "table": "orders",
+   "category": "number_text",
+   "row": 25,
+   "column": "qty",
+   "expect": "fix",
+   "truth": 1,
+   "note": "'1 EA'"
+  },
+  {
+   "id": "ord-129",
+   "table": "orders",
+   "category": "number_text",
+   "row": 25,
+   "column": "unit_price",
+   "expect": "fix",
+   "truth": 13500,
+   "note": "'13500원'"
+  },
+  {
+   "id": "ord-130",
+   "table": "orders",
+   "category": "blank_placeholder",
+   "row": 25,
+   "column": "discount_pct",
+   "expect": "fix",
+   "truth": null,
+   "note": "'없음'"
+  },
+  {
+   "id": "ord-131",
+   "table": "orders",
+   "category": "category",
+   "row": 25,
+   "column": "status",
+   "expect": "fix",
+   "truth": "배송완료",
+   "note": "'Delivered'"
+  },
+  {
+   "id": "ord-132",
+   "table": "orders",
+   "category": "date_format",
+   "row": 26,
+   "column": "order_date",
+   "expect": "fix",
+   "truth": "2024-02-06",
+   "note": "'2024년 2월 6일'"
+  },
+  {
+   "id": "ord-133",
+   "table": "orders",
+   "category": "id_format",
+   "row": 26,
+   "column": "customer_id",
+   "expect": "fix",
+   "truth": "C0015",
+   "note": "'Ｃ００１５'"
+  },
+  {
+   "id": "ord-134",
+   "table": "orders",
+   "category": "number_text",
+   "row": 26,
+   "column": "qty",
+   "expect": "fix",
+   "truth": 1,
+   "note": "'한개'"
+  },
+  {
+   "id": "ord-135",
+   "table": "orders",
+   "category": "number_text",
+   "row": 26,
+   "column": "discount_pct",
+   "expect": "fix",
+   "truth": 5,
+   "note": "'5%'"
+  },
+  {
+   "id": "ord-136",
+   "table": "orders",
+   "category": "number_text",
+   "row": 26,
+   "column": "amount",
+   "expect": "fix",
+   "truth": 23750,
+   "note": "'₩23,750'"
+  },
+  {
+   "id": "ord-137",
+   "table": "orders",
+   "category": "category",
+   "row": 26,
+   "column": "payment",
+   "expect": "fix",
+   "truth": "카드",
+   "note": "'카드결제'"
+  },
+  {
+   "id": "ord-138",
+   "table": "orders",
+   "category": "category",
+   "row": 26,
+   "column": "status",
+   "expect": "fix",
+   "truth": "배송완료",
+   "note": "'배송완료 '"
+  },
+  {
+   "id": "ord-139",
+   "table": "orders",
+   "category": "date_format",
+   "row": 27,
+   "column": "order_date",
+   "expect": "fix",
+   "truth": "2024-02-08",
+   "note": "'2024-02-08 '"
+  },
+  {
+   "id": "ord-140",
+   "table": "orders",
+   "category": "id_format",
+   "row": 27,
+   "column": "customer_id",
+   "expect": "fix",
+   "truth": "C0003",
+   "note": "'c0003 '"
+  },
+  {
+   "id": "ord-141",
+   "table": "orders",
+   "category": "cross_table",
+   "row": 27,
+   "column": "customer_name",
+   "expect": "flag",
+   "truth": "박지훈",
+   "note": "name of another customer (C0004) under C0003"
+  },
+  {
+   "id": "ord-142",
+   "table": "orders",
+   "category": "id_format",
+   "row": 27,
+   "column": "product_code",
+   "expect": "fix",
+   "truth": "P001",
+   "note": "'p-01'"
+  },
+  {
+   "id": "ord-143",
+   "table": "orders",
+   "category": "name_typo",
+   "row": 27,
+   "column": "product_name",
+   "expect": "fix",
+   "truth": "하우스블렌드 원두 200g",
+   "note": "'하우스 블렌드 원두200g'"
+  },
+  {
+   "id": "ord-144",
+   "table": "orders",
+   "category": "number_text",
+   "row": 27,
+   "column": "qty",
+   "expect": "fix",
+   "truth": 1,
+   "note": "'１'"
+  },
+  {
+   "id": "ord-145",
+   "table": "orders",
+   "category": "number_text",
+   "row": 27,
+   "column": "unit_price",
+   "expect": "fix",
+   "truth": 12000,
+   "note": "'12,000'"
+  },
+  {
+   "id": "ord-146",
+   "table": "orders",
+   "category": "blank_placeholder",
+   "row": 27,
+   "column": "discount_pct",
+   "expect": "fix",
+   "truth": null,
+   "note": "'-'"
+  },
+  {
+   "id": "ord-147",
+   "table": "orders",
+   "category": "number_text",
+   "row": 27,
+   "column": "amount",
+   "expect": "fix",
+   "truth": 12000,
+   "note": "'12,000원'"
+  },
+  {
+   "id": "ord-148",
+   "table": "orders",
+   "category": "date_format",
+   "row": 28,
+   "column": "order_date",
+   "expect": "fix",
+   "truth": "2024-02-09",
+   "note": "'２０２４．２．９'"
+  },
+  {
+   "id": "ord-149",
+   "table": "orders",
+   "category": "id_format",
+   "row": 28,
+   "column": "product_code",
+   "expect": "fix",
+   "truth": "P007",
+   "note": "'Ｐ００７'"
+  },
+  {
+   "id": "ord-150",
+   "table": "orders",
+   "category": "number_text",
+   "row": 28,
+   "column": "qty",
+   "expect": "flag",
+   "truth": 2,
+   "note": "English word number"
+  },
+  {
+   "id": "ord-151",
+   "table": "orders",
+   "category": "number_text",
+   "row": 28,
+   "column": "unit_price",
+   "expect": "fix",
+   "truth": 9000,
+   "note": "'0.9만원'"
+  },
+  {
+   "id": "ord-152",
+   "table": "orders",
+   "category": "number_text",
+   "row": 28,
+   "column": "amount",
+   "expect": "fix",
+   "truth": 18000,
+   "note": "'18,000'"
+  },
+  {
+   "id": "ord-153",
+   "table": "orders",
+   "category": "category",
+   "row": 28,
+   "column": "payment",
+   "expect": "fix",
+   "truth": "카드",
+   "note": "'신용카드'"
+  },
+  {
+   "id": "ord-154",
+   "table": "orders",
+   "category": "category",
+   "row": 28,
+   "column": "status",
+   "expect": "fix",
+   "truth": "배송완료",
+   "note": "'배송 완료'"
+  },
+  {
+   "id": "ord-155",
+   "table": "orders",
+   "category": "date_invalid",
+   "row": 30,
+   "column": "order_date",
+   "expect": "flag",
+   "truth": "2024-02-20",
+   "note": "impossible date 2024-02-30"
+  },
+  {
+   "id": "ord-156",
+   "table": "orders",
+   "category": "id_format",
+   "row": 30,
+   "column": "customer_id",
+   "expect": "fix",
+   "truth": "C0004",
+   "note": "'C 0004'"
+  },
+  {
+   "id": "ord-157",
+   "table": "orders",
+   "category": "number_text",
+   "row": 30,
+   "column": "unit_price",
+   "expect": "fix",
+   "truth": 45000,
+   "note": "'45,000 원'"
+  },
+  {
+   "id": "ord-158",
+   "table": "orders",
+   "category": "category",
+   "row": 30,
+   "column": "payment",
+   "expect": "fix",
+   "truth": "카드",
+   "note": "'CARD'"
+  },
+  {
+   "id": "ord-159",
+   "table": "orders",
+   "category": "category",
+   "row": 30,
+   "column": "status",
+   "expect": "fix",
+   "truth": "배송중",
+   "note": "'배송 중'"
+  },
+  {
+   "id": "ord-160",
+   "table": "orders",
+   "category": "date_format",
+   "row": 31,
+   "column": "order_date",
+   "expect": "fix",
+   "truth": "2024-02-22",
+   "note": "45344"
+  },
+  {
+   "id": "ord-161",
+   "table": "orders",
+   "category": "id_format",
+   "row": 31,
+   "column": "customer_id",
+   "expect": "fix",
+   "truth": "C0009",
+   "note": "'0009'"
+  },
+  {
+   "id": "ord-162",
+   "table": "orders",
+   "category": "id_format",
+   "row": 31,
+   "column": "product_code",
+   "expect": "fix",
+   "truth": "P002",
+   "note": "'p-02'"
+  },
+  {
+   "id": "ord-163",
+   "table": "orders",
+   "category": "name_typo",
+   "row": 31,
+   "column": "product_name",
+   "expect": "fix",
+   "truth": "에티오피아 예가체프 200g",
+   "note": "'에티오피아 예가채프 200g'"
+  },
+  {
+   "id": "ord-164",
+   "table": "orders",
+   "category": "number_text",
+   "row": 31,
+   "column": "qty",
+   "expect": "fix",
+   "truth": 2,
+   "note": "'２'"
+  },
+  {
+   "id": "ord-165",
+   "table": "orders",
+   "category": "number_text",
+   "row": 31,
+   "column": "unit_price",
+   "expect": "fix",
+   "truth": 15000,
+   "note": "'₩15,000'"
+  },
+  {
+   "id": "ord-166",
+   "table": "orders",
+   "category": "number_text",
+   "row": 31,
+   "column": "amount",
+   "expect": "fix",
+   "truth": 28500,
+   "note": "'₩28,500'"
+  },
+  {
+   "id": "ord-167",
+   "table": "orders",
+   "category": "category",
+   "row": 31,
+   "column": "payment",
+   "expect": "fix",
+   "truth": "카카오페이",
+   "note": "'카카오 페이'"
+  },
+  {
+   "id": "ord-168",
+   "table": "orders",
+   "category": "date_format",
+   "row": 32,
+   "column": "order_date",
+   "expect": "fix",
+   "truth": "2024-02-24",
+   "note": "'2024.2.24'"
+  },
+  {
+   "id": "ord-169",
+   "table": "orders",
+   "category": "id_format",
+   "row": 32,
+   "column": "customer_id",
+   "expect": "fix",
+   "truth": "C0010",
+   "note": "'Ｃ００１０'"
+  },
+  {
+   "id": "ord-170",
+   "table": "orders",
+   "category": "name_typo",
+   "row": 32,
+   "column": "product_name",
+   "expect": "fix",
+   "truth": "콜드브루 원액 500ml",
+   "note": "'콜드브루 원액 500 ml'"
+  },
+  {
+   "id": "ord-171",
+   "table": "orders",
+   "category": "number_text",
+   "row": 32,
+   "column": "qty",
+   "expect": "fix",
+   "truth": 1,
+   "note": "'1개'"
+  },
+  {
+   "id": "ord-172",
+   "table": "orders",
+   "category": "number_text",
+   "row": 32,
+   "column": "unit_price",
+   "expect": "fix",
+   "truth": 18000,
+   "note": "'18000원'"
+  },
+  {
+   "id": "ord-173",
+   "table": "orders",
+   "category": "blank_placeholder",
+   "row": 32,
+   "column": "discount_pct",
+   "expect": "fix",
+   "truth": null,
+   "note": "'N/A'"
+  },
+  {
+   "id": "ord-174",
+   "table": "orders",
+   "category": "number_text",
+   "row": 32,
+   "column": "amount",
+   "expect": "fix",
+   "truth": 18000,
+   "note": "'18,000원'"
+  },
+  {
+   "id": "ord-175",
+   "table": "orders",
+   "category": "category",
+   "row": 32,
+   "column": "payment",
+   "expect": "fix",
+   "truth": "카드",
+   "note": "'카드결제'"
+  },
+  {
+   "id": "ord-176",
+   "table": "orders",
+   "category": "category",
+   "row": 32,
+   "column": "status",
+   "expect": "fix",
+   "truth": "배송완료",
+   "note": "'배송완료 '"
+  },
+  {
+   "id": "ord-177",
+   "table": "orders",
+   "category": "date_format",
+   "row": 33,
+   "column": "order_date",
+   "expect": "fix",
+   "truth": "2024-02-27",
+   "note": "'24/02/27'"
+  },
+  {
+   "id": "ord-178",
+   "table": "orders",
+   "category": "id_format",
+   "row": 33,
+   "column": "customer_id",
+   "expect": "fix",
+   "truth": "C0011",
+   "note": "'c0011 '"
+  },
+  {
+   "id": "ord-179",
+   "table": "orders",
+   "category": "name_typo",
+   "row": 33,
+   "column": "product_name",
+   "expect": "fix",
+   "truth": "드립백 10입 세트",
+   "note": "'드립백10입세트'"
+  },
+  {
+   "id": "ord-180",
+   "table": "orders",
+   "category": "number_text",
+   "row": 33,
+   "column": "qty",
+   "expect": "fix",
+   "truth": 3,
+   "note": "'3 EA'"
+  },
+  {
+   "id": "ord-181",
+   "table": "orders",
+   "category": "number_text",
+   "row": 33,
+   "column": "discount_pct",
+   "expect": "fix",
+   "truth": 10,
+   "note": "'10 %'"
+  },
+  {
+   "id": "ord-182",
+   "table": "orders",
+   "category": "excel_error",
+   "row": 33,
+   "column": "amount",
+   "expect": "flag",
+   "truth": 36450,
+   "note": "#N/A Excel error"
+  },
+  {
+   "id": "ord-183",
+   "table": "orders",
+   "category": "date_format",
+   "row": 34,
+   "column": "order_date",
+   "expect": "fix",
+   "truth": "2024-02-29",
+   "note": "'2월 29일'"
+  },
+  {
+   "id": "ord-184",
+   "table": "orders",
+   "category": "number_text",
+   "row": 34,
+   "column": "unit_price",
+   "expect": "fix",
+   "truth": 12000,
+   "note": "'12,000'"
+  },
+  {
+   "id": "ord-185",
+   "table": "orders",
+   "category": "number_text",
+   "row": 34,
+   "column": "amount",
+   "expect": "fix",
+   "truth": 12000,
+   "note": "'12000'"
+  },
+  {
+   "id": "ord-186",
+   "table": "orders",
+   "category": "category",
+   "row": 34,
+   "column": "payment",
+   "expect": "fix",
+   "truth": "계좌이체",
+   "note": "'무통장입금'"
+  },
+  {
+   "id": "ord-187",
+   "table": "orders",
+   "category": "category",
+   "row": 34,
+   "column": "status",
+   "expect": "fix",
+   "truth": "배송완료",
+   "note": "'배송 완료'"
+  },
+  {
+   "id": "ord-188",
+   "table": "orders",
+   "category": "date_format",
+   "row": 36,
+   "column": "order_date",
+   "expect": "fix",
+   "truth": "2024-03-02",
+   "note": "'20240302'"
+  },
+  {
+   "id": "ord-189",
+   "table": "orders",
+   "category": "id_format",
+   "row": 36,
+   "column": "customer_id",
+   "expect": "fix",
+   "truth": "C0013",
+   "note": "'c-13'"
+  },
+  {
+   "id": "ord-190",
+   "table": "orders",
+   "category": "id_format",
+   "row": 36,
+   "column": "product_code",
+   "expect": "fix",
+   "truth": "P005",
+   "note": "'p-05'"
+  },
+  {
+   "id": "ord-191",
+   "table": "orders",
+   "category": "name_typo",
+   "row": 36,
+   "column": "product_name",
+   "expect": "fix",
+   "truth": "콜드브루 원액 500ml",
+   "note": "'콜드브루 원액 500 ml'"
+  },
+  {
+   "id": "ord-192",
+   "table": "orders",
+   "category": "number_text",
+   "row": 36,
+   "column": "qty",
+   "expect": "fix",
+   "truth": 1,
+   "note": "'１'"
+  },
+  {
+   "id": "ord-193",
+   "table": "orders",
+   "category": "number_text",
+   "row": 36,
+   "column": "unit_price",
+   "expect": "fix",
+   "truth": 18000,
+   "note": "'1.8만원'"
+  },
+  {
+   "id": "ord-194",
+   "table": "orders",
+   "category": "category",
+   "row": 36,
+   "column": "payment",
+   "expect": "fix",
+   "truth": "카드",
+   "note": "'card'"
+  },
+  {
+   "id": "ord-195",
+   "table": "orders",
+   "category": "category",
+   "row": 36,
+   "column": "status",
+   "expect": "fix",
+   "truth": "배송완료",
+   "note": "'완료'"
+  },
+  {
+   "id": "ord-196",
+   "table": "orders",
+   "category": "date_format",
+   "row": 38,
+   "column": "order_date",
+   "expect": "fix",
+   "truth": "2024-03-05",
+   "note": "'2024년 3월 5일'"
+  },
+  {
+   "id": "ord-197",
+   "table": "orders",
+   "category": "id_invalid",
+   "row": 38,
+   "column": "customer_id",
+   "expect": "flag",
+   "truth": "C0014",
+   "note": "wrong ID prefix K0014"
+  },
+  {
+   "id": "ord-198",
+   "table": "orders",
+   "category": "id_format",
+   "row": 38,
+   "column": "product_code",
+   "expect": "fix",
+   "truth": "P006",
+   "note": "'Ｐ００６'"
+  },
+  {
+   "id": "ord-199",
+   "table": "orders",
+   "category": "number_text",
+   "row": 38,
+   "column": "qty",
+   "expect": "fix",
+   "truth": 2,
+   "note": "'2개'"
+  },
+  {
+   "id": "ord-200",
+   "table": "orders",
+   "category": "number_text",
+   "row": 38,
+   "column": "unit_price",
+   "expect": "fix",
+   "truth": 19500,
+   "note": "'19.5천원'"
+  },
+  {
+   "id": "ord-201",
+   "table": "orders",
+   "category": "blank_placeholder",
+   "row": 38,
+   "column": "discount_pct",
+   "expect": "fix",
+   "truth": null,
+   "note": "'N/A'"
+  },
+  {
+   "id": "ord-202",
+   "table": "orders",
+   "category": "number_text",
+   "row": 38,
+   "column": "amount",
+   "expect": "fix",
+   "truth": 39000,
+   "note": "'₩39,000'"
+  },
+  {
+   "id": "ord-203",
+   "table": "orders",
+   "category": "category",
+   "row": 38,
+   "column": "payment",
+   "expect": "fix",
+   "truth": "네이버페이",
+   "note": "'naverpay'"
+  },
+  {
+   "id": "ord-204",
+   "table": "orders",
+   "category": "category",
+   "row": 38,
+   "column": "status",
+   "expect": "fix",
+   "truth": "배송완료",
+   "note": "'배송완ㄹ'"
+  },
+  {
+   "id": "ord-205",
+   "table": "orders",
+   "category": "id_format",
+   "row": 39,
+   "column": "customer_id",
+   "expect": "fix",
+   "truth": "C0015",
+   "note": "'0015'"
+  },
+  {
+   "id": "ord-206",
+   "table": "orders",
+   "category": "number_text",
+   "row": 39,
+   "column": "qty",
+   "expect": "fix",
+   "truth": 1,
+   "note": "'1 EA'"
+  },
+  {
+   "id": "ord-207",
+   "table": "orders",
+   "category": "number_text",
+   "row": 39,
+   "column": "unit_price",
+   "expect": "fix",
+   "truth": 9000,
+   "note": "'9,000 원'"
+  },
+  {
+   "id": "ord-208",
+   "table": "orders",
+   "category": "number_text",
+   "row": 39,
+   "column": "amount",
+   "expect": "fix",
+   "truth": 8550,
+   "note": "'8,550원'"
+  },
+  {
+   "id": "ord-209",
+   "table": "orders",
+   "category": "category",
+   "row": 39,
+   "column": "payment",
+   "expect": "fix",
+   "truth": "카드",
+   "note": "'카느'"
+  },
+  {
+   "id": "ord-210",
+   "table": "orders",
+   "category": "category",
+   "row": 39,
+   "column": "status",
+   "expect": "fix",
+   "truth": "배송완료",
+   "note": "'Delivered'"
+  },
+  {
+   "id": "ord-211",
+   "table": "orders",
+   "category": "date_format",
+   "row": 40,
+   "column": "order_date",
+   "expect": "fix",
+   "truth": "2024-03-08",
+   "note": "'２０２４．３．８'"
+  },
+  {
+   "id": "ord-212",
+   "table": "orders",
+   "category": "id_format",
+   "row": 40,
+   "column": "customer_id",
+   "expect": "fix",
+   "truth": "C0001",
+   "note": "'Ｃ０００１'"
+  },
+  {
+   "id": "ord-213",
+   "table": "orders",
+   "category": "number_text",
+   "row": 40,
+   "column": "unit_price",
+   "expect": "fix",
+   "truth": 13500,
+   "note": "'₩13,500'"
+  },
+  {
+   "id": "ord-214",
+   "table": "orders",
+   "category": "cross_check",
+   "row": 40,
+   "column": "amount",
+   "expect": "flag",
+   "truth": 13500,
+   "note": "amount x10 typo (qty*price mismatch)"
+  },
+  {
+   "id": "ord-215",
+   "table": "orders",
+   "category": "category",
+   "row": 40,
+   "column": "payment",
+   "expect": "fix",
+   "truth": "카카오페이",
+   "note": "'kakaopay'"
+  },
+  {
+   "id": "ord-216",
+   "table": "orders",
+   "category": "category",
+   "row": 40,
+   "column": "status",
+   "expect": "fix",
+   "truth": "배송완료",
+   "note": "'배송완료 '"
+  },
+  {
+   "id": "ord-217",
+   "table": "orders",
+   "category": "date_format",
+   "row": 41,
+   "column": "order_date",
+   "expect": "fix",
+   "truth": "2024-03-11",
+   "note": "'2024/3/11'"
+  },
+  {
+   "id": "ord-218",
+   "table": "orders",
+   "category": "id_format",
+   "row": 41,
+   "column": "customer_id",
+   "expect": "fix",
+   "truth": "C0002",
+   "note": "'c0002 '"
+  },
+  {
+   "id": "ord-219",
+   "table": "orders",
+   "category": "id_format",
+   "row": 41,
+   "column": "product_code",
+   "expect": "fix",
+   "truth": "P008",
+   "note": "'p-08'"
+  },
+  {
+   "id": "ord-220",
+   "table": "orders",
+   "category": "number_text",
+   "row": 41,
+   "column": "qty",
+   "expect": "fix",
+   "truth": 2,
+   "note": "'２'"
+  },
+  {
+   "id": "ord-221",
+   "table": "orders",
+   "category": "number_text",
+   "row": 41,
+   "column": "unit_price",
+   "expect": "fix",
+   "truth": 25000,
+   "note": "'25000원'"
+  },
+  {
+   "id": "ord-222",
+   "table": "orders",
+   "category": "number_text",
+   "row": 41,
+   "column": "discount_pct",
+   "expect": "fix",
+   "truth": 10,
+   "note": "'10 %'"
+  },
+  {
+   "id": "ord-223",
+   "table": "orders",
+   "category": "number_text",
+   "row": 41,
+   "column": "amount",
+   "expect": "fix",
+   "truth": 45000,
+   "note": "'45000'"
+  },
+  {
+   "id": "ord-224",
+   "table": "orders",
+   "category": "id_format",
+   "row": 42,
+   "column": "product_code",
+   "expect": "fix",
+   "truth": "P001",
+   "note": "'Ｐ００１'"
+  },
+  {
+   "id": "ord-225",
+   "table": "orders",
+   "category": "number_text",
+   "row": 42,
+   "column": "qty",
+   "expect": "fix",
+   "truth": 1,
+   "note": "'1개'"
+  },
+  {
+   "id": "ord-226",
+   "table": "orders",
+   "category": "blank_placeholder",
+   "row": 42,
+   "column": "discount_pct",
+   "expect": "fix",
+   "truth": null,
+   "note": "'N/A'"
+  },
+  {
+   "id": "ord-227",
+   "table": "orders",
+   "category": "category",
+   "row": 42,
+   "column": "payment",
+   "expect": "fix",
+   "truth": "카드",
+   "note": "'신용카드'"
+  },
+  {
+   "id": "ord-228",
+   "table": "orders",
+   "category": "category",
+   "row": 42,
+   "column": "status",
+   "expect": "fix",
+   "truth": "배송완료",
+   "note": "'배송 완료'"
+  },
+  {
+   "id": "ord-229",
+   "table": "orders",
+   "category": "date_format",
+   "row": 43,
+   "column": "order_date",
+   "expect": "fix",
+   "truth": "2024-03-18",
+   "note": "45369"
+  },
+  {
+   "id": "ord-230",
+   "table": "orders",
+   "category": "id_format",
+   "row": 43,
+   "column": "customer_id",
+   "expect": "fix",
+   "truth": "C0006",
+   "note": "'c-6'"
+  },
+  {
+   "id": "ord-231",
+   "table": "orders",
+   "category": "number_text",
+   "row": 43,
+   "column": "qty",
+   "expect": "fix",
+   "truth": 1,
+   "note": "'1 EA'"
+  },
+  {
+   "id": "ord-232",
+   "table": "orders",
+   "category": "number_text",
+   "row": 43,
+   "column": "unit_price",
+   "expect": "fix",
+   "truth": 45000,
+   "note": "'45,000'"
+  },
+  {
+   "id": "ord-233",
+   "table": "orders",
+   "category": "blank_placeholder",
+   "row": 43,
+   "column": "discount_pct",
+   "expect": "fix",
+   "truth": null,
+   "note": "'없음'"
+  },
+  {
+   "id": "ord-234",
+   "table": "orders",
+   "category": "number_text",
+   "row": 43,
+   "column": "amount",
+   "expect": "fix",
+   "truth": 45000,
+   "note": "'₩45,000'"
+  },
+  {
+   "id": "ord-235",
+   "table": "orders",
+   "category": "category",
+   "row": 43,
+   "column": "payment",
+   "expect": "fix",
+   "truth": "계좌이체",
+   "note": "'계좌 이체'"
+  },
+  {
+   "id": "ord-236",
+   "table": "orders",
+   "category": "category",
+   "row": 43,
+   "column": "status",
+   "expect": "fix",
+   "truth": "배송완료",
+   "note": "'완료'"
+  },
+  {
+   "id": "ord-237",
+   "table": "orders",
+   "category": "date_format",
+   "row": 44,
+   "column": "order_date",
+   "expect": "fix",
+   "truth": "2024-03-18",
+   "note": "'2024.3.18'"
+  },
+  {
+   "id": "ord-238",
+   "table": "orders",
+   "category": "id_format",
+   "row": 44,
+   "column": "customer_id",
+   "expect": "fix",
+   "truth": "C0006",
+   "note": "'C 0006'"
+  },
+  {
+   "id": "ord-239",
+   "table": "orders",
+   "category": "number_text",
+   "row": 44,
+   "column": "unit_price",
+   "expect": "fix",
+   "truth": 45000,
+   "note": "'4.5만원'"
+  },
+  {
+   "id": "ord-240",
+   "table": "orders",
+   "category": "number_text",
+   "row": 44,
+   "column": "amount",
+   "expect": "fix",
+   "truth": 45000,
+   "note": "'45,000원'"
+  },
+  {
+   "id": "ord-241",
+   "table": "orders",
+   "category": "category",
+   "row": 44,
+   "column": "status",
+   "expect": "fix",
+   "truth": "배송완료",
+   "note": "'배송완ㄹ'"
+  },
+  {
+   "id": "ord-242",
+   "table": "orders",
+   "category": "date_format",
+   "row": 46,
+   "column": "order_date",
+   "expect": "fix",
+   "truth": "2024-03-25",
+   "note": "'3월 25일'"
+  },
+  {
+   "id": "ord-243",
+   "table": "orders",
+   "category": "id_format",
+   "row": 46,
+   "column": "customer_id",
+   "expect": "fix",
+   "truth": "C0008",
+   "note": "'Ｃ０００８'"
+  },
+  {
+   "id": "ord-244",
+   "table": "orders",
+   "category": "id_format",
+   "row": 46,
+   "column": "product_code",
+   "expect": "fix",
+   "truth": "P005",
+   "note": "'Ｐ００５'"
+  },
+  {
+   "id": "ord-245",
+   "table": "orders",
+   "category": "name_typo",
+   "row": 46,
+   "column": "product_name",
+   "expect": "flag",
+   "truth": "콜드브루 원액 500ml",
+   "note": "'콜브 원액' too far from any product name"
+  },
+  {
+   "id": "ord-246",
+   "table": "orders",
+   "category": "number_text",
+   "row": 46,
+   "column": "qty",
+   "expect": "fix",
+   "truth": 2,
+   "note": "'2개'"
+  },
+  {
+   "id": "ord-247",
+   "table": "orders",
+   "category": "number_text",
+   "row": 46,
+   "column": "unit_price",
+   "expect": "fix",
+   "truth": 18000,
+   "note": "'18,000 원'"
+  },
+  {
+   "id": "ord-248",
+   "table": "orders",
+   "category": "blank_placeholder",
+   "row": 46,
+   "column": "discount_pct",
+   "expect": "fix",
+   "truth": null,
+   "note": "'N/A'"
+  },
+  {
+   "id": "ord-249",
+   "table": "orders",
+   "category": "number_text",
+   "row": 46,
+   "column": "amount",
+   "expect": "fix",
+   "truth": 36000,
+   "note": "'36000'"
+  },
+  {
+   "id": "ord-250",
+   "table": "orders",
+   "category": "category",
+   "row": 46,
+   "column": "status",
+   "expect": "fix",
+   "truth": "배송중",
+   "note": "'배송 중'"
+  },
+  {
+   "id": "ord-251",
+   "table": "orders",
+   "category": "date_format",
+   "row": 47,
+   "column": "order_date",
+   "expect": "fix",
+   "truth": "2024-03-27",
+   "note": "'20240327'"
+  },
+  {
+   "id": "ord-252",
+   "table": "orders",
+   "category": "id_format",
+   "row": 47,
+   "column": "customer_id",
+   "expect": "fix",
+   "truth": "C0014",
+   "note": "'c0014 '"
+  },
+  {
+   "id": "ord-253",
+   "table": "orders",
+   "category": "name_typo",
+   "row": 47,
+   "column": "product_name",
+   "expect": "fix",
+   "truth": "하우스블렌드 원두 200g",
+   "note": "'하우스 블렌드 원두200g'"
+  },
+  {
+   "id": "ord-254",
+   "table": "orders",
+   "category": "number_text",
+   "row": 47,
+   "column": "qty",
+   "expect": "fix",
+   "truth": 2,
+   "note": "'2 EA'"
+  },
+  {
+   "id": "ord-255",
+   "table": "orders",
+   "category": "number_text",
+   "row": 47,
+   "column": "unit_price",
+   "expect": "fix",
+   "truth": 12000,
+   "note": "'₩12,000'"
+  },
+  {
+   "id": "ord-256",
+   "table": "orders",
+   "category": "number_text",
+   "row": 47,
+   "column": "discount_pct",
+   "expect": "fix",
+   "truth": 10,
+   "note": "'10 %'"
+  },
+  {
+   "id": "ord-257",
+   "table": "orders",
+   "category": "date_format",
+   "row": 48,
+   "column": "order_date",
+   "expect": "fix",
+   "truth": "2024-03-29",
+   "note": "'2024년 3월 29일'"
+  },
+  {
+   "id": "ord-258",
+   "table": "orders",
+   "category": "number_text",
+   "row": 48,
+   "column": "unit_price",
+   "expect": "fix",
+   "truth": 19500,
+   "note": "'19500원'"
+  },
+  {
+   "id": "ord-259",
+   "table": "orders",
+   "category": "number_text",
+   "row": 48,
+   "column": "amount",
+   "expect": "fix",
+   "truth": 19500,
+   "note": "'₩19,500'"
+  },
+  {
+   "id": "ord-260",
+   "table": "orders",
+   "category": "category",
+   "row": 48,
+   "column": "payment",
+   "expect": "fix",
+   "truth": "카카오페이",
+   "note": "'kakaopay'"
+  },
+  {
+   "id": "ord-261",
+   "table": "orders",
+   "category": "category",
+   "row": 48,
+   "column": "status",
+   "expect": "fix",
+   "truth": "배송완료",
+   "note": "'배송 완료'"
+  },
+  {
+   "id": "ord-262",
+   "table": "orders",
+   "category": "shifted_row",
+   "row": 29,
+   "column": "customer_id",
+   "expect": "fix",
+   "truth": "C0002",
+   "note": "O-2024-0019 shifted right"
+  },
+  {
+   "id": "ord-263",
+   "table": "orders",
+   "category": "shifted_row",
+   "row": 29,
+   "column": "product_code",
+   "expect": "fix",
+   "truth": "P006",
+   "note": "O-2024-0019 shifted right"
+  },
+  {
+   "id": "ord-264",
+   "table": "orders",
+   "category": "shifted_row",
+   "row": 29,
+   "column": "qty",
+   "expect": "fix",
+   "truth": 1,
+   "note": "O-2024-0019 shifted right"
+  },
+  {
+   "id": "ord-265",
+   "table": "orders",
+   "category": "shifted_row",
+   "row": 29,
+   "column": "payment",
+   "expect": "fix",
+   "truth": "네이버페이",
+   "note": "O-2024-0019 shifted right"
+  },
+  {
+   "id": "ord-266",
+   "table": "orders",
+   "category": "shifted_row",
+   "row": 29,
+   "column": "status",
+   "expect": "fix",
+   "truth": "배송완료",
+   "note": "O-2024-0019 shifted right"
+  },
+  {
+   "id": "ord-267",
+   "table": "orders",
+   "category": "shifted_row",
+   "row": 45,
+   "column": "customer_id",
+   "expect": "fix",
+   "truth": "C0007",
+   "note": "O-2024-0033 shifted left"
+  },
+  {
+   "id": "ord-268",
+   "table": "orders",
+   "category": "shifted_row",
+   "row": 45,
+   "column": "product_code",
+   "expect": "fix",
+   "truth": "P002",
+   "note": "O-2024-0033 shifted left"
+  },
+  {
+   "id": "ord-269",
+   "table": "orders",
+   "category": "shifted_row",
+   "row": 45,
+   "column": "qty",
+   "expect": "fix",
+   "truth": 1,
+   "note": "O-2024-0033 shifted left"
+  },
+  {
+   "id": "ord-270",
+   "table": "orders",
+   "category": "shifted_row",
+   "row": 45,
+   "column": "payment",
+   "expect": "fix",
+   "truth": "카드",
+   "note": "O-2024-0033 shifted left"
+  },
+  {
+   "id": "ord-271",
+   "table": "orders",
+   "category": "shifted_row",
+   "row": 45,
+   "column": "status",
+   "expect": "fix",
+   "truth": "배송완료",
+   "note": "O-2024-0033 shifted left"
+  },
+  {
+   "id": "ord-272",
+   "table": "orders",
+   "category": "shifted_row",
+   "row": 45,
+   "column": "order_date",
+   "expect": "flag",
+   "truth": "2024-03-21",
+   "note": "date cell deleted: must be flagged, not guessed"
+  },
+  {
+   "id": "ord-273",
+   "table": "orders",
+   "category": "join_orphan",
+   "row": 42,
+   "column": "customer_id",
+   "expect": "orphan",
+   "truth": "C0099",
+   "note": "customer not in master"
+  },
+  {
+   "id": "ord-274",
+   "table": "orders",
+   "category": "join_fallback",
+   "row": 12,
+   "column": "product_code",
+   "expect": "join_fallback",
+   "truth": "P005",
+   "note": "code blank, join by product name"
+  },
+  {
+   "id": "ord-275",
+   "table": "orders",
+   "category": "join_fallback",
+   "row": 32,
+   "column": "product_code",
+   "expect": "join_fallback",
+   "truth": "P005",
+   "note": "code blank, join by product name"
+  },
+  {
+   "id": "ord-276",
+   "table": "orders",
+   "category": "join_discontinued",
+   "row": 7,
+   "column": "product_code",
+   "expect": "join_in_other",
+   "truth": "P009",
+   "note": "discontinued product"
+  },
+  {
+   "id": "ord-277",
+   "table": "orders",
+   "category": "near_duplicate",
+   "row": 43,
+   "column": null,
+   "expect": "suspect",
+   "truth": [
+    43,
+    44
+   ],
+   "note": "double submit: same customer/date/product/qty/amount, different order id"
+  },
+  {
+   "id": "ord-278",
+   "table": "orders",
+   "category": "trap",
+   "row": 15,
+   "column": null,
+   "expect": "no_suspect",
+   "truth": [
+    8,
+    27
+   ],
+   "note": "same customer different dates/products: not duplicates"
+  },
+  {
+   "id": "ord-279",
+   "table": "orders",
+   "category": "trap",
+   "row": 8,
+   "column": "discount_pct",
+   "expect": "keep",
+   "truth": 0,
+   "note": "0 must stay 0, not blank"
+  },
+  {
+   "id": "ord-280",
+   "table": "orders",
+   "category": "key_conflict",
+   "row": 16,
+   "column": "order_id",
+   "expect": "conflict",
+   "truth": null,
+   "note": "original row of O-2024-0010"
+  },
+  {
+   "id": "cus-281",
+   "table": "customers",
+   "category": "structure",
+   "row": 1,
+   "column": null,
+   "expect": "drop",
+   "truth": null,
+   "note": "title"
+  },
+  {
+   "id": "cus-282",
+   "table": "customers",
+   "category": "duplicate",
+   "row": 9,
+   "column": null,
+   "expect": "dup_drop",
+   "truth": null,
+   "note": "C0005 pasted twice"
+  },
+  {
+   "id": "cus-283",
+   "table": "customers",
+   "category": "merged_cell",
+   "row": 5,
+   "column": "region",
+   "expect": "fix",
+   "truth": "서울",
+   "note": "region only in merged top cell"
+  },
+  {
+   "id": "cus-284",
+   "table": "customers",
+   "category": "merged_cell",
+   "row": 8,
+   "column": "region",
+   "expect": "fix",
+   "truth": "경기",
+   "note": "region only in merged top cell"
+  },
+  {
+   "id": "cus-285",
+   "table": "customers",
+   "category": "merged_cell",
+   "row": 12,
+   "column": "region",
+   "expect": "fix",
+   "truth": "부산",
+   "note": "region only in merged top cell"
+  },
+  {
+   "id": "cus-286",
+   "table": "customers",
+   "category": "category",
+   "row": 4,
+   "column": "region",
+   "expect": "fix",
+   "truth": "서울",
+   "note": "'서울특별시'"
+  },
+  {
+   "id": "cus-287",
+   "table": "customers",
+   "category": "email_case",
+   "row": 4,
+   "column": "email",
+   "expect": "fix",
+   "truth": "minsu.kim@naver.com",
+   "note": "'MINSU.KIM@NAVER.COM '"
+  },
+  {
+   "id": "cus-288",
+   "table": "customers",
+   "category": "id_format",
+   "row": 5,
+   "column": "customer_id",
+   "expect": "fix",
+   "truth": "C0002",
+   "note": "'c-2'"
+  },
+  {
+   "id": "cus-289",
+   "table": "customers",
+   "category": "text",
+   "row": 5,
+   "column": "name",
+   "expect": "fix",
+   "truth": "이수진",
+   "note": "'이수진 '"
+  },
+  {
+   "id": "cus-290",
+   "table": "customers",
+   "category": "phone_format",
+   "row": 5,
+   "column": "phone",
+   "expect": "fix",
+   "truth": "010-2222-3333",
+   "note": "'01022223333'"
+  },
+  {
+   "id": "cus-291",
+   "table": "customers",
+   "category": "invalid",
+   "row": 5,
+   "column": "email",
+   "expect": "flag",
+   "truth": "sujin@gmail.com",
+   "note": "email without domain"
+  },
+  {
+   "id": "cus-292",
+   "table": "customers",
+   "category": "date_format",
+   "row": 5,
+   "column": "join_date",
+   "expect": "fix",
+   "truth": "2023-02-03",
+   "note": "44960"
+  },
+  {
+   "id": "cus-293",
+   "table": "customers",
+   "category": "category",
+   "row": 5,
+   "column": "grade",
+   "expect": "fix",
+   "truth": "일반",
+   "note": "'일반회원'"
+  },
+  {
+   "id": "cus-294",
+   "table": "customers",
+   "category": "id_format",
+   "row": 6,
+   "column": "customer_id",
+   "expect": "fix",
+   "truth": "C0003",
+   "note": "'C 0003'"
+  },
+  {
+   "id": "cus-295",
+   "table": "customers",
+   "category": "category",
+   "row": 6,
+   "column": "region",
+   "expect": "fix",
+   "truth": "서울",
+   "note": "'서을'"
+  },
+  {
+   "id": "cus-296",
+   "table": "customers",
+   "category": "phone_format",
+   "row": 6,
+   "column": "phone",
+   "expect": "fix",
+   "truth": "010-3333-4444",
+   "note": "'010 3333 4444'"
+  },
+  {
+   "id": "cus-297",
+   "table": "customers",
+   "category": "invalid",
+   "row": 6,
+   "column": "email",
+   "expect": "flag",
+   "truth": "jihoon.park@daum.net",
+   "note": "double @"
+  },
+  {
+   "id": "cus-298",
+   "table": "customers",
+   "category": "date_format",
+   "row": 6,
+   "column": "join_date",
+   "expect": "fix",
+   "truth": "2023-03-12",
+   "note": "'2023.3.12'"
+  },
+  {
+   "id": "cus-299",
+   "table": "customers",
+   "category": "id_format",
+   "row": 7,
+   "column": "customer_id",
+   "expect": "fix",
+   "truth": "C0004",
+   "note": "4"
+  },
+  {
+   "id": "cus-300",
+   "table": "customers",
+   "category": "category",
+   "row": 7,
+   "column": "region",
+   "expect": "fix",
+   "truth": "경기",
+   "note": "'경기도'"
+  },
+  {
+   "id": "cus-301",
+   "table": "customers",
+   "category": "phone_format",
+   "row": 7,
+   "column": "phone",
+   "expect": "fix",
+   "truth": "010-4444-5555",
+   "note": "'+82 10-4444-5555'"
+  },
+  {
+   "id": "cus-302",
+   "table": "customers",
+   "category": "date_format",
+   "row": 7,
+   "column": "join_date",
+   "expect": "fix",
+   "truth": "2023-04-01",
+   "note": "'23/04/01'"
+  },
+  {
+   "id": "cus-303",
+   "table": "customers",
+   "category": "category",
+   "row": 7,
+   "column": "grade",
+   "expect": "fix",
+   "truth": "VIP",
+   "note": "'vip'"
+  },
+  {
+   "id": "cus-304",
+   "table": "customers",
+   "category": "id_format",
+   "row": 8,
+   "column": "customer_id",
+   "expect": "fix",
+   "truth": "C0005",
+   "note": "'Ｃ０００５'"
+  },
+  {
+   "id": "cus-305",
+   "table": "customers",
+   "category": "phone_format",
+   "row": 8,
+   "column": "phone",
+   "expect": "fix",
+   "truth": "010-5555-6666",
+   "note": "'010.5555.6666'"
+  },
+  {
+   "id": "cus-306",
+   "table": "customers",
+   "category": "date_format",
+   "row": 8,
+   "column": "join_date",
+   "expect": "fix",
+   "truth": "2023-05-20",
+   "note": "'2023년 5월 20일'"
+  },
+  {
+   "id": "cus-307",
+   "table": "customers",
+   "category": "category",
+   "row": 8,
+   "column": "grade",
+   "expect": "fix",
+   "truth": "신규",
+   "note": "'신규 회원'"
+  },
+  {
+   "id": "cus-308",
+   "table": "customers",
+   "category": "id_format",
+   "row": 10,
+   "column": "customer_id",
+   "expect": "fix",
+   "truth": "C0006",
+   "note": "'c0006 '"
+  },
+  {
+   "id": "cus-309",
+   "table": "customers",
+   "category": "category",
+   "row": 10,
+   "column": "region",
+   "expect": "fix",
+   "truth": "경기",
+   "note": "'겅기'"
+  },
+  {
+   "id": "cus-310",
+   "table": "customers",
+   "category": "invalid",
+   "row": 10,
+   "column": "phone",
+   "expect": "flag",
+   "truth": "010-6666-7777",
+   "note": "leading 0 lost (number cell)"
+  },
+  {
+   "id": "cus-311",
+   "table": "customers",
+   "category": "date_format",
+   "row": 10,
+   "column": "join_date",
+   "expect": "fix",
+   "truth": "2023-06-11",
+   "note": "'20230611'"
+  },
+  {
+   "id": "cus-312",
+   "table": "customers",
+   "category": "category",
+   "row": 11,
+   "column": "region",
+   "expect": "fix",
+   "truth": "부산",
+   "note": "'부산광역시'"
+  },
+  {
+   "id": "cus-313",
+   "table": "customers",
+   "category": "date_format",
+   "row": 11,
+   "column": "join_date",
+   "expect": "fix",
+   "truth": "2023-07-07",
+   "note": "'2023-07-07'"
+  },
+  {
+   "id": "cus-314",
+   "table": "customers",
+   "category": "category",
+   "row": 11,
+   "column": "grade",
+   "expect": "fix",
+   "truth": "일반",
+   "note": "'일 반'"
+  },
+  {
+   "id": "cus-315",
+   "table": "customers",
+   "category": "date_format",
+   "row": 12,
+   "column": "join_date",
+   "expect": "fix",
+   "truth": "2023-08-08",
+   "note": "'2023/8/8'"
+  },
+  {
+   "id": "cus-316",
+   "table": "customers",
+   "category": "category",
+   "row": 13,
+   "column": "region",
+   "expect": "fix",
+   "truth": "부산",
+   "note": "'busan'"
+  },
+  {
+   "id": "cus-317",
+   "table": "customers",
+   "category": "invalid",
+   "row": 13,
+   "column": "join_date",
+   "expect": "flag",
+   "truth": "2023-09-09",
+   "note": "impossible month 13"
+  },
+  {
+   "id": "cus-318",
+   "table": "customers",
+   "category": "phone_format",
+   "row": 14,
+   "column": "phone",
+   "expect": "fix",
+   "truth": "010-7777-8888",
+   "note": "'01077778888'"
+  },
+  {
+   "id": "cus-319",
+   "table": "customers",
+   "category": "email_case",
+   "row": 14,
+   "column": "email",
+   "expect": "fix",
+   "truth": "yujin.choi@gmail.com",
+   "note": "'YUJIN.CHOI@GMAIL.COM'"
+  },
+  {
+   "id": "cus-320",
+   "table": "customers",
+   "category": "date_format",
+   "row": 14,
+   "column": "join_date",
+   "expect": "fix",
+   "truth": "2024-02-01",
+   "note": "'2024.2.1'"
+  },
+  {
+   "id": "cus-321",
+   "table": "customers",
+   "category": "category",
+   "row": 15,
+   "column": "region",
+   "expect": "fix",
+   "truth": "인천",
+   "note": "'인천시'"
+  },
+  {
+   "id": "cus-322",
+   "table": "customers",
+   "category": "date_format",
+   "row": 15,
+   "column": "join_date",
+   "expect": "fix",
+   "truth": "2023-10-10",
+   "note": "'２０２３．１０．１０'"
+  },
+  {
+   "id": "cus-323",
+   "table": "customers",
+   "category": "category",
+   "row": 15,
+   "column": "grade",
+   "expect": "fix",
+   "truth": "VIP",
+   "note": "'V.I.P'"
+  },
+  {
+   "id": "cus-324",
+   "table": "customers",
+   "category": "category",
+   "row": 16,
+   "column": "region",
+   "expect": "fix",
+   "truth": "인천",
+   "note": "'Incheon'"
+  },
+  {
+   "id": "cus-325",
+   "table": "customers",
+   "category": "invalid",
+   "row": 16,
+   "column": "phone",
+   "expect": "flag",
+   "truth": "010-5656-7878",
+   "note": "too few digits"
+  },
+  {
+   "id": "cus-326",
+   "table": "customers",
+   "category": "category",
+   "row": 17,
+   "column": "region",
+   "expect": "fix",
+   "truth": "대구",
+   "note": "'대구 '"
+  },
+  {
+   "id": "cus-327",
+   "table": "customers",
+   "category": "phone_format",
+   "row": 17,
+   "column": "phone",
+   "expect": "fix",
+   "truth": "010-9090-1212",
+   "note": "'01090901212'"
+  },
+  {
+   "id": "cus-328",
+   "table": "customers",
+   "category": "date_format",
+   "row": 17,
+   "column": "join_date",
+   "expect": "fix",
+   "truth": "2023-12-01",
+   "note": "'2023.12.1'"
+  },
+  {
+   "id": "cus-329",
+   "table": "customers",
+   "category": "category",
+   "row": 18,
+   "column": "region",
+   "expect": "fix",
+   "truth": "대구",
+   "note": "'대구광역시'"
+  },
+  {
+   "id": "cus-330",
+   "table": "customers",
+   "category": "date_format",
+   "row": 18,
+   "column": "join_date",
+   "expect": "fix",
+   "truth": "2024-01-05",
+   "note": "45296"
+  },
+  {
+   "id": "cus-331",
+   "table": "customers",
+   "category": "category",
+   "row": 19,
+   "column": "region",
+   "expect": "fix",
+   "truth": "제주",
+   "note": "'제주도'"
+  },
+  {
+   "id": "cus-332",
+   "table": "customers",
+   "category": "phone_format",
+   "row": 19,
+   "column": "phone",
+   "expect": "fix",
+   "truth": "010-7878-9090",
+   "note": "'010–7878–9090'"
+  },
+  {
+   "id": "cus-333",
+   "table": "customers",
+   "category": "date_format",
+   "row": 19,
+   "column": "join_date",
+   "expect": "fix",
+   "truth": "2024-01-20",
+   "note": "'2024-01-20'"
+  },
+  {
+   "id": "cus-334",
+   "table": "customers",
+   "category": "category",
+   "row": 20,
+   "column": "region",
+   "expect": "fix",
+   "truth": "제주",
+   "note": "'Jeju'"
+  },
+  {
+   "id": "cus-335",
+   "table": "customers",
+   "category": "date_format",
+   "row": 20,
+   "column": "join_date",
+   "expect": "fix",
+   "truth": "2024-02-14",
+   "note": "'2024.2.14'"
+  },
+  {
+   "id": "cus-336",
+   "table": "customers",
+   "category": "invalid",
+   "row": 20,
+   "column": "grade",
+   "expect": "flag",
+   "truth": "VIP",
+   "note": "VlP (l for I)"
+  },
+  {
+   "id": "cus-337",
+   "table": "customers",
+   "category": "near_duplicate",
+   "row": 11,
+   "column": null,
+   "expect": "suspect",
+   "truth": [
+    11,
+    14
+   ],
+   "note": "same phone+email, different id and spacing in name"
+  },
+  {
+   "id": "cus-338",
+   "table": "customers",
+   "category": "trap",
+   "row": 4,
+   "column": null,
+   "expect": "no_suspect",
+   "truth": [
+    4,
+    13
+   ],
+   "note": "same name 김민수, different person"
+  },
+  {
+   "id": "pro-339",
+   "table": "products",
+   "category": "structure",
+   "row": 1,
+   "column": null,
+   "expect": "drop",
+   "truth": null,
+   "note": "title"
+  },
+  {
+   "id": "pro-340",
+   "table": "products",
+   "category": "number_text",
+   "row": 3,
+   "column": "price",
+   "expect": "fix",
+   "truth": 12000,
+   "note": "'12,000원'"
+  },
+  {
+   "id": "pro-341",
+   "table": "products",
+   "category": "id_format",
+   "row": 4,
+   "column": "product_code",
+   "expect": "fix",
+   "truth": "P002",
+   "note": "'p-2'"
+  },
+  {
+   "id": "pro-342",
+   "table": "products",
+   "category": "category",
+   "row": 4,
+   "column": "category",
+   "expect": "fix",
+   "truth": "원두",
+   "note": "'원 두'"
+  },
+  {
+   "id": "pro-343",
+   "table": "products",
+   "category": "date_format",
+   "row": 4,
+   "column": "launch_date",
+   "expect": "fix",
+   "truth": "2023-03-01",
+   "note": "'2023.3.1'"
+  },
+  {
+   "id": "pro-344",
+   "table": "products",
+   "category": "number_text",
+   "row": 5,
+   "column": "price",
+   "expect": "fix",
+   "truth": 45000,
+   "note": "'45,000'"
+  },
+  {
+   "id": "pro-345",
+   "table": "products",
+   "category": "date_format",
+   "row": 5,
+   "column": "launch_date",
+   "expect": "fix",
+   "truth": "2023-05-10",
+   "note": "45056"
+  },
+  {
+   "id": "pro-346",
+   "table": "products",
+   "category": "id_format",
+   "row": 6,
+   "column": "product_code",
+   "expect": "fix",
+   "truth": "P004",
+   "note": "'Ｐ００４'"
+  },
+  {
+   "id": "pro-347",
+   "table": "products",
+   "category": "number_text",
+   "row": 6,
+   "column": "price",
+   "expect": "fix",
+   "truth": 13500,
+   "note": "'13,500원'"
+  },
+  {
+   "id": "pro-348",
+   "table": "products",
+   "category": "date_format",
+   "row": 6,
+   "column": "launch_date",
+   "expect": "fix",
+   "truth": "2023-06-01",
+   "note": "'2023-06-01'"
+  },
+  {
+   "id": "pro-349",
+   "table": "products",
+   "category": "category",
+   "row": 7,
+   "column": "category",
+   "expect": "fix",
+   "truth": "콜드브루",
+   "note": "'콜드브류'"
+  },
+  {
+   "id": "pro-350",
+   "table": "products",
+   "category": "number_text",
+   "row": 7,
+   "column": "price",
+   "expect": "fix",
+   "truth": 18000,
+   "note": "'₩18,000'"
+  },
+  {
+   "id": "pro-351",
+   "table": "products",
+   "category": "date_format",
+   "row": 7,
+   "column": "launch_date",
+   "expect": "fix",
+   "truth": "2023-07-01",
+   "note": "'2023년 7월 1일'"
+  },
+  {
+   "id": "pro-352",
+   "table": "products",
+   "category": "category",
+   "row": 8,
+   "column": "category",
+   "expect": "fix",
+   "truth": "콜드브루",
+   "note": "'콜드 브루'"
+  },
+  {
+   "id": "pro-353",
+   "table": "products",
+   "category": "number_text",
+   "row": 8,
+   "column": "price",
+   "expect": "fix",
+   "truth": 19500,
+   "note": "'19,500'"
+  },
+  {
+   "id": "pro-354",
+   "table": "products",
+   "category": "date_format",
+   "row": 8,
+   "column": "launch_date",
+   "expect": "fix",
+   "truth": "2023-09-15",
+   "note": "'20230915'"
+  },
+  {
+   "id": "pro-355",
+   "table": "products",
+   "category": "category",
+   "row": 9,
+   "column": "category",
+   "expect": "fix",
+   "truth": "굿즈",
+   "note": "'Goods'"
+  },
+  {
+   "id": "pro-356",
+   "table": "products",
+   "category": "number_text",
+   "row": 9,
+   "column": "price",
+   "expect": "fix",
+   "truth": 9000,
+   "note": "'9천원'"
+  },
+  {
+   "id": "pro-357",
+   "table": "products",
+   "category": "date_format",
+   "row": 9,
+   "column": "launch_date",
+   "expect": "fix",
+   "truth": "2023-10-01",
+   "note": "'2023.10.1'"
+  },
+  {
+   "id": "pro-358",
+   "table": "products",
+   "category": "text",
+   "row": 10,
+   "column": "product_name",
+   "expect": "fix",
+   "truth": "텀블러 473ml",
+   "note": "'텀블러 473ml '"
+  },
+  {
+   "id": "pro-359",
+   "table": "products",
+   "category": "category",
+   "row": 10,
+   "column": "category",
+   "expect": "fix",
+   "truth": "굿즈",
+   "note": "'굿 즈'"
+  },
+  {
+   "id": "pro-360",
+   "table": "products",
+   "category": "number_text",
+   "row": 10,
+   "column": "price",
+   "expect": "fix",
+   "truth": 25000,
+   "note": "'2.5만원'"
+  },
+  {
+   "id": "pro-361",
+   "table": "products",
+   "category": "date_format",
+   "row": 10,
+   "column": "launch_date",
+   "expect": "fix",
+   "truth": "2023-11-20",
+   "note": "'2023/11/20'"
+  },
+  {
+   "id": "dis-362",
+   "table": "discontinued_products",
+   "category": "multi_table",
+   "row": 14,
+   "column": null,
+   "expect": "found",
+   "truth": null,
+   "note": "second table on the same sheet"
+  },
+  {
+   "id": "pro-363",
+   "table": "products",
+   "category": "structure",
+   "row": 13,
+   "column": null,
+   "expect": "drop",
+   "truth": null,
+   "note": "title of the second table"
+  },
+  {
+   "id": "dis-364",
+   "table": "discontinued_products",
+   "category": "number_text",
+   "row": 16,
+   "column": "price",
+   "expect": "fix",
+   "truth": 7000,
+   "note": "'7,000원'"
+  },
+  {
+   "id": "dis-365",
+   "table": "discontinued_products",
+   "category": "category",
+   "row": 16,
+   "column": "category",
+   "expect": "fix",
+   "truth": "드립백",
+   "note": "trailing space"
+  },
+  {
+   "id": "dis-366",
+   "table": "discontinued_products",
+   "category": "date_format",
+   "row": 16,
+   "column": "discontinued_date",
+   "expect": "fix",
+   "truth": "2024-01-15",
+   "note": "'2024.01.15'"
+  },
+  {
+   "id": "ret-367",
+   "table": "returns",
+   "category": "encoding",
+   "row": 2,
+   "column": null,
+   "expect": "encoding",
+   "truth": "cp949",
+   "note": "file is cp949, not UTF-8"
+  },
+  {
+   "id": "ret-368",
+   "table": "returns",
+   "category": "structure",
+   "row": 1,
+   "column": null,
+   "expect": "drop",
+   "truth": null,
+   "note": "export caption line"
+  },
+  {
+   "id": "ret-369",
+   "table": "returns",
+   "category": "decimal_comma",
+   "row": 3,
+   "column": "refund",
+   "expect": "fix",
+   "truth": 13500,
+   "note": "European number format"
+  },
+  {
+   "id": "ret-370",
+   "table": "returns",
+   "category": "date_format",
+   "row": 3,
+   "column": "return_date",
+   "expect": "fix",
+   "truth": "2024-01-15",
+   "note": "DD.MM.YYYY (decided by 13.03 / 15.01 / 20.03)"
+  },
+  {
+   "id": "ret-371",
+   "table": "returns",
+   "category": "decimal_comma",
+   "row": 4,
+   "column": "refund",
+   "expect": "fix",
+   "truth": 9000,
+   "note": "European number format"
+  },
+  {
+   "id": "ret-372",
+   "table": "returns",
+   "category": "date_format",
+   "row": 4,
+   "column": "return_date",
+   "expect": "fix",
+   "truth": "2024-02-02",
+   "note": "DD.MM.YYYY (decided by 13.03 / 15.01 / 20.03)"
+  },
+  {
+   "id": "ret-373",
+   "table": "returns",
+   "category": "decimal_comma",
+   "row": 5,
+   "column": "refund",
+   "expect": "fix",
+   "truth": 18000,
+   "note": "European number format"
+  },
+  {
+   "id": "ret-374",
+   "table": "returns",
+   "category": "date_format",
+   "row": 5,
+   "column": "return_date",
+   "expect": "fix",
+   "truth": "2024-03-13",
+   "note": "DD.MM.YYYY (decided by 13.03 / 15.01 / 20.03)"
+  },
+  {
+   "id": "ret-375",
+   "table": "returns",
+   "category": "decimal_comma",
+   "row": 6,
+   "column": "refund",
+   "expect": "fix",
+   "truth": 45000,
+   "note": "European number format"
+  },
+  {
+   "id": "ret-376",
+   "table": "returns",
+   "category": "date_format",
+   "row": 6,
+   "column": "return_date",
+   "expect": "fix",
+   "truth": "2024-03-20",
+   "note": "DD.MM.YYYY (decided by 13.03 / 15.01 / 20.03)"
+  },
+  {
+   "id": "ret-377",
+   "table": "returns",
+   "category": "decimal_comma",
+   "row": 7,
+   "column": "refund",
+   "expect": "fix",
+   "truth": 6750,
+   "note": "European number format"
+  },
+  {
+   "id": "ret-378",
+   "table": "returns",
+   "category": "date_format",
+   "row": 7,
+   "column": "return_date",
+   "expect": "fix",
+   "truth": "2024-03-05",
+   "note": "DD.MM.YYYY (decided by 13.03 / 15.01 / 20.03)"
+  },
+  {
+   "id": "ret-379",
+   "table": "returns",
+   "category": "decimal_comma",
+   "row": 8,
+   "column": "refund",
+   "expect": "fix",
+   "truth": 12000,
+   "note": "European number format"
+  },
+  {
+   "id": "ret-380",
+   "table": "returns",
+   "category": "date_format",
+   "row": 8,
+   "column": "return_date",
+   "expect": "fix",
+   "truth": "2024-03-28",
+   "note": "DD.MM.YYYY (decided by 13.03 / 15.01 / 20.03)"
+  },
+  {
+   "id": "ret-381",
+   "table": "returns",
+   "category": "id_format",
+   "row": 4,
+   "column": "order_id",
+   "expect": "fix",
+   "truth": "O-2024-0010",
+   "note": "order id written differently"
+  },
+  {
+   "id": "ret-382",
+   "table": "returns",
+   "category": "id_format",
+   "row": 5,
+   "column": "order_id",
+   "expect": "fix",
+   "truth": "O-2024-0015",
+   "note": "order id written differently"
+  },
+  {
+   "id": "ret-383",
+   "table": "returns",
+   "category": "id_format",
+   "row": 5,
+   "column": "return_id",
+   "expect": "fix",
+   "truth": "R-003",
+   "note": "'r-3'"
+  },
+  {
+   "id": "ret-384",
+   "table": "returns",
+   "category": "category",
+   "row": 7,
+   "column": "status",
+   "expect": "fix",
+   "truth": "환불완료",
+   "note": "'환불 완료'"
+  },
+  {
+   "id": "ret-385",
+   "table": "returns",
+   "category": "join_orphan",
+   "row": 6,
+   "column": "order_id",
+   "expect": "orphan",
+   "truth": "O-2024-0099",
+   "note": "order not in orders"
+  },
+  {
+   "id": "ret-386",
+   "table": "returns",
+   "category": "join_ambiguous",
+   "row": 4,
+   "column": "order_id",
+   "expect": "ambiguous",
+   "truth": "O-2024-0010",
+   "note": "O-2024-0010 has two conflicting rows in orders"
+  }
+ ]
+}

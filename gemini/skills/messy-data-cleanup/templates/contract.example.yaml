@@ -1,0 +1,31 @@
+# Minimal example: a customer master and an orders sheet joined by customer id.
+dataset: example
+tables:
+  customers:
+    file: customers.xlsx
+    sheet: Sheet1
+    key: customer_id
+    columns:
+      customer_id: {type: id, aliases: [고객번호, Customer ID], regex: '(?i)c?[-_ ]?0*(?P<n>\d{1,6})', format: 'C{n:04d}', required: true}
+      name: {type: text, aliases: [이름, Name], required: true}
+      region: {type: category, aliases: [지역, Region], vocab_builtin: ko_region}
+      phone: {type: phone, aliases: [연락처, Phone]}
+      email: {type: email, aliases: [이메일, Email]}
+    dedup:
+      contact_keys: [phone, email]
+  orders:
+    file: orders.csv
+    key: order_id
+    columns:
+      order_id: {type: id, aliases: [주문번호], regex: '(?i)o?[-_ ]?(?P<n>\d{1,8})', format: 'O{n:06d}', required: true}
+      order_date: {type: date, aliases: [주문일], required: true}
+      customer_id: {type: id, aliases: [고객번호], regex: '(?i)c?[-_ ]?0*(?P<n>\d{1,6})', format: 'C{n:04d}', required: true}
+      amount: {type: money, aliases: [금액], min: 0, required: true}
+      status: {type: category, aliases: [상태], vocab: {완료: [배송완료, delivered], 취소: [주문취소, cancelled]}}
+    dedup:
+      suspect_keys: [[customer_id, order_date, amount]]
+joins:
+  - name: orders_customers
+    left: orders
+    steps:
+      - {right: customers, keys: [customer_id, customer_id], prefix: cust_}

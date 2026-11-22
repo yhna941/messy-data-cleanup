@@ -1,0 +1,324 @@
+{
+ "request": {
+  "task": "layout",
+  "prompt_version": "v1",
+  "model": "google/gemini-2.5-flash-lite",
+  "instructions": "DATA is a preview of one spreadsheet sheet: each row is [row_number, cell1, cell2, ...] (1-based, blank cells are ''). Find every table in it. For each table give: header_rows (row numbers of its header, 1 or 2 rows), first_data_row, last_data_row (data rows only: not titles, notes, subtotals or blank rows at the end), a short snake_case name, and its columns (header = the header text exactly as in the cells, joined with a space for 2-row headers; name = snake_case English; type). evidence_quote = copy one header cell exactly.",
+  "data": {
+   "sheet": "수강신청",
+   "rows": [
+    [
+     1,
+     "신청번호",
+     "학생ID",
+     "강좌",
+     "수강료",
+     "조정액",
+     "납부일",
+     "상태",
+     ""
+    ],
+    [
+     2,
+     "E001",
+     "S24-001",
+     "수학심화A",
+     "₩150,000",
+     "0",
+     "2024-03-02",
+     "납부완료",
+     ""
+    ],
+    [
+     3,
+     "E002",
+     "s24-002",
+     "영어독해 B",
+     "13만",
+     "-10,000",
+     "2024.3.2",
+     "완납",
+     ""
+    ],
+    [
+     4,
+     "E003",
+     "S24-003",
+     "국어문학",
+     "120,000원",
+     "",
+     "3/3",
+     "미납 ",
+     ""
+    ],
+    [
+     5,
+     "E004",
+     "S24-004",
+     "과탐",
+     "140000",
+     "",
+     "2024-03-03",
+     "납부 완료",
+     ""
+    ],
+    [
+     6,
+     "E005",
+     "S24-005",
+     "수학 심화 A",
+     "15만원",
+     "△15,000",
+     "2024-03-04",
+     "납부완료",
+     ""
+    ],
+    [
+     7,
+     "E006",
+     "S24-006",
+     "영어 독해B",
+     "1.3e5",
+     "0",
+     "20240304",
+     "환뷸",
+     ""
+    ],
+    [
+     8,
+     "E007",
+     "S24-007",
+     "수학 심화B",
+     "150,000원(할인전)",
+     "-",
+     "2024-03-05",
+     "납부완료",
+     ""
+    ],
+    [
+     9,
+     "E008",
+     "S24-008",
+     "국어 문학",
+     "120000",
+     "(10,000)",
+     "Mar 5, 2024",
+     "미납",
+     ""
+    ],
+    [
+     10,
+     "E009",
+     "S24-009",
+     "과학탐구",
+     "14만원",
+     "0",
+     "2024-03-06",
+     "납부완료",
+     ""
+    ],
+    [
+     11,
+     "E010",
+     "S24-010",
+     "수학 심화A",
+     "150,000",
+     "-20,000",
+     "2024-03-06 00:00:00",
+     "납부완료",
+     ""
+    ],
+    [
+     12,
+     "E011",
+     "S24-011",
+     "영어 독해B",
+     "130,000",
+     "-2만",
+     "2024-03-06",
+     "납부완료",
+     ""
+    ],
+    [
+     13,
+     "E012",
+     "S24-012",
+     "국어 문학",
+     "",
+     "₩120,000",
+     "0",
+     "2024/03/07",
+     "납부완료"
+    ],
+    [
+     14,
+     "E013",
+     "S24-013",
+     "과학 탐구",
+     "140,000",
+     "0",
+     "2024-03-07",
+     "미납",
+     ""
+    ],
+    [
+     15,
+     "E014",
+     "S24-099",
+     "수학 심화A",
+     "150,000",
+     "0",
+     "2024-03-08",
+     "납부완료",
+     ""
+    ],
+    [
+     16,
+     "E015",
+     "S24-001",
+     "영어 독해B",
+     "130,000",
+     "0",
+     "2024-03-08",
+     "납부완료",
+     ""
+    ],
+    [
+     17,
+     "E016",
+     "S24-001",
+     "영어 독해B",
+     "130,000",
+     "0",
+     "2024-03-08",
+     "납부완료",
+     ""
+    ],
+    [
+     18,
+     "E017",
+     "S24-005",
+     "국어 문학",
+     "120,000",
+     "0",
+     "2024-03-09",
+     "납부완료",
+     ""
+    ],
+    [
+     19,
+     "E018",
+     "S24-012",
+     "수학 심화A",
+     "150,000",
+     "0",
+     "2024-03-09",
+     "환불",
+     ""
+    ],
+    [
+     20,
+     "평균",
+     "",
+     "",
+     "135000",
+     "",
+     "",
+     "",
+     ""
+    ],
+    [
+     21,
+     "총 합계",
+     "",
+     "",
+     "2450000",
+     "",
+     "",
+     "",
+     ""
+    ]
+   ]
+  }
+ },
+ "response": {
+  "tables": [
+   {
+    "sheet": "수강신청",
+    "name": "course_applications",
+    "header_rows": [
+     1
+    ],
+    "first_data_row": 2,
+    "last_data_row": 19,
+    "evidence_quote": "신청번호",
+    "columns": [
+     {
+      "header": "신청번호",
+      "name": "application_number",
+      "type": "id"
+     },
+     {
+      "header": "학생ID",
+      "name": "student_id",
+      "type": "id"
+     },
+     {
+      "header": "강좌",
+      "name": "course",
+      "type": "text"
+     },
+     {
+      "header": "수강료",
+      "name": "tuition_fee",
+      "type": "money"
+     },
+     {
+      "header": "조정액",
+      "name": "adjustment_amount",
+      "type": "money"
+     },
+     {
+      "header": "납부일",
+      "name": "payment_date",
+      "type": "date"
+     },
+     {
+      "header": "상태",
+      "name": "status",
+      "type": "category"
+     },
+     {
+      "header": "",
+      "name": "unnamed_column_8",
+      "type": "freetext"
+     }
+    ]
+   }
+  ]
+ },
+ "provider": "openrouter",
+ "usage": {
+  "prompt_tokens": 1354,
+  "completion_tokens": 358,
+  "total_tokens": 1712,
+  "cost": 0.0002786,
+  "is_byok": false,
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "cache_write_tokens": 0,
+   "audio_tokens": 0,
+   "video_tokens": 0
+  },
+  "cost_details": {
+   "upstream_inference_cost": 0.0002786,
+   "upstream_inference_prompt_cost": 0.0001354,
+   "upstream_inference_completions_cost": 0.0001432
+  },
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "image_tokens": 0,
+   "audio_tokens": 0
+  }
+ }
+}

@@ -1,0 +1,192 @@
+{
+ "request": {
+  "task": "entity",
+  "prompt_version": "v1",
+  "model": "google/gemini-2.5-flash-lite",
+  "instructions": "Each item is a row from the left table whose join key found no match (item.left) and up to 5 candidate rows from the master table (item.candidates, each with its key). Answer the key of the candidate that is clearly the same real-world entity (same person/product: e.g. the same name in another script or romanization, plus a matching phone/email/other field), or null if none clearly is. A similar-looking key alone is not enough. evidence_quote: copy the exact text from the item that proves the match.",
+  "data": {
+   "join": "orders_full",
+   "key_column": "customer_id",
+   "items": [
+    {
+     "id": "38",
+     "left": {
+      "order_id": "O-2024-0026",
+      "order_date": "2024-03-05",
+      "customer_id": "K0014",
+      "customer_name": "송하늘",
+      "product_code": "P006",
+      "product_name": "디카페인 콜드브루 500ml",
+      "qty": "2",
+      "unit_price": "19500",
+      "amount": "39000",
+      "payment": "네이버페이",
+      "status": "배송완료"
+     },
+     "candidates": [
+      {
+       "key": "C0014",
+       "customer_id": "C0014",
+       "name": "송하늘",
+       "region": "제주",
+       "phone": "010-7878-9090",
+       "email": "haneul@kakao.com",
+       "join_date": "2024-01-20",
+       "grade": "신규"
+      },
+      {
+       "key": "C0001",
+       "customer_id": "C0001",
+       "name": "김민수",
+       "region": "서울",
+       "phone": "010-1111-2222",
+       "email": "minsu.kim@naver.com",
+       "join_date": "2023-01-15",
+       "grade": "VIP"
+      },
+      {
+       "key": "C0004",
+       "customer_id": "C0004",
+       "name": "최유리",
+       "region": "경기",
+       "phone": "010-4444-5555",
+       "email": "yuri.choi@naver.com",
+       "join_date": "2023-04-01",
+       "grade": "VIP"
+      },
+      {
+       "key": "C0010",
+       "customer_id": "C0010",
+       "name": "한지민",
+       "region": "인천",
+       "phone": "010-1212-3434",
+       "email": "jimin@daum.net",
+       "join_date": "2023-10-10",
+       "grade": "VIP"
+      },
+      {
+       "key": "C0011",
+       "customer_id": "C0011",
+       "name": "오세훈",
+       "region": "인천",
+       "phone": "010-565-7878",
+       "email": "sehoon@naver.com",
+       "join_date": "2023-11-11",
+       "grade": "일반"
+      }
+     ]
+    },
+    {
+     "id": "42",
+     "left": {
+      "order_id": "O-2024-0030",
+      "order_date": "2024-03-14",
+      "customer_id": "C0099",
+      "customer_name": "문지호",
+      "product_code": "P001",
+      "product_name": "하우스블렌드 원두 200g",
+      "qty": "1",
+      "unit_price": "12000",
+      "amount": "12000",
+      "payment": "카드",
+      "status": "배송완료"
+     },
+     "candidates": [
+      {
+       "key": "C0009",
+       "customer_id": "C0009",
+       "name": "김민수",
+       "region": "부산",
+       "phone": "010-9999-0000",
+       "email": "kms1990@gmail.com",
+       "join_date": "2023-13-01",
+       "grade": "일반"
+      },
+      {
+       "key": "C0001",
+       "customer_id": "C0001",
+       "name": "김민수",
+       "region": "서울",
+       "phone": "010-1111-2222",
+       "email": "minsu.kim@naver.com",
+       "join_date": "2023-01-15",
+       "grade": "VIP"
+      },
+      {
+       "key": "C0002",
+       "customer_id": "C0002",
+       "name": "이수진",
+       "region": "서울",
+       "phone": "010-2222-3333",
+       "email": "sujin@gmail",
+       "join_date": "2023-02-03",
+       "grade": "일반"
+      },
+      {
+       "key": "C0003",
+       "customer_id": "C0003",
+       "name": "박지훈",
+       "region": "서울",
+       "phone": "010-3333-4444",
+       "email": "jihoon.park@@daum.net",
+       "join_date": "2023-03-12",
+       "grade": "일반"
+      },
+      {
+       "key": "C0004",
+       "customer_id": "C0004",
+       "name": "최유리",
+       "region": "경기",
+       "phone": "010-4444-5555",
+       "email": "yuri.choi@naver.com",
+       "join_date": "2023-04-01",
+       "grade": "VIP"
+      }
+     ]
+    }
+   ]
+  }
+ },
+ "response": {
+  "items": [
+   {
+    "id": "38",
+    "answer": "C0014",
+    "confidence": 1.0,
+    "evidence_quote": "송하늘",
+    "rationale": "The customer name '송하늘' in the left table matches the name '송하늘' in the candidate with key 'C0014'."
+   },
+   {
+    "id": "42",
+    "answer": "C0001",
+    "confidence": 1.0,
+    "evidence_quote": "김민수",
+    "rationale": "The customer name '문지호' in the left table does not match any candidate name. However, there is a candidate with name '김민수' and email 'minsu.kim@naver.com' which is a strong match for another candidate with the same name and email, suggesting a potential data entry error in the left table's customer name. Given the strong match on name and email between two candidates, and the presence of '김민수' in the left table's customer_id, it is highly probable that 'C0001' is the correct match."
+   }
+  ]
+ },
+ "provider": "openrouter",
+ "usage": {
+  "prompt_tokens": 1436,
+  "completion_tokens": 279,
+  "total_tokens": 1715,
+  "cost": 0.00017483,
+  "is_byok": false,
+  "prompt_tokens_details": {
+   "cached_tokens": 893,
+   "cache_write_tokens": 0,
+   "audio_tokens": 0,
+   "video_tokens": 0
+  },
+  "cost_details": {
+   "upstream_inference_cost": 0.00017483,
+   "upstream_inference_prompt_cost": 6.323e-05,
+   "upstream_inference_completions_cost": 0.0001116
+  },
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "image_tokens": 0,
+   "audio_tokens": 0
+  }
+ }
+}

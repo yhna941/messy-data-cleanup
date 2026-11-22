@@ -1,0 +1,192 @@
+{
+ "request": {
+  "task": "extract",
+  "prompt_version": "v1",
+  "model": "google/gemini-2.5-flash",
+  "instructions": "Each item is one free-text cell (item.text) and a list of fields to extract. For every field return value + quote: quote is the exact span of item.text that states the value; value is the field's value written in normalized form (bool: 'true' or 'false'; number: digits only; date: YYYY-MM-DD, or MM-DD when the text gives no year, only if the text states the month and day explicitly; phone: digits as written; category: one of the field's vocab; text: copy the words from the text). If the text does not state the field explicitly, value=null and quote=null. A negation ('no gift wrap', '포장 필요 없어요') is false, not true. Do not infer from tone, do not compute relative dates (e.g. '이번 주 금요일' -> null).",
+  "data": {
+   "fields": [
+    {
+     "name": "candles",
+     "type": "number",
+     "description": "number of candles requested"
+    },
+    {
+     "name": "lettering",
+     "type": "text",
+     "description": "text to write on the cake"
+    },
+    {
+     "name": "pickup_phone",
+     "type": "phone",
+     "description": "phone number to contact"
+    }
+   ],
+   "items": [
+    {
+     "id": "2",
+     "text": "초 3개 넣어주세요"
+    },
+    {
+     "id": "4",
+     "text": "문구: 생일 축하해 지민아"
+    },
+    {
+     "id": "7",
+     "text": "연락처 010.4455.6677 로 문자 주세요"
+    },
+    {
+     "id": "11",
+     "text": "초 많이 주세요"
+    },
+    {
+     "id": "14",
+     "text": "초 2개, 문구는 '축 개업'"
+    }
+   ]
+  }
+ },
+ "response": {
+  "items": [
+   {
+    "id": "2",
+    "fields": [
+     {
+      "name": "candles",
+      "value": "3",
+      "quote": "3개",
+      "confidence": 1.0
+     },
+     {
+      "name": "lettering",
+      "value": null,
+      "quote": null,
+      "confidence": 0.0
+     },
+     {
+      "name": "pickup_phone",
+      "value": null,
+      "quote": null,
+      "confidence": 0.0
+     }
+    ]
+   },
+   {
+    "id": "4",
+    "fields": [
+     {
+      "name": "candles",
+      "value": null,
+      "quote": null,
+      "confidence": 0.0
+     },
+     {
+      "name": "lettering",
+      "value": "생일 축하해 지민아",
+      "quote": "생일 축하해 지민아",
+      "confidence": 1.0
+     },
+     {
+      "name": "pickup_phone",
+      "value": null,
+      "quote": null,
+      "confidence": 0.0
+     }
+    ]
+   },
+   {
+    "id": "7",
+    "fields": [
+     {
+      "name": "candles",
+      "value": null,
+      "quote": null,
+      "confidence": 0.0
+     },
+     {
+      "name": "lettering",
+      "value": null,
+      "quote": null,
+      "confidence": 0.0
+     },
+     {
+      "name": "pickup_phone",
+      "value": "010.4455.6677",
+      "quote": "010.4455.6677",
+      "confidence": 1.0
+     }
+    ]
+   },
+   {
+    "id": "11",
+    "fields": [
+     {
+      "name": "candles",
+      "value": null,
+      "quote": null,
+      "confidence": 0.0
+     },
+     {
+      "name": "lettering",
+      "value": null,
+      "quote": null,
+      "confidence": 0.0
+     },
+     {
+      "name": "pickup_phone",
+      "value": null,
+      "quote": null,
+      "confidence": 0.0
+     }
+    ]
+   },
+   {
+    "id": "14",
+    "fields": [
+     {
+      "name": "candles",
+      "value": "2",
+      "quote": "2개",
+      "confidence": 1.0
+     },
+     {
+      "name": "lettering",
+      "value": "축 개업",
+      "quote": "'축 개업'",
+      "confidence": 1.0
+     },
+     {
+      "name": "pickup_phone",
+      "value": null,
+      "quote": null,
+      "confidence": 0.0
+     }
+    ]
+   }
+  ]
+ },
+ "provider": "openrouter",
+ "usage": {
+  "prompt_tokens": 476,
+  "completion_tokens": 480,
+  "total_tokens": 956,
+  "cost": 0.0013428,
+  "is_byok": false,
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "cache_write_tokens": 0,
+   "audio_tokens": 0,
+   "video_tokens": 0
+  },
+  "cost_details": {
+   "upstream_inference_cost": 0.0013428,
+   "upstream_inference_prompt_cost": 0.0001428,
+   "upstream_inference_completions_cost": 0.0012
+  },
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "image_tokens": 0,
+   "audio_tokens": 0
+  }
+ }
+}

@@ -1,0 +1,97 @@
+# Contract for the 하루커피 demo. Written after running scripts/profile.py on the raw files.
+# Synonym lists hold only semantic synonyms (English names, admin suffixes, wording variants seen
+# in the profile). Typos (서을, 카느, 콜드브류, 배송완ㄹ ...) are NOT listed: fuzzy matching must find them.
+dataset: 하루커피 2024 1분기
+defaults:
+  fuzzy_auto: 0.78
+  fuzzy_margin: 0.08
+
+tables:
+  products:
+    file: 하루커피_매출정리_최종_진짜최종.xlsx
+    sheet: 상품
+    block: 1
+    key: product_code
+    columns:
+      product_code: {type: id, aliases: [상품코드], regex: '(?i)p[-_ ]?0*(?P<n>\d{1,3})', format: 'P{n:03d}', required: true}
+      product_name: {type: text, aliases: [상품명], required: true}
+      category: {type: category, aliases: [분류], vocab: {원두: [], 드립백: [], 콜드브루: [], 굿즈: [goods, md]}}
+      price: {type: money, aliases: [판매가], min: 0, max: 1000000}
+      launch_date: {type: date, aliases: [출시일]}
+  discontinued_products:
+    file: 하루커피_매출정리_최종_진짜최종.xlsx
+    sheet: 상품
+    block: 2
+    key: product_code
+    columns:
+      product_code: {type: id, aliases: [상품코드], regex: '(?i)p[-_ ]?0*(?P<n>\d{1,3})', format: 'P{n:03d}', required: true}
+      product_name: {type: text, aliases: [상품명], required: true}
+      category: {type: category, aliases: [분류], vocab: {원두: [], 드립백: [], 콜드브루: [], 굿즈: [goods, md]}}
+      price: {type: money, aliases: [판매가], min: 0, max: 1000000}
+      discontinued_date: {type: date, aliases: [단종일]}
+  customers:
+    file: 하루커피_매출정리_최종_진짜최종.xlsx
+    sheet: 고객명단
+    key: customer_id
+    columns:
+      customer_id: {type: id, aliases: [고객번호, 고객ID], regex: '(?i)c?[-_ ]?0*(?P<n>\d{1,4})', format: 'C{n:04d}', required: true}
+      name: {type: text, aliases: [이름, 고객명], required: true}
+      region: {type: category, aliases: [지역], vocab_builtin: ko_region}
+      phone: {type: phone, aliases: [연락처, 전화번호]}
+      email: {type: email, aliases: [이메일]}
+      join_date: {type: date, aliases: [가입일]}
+      grade: {type: category, aliases: [등급], vocab: {VIP: [], 일반: [일반회원], 신규: [신규회원]}}
+      memo: {type: freetext, aliases: [메모]}
+    dedup:
+      contact_keys: [phone, email]      # same phone or email => suspected duplicate; same name alone never
+  orders:
+    file: 하루커피_매출정리_최종_진짜최종.xlsx
+    sheet: 주문내역
+    key: order_id
+    columns:
+      order_id: {type: id, aliases: [주문번호], regex: '(?i)o?[-_ ]?(?P<y>20\d\d)[-_ ]?(?P<n>\d{1,4})', format: 'O-{y}-{n:04d}', required: true}
+      order_date: {type: date, aliases: [주문일자, 주문일], required: true}
+      customer_id: {type: id, aliases: [고객ID, 고객번호], regex: '(?i)c?[-_ ]?0*(?P<n>\d{1,4})', format: 'C{n:04d}', required: true}
+      customer_name: {type: category, aliases: [고객이름, 고객명, 이름], vocab_from: customers.name}
+      product_code: {type: id, aliases: [상품코드], regex: '(?i)p[-_ ]?0*(?P<n>\d{1,3})', format: 'P{n:03d}'}
+      product_name: {type: category, aliases: [상품명], vocab_from: products.product_name}
+      qty: {type: count, aliases: [상품수량, 수량], min: 1, max: 100, required: true}
+      unit_price: {type: money, aliases: [금액단가, 단가], min: 0, max: 1000000}
+      discount_pct: {type: percent, aliases: [금액할인율, 할인율], min: 0, max: 100}
+      amount: {type: money, aliases: [금액결제금액, 결제금액], min: 0, max: 10000000, required: true}
+      payment: {type: category, aliases: [결제수단],
+                vocab: {카드: [신용카드, card, credit card, 카드결제], 계좌이체: [무통장입금, 무통장, 이체, bank transfer],
+                        네이버페이: [n페이, naverpay, naver pay], 카카오페이: [kakaopay, kakao pay]}}
+      status: {type: category, aliases: [상태, 주문상태],
+               vocab: {배송완료: [완료, delivered], 배송중: [shipping], 취소: [주문취소, cancelled], 반품: [반품접수, returned]}}
+      note: {type: freetext, aliases: [비고]}
+    date_window: ['2024-01-01', '2024-03-31']
+    dedup:
+      suspect_keys: [[customer_id, order_date, product_code, qty, amount]]
+    checks:
+      - name: amount = qty x price x (1 - discount)
+        column: amount
+        expr: abs(amount - round(qty * unit_price * (1 - nz(discount_pct) / 100))) <= 10
+        expected: round(qty * unit_price * (1 - nz(discount_pct) / 100))
+        message: amount differs from qty x unit_price x (1 - discount%) (suggestion = computed value)
+  returns:
+    file: 반품교환_3PL.csv
+    key: return_id
+    columns:
+      return_id: {type: id, aliases: [반품번호], regex: '(?i)r[-_ ]?0*(?P<n>\d{1,3})', format: 'R-{n:03d}', required: true}
+      order_id: {type: id, aliases: [주문번호], regex: '(?i)o?[-_ ]?(?P<y>20\d\d)[-_ ]?(?P<n>\d{1,4})', format: 'O-{y}-{n:04d}', required: true}
+      return_date: {type: date, aliases: [접수일]}
+      reason: {type: category, aliases: [사유], vocab: [단순변심, 파손, 오배송, 부분환불]}
+      refund: {type: money, aliases: [환불금액], min: 0}
+      status: {type: category, aliases: [처리상태], vocab: [환불완료, 교환완료, 처리중]}
+
+joins:
+  - name: orders_full
+    left: orders
+    steps:
+      - {right: customers, keys: [customer_id, customer_id], prefix: cust_, expect: many_to_one, compare: [[customer_name, name]]}
+      - {right: [products, discontinued_products], keys: [product_code, product_code], fallback: [product_name, product_name], prefix: prod_, expect: many_to_one}
+  - name: returns_orders
+    left: returns
+    steps:
+      - {right: orders, keys: [order_id, order_id], prefix: ord_, expect: many_to_one}

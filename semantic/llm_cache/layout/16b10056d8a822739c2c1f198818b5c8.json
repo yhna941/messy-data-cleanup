@@ -1,0 +1,136 @@
+{
+ "request": {
+  "task": "layout",
+  "prompt_version": "v1",
+  "model": "google/gemini-2.5-flash-lite",
+  "instructions": "DATA is a preview of one spreadsheet sheet: each row is [row_number, cell1, cell2, ...] (1-based, blank cells are ''). Find every table in it. For each table give: header_rows (row numbers of its header, 1 or 2 rows), first_data_row, last_data_row (data rows only: not titles, notes, subtotals or blank rows at the end), a short snake_case name, and its columns (header = the header text exactly as in the cells, joined with a space for 2-row headers; name = snake_case English; type). evidence_quote = copy one header cell exactly.",
+  "data": {
+   "sheet": "고객",
+   "rows": [
+    [
+     1,
+     "고객ID",
+     "이름",
+     "이메일",
+     "지역"
+    ],
+    [
+     2,
+     "C0001",
+     "김민수",
+     "minsu.kim@example.com",
+     "서울"
+    ],
+    [
+     3,
+     "C0002",
+     "이수진",
+     "sujin.lee@example.com",
+     "부산"
+    ],
+    [
+     4,
+     "C0003",
+     "박지훈",
+     "jihoon.park@example.com",
+     "대구"
+    ],
+    [
+     5,
+     "C0004",
+     "최유진",
+     "yujin.choi@example.com",
+     "인천"
+    ],
+    [
+     6,
+     "C0005",
+     "정하늘",
+     "haneul.jung@example.com",
+     "광주"
+    ],
+    [
+     7,
+     "C0006",
+     "강도윤",
+     "doyun.kang@example.com",
+     "대전"
+    ],
+    [
+     8,
+     "C0007",
+     "윤서아",
+     "seoa.yoon@example.com",
+     "울산"
+    ],
+    [
+     9,
+     "C0008",
+     "한지민",
+     "jimin.han@example.com",
+     "서울"
+    ]
+   ]
+  }
+ },
+ "response": {
+  "tables": [
+   {
+    "sheet": "고객",
+    "name": "고객",
+    "header_rows": [
+     1
+    ],
+    "first_data_row": 2,
+    "last_data_row": 9,
+    "evidence_quote": "고객ID",
+    "columns": [
+     {
+      "header": "고객ID",
+      "name": "고객id",
+      "type": "id"
+     },
+     {
+      "header": "이름",
+      "name": "이름",
+      "type": "text"
+     },
+     {
+      "header": "이메일",
+      "name": "이메일",
+      "type": "email"
+     },
+     {
+      "header": "지역",
+      "name": "지역",
+      "type": "text"
+     }
+    ]
+   }
+  ]
+ },
+ "provider": "openrouter",
+ "usage": {
+  "prompt_tokens": 508,
+  "completion_tokens": 218,
+  "total_tokens": 726,
+  "cost": 0.000138,
+  "is_byok": false,
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "cache_write_tokens": 0,
+   "audio_tokens": 0,
+   "video_tokens": 0
+  },
+  "cost_details": {
+   "upstream_inference_cost": 0.000138,
+   "upstream_inference_prompt_cost": 5.08e-05,
+   "upstream_inference_completions_cost": 8.72e-05
+  },
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "image_tokens": 0,
+   "audio_tokens": 0
+  }
+ }
+}

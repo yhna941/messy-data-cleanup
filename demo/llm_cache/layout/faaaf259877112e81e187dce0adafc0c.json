@@ -1,0 +1,155 @@
+{
+ "request": {
+  "task": "layout",
+  "prompt_version": "v1",
+  "model": "google/gemini-2.5-flash-lite",
+  "instructions": "DATA is a preview of one spreadsheet sheet: each row is [row_number, cell1, cell2, ...] (1-based, blank cells are ''). Find every table in it. For each table give: header_rows (row numbers of its header, 1 or 2 rows), first_data_row, last_data_row (data rows only: not titles, notes, subtotals or blank rows at the end), a short snake_case name, and its columns (header = the header text exactly as in the cells, joined with a space for 2-row headers; name = snake_case English; type). evidence_quote = copy one header cell exactly.",
+  "data": {
+   "sheet": "반품교환_3PL",
+   "rows": [
+    [
+     1,
+     "3PL 반품/교환 내역 export (2024",
+     "",
+     "",
+     "",
+     "",
+     ""
+    ],
+    [
+     2,
+     "반품번호",
+     "주문번호",
+     "접수일",
+     "사유",
+     "환불금액",
+     "처리상태"
+    ],
+    [
+     3,
+     "R-001",
+     "O-2024-0007",
+     "15.01.2024",
+     "단순변심",
+     "13.500,00",
+     "환불완료"
+    ],
+    [
+     4,
+     "R-002",
+     "2024-0010",
+     "02.02.2024",
+     "파손",
+     "9.000",
+     "환불완료"
+    ],
+    [
+     5,
+     "r-3",
+     "o20240015",
+     "13.03.2024 ",
+     "오배송",
+     "18.000,00",
+     "교환완료"
+    ],
+    [
+     6,
+     "R-004",
+     "O-2024-0099",
+     "20.03.2024",
+     "단순변심",
+     "45.000",
+     "처리중"
+    ],
+    [
+     7,
+     "R-005",
+     "O-2024-0021",
+     "05.03.2024",
+     "파손 ",
+     "6.750,00",
+     "환불 완료"
+    ],
+    [
+     8,
+     "R-006",
+     "O-2024-0026",
+     "28.03.2024",
+     "부분환불",
+     "12.000",
+     "환불완료"
+    ]
+   ]
+  }
+ },
+ "response": {
+  "tables": [
+   {
+    "sheet": "반품교환_3PL",
+    "name": "return_exchange_details",
+    "header_rows": [
+     2
+    ],
+    "first_data_row": 3,
+    "last_data_row": 8,
+    "evidence_quote": "반품번호",
+    "columns": [
+     {
+      "header": "반품번호",
+      "name": "return_id",
+      "type": "id"
+     },
+     {
+      "header": "주문번호",
+      "name": "order_id",
+      "type": "id"
+     },
+     {
+      "header": "접수일",
+      "name": "receipt_date",
+      "type": "date"
+     },
+     {
+      "header": "사유",
+      "name": "reason",
+      "type": "category"
+     },
+     {
+      "header": "환불금액",
+      "name": "refund_amount",
+      "type": "money"
+     },
+     {
+      "header": "처리상태",
+      "name": "status",
+      "type": "category"
+     }
+    ]
+   }
+  ]
+ },
+ "provider": "openrouter",
+ "usage": {
+  "prompt_tokens": 642,
+  "completion_tokens": 295,
+  "total_tokens": 937,
+  "cost": 0.0001822,
+  "is_byok": false,
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "cache_write_tokens": 0,
+   "audio_tokens": 0,
+   "video_tokens": 0
+  },
+  "cost_details": {
+   "upstream_inference_cost": 0.0001822,
+   "upstream_inference_prompt_cost": 6.42e-05,
+   "upstream_inference_completions_cost": 0.000118
+  },
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "image_tokens": 0,
+   "audio_tokens": 0
+  }
+ }
+}

@@ -1,0 +1,48 @@
+dataset: shop-semantic
+tables:
+  customers:
+    file: 쇼핑몰_주문.xlsx
+    sheet: 고객
+    key: customer_id
+    columns:
+      customer_id: {type: id, aliases: [고객ID], regex: '^[Cc]\s*-?\s*0*(?P<n>\d{1,4})$', format: 'C{n:04d}', required: true}
+      name: {type: text, aliases: [이름]}
+      email: {type: email, aliases: [이메일]}
+      city: {type: category, aliases: [지역], vocab_builtin: ko_region}
+  orders:
+    file: 쇼핑몰_주문.xlsx
+    sheet: 주문
+    key: order_id
+    columns:
+      order_id: {type: text, aliases: [주문번호], required: true}
+      order_date: {type: date, aliases: [주문일], required: true}
+      customer_id: {type: id, aliases: [고객ID], regex: '^[Cc]\s*-?\s*0*(?P<n>\d{1,4})$', format: 'C{n:04d}'}
+      customer_name: {type: text, aliases: [고객명]}
+      email: {type: email, aliases: [이메일]}
+      payment:
+        type: category
+        aliases: [결제수단]
+        vocab: {카드: [card], 계좌이체: [], 네이버페이: [N페이], 카카오페이: [], 현금: []}
+      status:
+        type: category
+        aliases: [상태]
+        vocab: {결제완료: [], 배송중: [], 배송완료: [], 취소: [], 반품: []}
+      discount_pct: {type: percent, aliases: [할인율], min: 0, max: 100}
+      note: {type: freetext, aliases: [요청사항]}
+    extract:
+      - column: note
+        fields:
+          gift_wrap: {type: bool, description: "true if the customer asks for gift wrapping, false if they say no wrapping; null if not mentioned"}
+          contact_phone: {type: phone, description: "a phone number written in the note"}
+          requested_date: {type: date, year: 2024, description: "requested delivery date written in the note"}
+joins:
+  - name: orders_customers
+    left: orders
+    steps:
+      - right: customers
+        keys: [customer_id, customer_id]
+        prefix: cust_
+        compare: [[customer_name, name], [email, email]]
+llm:
+  min_confidence: 0.8
+  entity_min_confidence: 0.85

@@ -1,0 +1,193 @@
+{
+ "request": {
+  "task": "entity",
+  "prompt_version": "v1",
+  "model": "google/gemini-2.5-flash-lite",
+  "instructions": "Each item is a row from the left table whose join key found no match (item.left) and up to 5 candidate rows from the master table (item.candidates, each with its key). Answer the key of the candidate that is clearly the same real-world entity (same person/product: e.g. the same name in another script or romanization, plus a matching phone/email/other field), or null if none clearly is. A similar-looking key alone is not enough. evidence_quote: copy the exact text from the item that proves the match.",
+  "data": {
+   "join": "orders_members",
+   "key_column": "customer_id",
+   "items": [
+    {
+     "id": "10",
+     "left": {
+      "order_id": "B-009",
+      "pickup_date": "2024-04-11",
+      "customer_id": "K009",
+      "customer_name": "Park Ji-hoon",
+      "phone": "010-1234-0001",
+      "payment": "카드",
+      "status": "완료"
+     },
+     "candidates": [
+      {
+       "key": "K001",
+       "customer_id": "K001",
+       "name": "박지훈",
+       "phone": "010-1234-0001"
+      },
+      {
+       "key": "K002",
+       "customer_id": "K002",
+       "name": "김하린",
+       "phone": "010-1234-0002"
+      },
+      {
+       "key": "K003",
+       "customer_id": "K003",
+       "name": "이도현",
+       "phone": "010-1234-0003"
+      },
+      {
+       "key": "K004",
+       "customer_id": "K004",
+       "name": "최서윤",
+       "phone": "010-1234-0004"
+      },
+      {
+       "key": "K005",
+       "customer_id": "K005",
+       "name": "정민재",
+       "phone": "010-1234-0005"
+      }
+     ]
+    },
+    {
+     "id": "12",
+     "left": {
+      "order_id": "B-011",
+      "pickup_date": "2024-04-13",
+      "customer_name": "Kim Harin",
+      "phone": "010-1234-0002",
+      "payment": "카드",
+      "status": "완료"
+     },
+     "candidates": [
+      {
+       "key": "K002",
+       "customer_id": "K002",
+       "name": "김하린",
+       "phone": "010-1234-0002"
+      },
+      {
+       "key": "K001",
+       "customer_id": "K001",
+       "name": "박지훈",
+       "phone": "010-1234-0001"
+      },
+      {
+       "key": "K003",
+       "customer_id": "K003",
+       "name": "이도현",
+       "phone": "010-1234-0003"
+      },
+      {
+       "key": "K004",
+       "customer_id": "K004",
+       "name": "최서윤",
+       "phone": "010-1234-0004"
+      },
+      {
+       "key": "K005",
+       "customer_id": "K005",
+       "name": "정민재",
+       "phone": "010-1234-0005"
+      }
+     ]
+    },
+    {
+     "id": "15",
+     "left": {
+      "order_id": "B-014",
+      "pickup_date": "2024-05-21",
+      "customer_name": "박지훈",
+      "phone": "010-9999-1111",
+      "payment": "카드",
+      "status": "완료"
+     },
+     "candidates": [
+      {
+       "key": "K001",
+       "customer_id": "K001",
+       "name": "박지훈",
+       "phone": "010-1234-0001"
+      },
+      {
+       "key": "K003",
+       "customer_id": "K003",
+       "name": "이도현",
+       "phone": "010-1234-0003"
+      },
+      {
+       "key": "K002",
+       "customer_id": "K002",
+       "name": "김하린",
+       "phone": "010-1234-0002"
+      },
+      {
+       "key": "K005",
+       "customer_id": "K005",
+       "name": "정민재",
+       "phone": "010-1234-0005"
+      },
+      {
+       "key": "K004",
+       "customer_id": "K004",
+       "name": "최서윤",
+       "phone": "010-1234-0004"
+      }
+     ]
+    }
+   ]
+  }
+ },
+ "response": {
+  "items": [
+   {
+    "id": "10",
+    "answer": "K001",
+    "confidence": 1.0,
+    "evidence_quote": "customer_id: K009, customer_name: Park Ji-hoon, phone: 010-1234-0001 | key: K001, customer_id: K001, name: 박지훈, phone: 010-1234-0001",
+    "rationale": "The customer name 'Park Ji-hoon' and phone number '010-1234-0001' from the left table match the name '박지훈' (a romanization of Park Ji-hoon) and phone number '010-1234-0001' in candidate K001."
+   },
+   {
+    "id": "12",
+    "answer": "K002",
+    "confidence": 1.0,
+    "evidence_quote": "customer_name: Kim Harin, phone: 010-1234-0002 | key: K002, customer_id: K002, name: 김하린, phone: 010-1234-0002",
+    "rationale": "The customer name 'Kim Harin' and phone number '010-1234-0002' from the left table match the name '김하린' (a romanization of Kim Harin) and phone number '010-1234-0002' in candidate K002."
+   },
+   {
+    "id": "15",
+    "answer": null,
+    "confidence": 0.5,
+    "evidence_quote": "customer_name: 박지훈, phone: 010-9999-1111 | key: K001, customer_id: K001, name: 박지훈, phone: 010-1234-0001",
+    "rationale": "The customer name '박지훈' matches in both the left table and candidate K001. However, the phone numbers '010-9999-1111' and '010-1234-0001' do not match, making it unclear if it's the same person."
+   }
+  ]
+ },
+ "provider": "openrouter",
+ "usage": {
+  "prompt_tokens": 1196,
+  "completion_tokens": 580,
+  "total_tokens": 1776,
+  "cost": 0.0003516,
+  "is_byok": false,
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "cache_write_tokens": 0,
+   "audio_tokens": 0,
+   "video_tokens": 0
+  },
+  "cost_details": {
+   "upstream_inference_cost": 0.0003516,
+   "upstream_inference_prompt_cost": 0.0001196,
+   "upstream_inference_completions_cost": 0.000232
+  },
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "image_tokens": 0,
+   "audio_tokens": 0
+  }
+ }
+}

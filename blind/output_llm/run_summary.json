@@ -1,0 +1,473 @@
+{
+ "dataset": "봄학기 원생관리 (held-out)",
+ "llm": "openrouter:google/gemini-2.5-flash-lite",
+ "tables": {
+  "students": {
+   "rows_in": 18,
+   "header_row": 3,
+   "header_depth": 1,
+   "mapped": {
+    "student_id": "B",
+    "name": "C",
+    "grade": "D",
+    "phone": "E",
+    "email": "F",
+    "reg_date": "G",
+    "shuttle": "H",
+    "memo": "I"
+   },
+   "unmapped": [],
+   "extras": [
+    "extra:No."
+   ],
+   "rows_out": 14,
+   "dropped": {
+    "title": 2,
+    "header": 1,
+    "duplicate": 1
+   }
+  },
+  "courses": {
+   "rows_in": 5,
+   "header_row": 1,
+   "header_depth": 1,
+   "mapped": {
+    "course_code": "A",
+    "course_name": "B",
+    "teacher": "C",
+    "fee": "D"
+   },
+   "unmapped": [],
+   "extras": [],
+   "rows_out": 4,
+   "dropped": {
+    "header": 1
+   }
+  },
+  "enrollments": {
+   "rows_in": 21,
+   "header_row": 1,
+   "header_depth": 1,
+   "mapped": {
+    "enroll_id": "A",
+    "student_id": "B",
+    "course": "C",
+    "fee": "D",
+    "adjust": "E",
+    "pay_date": "F",
+    "status": "G"
+   },
+   "unmapped": [],
+   "extras": [],
+   "rows_out": 18,
+   "dropped": {
+    "header": 1,
+    "subtotal": 2
+   }
+  },
+  "attendance": {
+   "rows_in": 7,
+   "header_row": 1,
+   "header_depth": 1,
+   "mapped": {
+    "student_id": "A",
+    "date": "B",
+    "status": "C",
+    "memo": "D"
+   },
+   "unmapped": [],
+   "extras": [],
+   "rows_out": 6,
+   "dropped": {
+    "header": 1
+   }
+  }
+ },
+ "changes_by_rule": {
+  "C1-ALIAS": 11,
+  "C1-CANON": 11,
+  "C1-FUZZY": 2,
+  "D1-DATE": 37,
+  "E1-EMAIL": 1,
+  "I1-ID": 5,
+  "M1-PLACEHOLDER": 1,
+  "N1-KUNIT": 4,
+  "N1-NUMBER": 22,
+  "P1-PHONE": 4,
+  "S3-SHIFT": 4,
+  "T1-NFKC": 1,
+  "T1-WS": 3,
+  "llm:synonym": 2
+ },
+ "review_by_flag": {
+  "J2-ORPHAN": 3,
+  "R1-DATE": 1,
+  "R2-NUMBER": 1,
+  "R4-CATEGORY": 1,
+  "R5-INVALID": 3,
+  "U2-SUSPECT": 4
+ },
+ "joins": [
+  {
+   "join": "enroll_full",
+   "left": "enrollments",
+   "right": "students",
+   "on": "student_id = student_id",
+   "expect": "many_to_one",
+   "left_rows": 18,
+   "matched": 17,
+   "match_rate": 0.9444,
+   "matched_exact": 17,
+   "matched_fallback": 0,
+   "matched_llm": 0,
+   "rules_only_match_rate": 0.9444,
+   "orphans": 1,
+   "ambiguous": 0,
+   "blank_keys": 0,
+   "right_dup_keys": 0,
+   "raw_key_match_rate": 0.7778,
+   "rows_out": 18,
+   "row_multiplication": "none (ambiguous keys left unjoined)",
+   "notes": ""
+  },
+  {
+   "join": "enroll_full",
+   "left": "enrollments",
+   "right": "courses",
+   "on": "course = course_name",
+   "expect": "many_to_one",
+   "left_rows": 18,
+   "matched": 17,
+   "match_rate": 0.9444,
+   "matched_exact": 17,
+   "matched_fallback": 0,
+   "matched_llm": 0,
+   "rules_only_match_rate": 0.9444,
+   "orphans": 1,
+   "ambiguous": 0,
+   "blank_keys": 0,
+   "right_dup_keys": 0,
+   "raw_key_match_rate": 0.6111,
+   "rows_out": 18,
+   "row_multiplication": "none (ambiguous keys left unjoined)",
+   "notes": ""
+  },
+  {
+   "join": "attendance_students",
+   "left": "attendance",
+   "right": "students",
+   "on": "student_id = student_id",
+   "expect": "many_to_one",
+   "left_rows": 6,
+   "matched": 5,
+   "match_rate": 0.8333,
+   "matched_exact": 5,
+   "matched_fallback": 0,
+   "matched_llm": 0,
+   "rules_only_match_rate": 0.8333,
+   "orphans": 1,
+   "ambiguous": 0,
+   "blank_keys": 0,
+   "right_dup_keys": 0,
+   "raw_key_match_rate": 0.3333,
+   "rows_out": 6,
+   "row_multiplication": "none (ambiguous keys left unjoined)",
+   "notes": ""
+  }
+ ],
+ "self_check": [
+  {
+   "check": "students: rows in = rows out + dropped",
+   "ok": true,
+   "detail": "18 = 14 + 4"
+  },
+  {
+   "check": "students: every changed cell has a consistent change chain",
+   "ok": true,
+   "detail": "0 broken chains, 0 unlogged changes"
+  },
+  {
+   "check": "students: no value became blank except placeholders",
+   "ok": true,
+   "detail": "0 cells"
+  },
+  {
+   "check": "courses: rows in = rows out + dropped",
+   "ok": true,
+   "detail": "5 = 4 + 1"
+  },
+  {
+   "check": "courses: every changed cell has a consistent change chain",
+   "ok": true,
+   "detail": "0 broken chains, 0 unlogged changes"
+  },
+  {
+   "check": "courses: no value became blank except placeholders",
+   "ok": true,
+   "detail": "0 cells"
+  },
+  {
+   "check": "enrollments: rows in = rows out + dropped",
+   "ok": true,
+   "detail": "21 = 18 + 3"
+  },
+  {
+   "check": "enrollments: every changed cell has a consistent change chain",
+   "ok": true,
+   "detail": "0 broken chains, 0 unlogged changes"
+  },
+  {
+   "check": "enrollments: no value became blank except placeholders",
+   "ok": true,
+   "detail": "0 cells"
+  },
+  {
+   "check": "attendance: rows in = rows out + dropped",
+   "ok": true,
+   "detail": "7 = 6 + 1"
+  },
+  {
+   "check": "attendance: every changed cell has a consistent change chain",
+   "ok": true,
+   "detail": "0 broken chains, 0 unlogged changes"
+  },
+  {
+   "check": "attendance: no value became blank except placeholders",
+   "ok": true,
+   "detail": "0 cells"
+  }
+ ],
+ "contract_checks": [
+  {
+   "table": "students",
+   "column": "student_id",
+   "type": "id",
+   "violations_before": 3,
+   "violations_after": 0,
+   "rows": 14
+  },
+  {
+   "table": "students",
+   "column": "name",
+   "type": "text",
+   "violations_before": 1,
+   "violations_after": 0,
+   "rows": 14
+  },
+  {
+   "table": "students",
+   "column": "grade",
+   "type": "category",
+   "violations_before": 8,
+   "violations_after": 0,
+   "rows": 14
+  },
+  {
+   "table": "students",
+   "column": "phone",
+   "type": "phone",
+   "violations_before": 7,
+   "violations_after": 2,
+   "rows": 14
+  },
+  {
+   "table": "students",
+   "column": "email",
+   "type": "email",
+   "violations_before": 2,
+   "violations_after": 1,
+   "rows": 14
+  },
+  {
+   "table": "students",
+   "column": "reg_date",
+   "type": "date",
+   "violations_before": 13,
+   "violations_after": 0,
+   "rows": 14
+  },
+  {
+   "table": "students",
+   "column": "shuttle",
+   "type": "category",
+   "violations_before": 8,
+   "violations_after": 0,
+   "rows": 14
+  },
+  {
+   "table": "students",
+   "column": "memo",
+   "type": "freetext",
+   "violations_before": 0,
+   "violations_after": 0,
+   "rows": 14
+  },
+  {
+   "table": "students",
+   "column": "student_id (unique)",
+   "type": "key",
+   "violations_before": 1,
+   "violations_after": 0,
+   "rows": 14
+  },
+  {
+   "table": "courses",
+   "column": "course_code",
+   "type": "id",
+   "violations_before": 0,
+   "violations_after": 0,
+   "rows": 4
+  },
+  {
+   "table": "courses",
+   "column": "course_name",
+   "type": "text",
+   "violations_before": 0,
+   "violations_after": 0,
+   "rows": 4
+  },
+  {
+   "table": "courses",
+   "column": "teacher",
+   "type": "text",
+   "violations_before": 0,
+   "violations_after": 0,
+   "rows": 4
+  },
+  {
+   "table": "courses",
+   "column": "fee",
+   "type": "money",
+   "violations_before": 4,
+   "violations_after": 0,
+   "rows": 4
+  },
+  {
+   "table": "courses",
+   "column": "course_code (unique)",
+   "type": "key",
+   "violations_before": 0,
+   "violations_after": 0,
+   "rows": 4
+  },
+  {
+   "table": "enrollments",
+   "column": "enroll_id",
+   "type": "id",
+   "violations_before": 0,
+   "violations_after": 0,
+   "rows": 18
+  },
+  {
+   "table": "enrollments",
+   "column": "student_id",
+   "type": "id",
+   "violations_before": 1,
+   "violations_after": 0,
+   "rows": 18
+  },
+  {
+   "table": "enrollments",
+   "column": "course",
+   "type": "category",
+   "violations_before": 7,
+   "violations_after": 1,
+   "rows": 18
+  },
+  {
+   "table": "enrollments",
+   "column": "fee",
+   "type": "money",
+   "violations_before": 16,
+   "violations_after": 1,
+   "rows": 18
+  },
+  {
+   "table": "enrollments",
+   "column": "adjust",
+   "type": "money",
+   "violations_before": 8,
+   "violations_after": 0,
+   "rows": 18
+  },
+  {
+   "table": "enrollments",
+   "column": "pay_date",
+   "type": "date",
+   "violations_before": 17,
+   "violations_after": 1,
+   "rows": 18
+  },
+  {
+   "table": "enrollments",
+   "column": "status",
+   "type": "category",
+   "violations_before": 5,
+   "violations_after": 0,
+   "rows": 18
+  },
+  {
+   "table": "enrollments",
+   "column": "enroll_id (unique)",
+   "type": "key",
+   "violations_before": 0,
+   "violations_after": 0,
+   "rows": 18
+  },
+  {
+   "table": "attendance",
+   "column": "student_id",
+   "type": "id",
+   "violations_before": 1,
+   "violations_after": 0,
+   "rows": 6
+  },
+  {
+   "table": "attendance",
+   "column": "date",
+   "type": "date",
+   "violations_before": 6,
+   "violations_after": 0,
+   "rows": 6
+  },
+  {
+   "table": "attendance",
+   "column": "status",
+   "type": "category",
+   "violations_before": 2,
+   "violations_after": 0,
+   "rows": 6
+  },
+  {
+   "table": "attendance",
+   "column": "memo",
+   "type": "freetext",
+   "violations_before": 0,
+   "violations_after": 0,
+   "rows": 6
+  }
+ ],
+ "reconcile": [
+  {
+   "table": "enrollments",
+   "subtotal_row": 21,
+   "label": "총 합계",
+   "column": "fee",
+   "scope": "rows up to 20",
+   "stated": 2450000,
+   "cleaned_sum": 2300000,
+   "dropped_duplicates_sum": 0,
+   "difference": 150000,
+   "explanation": "150,000 unexplained: fee is blank/unparsed on row(s) 8, likely the missing value"
+  }
+ ],
+ "notes": [
+  "students: extra:No. is a running row number; ignored when comparing rows for duplicates",
+  "students: rows 14, 15 share phone but names differ (name similarity 0.71); not listed as duplicates (shared family/company contact?)"
+ ],
+ "n_llm_changes": 2,
+ "n_changes": 108,
+ "n_review": 13,
+ "n_dropped": 9,
+ "n_dup_groups": 3
+}

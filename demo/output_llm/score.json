@@ -1,0 +1,221 @@
+{
+ "planted": 386,
+ "outcomes": {
+  "fixed": 358,
+  "flagged": 23,
+  "llm_fixed": 5
+ },
+ "by_category": {
+  "blank_placeholder": {
+   "fixed": 11
+  },
+  "category": {
+   "fixed": 74,
+   "llm_fixed": 2
+  },
+  "cross_check": {
+   "flagged": 1
+  },
+  "cross_table": {
+   "flagged": 1
+  },
+  "date_ambiguous": {
+   "flagged": 1
+  },
+  "date_format": {
+   "fixed": 54
+  },
+  "date_invalid": {
+   "flagged": 1
+  },
+  "decimal_comma": {
+   "fixed": 6
+  },
+  "duplicate": {
+   "fixed": 3
+  },
+  "email_case": {
+   "fixed": 2
+  },
+  "encoding": {
+   "fixed": 1
+  },
+  "excel_error": {
+   "flagged": 1
+  },
+  "id_format": {
+   "fixed": 51
+  },
+  "id_invalid": {
+   "flagged": 1
+  },
+  "invalid": {
+   "flagged": 5,
+   "llm_fixed": 1
+  },
+  "join_ambiguous": {
+   "flagged": 1
+  },
+  "join_discontinued": {
+   "fixed": 1
+  },
+  "join_fallback": {
+   "fixed": 2
+  },
+  "join_orphan": {
+   "flagged": 2
+  },
+  "key_conflict": {
+   "flagged": 2
+  },
+  "merged_cell": {
+   "fixed": 5
+  },
+  "multi_table": {
+   "fixed": 1
+  },
+  "name_typo": {
+   "fixed": 13,
+   "llm_fixed": 1
+  },
+  "near_duplicate": {
+   "flagged": 2
+  },
+  "number_scale": {
+   "flagged": 1
+  },
+  "number_text": {
+   "fixed": 95,
+   "flagged": 1
+  },
+  "phone_format": {
+   "fixed": 7
+  },
+  "reconcile": {
+   "fixed": 2,
+   "flagged": 2
+  },
+  "shifted_row": {
+   "fixed": 9,
+   "llm_fixed": 1,
+   "flagged": 1
+  },
+  "structure": {
+   "fixed": 14
+  },
+  "text": {
+   "fixed": 4
+  },
+  "trap": {
+   "fixed": 3
+  }
+ },
+ "by_expect": {
+  "drop": {
+   "fixed": 14
+  },
+  "dup_drop": {
+   "fixed": 3
+  },
+  "reconcile": {
+   "fixed": 2,
+   "flagged": 2
+  },
+  "conflict": {
+   "flagged": 2
+  },
+  "fix": {
+   "fixed": 331,
+   "llm_fixed": 3
+  },
+  "flag": {
+   "flagged": 14,
+   "llm_fixed": 2
+  },
+  "orphan": {
+   "flagged": 2
+  },
+  "join_fallback": {
+   "fixed": 2
+  },
+  "join_in_other": {
+   "fixed": 1
+  },
+  "suspect": {
+   "flagged": 2
+  },
+  "no_suspect": {
+   "fixed": 2
+  },
+  "keep": {
+   "fixed": 1
+  },
+  "found": {
+   "fixed": 1
+  },
+  "encoding": {
+   "fixed": 1
+  },
+  "ambiguous": {
+   "flagged": 1
+  }
+ },
+ "handled": 386,
+ "handled_rate": 1.0,
+ "auto_resolved_rate": 0.9404,
+ "review_queue": 26,
+ "llm_changes": {
+  "total": 5,
+  "right": 5,
+  "wrong_rate": 0.0
+ },
+ "llm_wrong": [],
+ "joins": [
+  {
+   "join": "orders_full",
+   "match_rate": 0.9459,
+   "raw_key_match_rate": 0.1622,
+   "rules_only_match_rate": 0.9459,
+   "matched_llm": 0
+  },
+  {
+   "join": "orders_full",
+   "match_rate": 1,
+   "raw_key_match_rate": 0.3514,
+   "rules_only_match_rate": 1,
+   "matched_llm": 0
+  },
+  {
+   "join": "returns_orders",
+   "match_rate": 0.6667,
+   "raw_key_match_rate": 0.5,
+   "rules_only_match_rate": 0.6667,
+   "matched_llm": 0
+  }
+ ],
+ "cell_accuracy": {
+  "cells": 630,
+  "correct": 616,
+  "rate": 0.9778,
+  "wrong_but_flag_expected": 14,
+  "wrong_other": 0
+ },
+ "wrong_cells": [],
+ "extra_rows_in_cleaned": {
+  "orders": [
+   23
+  ],
+  "customers": [],
+  "products": [],
+  "discontinued_products": [],
+  "returns": []
+ },
+ "noise_flags": [
+  {
+   "table": "orders",
+   "row": 42,
+   "column": "customer_name"
+  }
+ ],
+ "not_handled": []
+}

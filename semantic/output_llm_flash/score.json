@@ -1,0 +1,123 @@
+{
+ "planted": 38,
+ "outcomes": {
+  "llm_fixed": 22,
+  "flagged": 8,
+  "fixed": 7,
+  "wrong": 1
+ },
+ "by_category": {
+  "canon_control": {
+   "fixed": 1
+  },
+  "date_context": {
+   "flagged": 1,
+   "llm_fixed": 1
+  },
+  "date_context_trap": {
+   "flagged": 1
+  },
+  "entity": {
+   "llm_fixed": 3
+  },
+  "entity_trap": {
+   "fixed": 2
+  },
+  "extract": {
+   "llm_fixed": 10
+  },
+  "extract_trap": {
+   "fixed": 4
+  },
+  "injection_trap": {
+   "flagged": 1
+  },
+  "scale": {
+   "flagged": 1
+  },
+  "synonym": {
+   "flagged": 1,
+   "llm_fixed": 8
+  },
+  "synonym_trap": {
+   "flagged": 3,
+   "wrong": 1
+  }
+ },
+ "by_expect": {
+  "extract": {
+   "llm_fixed": 10,
+   "fixed": 4
+  },
+  "flag": {
+   "flagged": 8,
+   "llm_fixed": 9,
+   "wrong": 1
+  },
+  "entity": {
+   "llm_fixed": 3,
+   "fixed": 2
+  },
+  "fix": {
+   "fixed": 1
+  }
+ },
+ "handled": 37,
+ "handled_rate": 0.9737,
+ "auto_resolved_rate": 0.7632,
+ "review_queue": 10,
+ "llm_changes": {
+  "total": 23,
+  "right": 22,
+  "wrong": 1,
+  "wrong_rate": 0.0435
+ },
+ "llm_wrong": [
+  {
+   "table": "orders",
+   "row": 18,
+   "column": "status",
+   "rule": "llm:synonym",
+   "after": "반품",
+   "truth": "환불 요청 접수",
+   "evidence": "model=openrouter:google/gemini-2.5-flash; conf=1.00; quote='환불 요청 접수'; why='환불 요청 접수' (refund request received) implies a '반품' (return) process has started."
+  }
+ ],
+ "joins": [
+  {
+   "join": "orders_customers",
+   "match_rate": 0.9286,
+   "raw_key_match_rate": 0.8214,
+   "rules_only_match_rate": 0.8214,
+   "matched_llm": 3
+  }
+ ],
+ "cell_accuracy": {
+  "cells": 312,
+  "correct": 307,
+  "rate": 0.984,
+  "wrong_but_flag_expected": 5,
+  "wrong_other": 0
+ },
+ "wrong_cells": [],
+ "extra_rows_in_cleaned": {
+  "orders": [],
+  "customers": []
+ },
+ "noise_flags": [],
+ "not_handled": [
+  {
+   "id": "synonym-18",
+   "table": "orders",
+   "category": "synonym_trap",
+   "row": 18,
+   "column": "status",
+   "expect": "flag",
+   "truth": "환불 요청 접수",
+   "llm": true,
+   "trap": true,
+   "note": "no equivalent in the vocab",
+   "outcome": "wrong"
+  }
+ ]
+}

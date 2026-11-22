@@ -1,0 +1,10 @@
+{
+ "llm": "openrouter:google/gemini-2.5-flash",
+ "mode": "live",
+ "calls": 3,
+ "cache_hits": 0,
+ "prompt_tokens": 5779,
+ "completion_tokens": 3329,
+ "cost_usd": 0.010056,
+ "errors": []
+}

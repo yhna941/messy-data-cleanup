@@ -1,0 +1,14 @@
+---
+description: Cleaning messy Excel/CSV data (merged headers, 소계 rows, typos, text numbers, mixed dates, duplicates, joins). Use the messy-data-cleanup skill instead of ad-hoc pandas edits.
+globs: "**/*.{xlsx,xlsm,csv,tsv}"
+alwaysApply: false
+---
+
+When asked to clean, tidy, standardize, dedupe, reconcile, or join spreadsheet or CSV data, follow `skill/messy-data-cleanup/SKILL.md`. If the skill is installed as `.cursor/skills/messy-data-cleanup/`, the same file is there.
+
+- Run `scripts/profile.py` first. Write a YAML contract per `reference/contract.md`. Clean with `scripts/clean_pipeline.py`.
+- Never edit cleaned data by hand or overwrite the originals. Change the contract (vocab, overrides) and rerun.
+- Do not fill blanks, merge near duplicates, convert unstated units, or auto-fix ambiguous dates. Those go to `Needs human review`.
+- Put only semantic synonyms in vocab and leave typos to fuzzy matching, so the log carries the evidence.
+- LLM help is opt-in: `--llm live` (OPENROUTER_API_KEY or GEMINI_API_KEY). It only picks from rule-computed candidates or quotes the cell, behind gates; applied answers are logged as `llm:<task>`. Report its applied/rejected counts, and ship `llm_cache/` so `--llm cache` reproduces the run.
+- Report the owner's decisions first, then rows in → out → dropped, changes per rule, and join match rates (raw vs normalized keys).

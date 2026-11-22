@@ -1,0 +1,243 @@
+{
+ "request": {
+  "task": "layout",
+  "prompt_version": "v1",
+  "model": "google/gemini-2.5-flash-lite",
+  "instructions": "DATA is a preview of one spreadsheet sheet: each row is [row_number, cell1, cell2, ...] (1-based, blank cells are ''). Find every table in it. For each table give: header_rows (row numbers of its header, 1 or 2 rows), first_data_row, last_data_row (data rows only: not titles, notes, subtotals or blank rows at the end), a short snake_case name, and its columns (header = the header text exactly as in the cells, joined with a space for 2-row headers; name = snake_case English; type). evidence_quote = copy one header cell exactly.",
+  "data": {
+   "sheet": "상품",
+   "rows": [
+    [
+     1,
+     "■ 상품 마스터",
+     "",
+     "",
+     "",
+     ""
+    ],
+    [
+     2,
+     "상품코드",
+     "상품명",
+     "분류",
+     "판매가",
+     "출시일"
+    ],
+    [
+     3,
+     "P001",
+     "하우스블렌드 원두 200g",
+     "원두",
+     "12,000원",
+     "2023-03-01 00:00:00"
+    ],
+    [
+     4,
+     "p-2",
+     "에티오피아 예가체프 200g",
+     "원 두",
+     "15000",
+     "2023.3.1"
+    ],
+    [
+     5,
+     "P003",
+     "콜롬비아 수프리모 1kg",
+     "원두",
+     "45,000",
+     "45056"
+    ],
+    [
+     6,
+     "Ｐ００４",
+     "드립백 10입 세트",
+     "드립백",
+     "13,500원",
+     "2023-06-01"
+    ],
+    [
+     7,
+     "P005",
+     "콜드브루 원액 500ml",
+     "콜드브류",
+     "₩18,000",
+     "2023년 7월 1일"
+    ],
+    [
+     8,
+     "P006",
+     "디카페인 콜드브루 500ml",
+     "콜드 브루",
+     "19,500",
+     "20230915"
+    ],
+    [
+     9,
+     "P007",
+     "하루 머그컵",
+     "Goods",
+     "9천원",
+     "2023.10.1"
+    ],
+    [
+     10,
+     "P008",
+     "텀블러 473ml ",
+     "굿 즈",
+     "2.5만원",
+     "2023/11/20"
+    ],
+    [
+     11,
+     "",
+     "",
+     "",
+     "",
+     ""
+    ],
+    [
+     12,
+     "",
+     "",
+     "",
+     "",
+     ""
+    ],
+    [
+     13,
+     "■ 단종 상품",
+     "",
+     "",
+     "",
+     ""
+    ],
+    [
+     14,
+     "상품코드",
+     "상품명",
+     "분류",
+     "판매가",
+     "단종일"
+    ],
+    [
+     15,
+     "P009",
+     "시즌 블렌드 200g",
+     "원두",
+     "13000",
+     "2023-12-31 00:00:00"
+    ],
+    [
+     16,
+     "P010",
+     "드립백 5입",
+     "드립백 ",
+     "7,000원",
+     "2024.01.15"
+    ]
+   ]
+  }
+ },
+ "response": {
+  "tables": [
+   {
+    "sheet": "상품",
+    "name": "상품_마스터",
+    "header_rows": [
+     2
+    ],
+    "first_data_row": 3,
+    "last_data_row": 10,
+    "evidence_quote": "상품코드",
+    "columns": [
+     {
+      "header": "상품코드",
+      "name": "상품코드",
+      "type": "id"
+     },
+     {
+      "header": "상품명",
+      "name": "상품명",
+      "type": "text"
+     },
+     {
+      "header": "분류",
+      "name": "분류",
+      "type": "category"
+     },
+     {
+      "header": "판매가",
+      "name": "판매가",
+      "type": "money"
+     },
+     {
+      "header": "출시일",
+      "name": "출시일",
+      "type": "date"
+     }
+    ]
+   },
+   {
+    "sheet": "상품",
+    "name": "단종_상품",
+    "header_rows": [
+     14
+    ],
+    "first_data_row": 15,
+    "last_data_row": 16,
+    "evidence_quote": "상품코드",
+    "columns": [
+     {
+      "header": "상품코드",
+      "name": "상품코드",
+      "type": "id"
+     },
+     {
+      "header": "상품명",
+      "name": "상품명",
+      "type": "text"
+     },
+     {
+      "header": "분류",
+      "name": "분류",
+      "type": "category"
+     },
+     {
+      "header": "판매가",
+      "name": "판매가",
+      "type": "money"
+     },
+     {
+      "header": "단종일",
+      "name": "단종일",
+      "type": "date"
+     }
+    ]
+   }
+  ]
+ },
+ "provider": "openrouter",
+ "usage": {
+  "prompt_tokens": 813,
+  "completion_tokens": 494,
+  "total_tokens": 1307,
+  "cost": 0.0002789,
+  "is_byok": false,
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "cache_write_tokens": 0,
+   "audio_tokens": 0,
+   "video_tokens": 0
+  },
+  "cost_details": {
+   "upstream_inference_cost": 0.0002789,
+   "upstream_inference_prompt_cost": 8.13e-05,
+   "upstream_inference_completions_cost": 0.0001976
+  },
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "image_tokens": 0,
+   "audio_tokens": 0
+  }
+ }
+}

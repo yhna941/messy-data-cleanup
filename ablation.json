@@ -1,0 +1,266 @@
+{
+ "llm_mode": "cache",
+ "provider": "openrouter",
+ "sets": {
+  "demo": {
+   "rules_only": {
+    "planted": 386,
+    "fixed_by_rules": 358,
+    "fixed_by_llm": 0,
+    "flagged": 28,
+    "wrong": 0,
+    "missed": 0,
+    "guessed": 0,
+    "handled_rate": 1.0,
+    "auto_resolved_rate": 0.9275,
+    "review_queue": 31,
+    "cell_accuracy": 0.9698,
+    "llm_changes": {
+     "total": 0,
+     "wrong_rate": null
+    },
+    "llm_wrong": [],
+    "join_rates": [
+     0.9459,
+     1,
+     0.6667
+    ]
+   },
+   "rules_plus_llm": {
+    "planted": 386,
+    "fixed_by_rules": 358,
+    "fixed_by_llm": 5,
+    "flagged": 23,
+    "wrong": 0,
+    "missed": 0,
+    "guessed": 0,
+    "handled_rate": 1.0,
+    "auto_resolved_rate": 0.9404,
+    "review_queue": 26,
+    "cell_accuracy": 0.9778,
+    "llm_changes": {
+     "total": 5,
+     "right": 5,
+     "wrong_rate": 0.0
+    },
+    "llm_wrong": [],
+    "join_rates": [
+     0.9459,
+     1,
+     0.6667
+    ]
+   },
+   "llm": "openrouter:google/gemini-2.5-flash-lite",
+   "usage_run1": {
+    "calls": 0,
+    "cache_hits": 4,
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "cost_usd": 0.0,
+    "errors": []
+   },
+   "usage_run2": {
+    "calls": 0,
+    "cache_hits": 4
+   },
+   "llm_run_identical_on_rerun": true,
+   "offline_cache_replay_identical": true
+  },
+  "blind": {
+   "rules_only": {
+    "planted": 114,
+    "fixed_by_rules": 102,
+    "fixed_by_llm": 0,
+    "flagged": 12,
+    "wrong": 0,
+    "missed": 0,
+    "guessed": 0,
+    "handled_rate": 1.0,
+    "auto_resolved_rate": 0.8947,
+    "review_queue": 16,
+    "cell_accuracy": 0.9683,
+    "llm_changes": {
+     "total": 0,
+     "wrong_rate": null
+    },
+    "llm_wrong": [],
+    "join_rates": [
+     0.9444,
+     0.8889,
+     0.8333
+    ]
+   },
+   "rules_plus_llm": {
+    "planted": 114,
+    "fixed_by_rules": 102,
+    "fixed_by_llm": 2,
+    "flagged": 10,
+    "wrong": 0,
+    "missed": 0,
+    "guessed": 0,
+    "handled_rate": 1.0,
+    "auto_resolved_rate": 0.9123,
+    "review_queue": 13,
+    "cell_accuracy": 0.9762,
+    "llm_changes": {
+     "total": 2,
+     "right": 2,
+     "wrong_rate": 0.0
+    },
+    "llm_wrong": [],
+    "join_rates": [
+     0.9444,
+     0.9444,
+     0.8333
+    ]
+   },
+   "llm": "openrouter:google/gemini-2.5-flash-lite",
+   "usage_run1": {
+    "calls": 0,
+    "cache_hits": 5,
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "cost_usd": 0.0,
+    "errors": []
+   },
+   "usage_run2": {
+    "calls": 0,
+    "cache_hits": 5
+   },
+   "llm_run_identical_on_rerun": true,
+   "offline_cache_replay_identical": true
+  },
+  "semantic": {
+   "rules_only": {
+    "planted": 38,
+    "fixed_by_rules": 7,
+    "fixed_by_llm": 0,
+    "flagged": 19,
+    "wrong": 0,
+    "missed": 11,
+    "guessed": 1,
+    "handled_rate": 0.6842,
+    "auto_resolved_rate": 0.1842,
+    "review_queue": 21,
+    "cell_accuracy": 0.9263,
+    "llm_changes": {
+     "total": 0,
+     "wrong_rate": null
+    },
+    "llm_wrong": [],
+    "join_rates": [
+     0.8214
+    ]
+   },
+   "rules_plus_llm": {
+    "planted": 38,
+    "fixed_by_rules": 7,
+    "fixed_by_llm": 21,
+    "flagged": 10,
+    "wrong": 0,
+    "missed": 0,
+    "guessed": 0,
+    "handled_rate": 1.0,
+    "auto_resolved_rate": 0.7368,
+    "review_queue": 12,
+    "cell_accuracy": 0.984,
+    "llm_changes": {
+     "total": 21,
+     "right": 21,
+     "wrong_rate": 0.0
+    },
+    "llm_wrong": [],
+    "join_rates": [
+     0.9286
+    ]
+   },
+   "llm": "openrouter:google/gemini-2.5-flash-lite",
+   "usage_run1": {
+    "calls": 0,
+    "cache_hits": 3,
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "cost_usd": 0.0,
+    "errors": []
+   },
+   "usage_run2": {
+    "calls": 0,
+    "cache_hits": 3
+   },
+   "llm_run_identical_on_rerun": true,
+   "offline_cache_replay_identical": true
+  },
+  "semantic_blind": {
+   "rules_only": {
+    "planted": 24,
+    "fixed_by_rules": 5,
+    "fixed_by_llm": 0,
+    "flagged": 13,
+    "wrong": 0,
+    "missed": 5,
+    "guessed": 1,
+    "handled_rate": 0.75,
+    "auto_resolved_rate": 0.2083,
+    "review_queue": 12,
+    "cell_accuracy": 0.915,
+    "llm_changes": {
+     "total": 0,
+     "wrong_rate": null
+    },
+    "llm_wrong": [],
+    "join_rates": [
+     0.8
+    ]
+   },
+   "rules_plus_llm": {
+    "planted": 24,
+    "fixed_by_rules": 5,
+    "fixed_by_llm": 12,
+    "flagged": 6,
+    "wrong": 1,
+    "missed": 0,
+    "guessed": 0,
+    "handled_rate": 0.9583,
+    "auto_resolved_rate": 0.7083,
+    "review_queue": 6,
+    "cell_accuracy": 0.9804,
+    "llm_changes": {
+     "total": 13,
+     "right": 12,
+     "wrong": 1,
+     "wrong_rate": 0.0769
+    },
+    "llm_wrong": [
+     {
+      "table": "orders",
+      "row": 7,
+      "column": "status",
+      "rule": "llm:synonym",
+      "after": "완료",
+      "truth": "픽업대기",
+      "evidence": "model=openrouter:google/gemini-2.5-flash-lite; conf=1.00; quote='다 만들었어요 찾아가세요'; why=The value '다 만들었어요 찾아가세요' translates to 'It's all made, please come pick it up.' This implies the order is complete and ready for pickup, which aligns with the '완료' (completed) status."
+     }
+    ],
+    "join_rates": [
+     0.9333
+    ]
+   },
+   "llm": "openrouter:google/gemini-2.5-flash-lite",
+   "usage_run1": {
+    "calls": 0,
+    "cache_hits": 3,
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "cost_usd": 0.0,
+    "errors": []
+   },
+   "usage_run2": {
+    "calls": 0,
+    "cache_hits": 3
+   },
+   "llm_run_identical_on_rerun": true,
+   "offline_cache_replay_identical": true
+  }
+ },
+ "cost_usd_this_run": 0.0
+}

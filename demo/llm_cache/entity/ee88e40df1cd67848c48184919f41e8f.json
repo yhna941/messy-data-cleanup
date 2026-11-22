@@ -1,0 +1,135 @@
+{
+ "request": {
+  "task": "entity",
+  "prompt_version": "v1",
+  "model": "google/gemini-2.5-flash-lite",
+  "instructions": "Each item is a row from the left table whose join key found no match (item.left) and up to 5 candidate rows from the master table (item.candidates, each with its key). Answer the key of the candidate that is clearly the same real-world entity (same person/product: e.g. the same name in another script or romanization, plus a matching phone/email/other field), or null if none clearly is. A similar-looking key alone is not enough. evidence_quote: copy the exact text from the item that proves the match.",
+  "data": {
+   "join": "returns_orders",
+   "key_column": "order_id",
+   "items": [
+    {
+     "id": "6",
+     "left": {
+      "return_id": "R-004",
+      "order_id": "O-2024-0099",
+      "return_date": "2024-03-20",
+      "reason": "단순변심",
+      "refund": "45000",
+      "status": "처리중"
+     },
+     "candidates": [
+      {
+       "key": "O-2024-0009",
+       "order_id": "O-2024-0009",
+       "order_date": "2024-01-18",
+       "customer_id": "C0003",
+       "customer_name": "박지훈",
+       "product_code": "P007",
+       "product_name": "하루 머그컵",
+       "qty": "2",
+       "unit_price": "9000",
+       "amount": "18000",
+       "payment": "카드",
+       "status": "배송완료"
+      },
+      {
+       "key": "O-2024-0019",
+       "order_id": "O-2024-0019",
+       "order_date": "2024-02-13",
+       "customer_id": "C0002",
+       "customer_name": "이수진",
+       "product_code": "P006",
+       "product_name": "디카페인 콜드브루 500ml",
+       "qty": "1",
+       "unit_price": "19500",
+       "discount_pct": "10",
+       "amount": "17550",
+       "payment": "네이버페이",
+       "status": "배송완료"
+      },
+      {
+       "key": "O-2024-0029",
+       "order_id": "O-2024-0029",
+       "order_date": "2024-03-11",
+       "customer_id": "C0002",
+       "customer_name": "이수진",
+       "product_code": "P008",
+       "product_name": "텀블러 473ml",
+       "qty": "2",
+       "unit_price": "25000",
+       "discount_pct": "10",
+       "amount": "45000",
+       "payment": "카드",
+       "status": "배송완료"
+      },
+      {
+       "key": "O-2024-0001",
+       "order_id": "O-2024-0001",
+       "order_date": "2024-01-03",
+       "customer_id": "C0001",
+       "customer_name": "김민수",
+       "product_code": "P001",
+       "product_name": "하우스블렌드 원두 200g",
+       "qty": "2",
+       "unit_price": "12000",
+       "discount_pct": "10",
+       "amount": "21600",
+       "payment": "카드",
+       "status": "배송완료"
+      },
+      {
+       "key": "O-2024-0002",
+       "order_id": "O-2024-0002",
+       "order_date": "2024-01-05",
+       "customer_id": "C0002",
+       "customer_name": "이수진",
+       "product_code": "P009",
+       "product_name": "시즌 블렌드 200g",
+       "qty": "1",
+       "unit_price": "13000",
+       "amount": "13000",
+       "payment": "계좌이체",
+       "status": "배송완료"
+      }
+     ]
+    }
+   ]
+  }
+ },
+ "response": {
+  "items": [
+   {
+    "id": "6",
+    "answer": "O-2024-0029",
+    "confidence": 0.9,
+    "evidence_quote": "order_id: \"O-2024-0099\", amount: \"45000\" | order_id: \"O-2024-0029\", amount: \"45000\"",
+    "rationale": "The order_id O-2024-0099 from the left table has an amount of 45000. Candidate O-2024-0029 also has an amount of 45000 and the customer name is the same (이수진)."
+   }
+  ]
+ },
+ "provider": "openrouter",
+ "usage": {
+  "prompt_tokens": 1076,
+  "completion_tokens": 185,
+  "total_tokens": 1261,
+  "cost": 0.0001816,
+  "is_byok": false,
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "cache_write_tokens": 0,
+   "audio_tokens": 0,
+   "video_tokens": 0
+  },
+  "cost_details": {
+   "upstream_inference_cost": 0.0001816,
+   "upstream_inference_prompt_cost": 0.0001076,
+   "upstream_inference_completions_cost": 7.4e-05
+  },
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "image_tokens": 0,
+   "audio_tokens": 0
+  }
+ }
+}

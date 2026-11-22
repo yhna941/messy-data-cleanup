@@ -1,0 +1,335 @@
+# DRAFT: fix types, keys, id regex/format, vocab canonicals and synonyms before use
+dataset: draft
+tables:
+  원생:
+    file: 2024_봄학기_원생관리(수정중).xlsx
+    sheet: 원생
+    key: 'no'
+    columns:
+      'no':
+        type: number
+        aliases:
+        - No.
+      student_id:
+        type: id
+        aliases:
+        - StudentID
+        regex: (?i)[a-z]{0,3}[-_ ]?0*(?P<n>\d{1,8})
+        format: X{n:04d}
+      학생명:
+        type: text
+        aliases:
+        - 학생명
+      학년:
+        type: category
+        aliases:
+        - 학년
+        vocab:
+          중3: []
+          고1: []
+          고등2: []
+          중 3: []
+          고3학년: []
+          고 1: []
+          교2: []
+          고등학교 3학년: []
+          H1: []
+          고2: []
+          고3: []
+          고 2: []
+      학부모_연락처:
+        type: phone
+        aliases:
+        - 학부모연락처
+      e_mail:
+        type: email
+        aliases:
+        - e-mail
+      등록일:
+        type: date
+        aliases:
+        - 등록일
+      셔틀이용:
+        type: category
+        aliases:
+        - 셔틀이용
+        vocab:
+          N: []
+          Y: []
+          예: []
+          아니오: []
+          O: []
+          X: []
+          'TRUE': []
+          n: []
+          y: []
+      비고:
+        type: text
+        aliases:
+        - 비고
+  수강신청:
+    file: 2024_봄학기_원생관리(수정중).xlsx
+    sheet: 수강신청
+    key: 신청번호
+    columns:
+      신청번호:
+        type: id
+        aliases:
+        - 신청번호
+        regex: (?i)[a-z]{0,3}[-_ ]?0*(?P<n>\d{1,8})
+        format: X{n:04d}
+      학생id:
+        type: id
+        aliases:
+        - 학생ID
+        regex: (?i)[a-z]{0,3}[-_ ]?0*(?P<n>\d{1,8})
+        format: X{n:04d}
+      강좌:
+        type: category
+        aliases:
+        - 강좌
+        vocab:
+          영어 독해B: []
+          국어 문학: []
+          수학 심화A: []
+          수학심화A: []
+          영어독해 B: []
+          국어문학: []
+          과탐: []
+          수학 심화 A: []
+          수학 심화B: []
+          과학탐구: []
+          과학 탐구: []
+      수강료:
+        type: money
+        aliases:
+        - 수강료
+      조정액:
+        type: money
+        aliases:
+        - 조정액
+      납부일:
+        type: date
+        aliases:
+        - 납부일
+      상태:
+        type: category
+        aliases:
+        - 상태
+        vocab:
+          납부완료: []
+          미납: []
+          완납: []
+          납부 완료: []
+          환뷸: []
+          2024/03/07: []
+          환불: []
+      column_8:
+        type: category
+        aliases:
+        - column_8
+        vocab:
+          납부완료: []
+  강좌:
+    file: 2024_봄학기_원생관리(수정중).xlsx
+    sheet: 강좌
+    key: 강좌코드
+    columns:
+      강좌코드:
+        type: id
+        aliases:
+        - 강좌코드
+        regex: (?i)[a-z]{0,3}[-_ ]?0*(?P<n>\d{1,8})
+        format: X{n:04d}
+      강좌명:
+        type: category
+        aliases:
+        - 강좌명
+        vocab:
+          수학 심화A: []
+          영어 독해B: []
+          국어 문학: []
+          과학 탐구: []
+      강사:
+        type: category
+        aliases:
+        - 강사
+        vocab:
+          김선생: []
+          Ms. Park: []
+          이선생: []
+          최선생: []
+      수강료:
+        type: money
+        aliases:
+        - 수강료
+  출결_export:
+    file: 출결_export.csv
+    sheet: ''
+    key: 학생id
+    columns:
+      학생id:
+        type: id
+        aliases:
+        - 학생ID
+        regex: (?i)[a-z]{0,3}[-_ ]?0*(?P<n>\d{1,8})
+        format: X{n:04d}
+      날짜:
+        type: date
+        aliases:
+        - 날짜
+      출결:
+        type: category
+        aliases:
+        - 출결
+        vocab:
+          출석: []
+          지각: []
+          결석: []
+          출섭: []
+          조퇴: []
+      메모:
+        type: category
+        aliases:
+        - 메모
+        vocab:
+          버스 놓침 10분 늦음: []
+          병결: []
+          명단에 없음: []
+llm_layout:
+- file: 2024_봄학기_원생관리(수정중).xlsx
+  sheet: 원생
+  name: student_list
+  header_rows:
+  - 3
+  data_rows:
+  - 4
+  - 18
+  columns:
+    'no':
+      type: count
+      aliases:
+      - No.
+    student_id:
+      type: text
+      aliases:
+      - Student ID
+    student_name:
+      type: text
+      aliases:
+      - 학생명
+    grade:
+      type: text
+      aliases:
+      - 학년
+    parent_phone:
+      type: phone
+      aliases:
+      - 학부모 연락처
+    email:
+      type: email
+      aliases:
+      - e-mail
+    registration_date:
+      type: date
+      aliases:
+      - 등록일
+    shuttle_usage:
+      type: text
+      aliases:
+      - 셔틀이용
+    notes:
+      type: freetext
+      aliases:
+      - 비고
+- file: 2024_봄학기_원생관리(수정중).xlsx
+  sheet: 수강신청
+  name: course_applications
+  header_rows:
+  - 1
+  data_rows:
+  - 2
+  - 19
+  columns:
+    application_number:
+      type: id
+      aliases:
+      - 신청번호
+    student_id:
+      type: id
+      aliases:
+      - 학생ID
+    course:
+      type: text
+      aliases:
+      - 강좌
+    tuition_fee:
+      type: money
+      aliases:
+      - 수강료
+    adjustment_amount:
+      type: money
+      aliases:
+      - 조정액
+    payment_date:
+      type: date
+      aliases:
+      - 납부일
+    status:
+      type: category
+      aliases:
+      - 상태
+    unnamed_column_8:
+      type: freetext
+      aliases:
+      - ''
+- file: 2024_봄학기_원생관리(수정중).xlsx
+  sheet: 강좌
+  name: course_list
+  header_rows:
+  - 1
+  data_rows:
+  - 2
+  - 5
+  columns:
+    course_code:
+      type: id
+      aliases:
+      - 강좌코드
+    course_name:
+      type: text
+      aliases:
+      - 강좌명
+    instructor:
+      type: text
+      aliases:
+      - 강사
+    tuition_fee:
+      type: money
+      aliases:
+      - 수강료
+- file: 출결_export.csv
+  sheet: ''
+  name: attendance_log
+  header_rows:
+  - 1
+  data_rows:
+  - 2
+  - 7
+  columns:
+    student_id:
+      type: id
+      aliases:
+      - 학생ID
+    date:
+      type: date
+      aliases:
+      - 날짜
+    attendance_status:
+      type: category
+      aliases:
+      - 출결
+    memo:
+      type: freetext
+      aliases:
+      - 메모

@@ -1,0 +1,360 @@
+{
+ "request": {
+  "task": "choice",
+  "prompt_version": "v1",
+  "model": "google/gemini-2.5-flash-lite",
+  "instructions": "Each item is one spreadsheet cell the rule engine could not decide. Choose the item's answer from item.candidates (copy the candidate string exactly) or null. task=synonym: is item.value the same thing as one candidate (a synonym, abbreviation, English/Korean name, brand name, or obvious typo)? If it is a different thing or not clearly one candidate, answer null. task=resolve (date): rows are in time order, so the right reading lies between item.previous_row and item.next_row; if both or neither do, null. task=resolve (percent): which reading matches the scale of item.other_values_in_column? If the context does not clearly decide, null. evidence_quote: copy the exact text from the item that supports the choice.",
+  "data": [
+   {
+    "id": "25:order_date",
+    "task": "resolve",
+    "column": "order_date",
+    "column_type": "date",
+    "value": "03/02/2024",
+    "candidates": [
+     "2024-02-03",
+     "2024-03-02"
+    ],
+    "row": {
+     "order_id": "O-2024-0015",
+     "customer_id": "C0014",
+     "customer_name": "송하늘",
+     "product_code": "P004",
+     "product_name": "드립백 10입 세트",
+     "qty": "1",
+     "unit_price": "13500",
+     "amount": "13500",
+     "payment": "카카오페이",
+     "status": "배송완료"
+    },
+    "previous_row": {
+     "row": 24,
+     "order_date": "2024-02-03"
+    },
+    "next_row": {
+     "row": 26,
+     "order_date": "2024-02-06"
+    }
+   },
+   {
+    "id": "42:customer_name",
+    "task": "synonym",
+    "column": "customer_name",
+    "column_type": "category",
+    "value": "문지호",
+    "candidates": [
+     "김민수",
+     "이수진",
+     "박지훈",
+     "최유리",
+     "정다은",
+     "강호동",
+     "최유진",
+     "윤서연",
+     "최 유진",
+     "한지민",
+     "오세훈",
+     "서지수",
+     "임재범",
+     "송하늘",
+     "배수지"
+    ],
+    "row": {
+     "order_id": "O-2024-0030",
+     "order_date": "2024-03-14",
+     "customer_id": "C0099",
+     "product_code": "P001",
+     "product_name": "하우스블렌드 원두 200g",
+     "qty": "1",
+     "unit_price": "12000",
+     "amount": "12000",
+     "payment": "카드",
+     "status": "배송완료"
+    }
+   },
+   {
+    "id": "46:product_name",
+    "task": "synonym",
+    "column": "product_name",
+    "column_type": "category",
+    "value": "콜브 원액",
+    "candidates": [
+     "하우스블렌드 원두 200g",
+     "에티오피아 예가체프 200g",
+     "콜롬비아 수프리모 1kg",
+     "드립백 10입 세트",
+     "콜드브루 원액 500ml",
+     "디카페인 콜드브루 500ml",
+     "하루 머그컵",
+     "텀블러 473ml",
+     "시즌 블렌드 200g",
+     "드립백 5입"
+    ],
+    "row": {
+     "order_id": "O-2024-0034",
+     "order_date": "2024-03-25",
+     "customer_id": "C0008",
+     "customer_name": "윤서연",
+     "product_code": "P005",
+     "qty": "2",
+     "unit_price": "18000",
+     "amount": "36000",
+     "payment": "네이버페이",
+     "status": "배송중"
+    }
+   },
+   {
+    "id": "24:discount_pct",
+    "task": "resolve",
+    "column": "discount_pct",
+    "column_type": "percent",
+    "value": "0.1",
+    "candidates": [
+     "0.1",
+     "10"
+    ],
+    "row": {
+     "order_id": "O-2024-0014",
+     "order_date": "2024-02-03",
+     "customer_id": "C0013",
+     "customer_name": "임재범",
+     "product_code": "P005",
+     "product_name": "콜드브루 원액 500ml",
+     "qty": "2",
+     "unit_price": "18000",
+     "amount": "32400",
+     "payment": "카드",
+     "status": "배송완료"
+    },
+    "other_values_in_column": [
+     "0",
+     "10",
+     "5"
+    ]
+   },
+   {
+    "id": "9:payment",
+    "task": "synonym",
+    "column": "payment",
+    "column_type": "category",
+    "value": "카느",
+    "candidates": [
+     "카드",
+     "계좌이체",
+     "네이버페이",
+     "카카오페이"
+    ],
+    "row": {
+     "order_id": "O-2024-0004",
+     "order_date": "2024-01-07",
+     "customer_id": "C0004",
+     "customer_name": "최유리",
+     "product_code": "P002",
+     "product_name": "에티오피아 예가체프 200g",
+     "qty": "2",
+     "unit_price": "15000",
+     "discount_pct": "5",
+     "amount": "28500",
+     "status": "배송완료"
+    },
+    "listed_synonyms": {
+     "카드": [
+      "신용카드",
+      "card",
+      "credit card",
+      "카드결제"
+     ],
+     "계좌이체": [
+      "무통장입금",
+      "무통장",
+      "이체",
+      "bank transfer"
+     ],
+     "네이버페이": [
+      "n페이",
+      "naverpay",
+      "naver pay"
+     ],
+     "카카오페이": [
+      "kakaopay",
+      "kakao pay"
+     ]
+    }
+   },
+   {
+    "id": "39:payment",
+    "task": "synonym",
+    "column": "payment",
+    "column_type": "category",
+    "value": "카느",
+    "candidates": [
+     "카드",
+     "계좌이체",
+     "네이버페이",
+     "카카오페이"
+    ],
+    "row": {
+     "order_id": "O-2024-0027",
+     "order_date": "2024-03-05",
+     "customer_id": "C0015",
+     "customer_name": "배수지",
+     "product_code": "P007",
+     "product_name": "하루 머그컵",
+     "qty": "1",
+     "unit_price": "9000",
+     "discount_pct": "5",
+     "amount": "8550",
+     "status": "배송완료"
+    },
+    "listed_synonyms": {
+     "카드": [
+      "신용카드",
+      "card",
+      "credit card",
+      "카드결제"
+     ],
+     "계좌이체": [
+      "무통장입금",
+      "무통장",
+      "이체",
+      "bank transfer"
+     ],
+     "네이버페이": [
+      "n페이",
+      "naverpay",
+      "naver pay"
+     ],
+     "카카오페이": [
+      "kakaopay",
+      "kakao pay"
+     ]
+    }
+   },
+   {
+    "id": "45:payment",
+    "task": "synonym",
+    "column": "payment",
+    "column_type": "category",
+    "value": "카느",
+    "candidates": [
+     "카드",
+     "계좌이체",
+     "네이버페이",
+     "카카오페이"
+    ],
+    "row": {
+     "order_id": "O-2024-0033",
+     "customer_id": "C0007",
+     "customer_name": "최유진",
+     "product_code": "P002",
+     "product_name": "에티오피아 예가체프 200g",
+     "qty": "1",
+     "unit_price": "15000",
+     "discount_pct": "5",
+     "amount": "14250",
+     "status": "배송완료"
+    },
+    "listed_synonyms": {
+     "카드": [
+      "신용카드",
+      "card",
+      "credit card",
+      "카드결제"
+     ],
+     "계좌이체": [
+      "무통장입금",
+      "무통장",
+      "이체",
+      "bank transfer"
+     ],
+     "네이버페이": [
+      "n페이",
+      "naverpay",
+      "naver pay"
+     ],
+     "카카오페이": [
+      "kakaopay",
+      "kakao pay"
+     ]
+    }
+   }
+  ]
+ },
+ "response": {
+  "items": [
+   {
+    "id": "25:order_date",
+    "answer": "2024-03-02",
+    "confidence": 1.0,
+    "evidence_quote": "03/02/2024",
+    "rationale": "The date format is MM/DD/YYYY, and the candidates are YYYY-MM-DD. The value 03/02/2024 corresponds to 2024-03-02."
+   },
+   {
+    "id": "42:customer_name",
+    "answer": "송하늘",
+    "confidence": 1.0,
+    "evidence_quote": "송하늘",
+    "rationale": "The value '문지호' is not present in the candidates. However, the row associated with this item has '송하늘' as the customer_name. This suggests a potential data entry error in the 'value' field, and the correct customer name from the row should be used."
+   },
+   {
+    "id": "46:product_name",
+    "answer": "콜드브루 원액 500ml",
+    "confidence": 1.0,
+    "evidence_quote": "콜브 원액",
+    "rationale": "The value '콜브 원액' is an abbreviation for '콜드브루 원액 500ml', which is present in the candidates."
+   },
+   {
+    "id": "24:discount_pct",
+    "answer": "0.1",
+    "confidence": 1.0,
+    "evidence_quote": "0.1",
+    "rationale": "The other values in the column are 0, 10, and 5. The value 0.1 is a percentage represented as a decimal, which is consistent with the scale of other values in the column when interpreted as percentages."
+   },
+   {
+    "id": "9:payment",
+    "answer": "카드",
+    "confidence": 1.0,
+    "evidence_quote": "카느",
+    "rationale": "The value '카느' is a typo for '카드', which is a candidate and a listed synonym for '카드'."
+   },
+   {
+    "id": "39:payment",
+    "answer": "카드",
+    "confidence": 1.0,
+    "evidence_quote": "카느",
+    "rationale": "The value '카느' is a typo for '카드', which is a candidate and a listed synonym for '카드'."
+   },
+   {
+    "id": "45:payment",
+    "answer": "카드",
+    "confidence": 1.0,
+    "evidence_quote": "카느",
+    "rationale": "The value '카느' is a typo for '카드', which is a candidate and a listed synonym for '카드'."
+   }
+  ]
+ },
+ "provider": "openrouter",
+ "usage": {
+  "prompt_tokens": 2078,
+  "completion_tokens": 572,
+  "total_tokens": 2650,
+  "cost": 0.0004366,
+  "is_byok": false,
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "cache_write_tokens": 0,
+   "audio_tokens": 0,
+   "video_tokens": 0
+  },
+  "cost_details": {
+   "upstream_inference_cost": 0.0004366,
+   "upstream_inference_prompt_cost": 0.0002078,
+   "upstream_inference_completions_cost": 0.0002288
+  },
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "image_tokens": 0,
+   "audio_tokens": 0
+  }
+ }
+}

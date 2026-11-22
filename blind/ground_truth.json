@@ -1,0 +1,1503 @@
+{
+ "meta": {
+  "joined_sheet": "Joined_enroll_full",
+  "join_statuses": {}
+ },
+ "tables": {
+  "students": {
+   "4": {
+    "student_id": "S24-001",
+    "name": "김민지",
+    "grade": "고1",
+    "phone": "010-1234-5678",
+    "email": "minji@naver.com",
+    "reg_date": "2024-02-15",
+    "shuttle": "Y"
+   },
+   "5": {
+    "student_id": "S24-002",
+    "name": "이준호",
+    "grade": "고2",
+    "phone": "010-2345-6789",
+    "email": "junho.lee@gmail.com",
+    "reg_date": "2024-02-16",
+    "shuttle": "N"
+   },
+   "6": {
+    "student_id": "S24-003",
+    "name": "박서윤",
+    "grade": "중3",
+    "phone": "02-123-4567",
+    "email": "seoyun@daum.net",
+    "reg_date": "2024-02-17",
+    "shuttle": "Y"
+   },
+   "7": {
+    "student_id": "S24-004",
+    "name": "최도윤",
+    "grade": "고3",
+    "phone": "031-234-5678",
+    "email": "doyun@naver.com",
+    "reg_date": "2024-02-18",
+    "shuttle": "N"
+   },
+   "8": {
+    "student_id": "S24-005",
+    "name": "정하은",
+    "grade": "고1",
+    "phone": "010-3456-7890",
+    "email": "haeun@kakao.com",
+    "reg_date": "2024-02-19",
+    "shuttle": "Y"
+   },
+   "9": {
+    "student_id": "S24-006",
+    "name": "강지우",
+    "grade": "고2",
+    "phone": "010-4567-8901",
+    "email": "jiwoo@naver.com",
+    "reg_date": "2024-02-20",
+    "shuttle": "N"
+   },
+   "10": {
+    "student_id": "S24-007",
+    "name": "윤서준",
+    "grade": "중3",
+    "phone": "010-5678-9012",
+    "email": "seojun@gmail.com",
+    "reg_date": "2024-02-21",
+    "shuttle": "Y"
+   },
+   "12": {
+    "student_id": "S24-008",
+    "name": "장예린",
+    "grade": "고3",
+    "phone": "010-6789-0123",
+    "email": "yerin@naver.com",
+    "reg_date": "2024-02-22",
+    "shuttle": "N"
+   },
+   "13": {
+    "student_id": "S24-009",
+    "name": "임시우",
+    "grade": "고1",
+    "phone": "010-7890-1234",
+    "email": "siwoo@daum.net",
+    "reg_date": "2024-02-23",
+    "shuttle": "Y"
+   },
+   "14": {
+    "student_id": "S24-010",
+    "name": "한지호",
+    "grade": "고2",
+    "phone": "010-8901-2345",
+    "email": "jiho.han@naver.com",
+    "reg_date": "2024-02-24",
+    "shuttle": "N"
+   },
+   "15": {
+    "student_id": "S24-011",
+    "name": "한지아",
+    "grade": "중3",
+    "phone": "010-8901-2345",
+    "email": "jia.han@naver.com",
+    "reg_date": "2024-02-24",
+    "shuttle": "N"
+   },
+   "16": {
+    "student_id": "S24-012",
+    "name": "오유나",
+    "grade": "고3",
+    "phone": "010-9012-3456",
+    "email": "yuna@gmail.com",
+    "reg_date": "2024-02-26",
+    "shuttle": "Y"
+   },
+   "17": {
+    "student_id": "S24-013",
+    "name": "서민재",
+    "grade": "고1",
+    "phone": "010-1111-3333",
+    "email": "minjae@naver.com",
+    "reg_date": "2024-02-27",
+    "shuttle": null
+   },
+   "18": {
+    "student_id": "S24-014",
+    "name": "이준호",
+    "grade": "고2",
+    "phone": "010-2345-6789",
+    "email": "junho.lee@gmail.com",
+    "reg_date": "2024-03-02",
+    "shuttle": "N"
+   }
+  },
+  "enrollments": {
+   "2": {
+    "enroll_id": "E001",
+    "student_id": "S24-001",
+    "course": "수학 심화A",
+    "fee": 150000,
+    "adjust": 0,
+    "pay_date": "2024-03-02",
+    "status": "납부완료"
+   },
+   "3": {
+    "enroll_id": "E002",
+    "student_id": "S24-002",
+    "course": "영어 독해B",
+    "fee": 130000,
+    "adjust": -10000,
+    "pay_date": "2024-03-02",
+    "status": "납부완료"
+   },
+   "4": {
+    "enroll_id": "E003",
+    "student_id": "S24-003",
+    "course": "국어 문학",
+    "fee": 120000,
+    "adjust": null,
+    "pay_date": "2024-03-03",
+    "status": "미납"
+   },
+   "5": {
+    "enroll_id": "E004",
+    "student_id": "S24-004",
+    "course": "과학 탐구",
+    "fee": 140000,
+    "adjust": null,
+    "pay_date": "2024-03-03",
+    "status": "납부완료"
+   },
+   "6": {
+    "enroll_id": "E005",
+    "student_id": "S24-005",
+    "course": "수학 심화A",
+    "fee": 150000,
+    "adjust": -15000,
+    "pay_date": "2024-03-04",
+    "status": "납부완료"
+   },
+   "7": {
+    "enroll_id": "E006",
+    "student_id": "S24-006",
+    "course": "영어 독해B",
+    "fee": 130000,
+    "adjust": 0,
+    "pay_date": "2024-03-04",
+    "status": "환불"
+   },
+   "8": {
+    "enroll_id": "E007",
+    "student_id": "S24-007",
+    "course": "수학 심화A",
+    "fee": 150000,
+    "adjust": null,
+    "pay_date": "2024-03-05",
+    "status": "납부완료"
+   },
+   "9": {
+    "enroll_id": "E008",
+    "student_id": "S24-008",
+    "course": "국어 문학",
+    "fee": 120000,
+    "adjust": -10000,
+    "pay_date": "2024-03-05",
+    "status": "미납"
+   },
+   "10": {
+    "enroll_id": "E009",
+    "student_id": "S24-009",
+    "course": "과학 탐구",
+    "fee": 140000,
+    "adjust": 0,
+    "pay_date": "2024-03-06",
+    "status": "납부완료"
+   },
+   "11": {
+    "enroll_id": "E010",
+    "student_id": "S24-010",
+    "course": "수학 심화A",
+    "fee": 150000,
+    "adjust": -20000,
+    "pay_date": "2024-03-06",
+    "status": "납부완료"
+   },
+   "12": {
+    "enroll_id": "E011",
+    "student_id": "S24-011",
+    "course": "영어 독해B",
+    "fee": 130000,
+    "adjust": -20000,
+    "pay_date": "2024-03-06",
+    "status": "납부완료"
+   },
+   "13": {
+    "enroll_id": "E012",
+    "student_id": "S24-012",
+    "course": "국어 문학",
+    "fee": 120000,
+    "adjust": 0,
+    "pay_date": "2024-03-07",
+    "status": "납부완료"
+   },
+   "14": {
+    "enroll_id": "E013",
+    "student_id": "S24-013",
+    "course": "과학 탐구",
+    "fee": 140000,
+    "adjust": 0,
+    "pay_date": "2024-03-07",
+    "status": "미납"
+   },
+   "15": {
+    "enroll_id": "E014",
+    "student_id": "S24-099",
+    "course": "수학 심화A",
+    "fee": 150000,
+    "adjust": 0,
+    "pay_date": "2024-03-08",
+    "status": "납부완료"
+   },
+   "16": {
+    "enroll_id": "E015",
+    "student_id": "S24-001",
+    "course": "영어 독해B",
+    "fee": 130000,
+    "adjust": 0,
+    "pay_date": "2024-03-08",
+    "status": "납부완료"
+   },
+   "17": {
+    "enroll_id": "E016",
+    "student_id": "S24-001",
+    "course": "영어 독해B",
+    "fee": 130000,
+    "adjust": 0,
+    "pay_date": "2024-03-08",
+    "status": "납부완료"
+   },
+   "18": {
+    "enroll_id": "E017",
+    "student_id": "S24-005",
+    "course": "국어 문학",
+    "fee": 120000,
+    "adjust": 0,
+    "pay_date": "2024-03-09",
+    "status": "납부완료"
+   },
+   "19": {
+    "enroll_id": "E018",
+    "student_id": "S24-012",
+    "course": "수학 심화A",
+    "fee": 150000,
+    "adjust": 0,
+    "pay_date": "2024-03-09",
+    "status": "환불"
+   }
+  },
+  "courses": {
+   "2": {
+    "course_code": "C01",
+    "course_name": "수학 심화A",
+    "teacher": "김선생",
+    "fee": 150000
+   },
+   "3": {
+    "course_code": "C02",
+    "course_name": "영어 독해B",
+    "teacher": "Ms. Park",
+    "fee": 130000
+   },
+   "4": {
+    "course_code": "C03",
+    "course_name": "국어 문학",
+    "teacher": "이선생",
+    "fee": 120000
+   },
+   "5": {
+    "course_code": "C04",
+    "course_name": "과학 탐구",
+    "teacher": "최선생",
+    "fee": 140000
+   }
+  },
+  "attendance": {
+   "2": {
+    "student_id": "S24-001",
+    "status": "출석"
+   },
+   "3": {
+    "student_id": "S24-002",
+    "status": "지각"
+   },
+   "5": {
+    "student_id": "S24-003",
+    "status": "결석"
+   },
+   "6": {
+    "student_id": "S24-004",
+    "status": "출석"
+   },
+   "7": {
+    "student_id": "S24-099",
+    "status": "출석"
+   },
+   "8": {
+    "student_id": "S24-005",
+    "status": "조퇴"
+   }
+  }
+ },
+ "issues": [
+  {
+   "id": "B001",
+   "table": "students",
+   "category": "structure",
+   "row": 1,
+   "column": null,
+   "expect": "drop",
+   "truth": null,
+   "note": ""
+  },
+  {
+   "id": "B002",
+   "table": "students",
+   "category": "structure",
+   "row": 2,
+   "column": null,
+   "expect": "drop",
+   "truth": null,
+   "note": ""
+  },
+  {
+   "id": "B003",
+   "table": "students",
+   "category": "email",
+   "row": 4,
+   "column": "email",
+   "expect": "fix",
+   "truth": "minji@naver.com",
+   "note": "'minji＠naver.com'"
+  },
+  {
+   "id": "B004",
+   "table": "students",
+   "category": "reg_date",
+   "row": 4,
+   "column": "reg_date",
+   "expect": "fix",
+   "truth": "2024-02-15",
+   "note": "'2024-02-15'"
+  },
+  {
+   "id": "B005",
+   "table": "students",
+   "category": "student_id",
+   "row": 5,
+   "column": "student_id",
+   "expect": "fix",
+   "truth": "S24-002",
+   "note": "'s24 002'"
+  },
+  {
+   "id": "B006",
+   "table": "students",
+   "category": "grade",
+   "row": 5,
+   "column": "grade",
+   "expect": "fix",
+   "truth": "고2",
+   "note": "'고등2'"
+  },
+  {
+   "id": "B007",
+   "table": "students",
+   "category": "phone",
+   "row": 5,
+   "column": "phone",
+   "expect": "fix",
+   "truth": "010-2345-6789",
+   "note": "'010 2345 6789'"
+  },
+  {
+   "id": "B008",
+   "table": "students",
+   "category": "email",
+   "row": 5,
+   "column": "email",
+   "expect": "fix",
+   "truth": "junho.lee@gmail.com",
+   "note": "'Junho.Lee@Gmail.com'"
+  },
+  {
+   "id": "B009",
+   "table": "students",
+   "category": "reg_date",
+   "row": 5,
+   "column": "reg_date",
+   "expect": "fix",
+   "truth": "2024-02-16",
+   "note": "'Feb 16, 2024'"
+  },
+  {
+   "id": "B010",
+   "table": "students",
+   "category": "shuttle",
+   "row": 5,
+   "column": "shuttle",
+   "expect": "fix",
+   "truth": "N",
+   "note": "'아니오'"
+  },
+  {
+   "id": "B011",
+   "table": "students",
+   "category": "student_id",
+   "row": 6,
+   "column": "student_id",
+   "expect": "fix",
+   "truth": "S24-003",
+   "note": "'S-24-003'"
+  },
+  {
+   "id": "B012",
+   "table": "students",
+   "category": "grade",
+   "row": 6,
+   "column": "grade",
+   "expect": "fix",
+   "truth": "중3",
+   "note": "'중 3'"
+  },
+  {
+   "id": "B013",
+   "table": "students",
+   "category": "reg_date",
+   "row": 6,
+   "column": "reg_date",
+   "expect": "fix",
+   "truth": "2024-02-17",
+   "note": "'2024.2.17.'"
+  },
+  {
+   "id": "B014",
+   "table": "students",
+   "category": "shuttle",
+   "row": 6,
+   "column": "shuttle",
+   "expect": "fix",
+   "truth": "Y",
+   "note": "'O'"
+  },
+  {
+   "id": "B015",
+   "table": "students",
+   "category": "student_id",
+   "row": 7,
+   "column": "student_id",
+   "expect": "fix",
+   "truth": "S24-004",
+   "note": "'24-004'"
+  },
+  {
+   "id": "B016",
+   "table": "students",
+   "category": "grade",
+   "row": 7,
+   "column": "grade",
+   "expect": "fix",
+   "truth": "고3",
+   "note": "'고3학년'"
+  },
+  {
+   "id": "B017",
+   "table": "students",
+   "category": "phone",
+   "row": 7,
+   "column": "phone",
+   "expect": "fix",
+   "truth": "031-234-5678",
+   "note": "'031)234-5678'"
+  },
+  {
+   "id": "B018",
+   "table": "students",
+   "category": "reg_date",
+   "row": 7,
+   "column": "reg_date",
+   "expect": "fix",
+   "truth": "2024-02-18",
+   "note": "'2/18/2024'"
+  },
+  {
+   "id": "B019",
+   "table": "students",
+   "category": "shuttle",
+   "row": 7,
+   "column": "shuttle",
+   "expect": "fix",
+   "truth": "N",
+   "note": "'X'"
+  },
+  {
+   "id": "B020",
+   "table": "students",
+   "category": "name",
+   "row": 8,
+   "column": "name",
+   "expect": "fix",
+   "truth": "정하은",
+   "note": "'정하은 '"
+  },
+  {
+   "id": "B021",
+   "table": "students",
+   "category": "grade",
+   "row": 8,
+   "column": "grade",
+   "expect": "fix",
+   "truth": "고1",
+   "note": "'고 1'"
+  },
+  {
+   "id": "B022",
+   "table": "students",
+   "category": "reg_date",
+   "row": 8,
+   "column": "reg_date",
+   "expect": "fix",
+   "truth": "2024-02-19",
+   "note": "'2024-02-19 14:30'"
+  },
+  {
+   "id": "B023",
+   "table": "students",
+   "category": "shuttle",
+   "row": 8,
+   "column": "shuttle",
+   "expect": "fix",
+   "truth": "Y",
+   "note": "'TRUE'"
+  },
+  {
+   "id": "B024",
+   "table": "students",
+   "category": "invalid",
+   "row": 9,
+   "column": "grade",
+   "expect": "flag",
+   "truth": "고2",
+   "note": "교2 typo (2-syllable)"
+  },
+  {
+   "id": "B025",
+   "table": "students",
+   "category": "invalid",
+   "row": 9,
+   "column": "phone",
+   "expect": "flag",
+   "truth": "010-4567-8901",
+   "note": "too few digits"
+  },
+  {
+   "id": "B026",
+   "table": "students",
+   "category": "reg_date",
+   "row": 9,
+   "column": "reg_date",
+   "expect": "fix",
+   "truth": "2024-02-20",
+   "note": "45342"
+  },
+  {
+   "id": "B027",
+   "table": "students",
+   "category": "trap",
+   "row": 10,
+   "column": "phone",
+   "expect": "flag",
+   "truth": "010-5678-9012",
+   "note": "letter O instead of 0"
+  },
+  {
+   "id": "B028",
+   "table": "students",
+   "category": "shuttle",
+   "row": 10,
+   "column": "shuttle",
+   "expect": "fix",
+   "truth": "Y",
+   "note": "'예'"
+  },
+  {
+   "id": "B029",
+   "table": "students",
+   "category": "duplicate",
+   "row": 11,
+   "column": null,
+   "expect": "dup_drop",
+   "truth": null,
+   "note": "S24-007 pasted twice"
+  },
+  {
+   "id": "B030",
+   "table": "students",
+   "category": "grade",
+   "row": 12,
+   "column": "grade",
+   "expect": "fix",
+   "truth": "고3",
+   "note": "'고등학교 3학년'"
+  },
+  {
+   "id": "B031",
+   "table": "students",
+   "category": "invalid",
+   "row": 12,
+   "column": "email",
+   "expect": "flag",
+   "truth": "yerin@naver.com",
+   "note": "comma in domain"
+  },
+  {
+   "id": "B032",
+   "table": "students",
+   "category": "reg_date",
+   "row": 12,
+   "column": "reg_date",
+   "expect": "fix",
+   "truth": "2024-02-22",
+   "note": "'2024년2월22일'"
+  },
+  {
+   "id": "B033",
+   "table": "students",
+   "category": "shuttle",
+   "row": 12,
+   "column": "shuttle",
+   "expect": "fix",
+   "truth": "N",
+   "note": "'n'"
+  },
+  {
+   "id": "B034",
+   "table": "students",
+   "category": "grade",
+   "row": 13,
+   "column": "grade",
+   "expect": "fix",
+   "truth": "고1",
+   "note": "'H1'"
+  },
+  {
+   "id": "B035",
+   "table": "students",
+   "category": "phone",
+   "row": 13,
+   "column": "phone",
+   "expect": "fix",
+   "truth": "010-7890-1234",
+   "note": "'+82-10-7890-1234'"
+  },
+  {
+   "id": "B036",
+   "table": "students",
+   "category": "reg_date",
+   "row": 13,
+   "column": "reg_date",
+   "expect": "fix",
+   "truth": "2024-02-23",
+   "note": "'23/02/2024'"
+  },
+  {
+   "id": "B037",
+   "table": "students",
+   "category": "shuttle",
+   "row": 13,
+   "column": "shuttle",
+   "expect": "fix",
+   "truth": "Y",
+   "note": "'y'"
+  },
+  {
+   "id": "B038",
+   "table": "students",
+   "category": "reg_date",
+   "row": 14,
+   "column": "reg_date",
+   "expect": "fix",
+   "truth": "2024-02-24",
+   "note": "'2024-02-24'"
+  },
+  {
+   "id": "B039",
+   "table": "students",
+   "category": "reg_date",
+   "row": 15,
+   "column": "reg_date",
+   "expect": "fix",
+   "truth": "2024-02-24",
+   "note": "'2024-02-24'"
+  },
+  {
+   "id": "B040",
+   "table": "students",
+   "category": "reg_date",
+   "row": 16,
+   "column": "reg_date",
+   "expect": "fix",
+   "truth": "2024-02-26",
+   "note": "'24.02.26'"
+  },
+  {
+   "id": "B041",
+   "table": "students",
+   "category": "reg_date",
+   "row": 17,
+   "column": "reg_date",
+   "expect": "fix",
+   "truth": "2024-02-27",
+   "note": "'2024-02-27'"
+  },
+  {
+   "id": "B042",
+   "table": "students",
+   "category": "grade",
+   "row": 18,
+   "column": "grade",
+   "expect": "fix",
+   "truth": "고2",
+   "note": "'고 2'"
+  },
+  {
+   "id": "B043",
+   "table": "students",
+   "category": "phone",
+   "row": 18,
+   "column": "phone",
+   "expect": "fix",
+   "truth": "010-2345-6789",
+   "note": "'01023456789'"
+  },
+  {
+   "id": "B044",
+   "table": "students",
+   "category": "reg_date",
+   "row": 18,
+   "column": "reg_date",
+   "expect": "fix",
+   "truth": "2024-03-02",
+   "note": "'2024-03-02'"
+  },
+  {
+   "id": "B045",
+   "table": "students",
+   "category": "near_duplicate",
+   "row": 5,
+   "column": null,
+   "expect": "suspect",
+   "truth": [
+    5,
+    18
+   ],
+   "note": "same person re-registered"
+  },
+  {
+   "id": "B046",
+   "table": "students",
+   "category": "trap",
+   "row": 14,
+   "column": null,
+   "expect": "no_suspect",
+   "truth": [
+    14,
+    15
+   ],
+   "note": "siblings share parent phone"
+  },
+  {
+   "id": "B047",
+   "table": "enrollments",
+   "category": "course",
+   "row": 2,
+   "column": "course",
+   "expect": "fix",
+   "truth": "수학 심화A",
+   "note": "'수학심화A'"
+  },
+  {
+   "id": "B048",
+   "table": "enrollments",
+   "category": "fee",
+   "row": 2,
+   "column": "fee",
+   "expect": "fix",
+   "truth": 150000,
+   "note": "'₩150,000'"
+  },
+  {
+   "id": "B049",
+   "table": "enrollments",
+   "category": "pay_date",
+   "row": 2,
+   "column": "pay_date",
+   "expect": "fix",
+   "truth": "2024-03-02",
+   "note": "'2024-03-02'"
+  },
+  {
+   "id": "B050",
+   "table": "enrollments",
+   "category": "student_id",
+   "row": 3,
+   "column": "student_id",
+   "expect": "fix",
+   "truth": "S24-002",
+   "note": "'s24-002'"
+  },
+  {
+   "id": "B051",
+   "table": "enrollments",
+   "category": "course",
+   "row": 3,
+   "column": "course",
+   "expect": "fix",
+   "truth": "영어 독해B",
+   "note": "'영어독해 B'"
+  },
+  {
+   "id": "B052",
+   "table": "enrollments",
+   "category": "fee",
+   "row": 3,
+   "column": "fee",
+   "expect": "fix",
+   "truth": 130000,
+   "note": "'13만'"
+  },
+  {
+   "id": "B053",
+   "table": "enrollments",
+   "category": "adjust",
+   "row": 3,
+   "column": "adjust",
+   "expect": "fix",
+   "truth": -10000,
+   "note": "'-10,000'"
+  },
+  {
+   "id": "B054",
+   "table": "enrollments",
+   "category": "pay_date",
+   "row": 3,
+   "column": "pay_date",
+   "expect": "fix",
+   "truth": "2024-03-02",
+   "note": "'2024.3.2'"
+  },
+  {
+   "id": "B055",
+   "table": "enrollments",
+   "category": "status",
+   "row": 3,
+   "column": "status",
+   "expect": "fix",
+   "truth": "납부완료",
+   "note": "'완납'"
+  },
+  {
+   "id": "B056",
+   "table": "enrollments",
+   "category": "course",
+   "row": 4,
+   "column": "course",
+   "expect": "fix",
+   "truth": "국어 문학",
+   "note": "'국어문학'"
+  },
+  {
+   "id": "B057",
+   "table": "enrollments",
+   "category": "fee",
+   "row": 4,
+   "column": "fee",
+   "expect": "fix",
+   "truth": 120000,
+   "note": "'120,000원'"
+  },
+  {
+   "id": "B058",
+   "table": "enrollments",
+   "category": "trap",
+   "row": 4,
+   "column": "pay_date",
+   "expect": "flag",
+   "truth": "2024-03-03",
+   "note": "3/3 without year"
+  },
+  {
+   "id": "B059",
+   "table": "enrollments",
+   "category": "status",
+   "row": 4,
+   "column": "status",
+   "expect": "fix",
+   "truth": "미납",
+   "note": "'미납 '"
+  },
+  {
+   "id": "B060",
+   "table": "enrollments",
+   "category": "trap",
+   "row": 5,
+   "column": "course",
+   "expect": "flag",
+   "truth": "과학 탐구",
+   "note": "과탐 abbreviation"
+  },
+  {
+   "id": "B061",
+   "table": "enrollments",
+   "category": "pay_date",
+   "row": 5,
+   "column": "pay_date",
+   "expect": "fix",
+   "truth": "2024-03-03",
+   "note": "'2024-03-03'"
+  },
+  {
+   "id": "B062",
+   "table": "enrollments",
+   "category": "status",
+   "row": 5,
+   "column": "status",
+   "expect": "fix",
+   "truth": "납부완료",
+   "note": "'납부 완료'"
+  },
+  {
+   "id": "B063",
+   "table": "enrollments",
+   "category": "course",
+   "row": 6,
+   "column": "course",
+   "expect": "fix",
+   "truth": "수학 심화A",
+   "note": "'수학 심화 A'"
+  },
+  {
+   "id": "B064",
+   "table": "enrollments",
+   "category": "fee",
+   "row": 6,
+   "column": "fee",
+   "expect": "fix",
+   "truth": 150000,
+   "note": "'15만원'"
+  },
+  {
+   "id": "B065",
+   "table": "enrollments",
+   "category": "trap",
+   "row": 6,
+   "column": "adjust",
+   "expect": "fix",
+   "truth": -15000,
+   "note": "△ negative marker"
+  },
+  {
+   "id": "B066",
+   "table": "enrollments",
+   "category": "pay_date",
+   "row": 6,
+   "column": "pay_date",
+   "expect": "fix",
+   "truth": "2024-03-04",
+   "note": "'2024-03-04'"
+  },
+  {
+   "id": "B067",
+   "table": "enrollments",
+   "category": "fee",
+   "row": 7,
+   "column": "fee",
+   "expect": "fix",
+   "truth": 130000,
+   "note": "'1.3e5'"
+  },
+  {
+   "id": "B068",
+   "table": "enrollments",
+   "category": "adjust",
+   "row": 7,
+   "column": "adjust",
+   "expect": "fix",
+   "truth": 0,
+   "note": "'0'"
+  },
+  {
+   "id": "B069",
+   "table": "enrollments",
+   "category": "pay_date",
+   "row": 7,
+   "column": "pay_date",
+   "expect": "fix",
+   "truth": "2024-03-04",
+   "note": "'20240304'"
+  },
+  {
+   "id": "B070",
+   "table": "enrollments",
+   "category": "trap",
+   "row": 7,
+   "column": "status",
+   "expect": "fix",
+   "truth": "환불",
+   "note": "환뷸 typo"
+  },
+  {
+   "id": "B071",
+   "table": "enrollments",
+   "category": "trap",
+   "row": 8,
+   "column": "course",
+   "expect": "flag",
+   "truth": "수학 심화A",
+   "note": "수학 심화B does not exist"
+  },
+  {
+   "id": "B072",
+   "table": "enrollments",
+   "category": "trap",
+   "row": 8,
+   "column": "fee",
+   "expect": "flag",
+   "truth": 150000,
+   "note": "text after number"
+  },
+  {
+   "id": "B073",
+   "table": "enrollments",
+   "category": "adjust",
+   "row": 8,
+   "column": "adjust",
+   "expect": "fix",
+   "truth": null,
+   "note": "'-'"
+  },
+  {
+   "id": "B074",
+   "table": "enrollments",
+   "category": "pay_date",
+   "row": 8,
+   "column": "pay_date",
+   "expect": "fix",
+   "truth": "2024-03-05",
+   "note": "'2024-03-05'"
+  },
+  {
+   "id": "B075",
+   "table": "enrollments",
+   "category": "fee",
+   "row": 9,
+   "column": "fee",
+   "expect": "fix",
+   "truth": 120000,
+   "note": "'120000'"
+  },
+  {
+   "id": "B076",
+   "table": "enrollments",
+   "category": "adjust",
+   "row": 9,
+   "column": "adjust",
+   "expect": "fix",
+   "truth": -10000,
+   "note": "'(10,000)'"
+  },
+  {
+   "id": "B077",
+   "table": "enrollments",
+   "category": "trap",
+   "row": 9,
+   "column": "pay_date",
+   "expect": "fix",
+   "truth": "2024-03-05",
+   "note": "Mar 5, 2024"
+  },
+  {
+   "id": "B078",
+   "table": "enrollments",
+   "category": "course",
+   "row": 10,
+   "column": "course",
+   "expect": "fix",
+   "truth": "과학 탐구",
+   "note": "'과학탐구'"
+  },
+  {
+   "id": "B079",
+   "table": "enrollments",
+   "category": "fee",
+   "row": 10,
+   "column": "fee",
+   "expect": "fix",
+   "truth": 140000,
+   "note": "'14만원'"
+  },
+  {
+   "id": "B080",
+   "table": "enrollments",
+   "category": "pay_date",
+   "row": 10,
+   "column": "pay_date",
+   "expect": "fix",
+   "truth": "2024-03-06",
+   "note": "'2024-03-06'"
+  },
+  {
+   "id": "B081",
+   "table": "enrollments",
+   "category": "fee",
+   "row": 11,
+   "column": "fee",
+   "expect": "fix",
+   "truth": 150000,
+   "note": "'150,000'"
+  },
+  {
+   "id": "B082",
+   "table": "enrollments",
+   "category": "adjust",
+   "row": 11,
+   "column": "adjust",
+   "expect": "fix",
+   "truth": -20000,
+   "note": "'-20,000'"
+  },
+  {
+   "id": "B083",
+   "table": "enrollments",
+   "category": "fee",
+   "row": 12,
+   "column": "fee",
+   "expect": "fix",
+   "truth": 130000,
+   "note": "'130,000'"
+  },
+  {
+   "id": "B084",
+   "table": "enrollments",
+   "category": "adjust",
+   "row": 12,
+   "column": "adjust",
+   "expect": "fix",
+   "truth": -20000,
+   "note": "'-2만'"
+  },
+  {
+   "id": "B085",
+   "table": "enrollments",
+   "category": "pay_date",
+   "row": 12,
+   "column": "pay_date",
+   "expect": "fix",
+   "truth": "2024-03-06",
+   "note": "'2024-03-06'"
+  },
+  {
+   "id": "B086",
+   "table": "enrollments",
+   "category": "shifted_row",
+   "row": 13,
+   "column": "fee",
+   "expect": "fix",
+   "truth": 120000,
+   "note": "shifted right"
+  },
+  {
+   "id": "B087",
+   "table": "enrollments",
+   "category": "shifted_row",
+   "row": 13,
+   "column": "adjust",
+   "expect": "fix",
+   "truth": 0,
+   "note": "shifted right"
+  },
+  {
+   "id": "B088",
+   "table": "enrollments",
+   "category": "shifted_row",
+   "row": 13,
+   "column": "pay_date",
+   "expect": "fix",
+   "truth": "2024-03-07",
+   "note": "shifted right"
+  },
+  {
+   "id": "B089",
+   "table": "enrollments",
+   "category": "shifted_row",
+   "row": 13,
+   "column": "status",
+   "expect": "fix",
+   "truth": "납부완료",
+   "note": "shifted right"
+  },
+  {
+   "id": "B090",
+   "table": "enrollments",
+   "category": "fee",
+   "row": 14,
+   "column": "fee",
+   "expect": "fix",
+   "truth": 140000,
+   "note": "'140,000'"
+  },
+  {
+   "id": "B091",
+   "table": "enrollments",
+   "category": "pay_date",
+   "row": 14,
+   "column": "pay_date",
+   "expect": "fix",
+   "truth": "2024-03-07",
+   "note": "'2024-03-07'"
+  },
+  {
+   "id": "B092",
+   "table": "enrollments",
+   "category": "fee",
+   "row": 15,
+   "column": "fee",
+   "expect": "fix",
+   "truth": 150000,
+   "note": "'150,000'"
+  },
+  {
+   "id": "B093",
+   "table": "enrollments",
+   "category": "pay_date",
+   "row": 15,
+   "column": "pay_date",
+   "expect": "fix",
+   "truth": "2024-03-08",
+   "note": "'2024-03-08'"
+  },
+  {
+   "id": "B094",
+   "table": "enrollments",
+   "category": "fee",
+   "row": 16,
+   "column": "fee",
+   "expect": "fix",
+   "truth": 130000,
+   "note": "'130,000'"
+  },
+  {
+   "id": "B095",
+   "table": "enrollments",
+   "category": "pay_date",
+   "row": 16,
+   "column": "pay_date",
+   "expect": "fix",
+   "truth": "2024-03-08",
+   "note": "'2024-03-08'"
+  },
+  {
+   "id": "B096",
+   "table": "enrollments",
+   "category": "fee",
+   "row": 17,
+   "column": "fee",
+   "expect": "fix",
+   "truth": 130000,
+   "note": "'130,000'"
+  },
+  {
+   "id": "B097",
+   "table": "enrollments",
+   "category": "pay_date",
+   "row": 17,
+   "column": "pay_date",
+   "expect": "fix",
+   "truth": "2024-03-08",
+   "note": "'2024-03-08'"
+  },
+  {
+   "id": "B098",
+   "table": "enrollments",
+   "category": "fee",
+   "row": 18,
+   "column": "fee",
+   "expect": "fix",
+   "truth": 120000,
+   "note": "'120,000'"
+  },
+  {
+   "id": "B099",
+   "table": "enrollments",
+   "category": "pay_date",
+   "row": 18,
+   "column": "pay_date",
+   "expect": "fix",
+   "truth": "2024-03-09",
+   "note": "'2024-03-09'"
+  },
+  {
+   "id": "B100",
+   "table": "enrollments",
+   "category": "fee",
+   "row": 19,
+   "column": "fee",
+   "expect": "fix",
+   "truth": 150000,
+   "note": "'150,000'"
+  },
+  {
+   "id": "B101",
+   "table": "enrollments",
+   "category": "pay_date",
+   "row": 19,
+   "column": "pay_date",
+   "expect": "fix",
+   "truth": "2024-03-09",
+   "note": "'2024-03-09'"
+  },
+  {
+   "id": "B102",
+   "table": "enrollments",
+   "category": "structure",
+   "row": 20,
+   "column": null,
+   "expect": "drop",
+   "truth": null,
+   "note": "평균 (average) row"
+  },
+  {
+   "id": "B103",
+   "table": "enrollments",
+   "category": "structure",
+   "row": 21,
+   "column": null,
+   "expect": "drop",
+   "truth": null,
+   "note": "총 합계 row"
+  },
+  {
+   "id": "B104",
+   "table": "enrollments",
+   "category": "join_orphan",
+   "row": 15,
+   "column": "student_id",
+   "expect": "orphan",
+   "truth": "S24-099",
+   "note": ""
+  },
+  {
+   "id": "B105",
+   "table": "enrollments",
+   "category": "near_duplicate",
+   "row": 16,
+   "column": null,
+   "expect": "suspect",
+   "truth": [
+    16,
+    17
+   ],
+   "note": "double enrollment"
+  },
+  {
+   "id": "B106",
+   "table": "courses",
+   "category": "fee",
+   "row": 2,
+   "column": "fee",
+   "expect": "fix",
+   "truth": 150000,
+   "note": "text money"
+  },
+  {
+   "id": "B107",
+   "table": "courses",
+   "category": "fee",
+   "row": 3,
+   "column": "fee",
+   "expect": "fix",
+   "truth": 130000,
+   "note": "text money"
+  },
+  {
+   "id": "B108",
+   "table": "courses",
+   "category": "fee",
+   "row": 4,
+   "column": "fee",
+   "expect": "fix",
+   "truth": 120000,
+   "note": "text money"
+  },
+  {
+   "id": "B109",
+   "table": "courses",
+   "category": "fee",
+   "row": 5,
+   "column": "fee",
+   "expect": "fix",
+   "truth": 140000,
+   "note": "text money"
+  },
+  {
+   "id": "B110",
+   "table": "attendance",
+   "category": "csv_multiline",
+   "row": 3,
+   "column": "status",
+   "expect": "fix",
+   "truth": "지각",
+   "note": "row after a multi-line quoted memo"
+  },
+  {
+   "id": "B111",
+   "table": "attendance",
+   "category": "student_id",
+   "row": 5,
+   "column": "student_id",
+   "expect": "fix",
+   "truth": "S24-003",
+   "note": ""
+  },
+  {
+   "id": "B112",
+   "table": "attendance",
+   "category": "typo",
+   "row": 6,
+   "column": "status",
+   "expect": "fix",
+   "truth": "출석",
+   "note": "출섭 typo"
+  },
+  {
+   "id": "B113",
+   "table": "attendance",
+   "category": "join_orphan",
+   "row": 7,
+   "column": "student_id",
+   "expect": "orphan",
+   "truth": "S24-099",
+   "note": ""
+  },
+  {
+   "id": "B114",
+   "table": "attendance",
+   "category": "status",
+   "row": 8,
+   "column": "status",
+   "expect": "fix",
+   "truth": "조퇴",
+   "note": "spaces"
+  }
+ ]
+}

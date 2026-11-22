@@ -1,0 +1,9 @@
+﻿customer_id,name,email,city,_source
+C0001,김민수,minsu.kim@example.com,서울,고객!2
+C0002,이수진,sujin.lee@example.com,부산,고객!3
+C0003,박지훈,jihoon.park@example.com,대구,고객!4
+C0004,최유진,yujin.choi@example.com,인천,고객!5
+C0005,정하늘,haneul.jung@example.com,광주,고객!6
+C0006,강도윤,doyun.kang@example.com,대전,고객!7
+C0007,윤서아,seoa.yoon@example.com,울산,고객!8
+C0008,한지민,jimin.han@example.com,서울,고객!9

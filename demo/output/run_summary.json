@@ -1,0 +1,696 @@
+{
+ "dataset": "하루커피 2024 1분기",
+ "llm": "off",
+ "tables": {
+  "products": {
+   "rows_in": 13,
+   "header_row": 2,
+   "header_depth": 1,
+   "mapped": {
+    "product_code": "A",
+    "product_name": "B",
+    "category": "C",
+    "price": "D",
+    "launch_date": "E"
+   },
+   "unmapped": [],
+   "extras": [],
+   "rows_out": 8,
+   "dropped": {
+    "title": 1,
+    "header": 1,
+    "blank": 2,
+    "note": 1
+   }
+  },
+  "discontinued_products": {
+   "rows_in": 3,
+   "header_row": 14,
+   "header_depth": 1,
+   "mapped": {
+    "product_code": "A",
+    "product_name": "B",
+    "category": "C",
+    "price": "D",
+    "discontinued_date": "E"
+   },
+   "unmapped": [],
+   "extras": [],
+   "rows_out": 2,
+   "dropped": {
+    "header": 1
+   }
+  },
+  "customers": {
+   "rows_in": 20,
+   "header_row": 3,
+   "header_depth": 1,
+   "mapped": {
+    "customer_id": "A",
+    "name": "B",
+    "region": "C",
+    "phone": "D",
+    "email": "E",
+    "join_date": "F",
+    "grade": "G",
+    "memo": "H"
+   },
+   "unmapped": [],
+   "extras": [],
+   "rows_out": 16,
+   "dropped": {
+    "title": 1,
+    "blank": 1,
+    "header": 1,
+    "duplicate": 1
+   }
+  },
+  "orders": {
+   "rows_in": 53,
+   "header_row": 4,
+   "header_depth": 2,
+   "mapped": {
+    "order_id": "A",
+    "order_date": "B",
+    "customer_id": "C",
+    "customer_name": "D",
+    "product_code": "E",
+    "product_name": "F",
+    "qty": "G",
+    "unit_price": "H",
+    "discount_pct": "I",
+    "amount": "J",
+    "payment": "K",
+    "status": "L",
+    "note": "M"
+   },
+   "unmapped": [],
+   "extras": [],
+   "rows_out": 37,
+   "dropped": {
+    "title": 2,
+    "blank": 3,
+    "header": 2,
+    "subtotal": 4,
+    "repeated_header": 1,
+    "note": 2,
+    "duplicate": 2
+   }
+  },
+  "returns": {
+   "rows_in": 8,
+   "header_row": 2,
+   "header_depth": 1,
+   "mapped": {
+    "return_id": "A",
+    "order_id": "B",
+    "return_date": "C",
+    "reason": "D",
+    "refund": "E",
+    "status": "F"
+   },
+   "unmapped": [],
+   "extras": [],
+   "rows_out": 6,
+   "dropped": {
+    "title": 1,
+    "header": 1
+   }
+  }
+ },
+ "changes_by_rule": {
+  "C1-ALIAS": 48,
+  "C1-CANON": 34,
+  "C1-FUZZY": 13,
+  "D1-DATE": 56,
+  "D1-ORDER": 1,
+  "D1-YEAR": 3,
+  "E1-EMAIL": 2,
+  "I1-ID": 44,
+  "M1-PLACEHOLDER": 14,
+  "N1-KCOUNT": 18,
+  "N1-KUNIT": 12,
+  "N1-NUMBER": 78,
+  "N1-PERCENT": 9,
+  "P1-PHONE": 8,
+  "S2-MERGE": 6,
+  "S3-SHIFT": 22,
+  "T1-MOJIBAKE": 1,
+  "T1-NFKC": 32,
+  "T1-WS": 39
+ },
+ "review_by_flag": {
+  "J2-ORPHAN": 3,
+  "J3-AMBIG": 1,
+  "R1-DATE": 3,
+  "R2-NUMBER": 3,
+  "R4-CATEGORY": 6,
+  "R5-INVALID": 5,
+  "R6-CROSS": 3,
+  "R7-REQUIRED": 1,
+  "U2-SUSPECT": 4,
+  "U3-KEYCONFLICT": 2
+ },
+ "joins": [
+  {
+   "join": "orders_full",
+   "left": "orders",
+   "right": "customers",
+   "on": "customer_id = customer_id",
+   "expect": "many_to_one",
+   "left_rows": 37,
+   "matched": 35,
+   "match_rate": 0.9459,
+   "matched_exact": 35,
+   "matched_fallback": 0,
+   "matched_llm": 0,
+   "rules_only_match_rate": 0.9459,
+   "orphans": 2,
+   "ambiguous": 0,
+   "blank_keys": 0,
+   "right_dup_keys": 0,
+   "raw_key_match_rate": 0.1622,
+   "rows_out": 37,
+   "row_multiplication": "none (ambiguous keys left unjoined)",
+   "notes": ""
+  },
+  {
+   "join": "orders_full",
+   "left": "orders",
+   "right": "products+discontinued_products",
+   "on": "product_code = product_code",
+   "expect": "many_to_one",
+   "left_rows": 37,
+   "matched": 37,
+   "match_rate": 1.0,
+   "matched_exact": 35,
+   "matched_fallback": 2,
+   "matched_llm": 0,
+   "rules_only_match_rate": 1.0,
+   "orphans": 0,
+   "ambiguous": 0,
+   "blank_keys": 0,
+   "right_dup_keys": 0,
+   "raw_key_match_rate": 0.3514,
+   "rows_out": 37,
+   "row_multiplication": "none (ambiguous keys left unjoined)",
+   "notes": "1 matched in discontinued_products"
+  },
+  {
+   "join": "returns_orders",
+   "left": "returns",
+   "right": "orders",
+   "on": "order_id = order_id",
+   "expect": "many_to_one",
+   "left_rows": 6,
+   "matched": 4,
+   "match_rate": 0.6667,
+   "matched_exact": 4,
+   "matched_fallback": 0,
+   "matched_llm": 0,
+   "rules_only_match_rate": 0.6667,
+   "orphans": 1,
+   "ambiguous": 1,
+   "blank_keys": 0,
+   "right_dup_keys": 1,
+   "raw_key_match_rate": 0.5,
+   "rows_out": 6,
+   "row_multiplication": "none (ambiguous keys left unjoined)",
+   "notes": ""
+  }
+ ],
+ "self_check": [
+  {
+   "check": "products: rows in = rows out + dropped",
+   "ok": true,
+   "detail": "13 = 8 + 5"
+  },
+  {
+   "check": "products: every changed cell has a consistent change chain",
+   "ok": true,
+   "detail": "0 broken chains, 0 unlogged changes"
+  },
+  {
+   "check": "products: no value became blank except placeholders",
+   "ok": true,
+   "detail": "0 cells"
+  },
+  {
+   "check": "discontinued_products: rows in = rows out + dropped",
+   "ok": true,
+   "detail": "3 = 2 + 1"
+  },
+  {
+   "check": "discontinued_products: every changed cell has a consistent change chain",
+   "ok": true,
+   "detail": "0 broken chains, 0 unlogged changes"
+  },
+  {
+   "check": "discontinued_products: no value became blank except placeholders",
+   "ok": true,
+   "detail": "0 cells"
+  },
+  {
+   "check": "customers: rows in = rows out + dropped",
+   "ok": true,
+   "detail": "20 = 16 + 4"
+  },
+  {
+   "check": "customers: every changed cell has a consistent change chain",
+   "ok": true,
+   "detail": "0 broken chains, 0 unlogged changes"
+  },
+  {
+   "check": "customers: no value became blank except placeholders",
+   "ok": true,
+   "detail": "0 cells"
+  },
+  {
+   "check": "orders: rows in = rows out + dropped",
+   "ok": true,
+   "detail": "53 = 37 + 16"
+  },
+  {
+   "check": "orders: every changed cell has a consistent change chain",
+   "ok": true,
+   "detail": "0 broken chains, 0 unlogged changes"
+  },
+  {
+   "check": "orders: no value became blank except placeholders",
+   "ok": true,
+   "detail": "0 cells"
+  },
+  {
+   "check": "returns: rows in = rows out + dropped",
+   "ok": true,
+   "detail": "8 = 6 + 2"
+  },
+  {
+   "check": "returns: every changed cell has a consistent change chain",
+   "ok": true,
+   "detail": "0 broken chains, 0 unlogged changes"
+  },
+  {
+   "check": "returns: no value became blank except placeholders",
+   "ok": true,
+   "detail": "0 cells"
+  }
+ ],
+ "contract_checks": [
+  {
+   "table": "products",
+   "column": "product_code",
+   "type": "id",
+   "violations_before": 1,
+   "violations_after": 0,
+   "rows": 8
+  },
+  {
+   "table": "products",
+   "column": "product_name",
+   "type": "text",
+   "violations_before": 1,
+   "violations_after": 0,
+   "rows": 8
+  },
+  {
+   "table": "products",
+   "column": "category",
+   "type": "category",
+   "violations_before": 5,
+   "violations_after": 0,
+   "rows": 8
+  },
+  {
+   "table": "products",
+   "column": "price",
+   "type": "money",
+   "violations_before": 7,
+   "violations_after": 0,
+   "rows": 8
+  },
+  {
+   "table": "products",
+   "column": "launch_date",
+   "type": "date",
+   "violations_before": 7,
+   "violations_after": 0,
+   "rows": 8
+  },
+  {
+   "table": "products",
+   "column": "product_code (unique)",
+   "type": "key",
+   "violations_before": 0,
+   "violations_after": 0,
+   "rows": 8
+  },
+  {
+   "table": "discontinued_products",
+   "column": "product_code",
+   "type": "id",
+   "violations_before": 0,
+   "violations_after": 0,
+   "rows": 2
+  },
+  {
+   "table": "discontinued_products",
+   "column": "product_name",
+   "type": "text",
+   "violations_before": 0,
+   "violations_after": 0,
+   "rows": 2
+  },
+  {
+   "table": "discontinued_products",
+   "column": "category",
+   "type": "category",
+   "violations_before": 1,
+   "violations_after": 0,
+   "rows": 2
+  },
+  {
+   "table": "discontinued_products",
+   "column": "price",
+   "type": "money",
+   "violations_before": 1,
+   "violations_after": 0,
+   "rows": 2
+  },
+  {
+   "table": "discontinued_products",
+   "column": "discontinued_date",
+   "type": "date",
+   "violations_before": 1,
+   "violations_after": 0,
+   "rows": 2
+  },
+  {
+   "table": "discontinued_products",
+   "column": "product_code (unique)",
+   "type": "key",
+   "violations_before": 0,
+   "violations_after": 0,
+   "rows": 2
+  },
+  {
+   "table": "customers",
+   "column": "customer_id",
+   "type": "id",
+   "violations_before": 4,
+   "violations_after": 0,
+   "rows": 16
+  },
+  {
+   "table": "customers",
+   "column": "name",
+   "type": "text",
+   "violations_before": 1,
+   "violations_after": 0,
+   "rows": 16
+  },
+  {
+   "table": "customers",
+   "column": "region",
+   "type": "category",
+   "violations_before": 12,
+   "violations_after": 0,
+   "rows": 16
+  },
+  {
+   "table": "customers",
+   "column": "phone",
+   "type": "phone",
+   "violations_before": 9,
+   "violations_after": 1,
+   "rows": 16
+  },
+  {
+   "table": "customers",
+   "column": "email",
+   "type": "email",
+   "violations_before": 4,
+   "violations_after": 2,
+   "rows": 16
+  },
+  {
+   "table": "customers",
+   "column": "join_date",
+   "type": "date",
+   "violations_before": 15,
+   "violations_after": 1,
+   "rows": 16
+  },
+  {
+   "table": "customers",
+   "column": "grade",
+   "type": "category",
+   "violations_before": 7,
+   "violations_after": 1,
+   "rows": 16
+  },
+  {
+   "table": "customers",
+   "column": "memo",
+   "type": "freetext",
+   "violations_before": 0,
+   "violations_after": 0,
+   "rows": 16
+  },
+  {
+   "table": "customers",
+   "column": "customer_id (unique)",
+   "type": "key",
+   "violations_before": 1,
+   "violations_after": 0,
+   "rows": 16
+  },
+  {
+   "table": "orders",
+   "column": "order_id",
+   "type": "id",
+   "violations_before": 0,
+   "violations_after": 0,
+   "rows": 37
+  },
+  {
+   "table": "orders",
+   "column": "order_date",
+   "type": "date",
+   "violations_before": 35,
+   "violations_after": 2,
+   "rows": 37
+  },
+  {
+   "table": "orders",
+   "column": "customer_id",
+   "type": "id",
+   "violations_before": 24,
+   "violations_after": 0,
+   "rows": 37
+  },
+  {
+   "table": "orders",
+   "column": "customer_name",
+   "type": "category",
+   "violations_before": 5,
+   "violations_after": 1,
+   "rows": 37
+  },
+  {
+   "table": "orders",
+   "column": "product_code",
+   "type": "id",
+   "violations_before": 10,
+   "violations_after": 0,
+   "rows": 37
+  },
+  {
+   "table": "orders",
+   "column": "product_name",
+   "type": "category",
+   "violations_before": 18,
+   "violations_after": 1,
+   "rows": 37
+  },
+  {
+   "table": "orders",
+   "column": "qty",
+   "type": "count",
+   "violations_before": 30,
+   "violations_after": 1,
+   "rows": 37
+  },
+  {
+   "table": "orders",
+   "column": "unit_price",
+   "type": "money",
+   "violations_before": 33,
+   "violations_after": 0,
+   "rows": 37
+  },
+  {
+   "table": "orders",
+   "column": "discount_pct",
+   "type": "percent",
+   "violations_before": 24,
+   "violations_after": 0,
+   "rows": 37
+  },
+  {
+   "table": "orders",
+   "column": "amount",
+   "type": "money",
+   "violations_before": 30,
+   "violations_after": 1,
+   "rows": 37
+  },
+  {
+   "table": "orders",
+   "column": "payment",
+   "type": "category",
+   "violations_before": 30,
+   "violations_after": 3,
+   "rows": 37
+  },
+  {
+   "table": "orders",
+   "column": "status",
+   "type": "category",
+   "violations_before": 32,
+   "violations_after": 0,
+   "rows": 37
+  },
+  {
+   "table": "orders",
+   "column": "note",
+   "type": "freetext",
+   "violations_before": 14,
+   "violations_after": 0,
+   "rows": 37
+  },
+  {
+   "table": "orders",
+   "column": "order_id (unique)",
+   "type": "key",
+   "violations_before": 3,
+   "violations_after": 1,
+   "rows": 37
+  },
+  {
+   "table": "returns",
+   "column": "return_id",
+   "type": "id",
+   "violations_before": 1,
+   "violations_after": 0,
+   "rows": 6
+  },
+  {
+   "table": "returns",
+   "column": "order_id",
+   "type": "id",
+   "violations_before": 2,
+   "violations_after": 0,
+   "rows": 6
+  },
+  {
+   "table": "returns",
+   "column": "return_date",
+   "type": "date",
+   "violations_before": 6,
+   "violations_after": 0,
+   "rows": 6
+  },
+  {
+   "table": "returns",
+   "column": "reason",
+   "type": "category",
+   "violations_before": 1,
+   "violations_after": 0,
+   "rows": 6
+  },
+  {
+   "table": "returns",
+   "column": "refund",
+   "type": "money",
+   "violations_before": 6,
+   "violations_after": 0,
+   "rows": 6
+  },
+  {
+   "table": "returns",
+   "column": "status",
+   "type": "category",
+   "violations_before": 1,
+   "violations_after": 0,
+   "rows": 6
+  },
+  {
+   "table": "returns",
+   "column": "return_id (unique)",
+   "type": "key",
+   "violations_before": 0,
+   "violations_after": 0,
+   "rows": 6
+  }
+ ],
+ "reconcile": [
+  {
+   "table": "orders",
+   "subtotal_row": 19,
+   "label": "1월 소계",
+   "column": "amount",
+   "scope": "rows up to 18",
+   "stated": 311850,
+   "cleaned_sum": 298350,
+   "dropped_duplicates_sum": 13500,
+   "difference": 13500,
+   "explanation": "difference = dropped duplicate rows"
+  },
+  {
+   "table": "orders",
+   "subtotal_row": 35,
+   "label": "2월 소계",
+   "column": "amount",
+   "scope": "rows 20-34",
+   "stated": 343400,
+   "cleaned_sum": 306950,
+   "dropped_duplicates_sum": 0,
+   "difference": 36450,
+   "explanation": "36,450 unexplained: amount is blank/unparsed on row(s) 33, likely the missing value"
+  },
+  {
+   "table": "orders",
+   "subtotal_row": 49,
+   "label": "3월 소계",
+   "column": "amount",
+   "scope": "rows 36-48",
+   "stated": 456900,
+   "cleaned_sum": 438900,
+   "dropped_duplicates_sum": 18000,
+   "difference": 18000,
+   "explanation": "difference = dropped duplicate rows"
+  },
+  {
+   "table": "orders",
+   "subtotal_row": 51,
+   "label": "합계",
+   "column": "amount",
+   "scope": "rows up to 50",
+   "stated": 1112150,
+   "cleaned_sum": 1044200,
+   "dropped_duplicates_sum": 31500,
+   "difference": 67950,
+   "explanation": "31,500 from dropped duplicates; 36,450 unexplained: amount is blank/unparsed on row(s) 33, likely the missing value"
+  }
+ ],
+ "notes": [
+  "returns.return_date: day/month order DMY decided by 4 value(s) with a part > 12",
+  "returns.refund: decimal comma column (3 value(s) only readable with decimal comma (e.g. 13.500,00))"
+ ],
+ "n_llm_changes": 0,
+ "n_changes": 440,
+ "n_review": 31,
+ "n_dropped": 28,
+ "n_dup_groups": 6
+}

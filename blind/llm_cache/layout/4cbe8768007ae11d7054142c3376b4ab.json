@@ -1,0 +1,108 @@
+{
+ "request": {
+  "task": "layout",
+  "prompt_version": "v1",
+  "model": "google/gemini-2.5-flash-lite",
+  "instructions": "DATA is a preview of one spreadsheet sheet: each row is [row_number, cell1, cell2, ...] (1-based, blank cells are ''). Find every table in it. For each table give: header_rows (row numbers of its header, 1 or 2 rows), first_data_row, last_data_row (data rows only: not titles, notes, subtotals or blank rows at the end), a short snake_case name, and its columns (header = the header text exactly as in the cells, joined with a space for 2-row headers; name = snake_case English; type). evidence_quote = copy one header cell exactly.",
+  "data": {
+   "sheet": "강좌",
+   "rows": [
+    [
+     1,
+     "강좌코드",
+     "강좌명",
+     "강사",
+     "수강료"
+    ],
+    [
+     2,
+     "C01",
+     "수학 심화A",
+     "김선생",
+     "150,000원"
+    ],
+    [
+     3,
+     "C02",
+     "영어 독해B",
+     "Ms. Park",
+     "130,000원"
+    ],
+    [
+     4,
+     "C03",
+     "국어 문학",
+     "이선생",
+     "120,000원"
+    ],
+    [
+     5,
+     "C04",
+     "과학 탐구",
+     "최선생",
+     "140,000원"
+    ]
+   ]
+  }
+ },
+ "response": {
+  "tables": [
+   {
+    "sheet": "강좌",
+    "name": "course_list",
+    "header_rows": [
+     1
+    ],
+    "first_data_row": 2,
+    "last_data_row": 5,
+    "evidence_quote": "강좌코드",
+    "columns": [
+     {
+      "header": "강좌코드",
+      "name": "course_code",
+      "type": "id"
+     },
+     {
+      "header": "강좌명",
+      "name": "course_name",
+      "type": "text"
+     },
+     {
+      "header": "강사",
+      "name": "instructor",
+      "type": "text"
+     },
+     {
+      "header": "수강료",
+      "name": "tuition_fee",
+      "type": "money"
+     }
+    ]
+   }
+  ]
+ },
+ "provider": "openrouter",
+ "usage": {
+  "prompt_tokens": 394,
+  "completion_tokens": 224,
+  "total_tokens": 618,
+  "cost": 0.000129,
+  "is_byok": false,
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "cache_write_tokens": 0,
+   "audio_tokens": 0,
+   "video_tokens": 0
+  },
+  "cost_details": {
+   "upstream_inference_cost": 0.000129,
+   "upstream_inference_prompt_cost": 3.94e-05,
+   "upstream_inference_completions_cost": 8.96e-05
+  },
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "image_tokens": 0,
+   "audio_tokens": 0
+  }
+ }
+}

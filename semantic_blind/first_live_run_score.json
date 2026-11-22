@@ -1,0 +1,112 @@
+{
+ "planted": 24,
+ "outcomes": {
+  "llm_fixed": 12,
+  "flagged": 6,
+  "wrong": 1,
+  "fixed": 5
+ },
+ "by_category": {
+  "date_context": {
+   "flagged": 1
+  },
+  "date_context_trap": {
+   "flagged": 1
+  },
+  "entity": {
+   "llm_fixed": 2
+  },
+  "entity_trap": {
+   "fixed": 1
+  },
+  "extract": {
+   "llm_fixed": 5
+  },
+  "extract_trap": {
+   "fixed": 4
+  },
+  "injection_trap": {
+   "flagged": 1
+  },
+  "synonym": {
+   "llm_fixed": 5,
+   "wrong": 1
+  },
+  "synonym_trap": {
+   "flagged": 3
+  }
+ },
+ "by_expect": {
+  "extract": {
+   "llm_fixed": 5,
+   "fixed": 4
+  },
+  "flag": {
+   "llm_fixed": 5,
+   "flagged": 6,
+   "wrong": 1
+  },
+  "entity": {
+   "llm_fixed": 2,
+   "fixed": 1
+  }
+ },
+ "handled": 23,
+ "handled_rate": 0.9583,
+ "auto_resolved_rate": 0.7083,
+ "review_queue": 6,
+ "llm_changes": {
+  "total": 13,
+  "right": 12,
+  "wrong": 1,
+  "wrong_rate": 0.0769
+ },
+ "llm_wrong": [
+  {
+   "table": "orders",
+   "row": 7,
+   "column": "status",
+   "rule": "llm:synonym",
+   "after": "완료",
+   "truth": "픽업대기",
+   "evidence": "model=openrouter:google/gemini-2.5-flash-lite; conf=1.00; quote='다 만들었어요 찾아가세요'; why=The value '다 만들었어요 찾아가세요' translates to 'It's all made, please come pick it up.' This implies the order is complete and ready for pickup, which aligns with the '완료' (completed) status."
+  }
+ ],
+ "joins": [
+  {
+   "join": "orders_members",
+   "match_rate": 0.9333,
+   "raw_key_match_rate": 0.8,
+   "rules_only_match_rate": 0.8,
+   "matched_llm": 2
+  }
+ ],
+ "cell_accuracy": {
+  "cells": 153,
+  "correct": 150,
+  "rate": 0.9804,
+  "wrong_but_flag_expected": 3,
+  "wrong_other": 0
+ },
+ "wrong_cells": [],
+ "extra_rows_in_cleaned": {
+  "orders": [],
+  "customers": []
+ },
+ "noise_flags": [],
+ "not_handled": [
+  {
+   "id": "synonym-7-status",
+   "table": "orders",
+   "category": "synonym",
+   "row": 7,
+   "column": "status",
+   "expect": "flag",
+   "truth": "픽업대기",
+   "llm": true,
+   "trap": false,
+   "note": "",
+   "outcome": "wrong"
+  }
+ ]
+}

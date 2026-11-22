@@ -1,0 +1,721 @@
+{
+ "request": {
+  "task": "choice",
+  "prompt_version": "v1",
+  "model": "google/gemini-2.5-flash-lite",
+  "instructions": "Each item is one spreadsheet cell the rule engine could not decide. Choose the item's answer from item.candidates (copy the candidate string exactly) or null. task=synonym: is item.value the same thing as one candidate (a synonym, abbreviation, English/Korean name, brand name, or obvious typo)? If it is a different thing or not clearly one candidate, answer null. task=resolve: which candidate reading is right, judged from item.row and item.neighbours (e.g. the date order of neighbouring rows, the scale of the other values)? If the context does not clearly decide, null. evidence_quote: copy the exact text from the item that supports the choice.",
+  "data": [
+   {
+    "id": "4:order_date",
+    "task": "resolve",
+    "column": "order_date",
+    "column_type": "date",
+    "value": "03/02/2024",
+    "candidates": [
+     "2024-02-03",
+     "2024-03-02"
+    ],
+    "row": {
+     "order_id": "S-003",
+     "customer_id": "C0003",
+     "customer_name": "박지훈",
+     "email": "jihoon.park@example.com",
+     "payment": "카드",
+     "status": "배송완료",
+     "discount_pct": "10"
+    },
+    "neighbours": [
+     {
+      "row": 2,
+      "order_id": "S-001",
+      "order_date": "2024-02-01"
+     },
+     {
+      "row": 3,
+      "order_id": "S-002",
+      "order_date": "2024-02-02"
+     },
+     {
+      "row": 5,
+      "order_id": "S-004",
+      "order_date": "2024-02-04"
+     },
+     {
+      "row": 6,
+      "order_id": "S-005",
+      "order_date": "2024-02-05"
+     },
+     {
+      "row": 7,
+      "order_id": "S-006",
+      "order_date": "2024-02-06"
+     }
+    ]
+   },
+   {
+    "id": "23:order_date",
+    "task": "resolve",
+    "column": "order_date",
+    "column_type": "date",
+    "value": "04/03/2024",
+    "candidates": [
+     "2024-03-04",
+     "2024-04-03"
+    ],
+    "row": {
+     "order_id": "S-022",
+     "customer_id": "C0003",
+     "customer_name": "박지훈",
+     "email": "jihoon.park@example.com",
+     "payment": "카드",
+     "status": "배송완료",
+     "discount_pct": "0"
+    },
+    "neighbours": [
+     {
+      "row": 20,
+      "order_id": "S-019",
+      "order_date": "2024-02-22"
+     },
+     {
+      "row": 21,
+      "order_id": "S-020",
+      "order_date": "2024-02-23"
+     },
+     {
+      "row": 22,
+      "order_id": "S-021",
+      "order_date": "2024-03-03"
+     },
+     {
+      "row": 24,
+      "order_id": "S-023",
+      "order_date": "2024-03-05"
+     },
+     {
+      "row": 25,
+      "order_id": "S-024",
+      "order_date": "2024-03-06"
+     },
+     {
+      "row": 26,
+      "order_id": "S-025",
+      "order_date": "2024-05-03"
+     }
+    ]
+   },
+   {
+    "id": "26:order_date",
+    "task": "resolve",
+    "column": "order_date",
+    "column_type": "date",
+    "value": "05/03/2024",
+    "candidates": [
+     "2024-03-05",
+     "2024-05-03"
+    ],
+    "row": {
+     "order_id": "S-025",
+     "customer_id": "C0006",
+     "customer_name": "강도윤",
+     "email": "doyun.kang@example.com",
+     "payment": "카드",
+     "status": "배송완료",
+     "discount_pct": "0"
+    },
+    "neighbours": [
+     {
+      "row": 23,
+      "order_id": "S-022",
+      "order_date": "2024-04-03"
+     },
+     {
+      "row": 24,
+      "order_id": "S-023",
+      "order_date": "2024-03-05"
+     },
+     {
+      "row": 25,
+      "order_id": "S-024",
+      "order_date": "2024-03-06"
+     },
+     {
+      "row": 27,
+      "order_id": "S-026",
+      "order_date": "2024-05-10"
+     },
+     {
+      "row": 28,
+      "order_id": "S-027",
+      "order_date": "2024-03-26"
+     },
+     {
+      "row": 29,
+      "order_id": "S-028",
+      "order_date": "2024-03-27"
+     }
+    ]
+   },
+   {
+    "id": "3:payment",
+    "task": "synonym",
+    "column": "payment",
+    "column_type": "category",
+    "value": "무통장입금",
+    "candidates": [
+     "카드",
+     "계좌이체",
+     "네이버페이",
+     "카카오페이",
+     "현금"
+    ],
+    "row": {
+     "order_id": "S-002",
+     "order_date": "2024-02-02",
+     "customer_id": "C0002",
+     "customer_name": "이수진",
+     "email": "sujin.lee@example.com",
+     "status": "배송완료",
+     "discount_pct": "0"
+    },
+    "listed_synonyms": {
+     "카드": [
+      "card"
+     ],
+     "네이버페이": [
+      "N페이"
+     ]
+    }
+   },
+   {
+    "id": "5:payment",
+    "task": "synonym",
+    "column": "payment",
+    "column_type": "category",
+    "value": "Visa",
+    "candidates": [
+     "카드",
+     "계좌이체",
+     "네이버페이",
+     "카카오페이",
+     "현금"
+    ],
+    "row": {
+     "order_id": "S-004",
+     "order_date": "2024-02-04",
+     "customer_id": "C0004",
+     "customer_name": "최유진",
+     "email": "yujin.choi@example.com",
+     "status": "배송완료",
+     "discount_pct": "0"
+    },
+    "listed_synonyms": {
+     "카드": [
+      "card"
+     ],
+     "네이버페이": [
+      "N페이"
+     ]
+    }
+   },
+   {
+    "id": "7:payment",
+    "task": "synonym",
+    "column": "payment",
+    "column_type": "category",
+    "value": "포인트",
+    "candidates": [
+     "카드",
+     "계좌이체",
+     "네이버페이",
+     "카카오페이",
+     "현금"
+    ],
+    "row": {
+     "order_id": "S-006",
+     "order_date": "2024-02-06",
+     "customer_id": "C0006",
+     "customer_name": "강도윤",
+     "email": "doyun.kang@example.com",
+     "status": "배송완료",
+     "discount_pct": "0"
+    },
+    "listed_synonyms": {
+     "카드": [
+      "card"
+     ],
+     "네이버페이": [
+      "N페이"
+     ]
+    }
+   },
+   {
+    "id": "8:payment",
+    "task": "synonym",
+    "column": "payment",
+    "column_type": "category",
+    "value": "naver pay",
+    "candidates": [
+     "카드",
+     "계좌이체",
+     "네이버페이",
+     "카카오페이",
+     "현금"
+    ],
+    "row": {
+     "order_id": "S-007",
+     "order_date": "2024-02-07",
+     "customer_id": "C0007",
+     "customer_name": "윤서아",
+     "email": "seoa.yoon@example.com",
+     "status": "배송완료",
+     "discount_pct": "15"
+    },
+    "listed_synonyms": {
+     "카드": [
+      "card"
+     ],
+     "네이버페이": [
+      "N페이"
+     ]
+    }
+   },
+   {
+    "id": "12:payment",
+    "task": "synonym",
+    "column": "payment",
+    "column_type": "category",
+    "value": "KakaoPay",
+    "candidates": [
+     "카드",
+     "계좌이체",
+     "네이버페이",
+     "카카오페이",
+     "현금"
+    ],
+    "row": {
+     "order_id": "S-011",
+     "order_date": "2024-02-12",
+     "customer_id": "C0003",
+     "customer_name": "박지훈",
+     "email": "jihoon.park@example.com",
+     "status": "배송완료",
+     "discount_pct": "20"
+    },
+    "listed_synonyms": {
+     "카드": [
+      "card"
+     ],
+     "네이버페이": [
+      "N페이"
+     ]
+    }
+   },
+   {
+    "id": "15:payment",
+    "task": "synonym",
+    "column": "payment",
+    "column_type": "category",
+    "value": "체크카드",
+    "candidates": [
+     "카드",
+     "계좌이체",
+     "네이버페이",
+     "카카오페이",
+     "현금"
+    ],
+    "row": {
+     "order_id": "S-014",
+     "order_date": "2024-02-15",
+     "customer_id": "C0005",
+     "customer_name": "정하늘",
+     "email": "haneul.jung@example.com",
+     "status": "배송완료",
+     "discount_pct": "0"
+    },
+    "listed_synonyms": {
+     "카드": [
+      "card"
+     ],
+     "네이버페이": [
+      "N페이"
+     ]
+    }
+   },
+   {
+    "id": "20:payment",
+    "task": "synonym",
+    "column": "payment",
+    "column_type": "category",
+    "value": "상품권",
+    "candidates": [
+     "카드",
+     "계좌이체",
+     "네이버페이",
+     "카카오페이",
+     "현금"
+    ],
+    "row": {
+     "order_id": "S-019",
+     "order_date": "2024-02-22",
+     "customer_id": "C0008",
+     "customer_name": "한지민",
+     "email": "jimin.han@example.com",
+     "status": "배송완료",
+     "discount_pct": "0"
+    },
+    "listed_synonyms": {
+     "카드": [
+      "card"
+     ],
+     "네이버페이": [
+      "N페이"
+     ]
+    }
+   },
+   {
+    "id": "6:status",
+    "task": "synonym",
+    "column": "status",
+    "column_type": "category",
+    "value": "delivered",
+    "candidates": [
+     "결제완료",
+     "배송중",
+     "배송완료",
+     "취소",
+     "반품"
+    ],
+    "row": {
+     "order_id": "S-005",
+     "order_date": "2024-02-05",
+     "customer_id": "C0005",
+     "customer_name": "정하늘",
+     "email": "haneul.jung@example.com",
+     "payment": "카드",
+     "discount_pct": "0"
+    },
+    "listed_synonyms": {}
+   },
+   {
+    "id": "11:status",
+    "task": "synonym",
+    "column": "status",
+    "column_type": "category",
+    "value": "배달 끝났어요",
+    "candidates": [
+     "결제완료",
+     "배송중",
+     "배송완료",
+     "취소",
+     "반품"
+    ],
+    "row": {
+     "order_id": "S-010",
+     "order_date": "2024-02-10",
+     "customer_id": "C0002",
+     "customer_name": "이수진",
+     "email": "sujin.lee@example.com",
+     "payment": "카드",
+     "discount_pct": "0"
+    },
+    "listed_synonyms": {}
+   },
+   {
+    "id": "13:status",
+    "task": "synonym",
+    "column": "status",
+    "column_type": "category",
+    "value": "보류",
+    "candidates": [
+     "결제완료",
+     "배송중",
+     "배송완료",
+     "취소",
+     "반품"
+    ],
+    "row": {
+     "order_id": "S-012",
+     "order_date": "2024-02-13",
+     "customer_id": "C0004",
+     "customer_name": "최유진",
+     "email": "yujin.choi@example.com",
+     "payment": "카드",
+     "discount_pct": "0"
+    },
+    "listed_synonyms": {}
+   },
+   {
+    "id": "17:status",
+    "task": "synonym",
+    "column": "status",
+    "column_type": "category",
+    "value": "shipped",
+    "candidates": [
+     "결제완료",
+     "배송중",
+     "배송완료",
+     "취소",
+     "반품"
+    ],
+    "row": {
+     "order_id": "S-016",
+     "order_date": "2024-02-19",
+     "customer_id": "C0006",
+     "customer_name": "강도윤",
+     "email": "doyun.kang@example.com",
+     "payment": "카드",
+     "discount_pct": "0"
+    },
+    "listed_synonyms": {}
+   },
+   {
+    "id": "18:status",
+    "task": "synonym",
+    "column": "status",
+    "column_type": "category",
+    "value": "환불 요청 접수",
+    "candidates": [
+     "결제완료",
+     "배송중",
+     "배송완료",
+     "취소",
+     "반품"
+    ],
+    "row": {
+     "order_id": "S-017",
+     "order_date": "2024-02-20",
+     "customer_id": "C0007",
+     "customer_name": "윤서아",
+     "email": "seoa.yoon@example.com",
+     "payment": "카드",
+     "discount_pct": "0"
+    },
+    "listed_synonyms": {}
+   },
+   {
+    "id": "21:status",
+    "task": "synonym",
+    "column": "status",
+    "column_type": "category",
+    "value": "고객 변심 취소",
+    "candidates": [
+     "결제완료",
+     "배송중",
+     "배송완료",
+     "취소",
+     "반품"
+    ],
+    "row": {
+     "order_id": "S-020",
+     "order_date": "2024-02-23",
+     "customer_id": "C0001",
+     "customer_name": "김민수",
+     "email": "minsu.kim@example.com",
+     "payment": "카드",
+     "discount_pct": "0"
+    },
+    "listed_synonyms": {}
+   },
+   {
+    "id": "9:discount_pct",
+    "task": "resolve",
+    "column": "discount_pct",
+    "column_type": "percent",
+    "value": "0.15",
+    "candidates": [
+     "0.15",
+     "15"
+    ],
+    "row": {
+     "order_id": "S-008",
+     "order_date": "2024-02-08",
+     "customer_id": "C0008",
+     "customer_name": "한지민",
+     "email": "jimin.han@example.com",
+     "payment": "카드",
+     "status": "배송완료"
+    },
+    "neighbours": [
+     {
+      "row": 6,
+      "order_id": "S-005",
+      "discount_pct": "0"
+     },
+     {
+      "row": 7,
+      "order_id": "S-006",
+      "discount_pct": "0"
+     },
+     {
+      "row": 8,
+      "order_id": "S-007",
+      "discount_pct": "15"
+     },
+     {
+      "row": 10,
+      "order_id": "S-009",
+      "discount_pct": "0"
+     },
+     {
+      "row": 11,
+      "order_id": "S-010",
+      "discount_pct": "0"
+     },
+     {
+      "row": 12,
+      "order_id": "S-011",
+      "discount_pct": "20"
+     }
+    ]
+   }
+  ]
+ },
+ "response": {
+  "items": [
+   {
+    "id": "4:order_date",
+    "answer": "2024-03-02",
+    "confidence": 0.9,
+    "evidence_quote": "03/02/2024",
+    "rationale": "The dates in the neighbours are all in February 2024, except for the last one which is in February 2024. The value 03/02/2024 is likely March 2nd, 2024, which fits the sequence better than February 3rd, 2024."
+   },
+   {
+    "id": "23:order_date",
+    "answer": "2024-04-03",
+    "confidence": 0.9,
+    "evidence_quote": "04/03/2024",
+    "rationale": "The dates in the neighbours are in February and March 2024, with the last one being May 3rd, 2024. The value 04/03/2024 is likely April 3rd, 2024, which fits the sequence better than March 4th, 2024."
+   },
+   {
+    "id": "26:order_date",
+    "answer": "2024-05-03",
+    "confidence": 0.9,
+    "evidence_quote": "05/03/2024",
+    "rationale": "The dates in the neighbours are in March and May 2024. The value 05/03/2024 is likely May 3rd, 2024, which fits the sequence better than March 5th, 2024."
+   },
+   {
+    "id": "3:payment",
+    "answer": null,
+    "confidence": 0.5,
+    "evidence_quote": "무통장입금",
+    "rationale": "The value '무통장입금' (bank transfer without a deposit book) is not a direct synonym for any of the candidates. It is a payment method, but not one of the listed options."
+   },
+   {
+    "id": "5:payment",
+    "answer": "카드",
+    "confidence": 0.8,
+    "evidence_quote": "Visa",
+    "rationale": "Visa is a type of credit card, and '카드' (card) is a candidate. Therefore, 'Visa' can be considered a synonym for '카드'."
+   },
+   {
+    "id": "7:payment",
+    "answer": null,
+    "confidence": 0.5,
+    "evidence_quote": "포인트",
+    "rationale": "The value '포인트' (points) is not a direct synonym for any of the candidates. It is a form of payment, but not one of the listed options."
+   },
+   {
+    "id": "8:payment",
+    "answer": "네이버페이",
+    "confidence": 0.9,
+    "evidence_quote": "naver pay",
+    "rationale": "The value 'naver pay' is an English spelling of '네이버페이', which is a candidate. The listed synonym for '네이버페이' is 'N페이', but 'naver pay' is clearly referring to the same service."
+   },
+   {
+    "id": "12:payment",
+    "answer": "카카오페이",
+    "confidence": 0.9,
+    "evidence_quote": "KakaoPay",
+    "rationale": "The value 'KakaoPay' is the English spelling of '카카오페이', which is a candidate. They refer to the same payment service."
+   },
+   {
+    "id": "15:payment",
+    "answer": "카드",
+    "confidence": 0.8,
+    "evidence_quote": "체크카드",
+    "rationale": "The value '체크카드' (check card) is a type of card, and '카드' (card) is a candidate. Therefore, '체크카드' can be considered a synonym for '카드'."
+   },
+   {
+    "id": "20:payment",
+    "answer": null,
+    "confidence": 0.5,
+    "evidence_quote": "상품권",
+    "rationale": "The value '상품권' (gift certificate) is not a direct synonym for any of the candidates. It is a form of payment, but not one of the listed options."
+   },
+   {
+    "id": "6:status",
+    "answer": "배송완료",
+    "confidence": 0.9,
+    "evidence_quote": "delivered",
+    "rationale": "The English word 'delivered' is a direct translation of the Korean word '배송완료', which is a candidate for the status."
+   },
+   {
+    "id": "11:status",
+    "answer": "배송완료",
+    "confidence": 0.9,
+    "evidence_quote": "배달 끝났어요",
+    "rationale": "The phrase '배달 끝났어요' (delivery is finished) is a colloquial way of saying '배송완료' (delivery completed), which is a candidate for the status."
+   },
+   {
+    "id": "13:status",
+    "answer": null,
+    "confidence": 0.5,
+    "evidence_quote": "보류",
+    "rationale": "The value '보류' (on hold/pending) is not a direct synonym for any of the candidates. It represents a different status than the options provided."
+   },
+   {
+    "id": "17:status",
+    "answer": "배송중",
+    "confidence": 0.9,
+    "evidence_quote": "shipped",
+    "rationale": "The English word 'shipped' indicates that an item has been sent out for delivery, which corresponds to '배송중' (in transit/shipping) among the candidates."
+   },
+   {
+    "id": "18:status",
+    "answer": null,
+    "confidence": 0.5,
+    "evidence_quote": "환불 요청 접수",
+    "rationale": "The value '환불 요청 접수' (refund request received) is not a direct synonym for any of the candidates. It represents a different status than the options provided."
+   },
+   {
+    "id": "21:status",
+    "answer": null,
+    "confidence": 0.5,
+    "evidence_quote": "고객 변심 취소",
+    "rationale": "The value '고객 변심 취소' (cancellation due to customer's change of mind) is a specific reason for cancellation, not a general status like '취소' (cancellation). It is not a direct synonym for any of the candidates."
+   },
+   {
+    "id": "9:discount_pct",
+    "answer": "0.15",
+    "confidence": 1.0,
+    "evidence_quote": "0.15",
+    "rationale": "The value is already in the correct format (0.15) and is present as a candidate. The other candidate '15' is likely the percentage value without the decimal."
+   }
+  ]
+ },
+ "provider": "openrouter",
+ "usage": {
+  "prompt_tokens": 3766,
+  "completion_tokens": 1452,
+  "total_tokens": 5218,
+  "cost": 0.0009574,
+  "is_byok": false,
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "cache_write_tokens": 0,
+   "audio_tokens": 0,
+   "video_tokens": 0
+  },
+  "cost_details": {
+   "upstream_inference_cost": 0.0009574,
+   "upstream_inference_prompt_cost": 0.0003766,
+   "upstream_inference_completions_cost": 0.0005808
+  },
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "image_tokens": 0,
+   "audio_tokens": 0
+  }
+ }
+}

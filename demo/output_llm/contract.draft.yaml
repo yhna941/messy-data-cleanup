@@ -1,0 +1,472 @@
+# DRAFT: fix types, keys, id regex/format, vocab canonicals and synonyms before use
+dataset: draft
+tables:
+  반품교환_3pl:
+    file: 반품교환_3PL.csv
+    sheet: ''
+    key: 반품번호
+    columns:
+      반품번호:
+        type: id
+        aliases:
+        - 반품번호
+        regex: (?i)[a-z]{0,3}[-_ ]?0*(?P<n>\d{1,8})
+        format: X{n:04d}
+      주문번호:
+        type: id
+        aliases:
+        - 주문번호
+        regex: (?i)[a-z]{0,3}[-_ ]?0*(?P<n>\d{1,8})
+        format: X{n:04d}
+      접수일:
+        type: date
+        aliases:
+        - 접수일
+      사유:
+        type: category
+        aliases:
+        - 사유
+        vocab:
+          단순변심: []
+          파손: []
+          오배송: []
+          부분환불: []
+      환불금액:
+        type: money
+        aliases:
+        - 환불금액
+      처리상태:
+        type: category
+        aliases:
+        - 처리상태
+        vocab:
+          환불완료: []
+          교환완료: []
+          처리중: []
+          환불 완료: []
+  주문내역:
+    file: 하루커피_매출정리_최종_진짜최종.xlsx
+    sheet: 주문내역
+    key: 주문번호
+    columns:
+      주문번호:
+        type: id
+        aliases:
+        - 주문번호
+        regex: (?i)[a-z]{0,3}[-_ ]?0*(?P<n>\d{1,8})
+        format: X{n:04d}
+      주문일자:
+        type: date
+        aliases:
+        - 주문일자
+      id:
+        type: id
+        aliases:
+        - ID
+        regex: (?i)[a-z]{0,3}[-_ ]?0*(?P<n>\d{1,8})
+        format: X{n:04d}
+      이름:
+        type: category
+        aliases:
+        - 이름
+        vocab:
+          김민수: []
+          정다은: []
+          최유리: []
+          강호동: []
+          임재범: []
+          송하늘: []
+          배수지: []
+          이수진: []
+          박지훈: []
+          윤서연: []
+          한지민: []
+          오세훈: []
+      코드:
+        type: id
+        aliases:
+        - 코드
+        regex: (?i)[a-z]{0,3}[-_ ]?0*(?P<n>\d{1,8})
+        format: X{n:04d}
+      상품명:
+        type: category
+        aliases:
+        - 상품명
+        vocab:
+          드립백10입세트: []
+          콜드브루 원액 500 ml: []
+          콜롬비아 수프리모 1kg: []
+          텀블러 473ml: []
+          하우스 블렌드 원두200g: []
+          하루 머그컵: []
+          디카페인 콜드브루 500ml: []
+          하우스블렌드 원두 200g: []
+          에티오피아 예가채프 200g: []
+          시즌 블렌드 200g: []
+          에티오피아 예가체프 200g: []
+          콜드브루원액500ml: []
+      수량:
+        type: number
+        aliases:
+        - 수량
+      단가:
+        type: money
+        aliases:
+        - 단가
+      할인율:
+        type: percent
+        aliases:
+        - 할인율
+      결제금액:
+        type: money
+        aliases:
+        - 결제금액
+      결제수단:
+        type: category
+        aliases:
+        - 결제수단
+        vocab:
+          카드: []
+          kakaopay: []
+          신용카드: []
+          계좌 이체: []
+          card: []
+          CARD: []
+          네이버 페이: []
+          카느: []
+          naverpay: []
+          무통장입금: []
+          카드결제: []
+          계좌이체: []
+      상태:
+        type: category
+        aliases:
+        - 상태
+        vocab:
+          배송완료: []
+          배송 완료: []
+          완료: []
+          배송완ㄹ: []
+          Delivered: []
+          반품: []
+          주문취소: []
+          배송 중: []
+          반품접수: []
+          상태: []
+          네이버페이: []
+          N/A: []
+      비고:
+        type: category
+        aliases:
+        - 비고
+        vocab:
+          포장 꼼꼼히 부탁드려요: []
+          N/A: []
+          문 앞에 놔주세요: []
+          비고: []
+          완료: []
+      column_14:
+        type: category
+        aliases:
+        - column_14
+        vocab:
+          문 앞에 놔주세요: []
+  고객명단:
+    file: 하루커피_매출정리_최종_진짜최종.xlsx
+    sheet: 고객명단
+    key: 고객번호
+    columns:
+      고객번호:
+        type: id
+        aliases:
+        - 고객번호
+        regex: (?i)[a-z]{0,3}[-_ ]?0*(?P<n>\d{1,8})
+        format: X{n:04d}
+      이름:
+        type: text
+        aliases:
+        - 이름
+      지역:
+        type: category
+        aliases:
+        - 지역
+        vocab_builtin: ko_region
+      연락처:
+        type: phone
+        aliases:
+        - 연락처
+      이메일:
+        type: email
+        aliases:
+        - 이메일
+      가입일:
+        type: date
+        aliases:
+        - 가입일
+      등급:
+        type: category
+        aliases:
+        - 등급
+        vocab:
+          일반: []
+          신규: []
+          신규 회원: []
+          VIP: []
+          일반회원: []
+          vip: []
+          일 반: []
+          V.I.P: []
+          VlP: []
+      메모:
+        type: category
+        aliases:
+        - 메모
+        vocab:
+          단골: []
+          '-': []
+          VIP 승급 검토: []
+          동명이인 주의: []
+          재가입?: []
+  상품:
+    file: 하루커피_매출정리_최종_진짜최종.xlsx
+    sheet: 상품
+    key: 상품코드
+    columns:
+      상품코드:
+        type: id
+        aliases:
+        - 상품코드
+        regex: (?i)[a-z]{0,3}[-_ ]?0*(?P<n>\d{1,8})
+        format: X{n:04d}
+      상품명:
+        type: category
+        aliases:
+        - 상품명
+        vocab:
+          하우스블렌드 원두 200g: []
+          에티오피아 예가체프 200g: []
+          콜롬비아 수프리모 1kg: []
+          드립백 10입 세트: []
+          콜드브루 원액 500ml: []
+          디카페인 콜드브루 500ml: []
+          하루 머그컵: []
+          텀블러 473ml: []
+          상품명: []
+          시즌 블렌드 200g: []
+          드립백 5입: []
+      분류:
+        type: category
+        aliases:
+        - 분류
+        vocab:
+          원두: []
+          드립백: []
+          원 두: []
+          콜드브류: []
+          콜드 브루: []
+          Goods: []
+          굿 즈: []
+          분류: []
+      판매가:
+        type: money
+        aliases:
+        - 판매가
+      출시일:
+        type: date
+        aliases:
+        - 출시일
+llm_layout:
+- file: 반품교환_3PL.csv
+  sheet: ''
+  name: return_exchange_details
+  header_rows:
+  - 2
+  data_rows:
+  - 3
+  - 8
+  columns:
+    return_id:
+      type: id
+      aliases:
+      - 반품번호
+    order_id:
+      type: id
+      aliases:
+      - 주문번호
+    receipt_date:
+      type: date
+      aliases:
+      - 접수일
+    reason:
+      type: category
+      aliases:
+      - 사유
+    refund_amount:
+      type: money
+      aliases:
+      - 환불금액
+    status:
+      type: category
+      aliases:
+      - 처리상태
+- file: 하루커피_매출정리_최종_진짜최종.xlsx
+  sheet: 주문내역
+  name: order_details
+  header_rows:
+  - 4
+  - 5
+  data_rows:
+  - 6
+  - 48
+  columns:
+    order_number:
+      type: id
+      aliases:
+      - 주문번호
+    order_date:
+      type: date
+      aliases:
+      - 주문일자
+    customer_id:
+      type: text
+      aliases:
+      - 고객 ID
+    customer_name:
+      type: text
+      aliases:
+      - 고객 이름
+    product_code:
+      type: text
+      aliases:
+      - 상품 코드
+    product_name:
+      type: text
+      aliases:
+      - 상품명
+    quantity:
+      type: count
+      aliases:
+      - 수량
+    unit_price:
+      type: money
+      aliases:
+      - 단가
+    discount_rate:
+      type: percent
+      aliases:
+      - 할인율
+    payment_amount:
+      type: money
+      aliases:
+      - 결제금액
+    payment_method:
+      type: text
+      aliases:
+      - 결제수단
+    status:
+      type: text
+      aliases:
+      - 상태
+    notes:
+      type: freetext
+      aliases:
+      - 비고
+- file: 하루커피_매출정리_최종_진짜최종.xlsx
+  sheet: 고객명단
+  name: customer_list
+  header_rows:
+  - 3
+  data_rows:
+  - 4
+  - 20
+  columns:
+    customer_id:
+      type: id
+      aliases:
+      - 고객번호
+    name:
+      type: text
+      aliases:
+      - 이름
+    region:
+      type: text
+      aliases:
+      - 지역
+    phone_number:
+      type: phone
+      aliases:
+      - 연락처
+    email:
+      type: email
+      aliases:
+      - 이메일
+    signup_date:
+      type: date
+      aliases:
+      - 가입일
+    grade:
+      type: category
+      aliases:
+      - 등급
+    memo:
+      type: freetext
+      aliases:
+      - 메모
+- file: 하루커피_매출정리_최종_진짜최종.xlsx
+  sheet: 상품
+  name: 상품_마스터
+  header_rows:
+  - 2
+  data_rows:
+  - 3
+  - 10
+  columns:
+    상품코드:
+      type: id
+      aliases:
+      - 상품코드
+    상품명:
+      type: text
+      aliases:
+      - 상품명
+    분류:
+      type: category
+      aliases:
+      - 분류
+    판매가:
+      type: money
+      aliases:
+      - 판매가
+    출시일:
+      type: date
+      aliases:
+      - 출시일
+- file: 하루커피_매출정리_최종_진짜최종.xlsx
+  sheet: 상품
+  name: 단종_상품
+  header_rows:
+  - 14
+  data_rows:
+  - 15
+  - 16
+  columns:
+    상품코드:
+      type: id
+      aliases:
+      - 상품코드
+    상품명:
+      type: text
+      aliases:
+      - 상품명
+    분류:
+      type: category
+      aliases:
+      - 분류
+    판매가:
+      type: money
+      aliases:
+      - 판매가
+    단종일:
+      type: date
+      aliases:
+      - 단종일

@@ -1,0 +1,6 @@
+{
+  "name": "messy-data-cleanup",
+  "version": "1.0.0",
+  "description": "Clean absurdly messy Excel/CSV data (Korean or English) into tidy tables with a full audit trail: change log, dropped rows, suspected duplicates, join report, human-review list.",
+  "contextFileName": "GEMINI.md"
+}

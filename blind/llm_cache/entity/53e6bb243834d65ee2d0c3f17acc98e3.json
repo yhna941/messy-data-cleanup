@@ -1,0 +1,114 @@
+{
+ "request": {
+  "task": "entity",
+  "prompt_version": "v1",
+  "model": "google/gemini-2.5-flash-lite",
+  "instructions": "Each item is a row from the left table whose join key found no match (item.left) and up to 5 candidate rows from the master table (item.candidates, each with its key). Answer the key of the candidate that is clearly the same real-world entity (same person/product: e.g. the same name in another script or romanization, plus a matching phone/email/other field), or null if none clearly is. A similar-looking key alone is not enough. evidence_quote: copy the exact text from the item that proves the match.",
+  "data": {
+   "join": "attendance_students",
+   "key_column": "student_id",
+   "items": [
+    {
+     "id": "7",
+     "left": {
+      "student_id": "S24-099",
+      "date": "2024-03-04",
+      "status": "출석"
+     },
+     "candidates": [
+      {
+       "key": "S24-009",
+       "No.": "10",
+       "student_id": "S24-009",
+       "name": "임시우",
+       "grade": "고1",
+       "phone": "010-7890-1234",
+       "email": "siwoo@daum.net",
+       "reg_date": "2024-02-23",
+       "shuttle": "Y"
+      },
+      {
+       "key": "S24-001",
+       "No.": "1",
+       "student_id": "S24-001",
+       "name": "김민지",
+       "grade": "고1",
+       "phone": "010-1234-5678",
+       "email": "minji@naver.com",
+       "reg_date": "2024-02-15",
+       "shuttle": "Y"
+      },
+      {
+       "key": "S24-002",
+       "No.": "2",
+       "student_id": "S24-002",
+       "name": "이준호",
+       "grade": "고2",
+       "phone": "010-2345-6789",
+       "email": "junho.lee@gmail.com",
+       "reg_date": "2024-02-16",
+       "shuttle": "N"
+      },
+      {
+       "key": "S24-003",
+       "No.": "3",
+       "student_id": "S24-003",
+       "name": "박서윤",
+       "grade": "중3",
+       "phone": "02-123-4567",
+       "email": "seoyun@daum.net",
+       "reg_date": "2024-02-17",
+       "shuttle": "Y"
+      },
+      {
+       "key": "S24-004",
+       "No.": "4",
+       "student_id": "S24-004",
+       "name": "최도윤",
+       "grade": "고3",
+       "phone": "031-234-5678",
+       "email": "doyun@naver.com",
+       "reg_date": "2024-02-18",
+       "shuttle": "N"
+      }
+     ]
+    }
+   ]
+  }
+ },
+ "response": {
+  "items": [
+   {
+    "id": "7",
+    "answer": null,
+    "confidence": 0.0,
+    "evidence_quote": "S24-099",
+    "rationale": "The student_id S24-099 from the left table does not match any of the student_ids in the candidates. The candidate student_ids are S24-009, S24-001, S24-002, S24-003, and S24-004. There is no clear match based on the provided information."
+   }
+  ]
+ },
+ "provider": "openrouter",
+ "usage": {
+  "prompt_tokens": 800,
+  "completion_tokens": 150,
+  "total_tokens": 950,
+  "cost": 0.00014,
+  "is_byok": false,
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "cache_write_tokens": 0,
+   "audio_tokens": 0,
+   "video_tokens": 0
+  },
+  "cost_details": {
+   "upstream_inference_cost": 0.00014,
+   "upstream_inference_prompt_cost": 8e-05,
+   "upstream_inference_completions_cost": 6e-05
+  },
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "image_tokens": 0,
+   "audio_tokens": 0
+  }
+ }
+}

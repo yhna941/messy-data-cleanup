@@ -1,0 +1,73 @@
+{
+ "request": {
+  "task": "choice",
+  "prompt_version": "v1",
+  "model": "google/gemini-2.5-flash-lite",
+  "instructions": "Each item is one spreadsheet cell the rule engine could not decide. Choose the item's answer from item.candidates (copy the candidate string exactly) or null. task=synonym: is item.value the same thing as one candidate (a synonym, abbreviation, English/Korean name, brand name, or obvious typo)? If it is a different thing or not clearly one candidate, answer null. task=resolve (date): rows are in time order, so the right reading lies between item.previous_row and item.next_row; if both or neither do, null. task=resolve (percent): which reading matches the scale of item.other_values_in_column? If the context does not clearly decide, null. evidence_quote: copy the exact text from the item that supports the choice.",
+  "data": [
+   {
+    "id": "20:grade",
+    "task": "synonym",
+    "column": "grade",
+    "column_type": "category",
+    "value": "VlP",
+    "candidates": [
+     "VIP",
+     "일반",
+     "신규"
+    ],
+    "row": {
+     "customer_id": "C0015",
+     "name": "배수지",
+     "region": "제주",
+     "phone": "010-2468-1357",
+     "email": "suzy@naver.com",
+     "join_date": "2024-02-14"
+    },
+    "listed_synonyms": {
+     "일반": [
+      "일반회원"
+     ],
+     "신규": [
+      "신규회원"
+     ]
+    }
+   }
+  ]
+ },
+ "response": {
+  "items": [
+   {
+    "id": "20:grade",
+    "answer": "VIP",
+    "confidence": 0.9,
+    "evidence_quote": "VlP",
+    "rationale": "The value 'VlP' is a likely typo for the candidate 'VIP'."
+   }
+  ]
+ },
+ "provider": "openrouter",
+ "usage": {
+  "prompt_tokens": 424,
+  "completion_tokens": 81,
+  "total_tokens": 505,
+  "cost": 7.48e-05,
+  "is_byok": false,
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "cache_write_tokens": 0,
+   "audio_tokens": 0,
+   "video_tokens": 0
+  },
+  "cost_details": {
+   "upstream_inference_cost": 7.48e-05,
+   "upstream_inference_prompt_cost": 4.24e-05,
+   "upstream_inference_completions_cost": 3.24e-05
+  },
+  "completion_tokens_details": {
+   "reasoning_tokens": 0,
+   "image_tokens": 0,
+   "audio_tokens": 0
+  }
+ }
+}

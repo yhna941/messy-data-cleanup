@@ -1,0 +1,221 @@
+{
+ "dataset": "bakery-semantic-blind",
+ "llm": "off",
+ "tables": {
+  "customers": {
+   "rows_in": 7,
+   "header_row": 1,
+   "header_depth": 1,
+   "mapped": {
+    "customer_id": "A",
+    "name": "B",
+    "phone": "C"
+   },
+   "unmapped": [],
+   "extras": [],
+   "rows_out": 6,
+   "dropped": {
+    "header": 1
+   }
+  },
+  "orders": {
+   "rows_in": 16,
+   "header_row": 1,
+   "header_depth": 1,
+   "mapped": {
+    "order_id": "A",
+    "pickup_date": "B",
+    "customer_id": "C",
+    "customer_name": "D",
+    "phone": "E",
+    "payment": "F",
+    "status": "G",
+    "note": "H"
+   },
+   "unmapped": [],
+   "extras": [],
+   "rows_out": 15,
+   "dropped": {
+    "header": 1
+   }
+  }
+ },
+ "changes_by_rule": {
+  "D1-ORDER": 2,
+  "I1-ID": 1
+ },
+ "review_by_flag": {
+  "J2-ORPHAN": 1,
+  "R1-DATE": 2,
+  "R4-CATEGORY": 9
+ },
+ "joins": [
+  {
+   "join": "orders_members",
+   "left": "orders",
+   "right": "customers",
+   "on": "customer_id = customer_id",
+   "expect": "many_to_one",
+   "left_rows": 15,
+   "matched": 12,
+   "match_rate": 0.8,
+   "matched_exact": 12,
+   "matched_fallback": 0,
+   "matched_llm": 0,
+   "rules_only_match_rate": 0.8,
+   "orphans": 1,
+   "ambiguous": 0,
+   "blank_keys": 2,
+   "right_dup_keys": 0,
+   "raw_key_match_rate": 0.8,
+   "rows_out": 15,
+   "row_multiplication": "none (ambiguous keys left unjoined)",
+   "notes": ""
+  }
+ ],
+ "self_check": [
+  {
+   "check": "customers: rows in = rows out + dropped",
+   "ok": true,
+   "detail": "7 = 6 + 1"
+  },
+  {
+   "check": "customers: every changed cell has a consistent change chain",
+   "ok": true,
+   "detail": "0 broken chains, 0 unlogged changes"
+  },
+  {
+   "check": "customers: no value became blank except placeholders",
+   "ok": true,
+   "detail": "0 cells"
+  },
+  {
+   "check": "orders: rows in = rows out + dropped",
+   "ok": true,
+   "detail": "16 = 15 + 1"
+  },
+  {
+   "check": "orders: every changed cell has a consistent change chain",
+   "ok": true,
+   "detail": "0 broken chains, 0 unlogged changes"
+  },
+  {
+   "check": "orders: no value became blank except placeholders",
+   "ok": true,
+   "detail": "0 cells"
+  }
+ ],
+ "contract_checks": [
+  {
+   "table": "customers",
+   "column": "customer_id",
+   "type": "id",
+   "violations_before": 0,
+   "violations_after": 0,
+   "rows": 6
+  },
+  {
+   "table": "customers",
+   "column": "name",
+   "type": "text",
+   "violations_before": 0,
+   "violations_after": 0,
+   "rows": 6
+  },
+  {
+   "table": "customers",
+   "column": "phone",
+   "type": "phone",
+   "violations_before": 0,
+   "violations_after": 0,
+   "rows": 6
+  },
+  {
+   "table": "customers",
+   "column": "customer_id (unique)",
+   "type": "key",
+   "violations_before": 0,
+   "violations_after": 0,
+   "rows": 6
+  },
+  {
+   "table": "orders",
+   "column": "order_id",
+   "type": "text",
+   "violations_before": 0,
+   "violations_after": 0,
+   "rows": 15
+  },
+  {
+   "table": "orders",
+   "column": "pickup_date",
+   "type": "date",
+   "violations_before": 2,
+   "violations_after": 0,
+   "rows": 15
+  },
+  {
+   "table": "orders",
+   "column": "customer_id",
+   "type": "id",
+   "violations_before": 1,
+   "violations_after": 0,
+   "rows": 15
+  },
+  {
+   "table": "orders",
+   "column": "customer_name",
+   "type": "text",
+   "violations_before": 0,
+   "violations_after": 0,
+   "rows": 15
+  },
+  {
+   "table": "orders",
+   "column": "phone",
+   "type": "phone",
+   "violations_before": 0,
+   "violations_after": 0,
+   "rows": 15
+  },
+  {
+   "table": "orders",
+   "column": "payment",
+   "type": "category",
+   "violations_before": 5,
+   "violations_after": 5,
+   "rows": 15
+  },
+  {
+   "table": "orders",
+   "column": "status",
+   "type": "category",
+   "violations_before": 4,
+   "violations_after": 4,
+   "rows": 15
+  },
+  {
+   "table": "orders",
+   "column": "note",
+   "type": "freetext",
+   "violations_before": 0,
+   "violations_after": 0,
+   "rows": 15
+  },
+  {
+   "table": "orders",
+   "column": "order_id (unique)",
+   "type": "key",
+   "violations_before": 0,
+   "violations_after": 0,
+   "rows": 15
+  }
+ ],
+ "reconcile": [],
+ "notes": [],
+ "n_llm_changes": 0,
+ "n_changes": 3,
+ "n_review": 12,
+ "n_dropped": 2,
+ "n_dup_groups": 0
+}

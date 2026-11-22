@@ -1,0 +1,144 @@
+{
+ "planted": 114,
+ "outcomes": {
+  "fixed": 102,
+  "flagged": 12
+ },
+ "by_category": {
+  "adjust": {
+   "fixed": 6
+  },
+  "course": {
+   "fixed": 5
+  },
+  "csv_multiline": {
+   "fixed": 1
+  },
+  "duplicate": {
+   "fixed": 1
+  },
+  "email": {
+   "fixed": 2
+  },
+  "fee": {
+   "fixed": 19
+  },
+  "grade": {
+   "fixed": 7
+  },
+  "invalid": {
+   "flagged": 3
+  },
+  "join_orphan": {
+   "flagged": 2
+  },
+  "name": {
+   "fixed": 1
+  },
+  "near_duplicate": {
+   "flagged": 2
+  },
+  "pay_date": {
+   "fixed": 14
+  },
+  "phone": {
+   "fixed": 4
+  },
+  "reg_date": {
+   "fixed": 13
+  },
+  "shifted_row": {
+   "fixed": 4
+  },
+  "shuttle": {
+   "fixed": 7
+  },
+  "status": {
+   "fixed": 4
+  },
+  "structure": {
+   "fixed": 4
+  },
+  "student_id": {
+   "fixed": 5
+  },
+  "trap": {
+   "flagged": 5,
+   "fixed": 4
+  },
+  "typo": {
+   "fixed": 1
+  }
+ },
+ "by_expect": {
+  "drop": {
+   "fixed": 4
+  },
+  "fix": {
+   "fixed": 96
+  },
+  "flag": {
+   "flagged": 8
+  },
+  "dup_drop": {
+   "fixed": 1
+  },
+  "suspect": {
+   "flagged": 2
+  },
+  "no_suspect": {
+   "fixed": 1
+  },
+  "orphan": {
+   "flagged": 2
+  }
+ },
+ "handled": 114,
+ "handled_rate": 1.0,
+ "auto_resolved_rate": 0.8947,
+ "review_queue": 16,
+ "llm_changes": {
+  "total": 0,
+  "wrong_rate": null
+ },
+ "llm_wrong": [],
+ "joins": [
+  {
+   "join": "enroll_full",
+   "match_rate": 0.9444,
+   "raw_key_match_rate": 0.7778,
+   "rules_only_match_rate": 0.9444,
+   "matched_llm": 0
+  },
+  {
+   "join": "enroll_full",
+   "match_rate": 0.8889,
+   "raw_key_match_rate": 0.6111,
+   "rules_only_match_rate": 0.8889,
+   "matched_llm": 0
+  },
+  {
+   "join": "attendance_students",
+   "match_rate": 0.8333,
+   "raw_key_match_rate": 0.3333,
+   "rules_only_match_rate": 0.8333,
+   "matched_llm": 0
+  }
+ ],
+ "cell_accuracy": {
+  "cells": 252,
+  "correct": 244,
+  "rate": 0.9683,
+  "wrong_but_flag_expected": 8,
+  "wrong_other": 0
+ },
+ "wrong_cells": [],
+ "extra_rows_in_cleaned": {
+  "students": [],
+  "enrollments": [],
+  "courses": [],
+  "attendance": []
+ },
+ "noise_flags": [],
+ "not_handled": []
+}

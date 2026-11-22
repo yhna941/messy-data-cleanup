@@ -1,0 +1,190 @@
+{
+ "changes": [
+  {
+   "table": "orders",
+   "sheet": "주문",
+   "source_row": 5,
+   "column": "pickup_date",
+   "before": "05/04/2024",
+   "after": "2024-05-04",
+   "rule": "D1-ORDER",
+   "confidence": 0.5,
+   "evidence": "05/04/2024 is ambiguous (MDY=2024-05-04, DMY=2024-04-05); used contract order MDY"
+  },
+  {
+   "table": "orders",
+   "sheet": "주문",
+   "source_row": 13,
+   "column": "pickup_date",
+   "before": "10/05/2024",
+   "after": "2024-10-05",
+   "rule": "D1-ORDER",
+   "confidence": 0.5,
+   "evidence": "10/05/2024 is ambiguous (MDY=2024-10-05, DMY=2024-05-10); used contract order MDY"
+  },
+  {
+   "table": "orders",
+   "sheet": "주문",
+   "source_row": 10,
+   "column": "customer_id",
+   "before": "K9",
+   "after": "K009",
+   "rule": "I1-ID",
+   "confidence": 0.95,
+   "evidence": "'K9' parsed as {'n': 9}"
+  }
+ ],
+ "dropped": [
+  {
+   "table": "customers",
+   "sheet": "회원",
+   "source_row": 1,
+   "kind": "header",
+   "reason": "header row (mapped to contract columns)",
+   "evidence": "A=회원번호→customer_id; B=이름→name; C=전화→phone",
+   "raw_values": "회원번호 | 이름 | 전화"
+  },
+  {
+   "table": "orders",
+   "sheet": "주문",
+   "source_row": 1,
+   "kind": "header",
+   "reason": "header row (mapped to contract columns)",
+   "evidence": "A=주문번호→order_id; B=픽업일→pickup_date; C=회원번호→customer_id; D=주문자→customer_name; E=전화→phone; F=결제→payment; G=상태→status; H=요청→note",
+   "raw_values": "주문번호 | 픽업일 | 회원번호 | 주문자 | 전화 | 결제 | 상태 | 요청"
+  }
+ ],
+ "review": [
+  {
+   "table": "orders",
+   "sheet": "주문",
+   "source_row": 5,
+   "column": "pickup_date",
+   "value": "2024-05-04",
+   "flag": "R1-DATE",
+   "suggestion": "2024-05-04",
+   "question": "'05/04/2024' could be MDY=2024-05-04, DMY=2024-04-05: which one?"
+  },
+  {
+   "table": "orders",
+   "sheet": "주문",
+   "source_row": 13,
+   "column": "pickup_date",
+   "value": "2024-10-05",
+   "flag": "R1-DATE",
+   "suggestion": "2024-10-05",
+   "question": "'10/05/2024' could be MDY=2024-10-05, DMY=2024-05-10: which one?"
+  },
+  {
+   "table": "orders",
+   "sheet": "주문",
+   "source_row": 3,
+   "column": "payment",
+   "value": "Master카드",
+   "flag": "R4-CATEGORY",
+   "suggestion": "카드",
+   "question": "'Master카드' is not in the vocabulary (closest '카드' at 0.57, runner-up '카카오페이' at 0.20): map it, or add it as a new value?"
+  },
+  {
+   "table": "orders",
+   "sheet": "주문",
+   "source_row": 5,
+   "column": "payment",
+   "value": "toss",
+   "flag": "R4-CATEGORY",
+   "suggestion": "",
+   "question": "'toss' is not in the vocabulary (closest '현금' at 0.00, runner-up '토스페이' at 0.00): map it, or add it as a new value?"
+  },
+  {
+   "table": "orders",
+   "sheet": "주문",
+   "source_row": 6,
+   "column": "payment",
+   "value": "삼성페이",
+   "flag": "R4-CATEGORY",
+   "suggestion": "토스페이",
+   "question": "'삼성페이' is not in the vocabulary (closest '토스페이' at 0.56, runner-up '카카오페이' at 0.50): map it, or add it as a new value?"
+  },
+  {
+   "table": "orders",
+   "sheet": "주문",
+   "source_row": 8,
+   "column": "payment",
+   "value": "외상",
+   "flag": "R4-CATEGORY",
+   "suggestion": "",
+   "question": "'외상' is not in the vocabulary (closest '카드' at 0.22, runner-up '토스페이' at 0.15): map it, or add it as a new value?"
+  },
+  {
+   "table": "orders",
+   "sheet": "주문",
+   "source_row": 11,
+   "column": "payment",
+   "value": "온라인 송금",
+   "flag": "R4-CATEGORY",
+   "suggestion": "",
+   "question": "'온라인 송금' is not in the vocabulary (closest '현금' at 0.40, runner-up '카카오페이' at 0.33): map it, or add it as a new value?"
+  },
+  {
+   "table": "orders",
+   "sheet": "주문",
+   "source_row": 4,
+   "column": "status",
+   "value": "ready for pickup",
+   "flag": "R4-CATEGORY",
+   "suggestion": "",
+   "question": "'ready for pickup' is not in the vocabulary (closest '픽업대기' at 0.00, runner-up '취소' at 0.00): map it, or add it as a new value?"
+  },
+  {
+   "table": "orders",
+   "sheet": "주문",
+   "source_row": 7,
+   "column": "status",
+   "value": "다 만들었어요 찾아가세요",
+   "flag": "R4-CATEGORY",
+   "suggestion": "",
+   "question": "'다 만들었어요 찾아가세요' is not in the vocabulary (closest '픽업대기' at 0.17, runner-up '취소' at 0.13): map it, or add it as a new value?"
+  },
+  {
+   "table": "orders",
+   "sheet": "주문",
+   "source_row": 9,
+   "column": "status",
+   "value": "노쇼",
+   "flag": "R4-CATEGORY",
+   "suggestion": "",
+   "question": "'노쇼' is not in the vocabulary (closest '취소' at 0.25, runner-up '접수' at 0.22): map it, or add it as a new value?"
+  },
+  {
+   "table": "orders",
+   "sheet": "주문",
+   "source_row": 12,
+   "column": "status",
+   "value": "done",
+   "flag": "R4-CATEGORY",
+   "suggestion": "",
+   "question": "'done' is not in the vocabulary (closest '픽업대기' at 0.00, runner-up '취소' at 0.00): map it, or add it as a new value?"
+  },
+  {
+   "table": "orders",
+   "sheet": "주문",
+   "source_row": 10,
+   "column": "customer_id",
+   "value": "K009",
+   "flag": "J2-ORPHAN",
+   "suggestion": "",
+   "question": "customer_id='K009' not found in customers: typo, or missing master row?"
+  }
+ ],
+ "dups": [],
+ "join_details": [
+  {
+   "join": "orders_members",
+   "step": "customers",
+   "left_row": 10,
+   "key": "K009",
+   "issue": "J2-ORPHAN",
+   "detail": "no row in customers with customer_id='K009'"
+  }
+ ]
+}

@@ -1,0 +1,94 @@
+{
+ "planted": 38,
+ "outcomes": {
+  "llm_fixed": 21,
+  "flagged": 10,
+  "fixed": 7
+ },
+ "by_category": {
+  "canon_control": {
+   "fixed": 1
+  },
+  "date_context": {
+   "flagged": 2
+  },
+  "date_context_trap": {
+   "flagged": 1
+  },
+  "entity": {
+   "llm_fixed": 3
+  },
+  "entity_trap": {
+   "fixed": 2
+  },
+  "extract": {
+   "llm_fixed": 10
+  },
+  "extract_trap": {
+   "fixed": 4
+  },
+  "injection_trap": {
+   "flagged": 1
+  },
+  "scale": {
+   "flagged": 1
+  },
+  "synonym": {
+   "flagged": 1,
+   "llm_fixed": 8
+  },
+  "synonym_trap": {
+   "flagged": 4
+  }
+ },
+ "by_expect": {
+  "extract": {
+   "llm_fixed": 10,
+   "fixed": 4
+  },
+  "flag": {
+   "flagged": 10,
+   "llm_fixed": 8
+  },
+  "entity": {
+   "llm_fixed": 3,
+   "fixed": 2
+  },
+  "fix": {
+   "fixed": 1
+  }
+ },
+ "handled": 38,
+ "handled_rate": 1.0,
+ "auto_resolved_rate": 0.7368,
+ "review_queue": 12,
+ "llm_changes": {
+  "total": 21,
+  "right": 21,
+  "wrong_rate": 0.0
+ },
+ "llm_wrong": [],
+ "joins": [
+  {
+   "join": "orders_customers",
+   "match_rate": 0.9286,
+   "raw_key_match_rate": 0.8214,
+   "rules_only_match_rate": 0.8214,
+   "matched_llm": 3
+  }
+ ],
+ "cell_accuracy": {
+  "cells": 312,
+  "correct": 307,
+  "rate": 0.984,
+  "wrong_but_flag_expected": 5,
+  "wrong_other": 0
+ },
+ "wrong_cells": [],
+ "extra_rows_in_cleaned": {
+  "orders": [],
+  "customers": []
+ },
+ "noise_flags": [],
+ "not_handled": []
+}
