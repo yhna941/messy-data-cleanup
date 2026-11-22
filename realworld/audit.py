@@ -58,6 +58,8 @@ def mechanical(c: dict) -> bool:
         return len(da) >= 3 and [int(x) for x in da] == [int(x) for x in db[:len(da)]] and all(int(x) == 0 for x in db[len(da):])
     if rule == "T1-WS":
         return isinstance(b, str) and " ".join(b.split()) == a
+    if rule == "I1-ID":         # a number read from Excel written back as its text (ZIP 10314 -> '10314')
+        return not isinstance(b, str) and str(b) == a
     if rule == "M1-PLACEHOLDER":
         return a is None and str(b).strip().casefold() in PLACEHOLDERS
     return False

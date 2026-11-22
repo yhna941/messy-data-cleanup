@@ -319,6 +319,130 @@ w("- 데모 결과: `demo/output/haru-cleaned.xlsx` (시트 구성은 SKILL.md �
 w("- 블라인드: `blind/` (같은 구조, 첫 실행 점수 `blind/first_run_score.txt`)")
 w("- LLM 절제 실험: `demo/ablation.py` → `ablation.json` (오프라인 캐시 재생), `ablation_live_run.json` (라이브 첫 실행 사용량). 의미 세트: `semantic/`, `semantic_blind/` (각 `first_live_run_score.json`)")
 w("- Gemini CLI 패키지: `gemini/` (gemini-extension.json, GEMINI.md, skills/messy-data-cleanup/)")
+w("- 리얼월드 테스트: `realworld/` (계약서, bench.py, audit.py, collect.py, judgments.json), 결과 `realworld/results/` (14절)")
 w("- 전체 재현: `bash demo/run_demo.sh` (LLM은 저장된 캐시로 재생해서 키·비용 없이 돈다. 새 데이터는 `ABL_LLM=live`)")
+# ---- 14. real-world large public files (numbers from realworld/results/*.json) ----
+RWR = ROOT / "realworld" / "results"
+if (RWR / "bench.json").exists() and (RWR / "audits.json").exists():
+    BEN, AUD, DS = load(RWR / "bench.json"), load(RWR / "audits.json"), load(RWR / "datasets.json")
+    MS = load(RWR / "manual_sample.json") if (RWR / "manual_sample.json").exists() else {"items": []}
+
+    def bget(label, ds, sub):
+        return next((r for r in BEN if r.get("label") == label and r["dataset"] == ds and r["subset"] == sub), None)
+
+    def best_final(ds, sub):
+        return bget("final", ds, sub) if (bget("final", ds, sub) or {}).get("status") == "ok" else (bget("final_cap8g", ds, sub) or bget("final", ds, sub))
+
+    def cell(r):
+        if not r:
+            return "—"
+        if r["status"] != "ok":
+            return f"실패 ({r['status']}, {r['wall_s']:.0f}초)"
+        return f"{r['wall_s']:.1f}초 · {r['rows_per_s']:,}행/초 · {r['peak_rss_mb']:,} MB"
+
+    def top(r, n=2):
+        if not r or not r.get("stages"):
+            return "—"
+        tot = sum(r["stages"].values()) or 1
+        return ", ".join(f"{k} {v:.1f}초({v / tot:.0%})" for k, v in sorted(r["stages"].items(), key=lambda x: -x[1])[:n])
+
+    w("\n## 14. 실제 대용량 공개 데이터 테스트 (리얼월드)\n")
+    w("내가 만든 데이터가 아니라 실제 공공데이터 6종(합계 약 400 MB)으로 돌려서 느린 곳과 틀리는 곳을 찾고 고쳤다. "
+      "원본은 git에 없고 `scripts/fetch_realworld.sh`가 받는다. 계약서는 `realworld/<세트>/contract.yaml`, 측정 원자료는 `realworld/results/`에 있다. "
+      "'이전'은 첫 커밋(5f95b71) 엔진, '이후'는 지금 엔진이다. 메모리는 2.2 GB 주소공간 상한을 걸고 쟀다(넘으면 MemoryError로 끝나게).\n")
+    w("### 14-1. 데이터\n")
+    w("| 세트 | 데이터 | 형식 | 크기 | 행 수 | 무엇이 지저분한가 |\n|---|---|---|---|---|---|")
+    for d in DS:
+        w(f"| `{d['set']}` | [{d['name']}]({d['url']}) | {d['format']} | {d['mb']} MB | {d['rows']:,} | {d['mess']} |")
+    w("\n`nps_naive`는 nps 1만 행에 우편번호·업종코드를 일부러 `number`로 잘못 적은 계약서다(계약서 실수에 엔진이 어떻게 반응하는지 보려고).\n")
+
+    w("### 14-2. 성능: 이전 → 이후\n")
+    w("| 세트 | 행 | 이전 (시간 · 속도 · 최대 메모리) | 이전 병목 단계 | 이후 | 이후 병목 단계 | 속도 배수 |\n|---|---|---|---|---|---|---|")
+    for ds, sub in [("nyc311", "n1000"), ("nyc311", "n10000"), ("nps", "n1000"), ("nps", "n10000"), ("census", "full"), ("nhis", "full"), ("phm", "full"), ("nycsales", "full")]:
+        b, f = bget("before", ds, sub) or (bget("after", ds, sub) if ds == "nycsales" else None), best_final(ds, sub)
+        rows = (f or {}).get("rows") or (b or {}).get("rows") or 0
+        sp = f"**{b['wall_s'] / f['wall_s']:.1f}배**" if b and f and b["status"] == "ok" and f["status"] == "ok" else ("실패 → 성공" if f and f["status"] == "ok" else "—")
+        w(f"| {ds} {sub} | {rows:,} | {cell(b)} | {top(b)} | {cell(f)} | {top(f)} | {sp} |")
+    w("\n(nycsales의 '이전' 칸은 첫 성능 수정(963f5fa) 직후 엔진이다. 첫 커밋 엔진은 이보다 메모리를 더 썼다. phm의 이전 실패는 탭 파일을 쉼표로 읽어 헤더를 못 찾은 것이고, nhis의 이전 실패는 병합 채움과 자리표시 변경이 같은 셀에 겹쳐 자체 검사(변경 사슬 일관성)가 6개 시트에서 실패한 것이다.)\n")
+    w("**병목이 무엇이었고 왜 느렸나.**\n")
+    st = lambda lab, ds, sub, k: (bget(lab, ds, sub) or {}).get("stages", {}).get(k, 0)
+    w(f"- **밀린 행 탐지 (nyc311 이전, 전체의 83%).** 행마다 '이 값이 이 컬럼에 들어갈 수 있나'를 셀 단위로 검사하는데, 여기에 어휘 퍼지 매칭(difflib)이 들어 있고 빈 칸을 빼고 넣는 후보마다 다시 계산했다. 실제 데이터는 컬럼마다 값 종류가 적다(location_type은 수십 종). 그래서 값별 메모이즈로 같은 계산을 한 번만 하게 했고, 1만 행 기준 shift 단계가 {st('before', 'nyc311', 'n10000', 'shift'):.1f}초에서 {st('final', 'nyc311', 'n10000', 'shift'):.1f}초로 줄었다.")
+    w(f"- **헤더 탐색 (nps·nhis 이전, structure 단계).** 모든 행에 대해 헤더 깊이 1–3줄 조합마다 전체 별칭 목록과 비교해서 행 수 × 별칭 수로 커졌다(nps 1천→1만 행에 structure {st('before', 'nps', 'n1000', 'structure'):.1f}초→{st('before', 'nps', 'n10000', 'structure'):.1f}초). 별칭의 앞·뒤 조각 인덱스를 만들어, 별칭이 될 수 있는 셀이 모자란 행은 바로 건너뛰게 했다. structure 단계는 nps 1만 행 {st('before', 'nps', 'n10000', 'structure'):.1f}→{st('final', 'nps', 'n10000', 'structure'):.1f}초, nhis {st('before', 'nhis', 'full', 'structure'):.1f}→{st('final', 'nhis', 'full', 'structure'):.1f}초.")
+    w("- **메모리 (nycsales 이전 MemoryError).** openpyxl 일반 모드가 시트 전체를 셀 객체로 올렸다. 읽기는 read-only 스트리밍 + 병합 정보는 시트 XML에서 직접 읽게 바꿨고(테스트 워크북 21개에서 이전 리더와 그리드가 같음을 확인), CSV·audit.json은 스트리밍으로 쓴다.")
+    w("- **지금 남은 병목은 쓰기(write)다.** 셀 하나하나 서식을 넣어 xlsx를 쓰는 게 전체 시간의 50–65%다. 그래서 시트가 `--xlsx-rows`(기본 10만 행)를 넘으면 워크북에는 미리보기만 넣고 전체는 `csv/`에 둔다.\n")
+    w("**규모 곡선 (이후 엔진).**\n")
+    w("| 세트 | 행 | 시간 | 속도 | 최대 메모리 | 행당 메모리 |\n|---|---|---|---|---|---|")
+    for ds, subs in [("nyc311", ["n1000", "n10000", "n100000", "n300000", "n1000000"]), ("nps", ["n1000", "n10000", "n100000", "n300000", "full"])]:
+        for sub in subs:
+            capped, big = bget("final", ds, sub), bget("final_cap8g", ds, sub)
+            for r, tag in ((capped, ""), (big, " (상한 8 GB)")):
+                if not r:
+                    continue
+                if r["status"] != "ok":
+                    w(f"| {ds} | {sub}{tag} | {r['wall_s']:.0f}초에 {r['status']} | — | 2.2 GB 상한 초과 | — |")
+                else:
+                    w(f"| {ds} | {r['rows']:,}{tag} | {r['wall_s']:.1f}초 | {r['rows_per_s']:,}행/초 | {r['peak_rss_mb']:,} MB | {1024 * r['peak_rss_mb'] / r['rows']:.1f} KB |")
+    r3 = [bget("final", d, "n300000") for d in ("nyc311", "nps")]
+    kb = [1024 * r["peak_rss_mb"] / r["rows"] for r in r3 if r and r["status"] == "ok"]
+    w(f"\n시간은 행 수에 대해 선형 이하로 는다. 10만 행까지 초당 약 1,000–1,400행이고, 30만 행에서 더 빨라 보이는 건 `--xlsx-rows` 기본값(10만 행) 때문에 워크북 쓰기가 미리보기에서 멈추기 때문이다"
+      f"(nyc311 write 단계 10만 행 {st('final', 'nyc311', 'n100000', 'write'):.0f}초, 30만 행 {st('final', 'nyc311', 'n300000', 'write'):.0f}초). 작은 파일의 행당 메모리가 큰 건 고정 비용(파이썬·라이브러리 약 50 MB) 때문이다. "
+      f"30만 행에서 행당 {min(kb):.1f}–{max(kb):.1f} KB라서 2.2 GB에는 약 {2200 // max(kb) * 1024 // 1000 * 1000:,.0f}–{2200 // min(kb) * 1024 // 1000 * 1000:,.0f}행까지 들어간다. 그 이상(국민연금 전체 58.9만 행, 311 100만 행)은 2.2 GB 상한에서 MemoryError로 멈췄다. 메모리를 더 주거나 파일을 나눠야 한다.\n")
+
+    w("### 14-3. 품질 감사 (정답표가 없는 데이터)\n")
+    w("정답이 없으니 `realworld/audit.py`로 **모든 변경**을 셋 중 하나로 분류했다. ① 기계적으로 값이 보존됐는지 증명되는 변경(숫자·날짜 자릿수 왕복, 공백, 자리표시, 숫자로 읽힌 ID의 텍스트화). ② 증명할 수 없는 변경은 고유한 before→after 매핑별로 묶어 사람이 판정(`realworld/judgments.json`). ③ 별도로 '조용한 손상' 스캔: 앞자리 0 손실, 숫자 반올림, 시각 날아감, 긴 코드가 실수/지수표기로, 자리표시가 아닌 값이 빈칸으로.\n")
+    w("| 세트 | 변경 수 (이전 → 이후) | 이후: 기계 검증 | 이후: 매핑 판정 ok | 애매 | 틀림 (이전 → 이후) | 조용한 손상 (이전) | 리뷰 큐 (이전 → 이후) |\n|---|---|---|---|---|---|---|---|")
+    tot_ch = tot_wrong = tot_maps = 0
+    for k in sorted(AUD.get("final", {})):
+        f, b = AUD["final"][k], AUD.get("before", {}).get(k)
+        v = f.get("verdicts", {})
+        bw = (b or {}).get("verdicts", {}).get("wrong", 0)
+        bd = ", ".join(f"{x} {n:,}" for x, n in (b or {}).get("silent_damage", {}).items()) or "없음"
+        if b:
+            pre_ch, pre_wr, pre_dmg, pre_rev = f"{b['changes']:,}", f"{bw:,} ({b.get('wrong_rate') or 0:.1%})", bd, f"{b['review']:,}"
+        else:
+            pre_ch = pre_wr = pre_dmg = pre_rev = "실행 실패"
+        w(f"| {k} | {pre_ch} → {f['changes']:,} | {v.get('mechanical', 0):,} | {v.get('ok', 0):,} | {v.get('debatable', 0):,} | "
+          f"{pre_wr} → **{v.get('wrong', 0):,}** | {pre_dmg} | {pre_rev} → {f['review']:,} |")
+        if not k.startswith("nps_naive"):
+            tot_ch += f["changes"]
+            tot_wrong += v.get("wrong", 0)
+    w("")
+    deb = AUD["final"].get("nyc311:n10000", {}).get("verdicts", {}).get("debatable", 0)
+    n_ms = len(MS["items"])
+    w(f"- 이후 엔진 기준, 겹치지 않는 6개 세트의 변경 **{tot_ch:,}건 중 틀림 {tot_wrong}건**. 판정이 필요한 변경은 고유 매핑 단위로 전부 판정했고(미판정 0), 손상 스캔도 0건이다. "
+      f"'애매' {deb}건은 nyc311 계약서에 내가 적은 동의어(Restaurant/Bar/Deli/Bakery→Club/Bar/Restaurant, Business→Commercial)라서 엔진이 아니라 계약서의 판단이다.")
+    w(f"- 무작위 확인: 기계 검증이 안 되는 변경에서 (세트, 규칙)별로 최대 4건씩 {n_ms}건을 뽑아(seed 11) 직접 읽었다. {n_ms}건 모두 맞았다(`realworld/results/manual_sample.json`). "
+      f"0/{n_ms}의 95% 상한은 3/{n_ms} ≈ {3 / max(n_ms, 1):.0%}로 이 표본만으로는 넓다. 오류율 0의 근거는 표본이 아니라 '모든 변경을 기계 증명 또는 매핑 판정으로 덮었다'는 전수 분류이고, 표본은 그 판정이 맞는지 보는 점검이다. "
+      "한계: 매핑 판정은 내가 했고, 감사는 '바꾼 것'만 본다. 고쳐야 했는데 안 바꾼 것(놓침)은 정답표가 없어 재지 못했고, 대신 리뷰 큐 크기로 드러난다.")
+    w("- nps_naive의 리뷰가 27 → 7,686으로 는 것은 의도한 결과다. 앞자리 0을 지우는 대신 플래그로 올리고, Review patterns 시트에서 한 패턴(컬럼 타입 실수)으로 묶여 보인다. '이전' 열의 틀림은 전부 실제로 잡힌 버그다: census 각주 배너가 인구 컬럼에 복사됨(31건 중 25건), nyc311 위경도 소수 15자리가 10자리로 반올림(19,862건), 잘못된 계약서(nps_naive)에서 앞자리 0 손실(7,659건). 지금은 모두 0이다.\n")
+
+    w("### 14-4. 찾은 문제 (영향 큰 순)와 처리 여부\n")
+    w("| # | 문제 | 어디서 | 영향 | 상태 |\n|---|---|---|---|---|")
+    issues = [
+        ("위경도 등 긴 소수를 숫자로 바꿀 때 반올림 (자릿수 손실)", "nyc311", "19,862셀 조용히 변경", "고침: 파싱한 숫자를 반올림하지 않음"),
+        ("ISO 날짜+시각(`2024-02-19T14:30:00`)을 날짜로 못 읽어 날짜 칸 전부가 리뷰로", "nyc311", "리뷰 20,256건(행당 2건)", "고침: 자정이 아닌 시각은 datetime으로 유지. 리뷰 20,256 → 304"),
+        ("밀린 행 탐지가 셀마다 퍼지 매칭 재계산", "nyc311", "86행/초, 100만 행이면 3시간+", "고침: 값별 메모이즈"),
+        ("헤더 탐색이 행 수 × 별칭 수", "nps, nhis", "structure 단계 16–26초", "고침: 별칭 조각 인덱스로 가지치기"),
+        ("xlsx 전체를 메모리에 올림", "nycsales 17만 행", "2.2 GB에서 MemoryError", "고침: 스트리밍 읽기/쓰기, `--xlsx-rows` 미리보기"),
+        ("cp1252 파일에 정의 안 된 바이트 몇 개 → 문자셋 감지가 cp775로 오판", "phm", "모든 악센트 단어 깨짐(née→nķe), 경고 없음", "고침: 소수의 구멍은 허용, 실행 로그에 기록"),
+        ("탭 파일을 쉼표로 스니핑", "phm", "헤더를 못 찾아 실행 실패", "고침: .tsv는 탭, 스니핑 결과를 헤더 폭으로 검증"),
+        ("표 아래 병합된 각주 배너(Suggested Citation 등)를 데이터로 병합 채움", "census", "인구 컬럼 25셀에 문장 복사", "고침: 3칸 이상 병합된 반복 라벨/긴 문장은 NOTE"),
+        ("앞자리 0 코드를 number로 적은 계약서 → 0 손실", "nps_naive", "7,659셀", "고침: 앞자리 0 텍스트는 변환하지 않고 R2로 플래그. 리뷰 패턴 시트가 '컬럼 전체가 같은 문제'로 묶어 보여줌"),
+        ("같은 이름의 구(중구·동구·고성군)가 중복 의심으로", "nhis", "가짜 중복 3,504건", "고침(계약서): suspect_keys에 시도 포함, SKILL.md에 규칙으로 명시"),
+        ("소계 규칙이 '소계동', '(주)소계상사', 'Summers County'까지 잡을 위험", "nps, census", "데이터 행 삭제 위험", "고침: 소계/합계/총계는 단어 단위로만"),
+        ("NFKC가 분수·첨자·호환 자모를 바꿈 (`2½`→`21⁄2`)", "phm", "값 의미 변경", "고침: 해당 문자는 NFKC에서 제외"),
+        ("리뷰 항목이 수천 개면 사람이 못 봄", "nyc311, nhis", "리뷰 3천–2만 건", "고침: `Review patterns` 시트(테이블·컬럼·플래그별 묶음과 힌트)"),
+        ("행당 메모리 약 5–6 KB (30만 행 기준)", "nps 전체, 311 100만", "2.2 GB에서 MemoryError", "**미해결**: 전체 테이블을 파이썬 객체로 들고 있음. 메모리를 늘리거나 파일을 나눠야 함"),
+        ("xlsx 쓰기가 전체 시간의 절반 이상", "모든 대형 세트", "10만 행에 약 45초", "**부분 해결**: 미리보기 상한으로 완화, 근본적으로는 openpyxl 한계"),
+        ("소계 행은 삭제 후 대사(reconcile)", "nhis", "합계 행 1,602개가 정리본에서 빠짐", "설계대로(Dropped rows와 Reconcile에 남음). 합계 행이 필요하면 원본/Dropped rows에서 봐야 함"),
+    ]
+    for i, (p, where, eff, st) in enumerate(issues, 1):
+        w(f"| {i} | {p} | {where} | {eff} | {st} |")
+    w("\n### 14-5. 남은 한계\n")
+    w("- 메모리: 30만 행 기준 행당 약 5–6 KB, 2.2 GB에 약 40만 행. 100만 행은 수 GB가 필요하거나 나눠서 돌려야 한다(14-2 표의 8 GB 상한 실행 참고). 순수 파이썬이라 속도는 초당 1–1.6천 행이다.")
+    w("- 품질 감사는 '바꾼 것이 맞나'만 잰다. '고쳐야 했는데 놓친 것'은 실제 데이터에 정답표가 없어 재지 못했다. 그건 리뷰 큐와 Review patterns 크기로 드러난다.")
+    w("- 실제 데이터 계약서는 내가 프로파일을 보고 썼다. 동의어 판단 2개(14-3의 '애매')처럼 계약서가 틀리면 엔진은 그대로 따른다.")
+    w("- LLM 레이어는 리얼월드 테스트에서 끄고 돌렸다(규칙만). 큰 파일에서 LLM 호출 수·비용은 재지 않았다.")
+    w("- 재현: `bash scripts/fetch_realworld.sh` 후 `python3 realworld/bench.py ...`, `python3 realworld/collect.py final=<out>` (README 참고).\n")
 (ROOT / "REPORT.md").write_text("\n".join(L) + "\n", encoding="utf-8")
 print(f"wrote {ROOT / 'REPORT.md'} ({len(L)} lines)")

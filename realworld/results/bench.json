@@ -794,5 +794,427 @@
    "MemoryError"
   ],
   "label": "after2"
+ },
+ {
+  "dataset": "census",
+  "subset": "full",
+  "status": "ok",
+  "rows": 3155,
+  "wall_s": 0.98,
+  "rows_per_s": 3217,
+  "peak_rss_mb": 63,
+  "stages": {
+   "read": 0.329,
+   "structure": 0.042,
+   "text": 0.022,
+   "shift": 0.021,
+   "types": 0.045,
+   "llm": 0.0,
+   "required": 0.001,
+   "dedup": 0.005,
+   "checks": 0.0,
+   "joins": 0.0,
+   "reconcile": 0.0,
+   "self_check": 0.039,
+   "write": 0.224
+  },
+  "tail": [
+   "PASS counties: every changed cell has a consistent change chain (0 broken chains, 0 unlogged changes)",
+   "PASS counties: no value became blank except placeholders (0 cells)",
+   "wrote /workspace/rw/out_final/census/full"
+  ],
+  "label": "final"
+ },
+ {
+  "dataset": "nps",
+  "subset": "n10000",
+  "status": "ok",
+  "rows": 10001,
+  "wall_s": 9.57,
+  "rows_per_s": 1045,
+  "peak_rss_mb": 143,
+  "stages": {
+   "read": 0.054,
+   "structure": 0.394,
+   "text": 0.606,
+   "shift": 0.165,
+   "types": 1.2,
+   "llm": 0.0,
+   "required": 0.01,
+   "dedup": 0.067,
+   "checks": 0.0,
+   "joins": 0.0,
+   "reconcile": 0.0,
+   "self_check": 0.993,
+   "write": 5.853
+  },
+  "tail": [
+   "PASS workplaces: every changed cell has a consistent change chain (0 broken chains, 0 unlogged changes)",
+   "PASS workplaces: no value became blank except placeholders (0 cells)",
+   "wrote /workspace/rw/out_final/nps/n10000"
+  ],
+  "label": "final"
+ },
+ {
+  "dataset": "nyc311",
+  "subset": "n10000",
+  "status": "ok",
+  "rows": 10188,
+  "wall_s": 8.68,
+  "rows_per_s": 1174,
+  "peak_rss_mb": 146,
+  "stages": {
+   "read": 0.038,
+   "structure": 0.144,
+   "text": 0.435,
+   "shift": 0.199,
+   "types": 0.773,
+   "llm": 0.0,
+   "required": 0.006,
+   "dedup": 0.067,
+   "checks": 0.0,
+   "joins": 0.011,
+   "reconcile": 0.0,
+   "self_check": 0.501,
+   "write": 6.271
+  },
+  "tail": [
+   "PASS sr: every changed cell has a consistent change chain (0 broken chains, 0 unlogged changes)",
+   "PASS sr: no value became blank except placeholders (0 cells)",
+   "wrote /workspace/rw/out_final/nyc311/n10000"
+  ],
+  "label": "final"
+ },
+ {
+  "dataset": "nhis",
+  "subset": "full",
+  "status": "ok",
+  "rows": 34652,
+  "wall_s": 21.54,
+  "rows_per_s": 1609,
+  "peak_rss_mb": 324,
+  "stages": {
+   "read": 4.24,
+   "structure": 0.884,
+   "text": 0.954,
+   "shift": 0.279,
+   "types": 0.988,
+   "llm": 0.0,
+   "required": 0.015,
+   "dedup": 0.176,
+   "checks": 0.0,
+   "joins": 0.0,
+   "reconcile": 0.0,
+   "self_check": 1.094,
+   "write": 12.629
+  },
+  "tail": [
+   "PASS cancer_2023: every changed cell has a consistent change chain (0 broken chains, 0 unlogged changes)",
+   "PASS cancer_2023: no value became blank except placeholders (0 cells)",
+   "wrote /workspace/rw/out_final/nhis/full"
+  ],
+  "label": "final"
+ },
+ {
+  "dataset": "phm",
+  "subset": "full",
+  "status": "ok",
+  "rows": 75815,
+  "wall_s": 62.3,
+  "rows_per_s": 1217,
+  "peak_rss_mb": 631,
+  "stages": {
+   "read": 2.91,
+   "structure": 4.356,
+   "text": 7.783,
+   "shift": 0.691,
+   "types": 14.416,
+   "llm": 0.0,
+   "required": 0.048,
+   "dedup": 0.516,
+   "checks": 0.0,
+   "joins": 0.0,
+   "reconcile": 0.0,
+   "self_check": 14.516,
+   "write": 16.718
+  },
+  "tail": [
+   "PASS objects: every changed cell has a consistent change chain (0 broken chains, 0 unlogged changes)",
+   "PASS objects: no value became blank except placeholders (0 cells)",
+   "wrote /workspace/rw/out_final/phm/full"
+  ],
+  "label": "final"
+ },
+ {
+  "dataset": "nycsales",
+  "subset": "full",
+  "status": "ok",
+  "rows": 169918,
+  "wall_s": 108.26,
+  "rows_per_s": 1570,
+  "peak_rss_mb": 647,
+  "stages": {
+   "read": 33.694,
+   "structure": 4.205,
+   "text": 4.772,
+   "shift": 1.587,
+   "types": 9.668,
+   "llm": 0.0,
+   "required": 0.179,
+   "dedup": 1.011,
+   "checks": 0.0,
+   "joins": 0.0,
+   "reconcile": 0.0,
+   "self_check": 8.936,
+   "write": 43.506
+  },
+  "tail": [
+   "PASS s2023_staten_island: every changed cell has a consistent change chain (0 broken chains, 0 unlogged changes)",
+   "PASS s2023_staten_island: no value became blank except placeholders (0 cells)",
+   "wrote /workspace/rw/out_final/nycsales/full"
+  ],
+  "label": "final"
+ },
+ {
+  "dataset": "nyc311",
+  "subset": "n100000",
+  "status": "ok",
+  "rows": 100188,
+  "wall_s": 71.59,
+  "rows_per_s": 1399,
+  "peak_rss_mb": 705,
+  "stages": {
+   "read": 0.525,
+   "structure": 2.076,
+   "text": 4.352,
+   "shift": 1.882,
+   "types": 8.77,
+   "llm": 0.0,
+   "required": 0.094,
+   "dedup": 1.158,
+   "checks": 0.0,
+   "joins": 0.185,
+   "reconcile": 0.0,
+   "self_check": 6.036,
+   "write": 46.06
+  },
+  "tail": [
+   "PASS sr: every changed cell has a consistent change chain (0 broken chains, 0 unlogged changes)",
+   "PASS sr: no value became blank except placeholders (0 cells)",
+   "wrote /workspace/rw/out_final/nyc311/n100000"
+  ],
+  "label": "final"
+ },
+ {
+  "dataset": "nyc311",
+  "subset": "n300000",
+  "status": "ok",
+  "rows": 300188,
+  "wall_s": 139.16,
+  "rows_per_s": 2157,
+  "peak_rss_mb": 1411,
+  "stages": {
+   "read": 1.472,
+   "structure": 6.784,
+   "text": 13.361,
+   "shift": 4.793,
+   "types": 28.11,
+   "llm": 0.0,
+   "required": 0.275,
+   "dedup": 3.489,
+   "checks": 0.0,
+   "joins": 0.576,
+   "reconcile": 0.0,
+   "self_check": 19.641,
+   "write": 59.878
+  },
+  "tail": [
+   "PASS sr: every changed cell has a consistent change chain (0 broken chains, 0 unlogged changes)",
+   "PASS sr: no value became blank except placeholders (0 cells)",
+   "wrote /workspace/rw/out_final/nyc311/n300000"
+  ],
+  "label": "final"
+ },
+ {
+  "dataset": "nps",
+  "subset": "n100000",
+  "status": "ok",
+  "rows": 100001,
+  "wall_s": 72.87,
+  "rows_per_s": 1372,
+  "peak_rss_mb": 832,
+  "stages": {
+   "read": 0.641,
+   "structure": 3.962,
+   "text": 5.843,
+   "shift": 1.471,
+   "types": 12.029,
+   "llm": 0.0,
+   "required": 0.107,
+   "dedup": 0.884,
+   "checks": 0.0,
+   "joins": 0.0,
+   "reconcile": 0.0,
+   "self_check": 10.042,
+   "write": 37.463
+  },
+  "tail": [
+   "PASS workplaces: every changed cell has a consistent change chain (0 broken chains, 0 unlogged changes)",
+   "PASS workplaces: no value became blank except placeholders (0 cells)",
+   "wrote /workspace/rw/out_final/nps/n100000"
+  ],
+  "label": "final"
+ },
+ {
+  "dataset": "nps",
+  "subset": "n1000",
+  "status": "ok",
+  "rows": 1001,
+  "wall_s": 1.11,
+  "rows_per_s": 898,
+  "peak_rss_mb": 62,
+  "stages": {
+   "read": 0.013,
+   "structure": 0.036,
+   "text": 0.06,
+   "shift": 0.016,
+   "types": 0.114,
+   "llm": 0.0,
+   "required": 0.001,
+   "dedup": 0.007,
+   "checks": 0.0,
+   "joins": 0.0,
+   "reconcile": 0.0,
+   "self_check": 0.086,
+   "write": 0.584
+  },
+  "tail": [
+   "PASS workplaces: every changed cell has a consistent change chain (0 broken chains, 0 unlogged changes)",
+   "PASS workplaces: no value became blank except placeholders (0 cells)",
+   "wrote /workspace/rw/out_final/nps/n1000"
+  ],
+  "label": "final"
+ },
+ {
+  "dataset": "nyc311",
+  "subset": "n1000",
+  "status": "ok",
+  "rows": 1188,
+  "wall_s": 0.97,
+  "rows_per_s": 1218,
+  "peak_rss_mb": 60,
+  "stages": {
+   "read": 0.005,
+   "structure": 0.014,
+   "text": 0.043,
+   "shift": 0.022,
+   "types": 0.075,
+   "llm": 0.0,
+   "required": 0.001,
+   "dedup": 0.006,
+   "checks": 0.0,
+   "joins": 0.001,
+   "reconcile": 0.0,
+   "self_check": 0.049,
+   "write": 0.563
+  },
+  "tail": [
+   "PASS sr: every changed cell has a consistent change chain (0 broken chains, 0 unlogged changes)",
+   "PASS sr: no value became blank except placeholders (0 cells)",
+   "wrote /workspace/rw/out_final/nyc311/n1000"
+  ],
+  "label": "final"
+ },
+ {
+  "dataset": "nps_naive",
+  "subset": "n10000",
+  "status": "ok",
+  "rows": 10001,
+  "wall_s": 10.19,
+  "rows_per_s": 982,
+  "peak_rss_mb": 160,
+  "stages": {
+   "read": 0.065,
+   "structure": 0.35,
+   "text": 0.568,
+   "shift": 0.243,
+   "types": 1.178,
+   "llm": 0.0,
+   "required": 0.01,
+   "dedup": 0.067,
+   "checks": 0.0,
+   "joins": 0.0,
+   "reconcile": 0.0,
+   "self_check": 0.888,
+   "write": 6.61
+  },
+  "tail": [
+   "PASS workplaces: every changed cell has a consistent change chain (0 broken chains, 0 unlogged changes)",
+   "PASS workplaces: no value became blank except placeholders (0 cells)",
+   "wrote /workspace/rw/out_final/nps_naive/n10000"
+  ],
+  "label": "final"
+ },
+ {
+  "dataset": "nps",
+  "subset": "n300000",
+  "status": "ok",
+  "rows": 300001,
+  "wall_s": 159.96,
+  "rows_per_s": 1875,
+  "peak_rss_mb": 1661,
+  "stages": {
+   "read": 1.979,
+   "structure": 12.63,
+   "text": 17.719,
+   "shift": 4.252,
+   "types": 38.894,
+   "llm": 0.0,
+   "required": 0.354,
+   "dedup": 2.622,
+   "checks": 0.0,
+   "joins": 0.0,
+   "reconcile": 0.0,
+   "self_check": 31.936,
+   "write": 48.746
+  },
+  "tail": [
+   "PASS workplaces: every changed cell has a consistent change chain (0 broken chains, 0 unlogged changes)",
+   "PASS workplaces: no value became blank except placeholders (0 cells)",
+   "wrote /workspace/rw/out_final/nps/n300000"
+  ],
+  "label": "final"
+ },
+ {
+  "dataset": "nps",
+  "subset": "full",
+  "status": "MemoryError",
+  "rows": 0,
+  "wall_s": 151.56,
+  "rows_per_s": null,
+  "peak_rss_mb": null,
+  "stages": {},
+  "tail": [
+   "object type name: MemoryError",
+   "object repr     : MemoryError()",
+   "lost sys.stderr"
+  ],
+  "label": "final"
+ },
+ {
+  "dataset": "nyc311",
+  "subset": "n1000000",
+  "status": "MemoryError",
+  "rows": 0,
+  "wall_s": 88.13,
+  "rows_per_s": null,
+  "peak_rss_mb": null,
+  "stages": {},
+  "tail": [
+   "    memo[key] = g(v)",
+   "    ~~~~^^^^^",
+   "MemoryError"
+  ],
+  "label": "final"
  }
 ]

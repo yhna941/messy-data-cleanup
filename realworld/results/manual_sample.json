@@ -1,0 +1,198 @@
+{
+ "seed": 11,
+ "note": "stratified by (dataset, rule), up to 4 per stratum, drawn only from changes audit.py could not verify mechanically; read by hand",
+ "items": [
+  {
+   "set": "nhis/full",
+   "rule": "S2-MERGE",
+   "column": "sido",
+   "before": "None",
+   "after": "'경상남도'",
+   "verdict": "ok"
+  },
+  {
+   "set": "nhis/full",
+   "rule": "S2-MERGE",
+   "column": "sido",
+   "before": "None",
+   "after": "'서울특별시'",
+   "verdict": "ok"
+  },
+  {
+   "set": "nhis/full",
+   "rule": "S2-MERGE",
+   "column": "sido",
+   "before": "None",
+   "after": "'경상남도'",
+   "verdict": "ok"
+  },
+  {
+   "set": "nhis/full",
+   "rule": "S2-MERGE",
+   "column": "sido",
+   "before": "None",
+   "after": "'충청남도'",
+   "verdict": "ok"
+  },
+  {
+   "set": "nps/n10000",
+   "rule": "T1-NFKC",
+   "column": "name",
+   "before": "'（주）야심'",
+   "after": "'(주)야심'",
+   "verdict": "ok"
+  },
+  {
+   "set": "nps/n10000",
+   "rule": "T1-NFKC",
+   "column": "name",
+   "before": "'CJ씨푸드(주）'",
+   "after": "'CJ씨푸드(주)'",
+   "verdict": "ok"
+  },
+  {
+   "set": "nps/n10000",
+   "rule": "T1-NFKC",
+   "column": "name",
+   "before": "'(사）한국섬유수출입협회'",
+   "after": "'(사)한국섬유수출입협회'",
+   "verdict": "ok"
+  },
+  {
+   "set": "nps/n10000",
+   "rule": "T1-NFKC",
+   "column": "name",
+   "before": "'광성피앤드씨（주）'",
+   "after": "'광성피앤드씨(주)'",
+   "verdict": "ok"
+  },
+  {
+   "set": "nyc311/n10000",
+   "rule": "C1-ALIAS",
+   "column": "location_type",
+   "before": "'Store/Commercial'",
+   "after": "'Commercial'",
+   "verdict": "ok"
+  },
+  {
+   "set": "nyc311/n10000",
+   "rule": "C1-ALIAS",
+   "column": "location_type",
+   "before": "'Residential Building/House'",
+   "after": "'Residential Building'",
+   "verdict": "ok"
+  },
+  {
+   "set": "nyc311/n10000",
+   "rule": "C1-ALIAS",
+   "column": "location_type",
+   "before": "'Residential Building/House'",
+   "after": "'Residential Building'",
+   "verdict": "ok"
+  },
+  {
+   "set": "nyc311/n10000",
+   "rule": "C1-ALIAS",
+   "column": "location_type",
+   "before": "'Residential Building/House'",
+   "after": "'Residential Building'",
+   "verdict": "ok"
+  },
+  {
+   "set": "nyc311/n10000",
+   "rule": "C1-CANON",
+   "column": "location_type",
+   "before": "'RESIDENTIAL BUILDING'",
+   "after": "'Residential Building'",
+   "verdict": "ok"
+  },
+  {
+   "set": "nyc311/n10000",
+   "rule": "C1-CANON",
+   "column": "location_type",
+   "before": "'RESIDENTIAL BUILDING'",
+   "after": "'Residential Building'",
+   "verdict": "ok"
+  },
+  {
+   "set": "nyc311/n10000",
+   "rule": "C1-CANON",
+   "column": "location_type",
+   "before": "'RESIDENTIAL BUILDING'",
+   "after": "'Residential Building'",
+   "verdict": "ok"
+  },
+  {
+   "set": "nyc311/n10000",
+   "rule": "C1-CANON",
+   "column": "location_type",
+   "before": "'RESIDENTIAL BUILDING'",
+   "after": "'Residential Building'",
+   "verdict": "ok"
+  },
+  {
+   "set": "nyc311/n10000",
+   "rule": "C1-FUZZY",
+   "column": "location_type",
+   "before": "'Comercial'",
+   "after": "'Commercial'",
+   "verdict": "ok"
+  },
+  {
+   "set": "nyc311/n10000",
+   "rule": "C1-FUZZY",
+   "column": "location_type",
+   "before": "'Comercial'",
+   "after": "'Commercial'",
+   "verdict": "ok"
+  },
+  {
+   "set": "nyc311/n10000",
+   "rule": "C1-FUZZY",
+   "column": "location_type",
+   "before": "'Comercial'",
+   "after": "'Commercial'",
+   "verdict": "ok"
+  },
+  {
+   "set": "nyc311/n10000",
+   "rule": "C1-FUZZY",
+   "column": "location_type",
+   "before": "'Comercial'",
+   "after": "'Commercial'",
+   "verdict": "ok"
+  },
+  {
+   "set": "phm/full",
+   "rule": "T1-NFKC",
+   "column": "marks",
+   "before": "'Photographer\\'s stamp on reverse, \\'E. A. BRADFOR",
+   "after": "'Photographer\\'s stamp on reverse, \\'E. A. BRADFOR",
+   "verdict": "ok"
+  },
+  {
+   "set": "phm/full",
+   "rule": "T1-NFKC",
+   "column": "description",
+   "before": "'Slide rule, BRL HF55 - Tarrant Hydraulic, special",
+   "after": "'Slide rule, BRL HF55 - Tarrant Hydraulic, special",
+   "verdict": "ok"
+  },
+  {
+   "set": "phm/full",
+   "rule": "T1-NFKC",
+   "column": "marks",
+   "before": "\"Hat: three white fabric labels inside back of hat",
+   "after": "\"Hat: three white fabric labels inside back of hat",
+   "verdict": "ok"
+  },
+  {
+   "set": "phm/full",
+   "rule": "T1-NFKC",
+   "column": "marks",
+   "before": "'Lines drawn in white paint on the image indicatin",
+   "after": "'Lines drawn in white paint on the image indicatin",
+   "verdict": "ok"
+  }
+ ]
+}

@@ -1,0 +1,56 @@
+[
+ {
+  "set": "nyc311",
+  "name": "NYC 311 서비스 요청 (2024-01 이후 100만 건, 14개 컬럼)",
+  "url": "https://data.cityofnewyork.us/Social-Services/311-Service-Requests-from-2010-to-Present/erm2-nwe9",
+  "format": "CSV",
+  "mb": 212.5,
+  "rows": 1000000,
+  "mess": "시각이 붙은 ISO 날짜, 소수 15자리 위경도, 대소문자·표기 섞인 location_type, ZIP, 빈 값"
+ },
+ {
+  "set": "nps",
+  "name": "국민연금공단 국민연금 가입 사업장 내역",
+  "url": "https://www.data.go.kr/data/15083277/fileData.do",
+  "format": "CSV (cp949)",
+  "mb": 109.8,
+  "rows": 589413,
+  "mess": "cp949, 전각 괄호 상호명((주)/（주）), 앞자리 0 코드(우편번호·업종코드·법정동코드), 공백"
+ },
+ {
+  "set": "nycsales",
+  "name": "NYC 재무국 연간 부동산 거래 2022–2023 (5개 자치구 × 2년 → 시트 10개)",
+  "url": "https://www.nyc.gov/site/finance/property/property-annualized-sales-update.page",
+  "format": "XLSX",
+  "mb": 17.2,
+  "rows": 169918,
+  "mess": "시트마다 제목·안내 배너 7줄, 헤더 위치, 숫자로 저장된 ZIP, 0원 거래"
+ },
+ {
+  "set": "nhis",
+  "name": "국민건강보험공단 시군구별 국가건강검진 현황 (워크북 3개, 연도별 시트)",
+  "url": "https://www.data.go.kr/data/15149732/fileData.do",
+  "format": "XLSX",
+  "mb": 6.4,
+  "rows": 34652,
+  "mess": "세로 병합된 시도·시군구·연령, 시군구마다 '합계' 행, '-' 자리표시, 2줄 헤더, 같은 이름의 구(중구·동구)"
+ },
+ {
+  "set": "census",
+  "name": "US Census 카운티 인구 추계 2020–2023",
+  "url": "https://www2.census.gov/programs-surveys/popest/tables/2020-2023/counties/totals/co-est2023-pop.xlsx",
+  "format": "XLSX",
+  "mb": 0.2,
+  "rows": 3155,
+  "mess": "제목, 2줄 헤더, '.Autauga County, Alabama' 형식, 합계 행, 표 아래 병합된 각주 배너"
+ },
+ {
+  "set": "phm",
+  "name": "Powerhouse Museum 소장품 목록 (OpenRefine 튜토리얼 원본)",
+  "url": "https://programminghistorian.org/en/lessons/cleaning-data-with-openrefine",
+  "format": "TSV (cp1252)",
+  "mb": 56.2,
+  "rows": 75815,
+  "mess": "cp1252인데 정의 안 된 바이트 몇 개, 탭 구분인데 쉼표로 오인되기 쉬움, 중복 행, 줄임표·µ"
+ }
+]

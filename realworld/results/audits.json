@@ -1212,5 +1212,1230 @@
    },
    "wrong_rate": 0.75896
   }
+ },
+ "final": {
+  "census:full": {
+   "changes": 0,
+   "changes_by_rule": {},
+   "damage_examples": {},
+   "debatable_rate": null,
+   "dropped_by_kind": {
+    "header": 2,
+    "note": 6,
+    "title": 2
+   },
+   "dup_groups": 0,
+   "mappings": [],
+   "review": 0,
+   "review_patterns": 0,
+   "review_per_1k_rows": 0.0,
+   "rows_out": 3145,
+   "self_check_failed": [],
+   "silent_damage": {},
+   "top_review_patterns": [],
+   "verdicts": {
+    "mechanical": 0,
+    "wrong": 0
+   },
+   "wrong_rate": null
+  },
+  "nhis:full": {
+   "changes": 159170,
+   "changes_by_rule": {
+    "M1-PLACEHOLDER": 123255,
+    "S2-MERGE": 35915
+   },
+   "damage_examples": {},
+   "debatable_rate": 0.0,
+   "dropped_by_kind": {
+    "header": 22,
+    "subtotal": 1602,
+    "title": 22
+   },
+   "dup_groups": 0,
+   "mappings": [
+    [
+     "S2-MERGE|sido|None|'경기도'",
+     5539,
+     "ok"
+    ],
+    [
+     "S2-MERGE|sido|None|'서울특별시'",
+     3295,
+     "ok"
+    ],
+    [
+     "S2-MERGE|sido|None|'경상북도'",
+     3137,
+     "ok"
+    ],
+    [
+     "S2-MERGE|sido|None|'전라남도'",
+     2899,
+     "ok"
+    ],
+    [
+     "S2-MERGE|sido|None|'경상남도'",
+     2899,
+     "ok"
+    ],
+    [
+     "S2-MERGE|sido|None|'부산광역시'",
+     2107,
+     "ok"
+    ],
+    [
+     "S2-MERGE|sido|None|'충청남도'",
+     2107,
+     "ok"
+    ],
+    [
+     "S2-MERGE|sido|None|'전라북도'",
+     1975,
+     "ok"
+    ],
+    [
+     "S2-MERGE|sido|None|'강원도'",
+     1904,
+     "ok"
+    ],
+    [
+     "S2-MERGE|sido|None|'충청북도'",
+     1843,
+     "ok"
+    ],
+    [
+     "S2-MERGE|sido|None|'인천광역시'",
+     1315,
+     "ok"
+    ],
+    [
+     "S2-MERGE|sido|None|'대구광역시'",
+     1077,
+     "ok"
+    ],
+    [
+     "S2-MERGE|sido|None|'광주광역시'",
+     655,
+     "ok"
+    ],
+    [
+     "S2-MERGE|sido|None|'대전광역시'",
+     655,
+     "ok"
+    ],
+    [
+     "S2-MERGE|sido|None|'울산광역시'",
+     655,
+     "ok"
+    ],
+    [
+     "S2-MERGE|sido|None|'강원특별자치도'",
+     467,
+     "ok"
+    ],
+    [
+     "S2-MERGE|sido|None|'제주특별자치도'",
+     259,
+     "ok"
+    ],
+    [
+     "S2-MERGE|sido|None|'세종특별자치시'",
+     104,
+     "ok"
+    ],
+    [
+     "S2-MERGE|sigungu|None|'중구'",
+     72,
+     "ok"
+    ],
+    [
+     "S2-MERGE|sigungu|None|'동구'",
+     72,
+     "ok"
+    ],
+    [
+     "S2-MERGE|sigungu|None|'서구'",
+     60,
+     "ok"
+    ],
+    [
+     "S2-MERGE|sigungu|None|'남구'",
+     50,
+     "ok"
+    ],
+    [
+     "S2-MERGE|sigungu|None|'북구'",
+     48,
+     "ok"
+    ],
+    [
+     "S2-MERGE|sigungu|None|'강서구'",
+     24,
+     "ok"
+    ],
+    [
+     "S2-MERGE|sigungu|None|'고성군'",
+     24,
+     "ok"
+    ],
+    [
+     "S2-MERGE|sido|None|'세종특별시'",
+     23,
+     "ok"
+    ],
+    [
+     "S2-MERGE|sigungu|None|'종로구'",
+     12,
+     "ok"
+    ],
+    [
+     "S2-MERGE|sigungu|None|'용산구'",
+     12,
+     "ok"
+    ],
+    [
+     "S2-MERGE|sigungu|None|'성동구'",
+     12,
+     "ok"
+    ],
+    [
+     "S2-MERGE|sigungu|None|'광진구'",
+     12,
+     "ok"
+    ],
+    [
+     "S2-MERGE|sigungu|None|'동대문구'",
+     12,
+     "ok"
+    ],
+    [
+     "S2-MERGE|sigungu|None|'중랑구'",
+     12,
+     "ok"
+    ],
+    [
+     "S2-MERGE|sigungu|None|'성북구'",
+     12,
+     "ok"
+    ],
+    [
+     "S2-MERGE|sigungu|None|'강북구'",
+     12,
+     "ok"
+    ],
+    [
+     "S2-MERGE|sigungu|None|'도봉구'",
+     12,
+     "ok"
+    ],
+    [
+     "S2-MERGE|sigungu|None|'노원구'",
+     12,
+     "ok"
+    ],
+    [
+     "S2-MERGE|sigungu|None|'은평구'",
+     12,
+     "ok"
+    ],
+    [
+     "S2-MERGE|sigungu|None|'서대문구'",
+     12,
+     "ok"
+    ],
+    [
+     "S2-MERGE|sigungu|None|'마포구'",
+     12,
+     "ok"
+    ],
+    [
+     "S2-MERGE|sigungu|None|'양천구'",
+     12,
+     "ok"
+    ]
+   ],
+   "review": 6,
+   "review_patterns": 6,
+   "review_per_1k_rows": 0.2,
+   "rows_out": 33006,
+   "self_check_failed": [],
+   "silent_damage": {},
+   "top_review_patterns": [
+    [
+     "general_2018",
+     "sigungu",
+     "R7-REQUIRED",
+     1
+    ],
+    [
+     "general_2019",
+     "sigungu",
+     "R7-REQUIRED",
+     1
+    ],
+    [
+     "general_2020",
+     "sigungu",
+     "R7-REQUIRED",
+     1
+    ],
+    [
+     "general_2021",
+     "sigungu",
+     "R7-REQUIRED",
+     1
+    ],
+    [
+     "general_2022",
+     "sigungu",
+     "R7-REQUIRED",
+     1
+    ],
+    [
+     "general_2023",
+     "sigungu",
+     "R7-REQUIRED",
+     1
+    ]
+   ],
+   "verdicts": {
+    "mechanical": 123255,
+    "ok": 35915,
+    "wrong": 0
+   },
+   "wrong_rate": 0.0
+  },
+  "nps:n10000": {
+   "changes": 52322,
+   "changes_by_rule": {
+    "D1-DATE": 10279,
+    "M1-PLACEHOLDER": 271,
+    "N1-NUMBER": 40000,
+    "T1-NFKC": 38,
+    "T1-WS": 1734
+   },
+   "damage_examples": {},
+   "debatable_rate": 0.0,
+   "dropped_by_kind": {
+    "header": 1
+   },
+   "dup_groups": 4,
+   "mappings": [
+    [
+     "T1-NFKC|name|'대건운수(주）'|'대건운수(주)'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'（주）타워홀딩스'|'(주)타워홀딩스'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'일신하이폴리(주）'|'일신하이폴리(주)'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'（주）대진유통'|'(주)대진유통'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'（주）빌텍'|'(주)빌텍'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'（주)서연탑메탈'|'(주)서연탑메탈'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'（주）희앤썬'|'(주)희앤썬'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'에쓰오씨소프트 주식회사(SOC Soft Inc.）'|'에쓰오씨소프트 주식회사(SOC Soft Inc.)'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'아디다스코리아（유）'|'아디다스코리아(유)'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'（주）성동환경'|'(주)성동환경'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'（주）대한여행사'|'(주)대한여행사'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'(사）한국섬유수출입협회'|'(사)한국섬유수출입협회'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'CJ씨푸드(주）'|'CJ씨푸드(주)'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'한국에셋솔루션（주）목동9단지아파트'|'한국에셋솔루션(주)목동9단지아파트'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'해영글로벌로지스틱스(주）'|'해영글로벌로지스틱스(주)'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'DB생명보험（주）'|'DB생명보험(주)'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'(주）엘앤비인베스트먼트'|'(주)엘앤비인베스트먼트'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'신세계음향공업(주）'|'신세계음향공업(주)'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'지산（주）'|'지산(주)'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'（주）건축사사무소우리공간'|'(주)건축사사무소우리공간'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'세양물산（주）'|'세양물산(주)'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'(주）드림비'|'(주)드림비'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'현민아이디（주）'|'현민아이디(주)'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'(주）호성알앤피'|'(주)호성알앤피'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'주）에덴글라스'|'주)에덴글라스'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'㈜케이티나스미디어'|'(주)케이티나스미디어'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'（주）쓰리다임'|'(주)쓰리다임'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'（주）강남캐피탈대부'|'(주)강남캐피탈대부'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'（유）스튜어드파트너스'|'(유)스튜어드파트너스'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'그린지에스（주）'|'그린지에스(주)'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'고산공영（주）'|'고산공영(주)'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'인터젠컨설팅(주）'|'인터젠컨설팅(주)'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'광성피앤드씨（주）'|'광성피앤드씨(주)'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'대성건설（주）'|'대성건설(주)'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'（주）코렘시스'|'(주)코렘시스'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'（주）터치더월드'|'(주)터치더월드'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'한전케이피에스（주）서울경기전력지사'|'한전케이피에스(주)서울경기전력지사'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'（주）야심'|'(주)야심'",
+     1,
+     "ok"
+    ]
+   ],
+   "review": 27,
+   "review_patterns": 2,
+   "review_per_1k_rows": 2.7,
+   "rows_out": 10000,
+   "self_check_failed": [],
+   "silent_damage": {},
+   "top_review_patterns": [
+    [
+     "workplaces",
+     "zip",
+     "R5-INVALID",
+     19
+    ],
+    [
+     "workplaces",
+     "(row)",
+     "U2-SUSPECT",
+     8
+    ]
+   ],
+   "verdicts": {
+    "mechanical": 52284,
+    "ok": 38,
+    "wrong": 0
+   },
+   "wrong_rate": 0.0
+  },
+  "nps_naive:n10000": {
+   "changes": 64644,
+   "changes_by_rule": {
+    "D1-DATE": 10279,
+    "M1-PLACEHOLDER": 271,
+    "N1-NUMBER": 52322,
+    "T1-NFKC": 38,
+    "T1-WS": 1734
+   },
+   "damage_examples": {},
+   "debatable_rate": 0.0,
+   "dropped_by_kind": {
+    "header": 1
+   },
+   "dup_groups": 4,
+   "mappings": [
+    [
+     "T1-NFKC|name|'대건운수(주）'|'대건운수(주)'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'（주）타워홀딩스'|'(주)타워홀딩스'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'일신하이폴리(주）'|'일신하이폴리(주)'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'（주）대진유통'|'(주)대진유통'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'（주）빌텍'|'(주)빌텍'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'（주)서연탑메탈'|'(주)서연탑메탈'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'（주）희앤썬'|'(주)희앤썬'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'에쓰오씨소프트 주식회사(SOC Soft Inc.）'|'에쓰오씨소프트 주식회사(SOC Soft Inc.)'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'아디다스코리아（유）'|'아디다스코리아(유)'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'（주）성동환경'|'(주)성동환경'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'（주）대한여행사'|'(주)대한여행사'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'(사）한국섬유수출입협회'|'(사)한국섬유수출입협회'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'CJ씨푸드(주）'|'CJ씨푸드(주)'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'한국에셋솔루션（주）목동9단지아파트'|'한국에셋솔루션(주)목동9단지아파트'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'해영글로벌로지스틱스(주）'|'해영글로벌로지스틱스(주)'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'DB생명보험（주）'|'DB생명보험(주)'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'(주）엘앤비인베스트먼트'|'(주)엘앤비인베스트먼트'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'신세계음향공업(주）'|'신세계음향공업(주)'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'지산（주）'|'지산(주)'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'（주）건축사사무소우리공간'|'(주)건축사사무소우리공간'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'세양물산（주）'|'세양물산(주)'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'(주）드림비'|'(주)드림비'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'현민아이디（주）'|'현민아이디(주)'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'(주）호성알앤피'|'(주)호성알앤피'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'주）에덴글라스'|'주)에덴글라스'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'㈜케이티나스미디어'|'(주)케이티나스미디어'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'（주）쓰리다임'|'(주)쓰리다임'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'（주）강남캐피탈대부'|'(주)강남캐피탈대부'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'（유）스튜어드파트너스'|'(유)스튜어드파트너스'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'그린지에스（주）'|'그린지에스(주)'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'고산공영（주）'|'고산공영(주)'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'인터젠컨설팅(주）'|'인터젠컨설팅(주)'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'광성피앤드씨（주）'|'광성피앤드씨(주)'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'대성건설（주）'|'대성건설(주)'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'（주）코렘시스'|'(주)코렘시스'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'（주）터치더월드'|'(주)터치더월드'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'한전케이피에스（주）서울경기전력지사'|'한전케이피에스(주)서울경기전력지사'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|name|'（주）야심'|'(주)야심'",
+     1,
+     "ok"
+    ]
+   ],
+   "review": 7686,
+   "review_patterns": 3,
+   "review_per_1k_rows": 768.6,
+   "rows_out": 10000,
+   "self_check_failed": [],
+   "silent_damage": {},
+   "top_review_patterns": [
+    [
+     "workplaces",
+     "zip",
+     "R2-NUMBER",
+     7395
+    ],
+    [
+     "workplaces",
+     "industry_code",
+     "R2-NUMBER",
+     283
+    ],
+    [
+     "workplaces",
+     "(row)",
+     "U2-SUSPECT",
+     8
+    ]
+   ],
+   "verdicts": {
+    "mechanical": 64606,
+    "ok": 38,
+    "wrong": 0
+   },
+   "wrong_rate": 0.0
+  },
+  "nyc311:n10000": {
+   "changes": 46122,
+   "changes_by_rule": {
+    "C1-ALIAS": 2578,
+    "C1-CANON": 1536,
+    "C1-FUZZY": 21,
+    "D1-DATE": 19952,
+    "M1-PLACEHOLDER": 333,
+    "N1-NUMBER": 19862,
+    "T1-WS": 1840
+   },
+   "damage_examples": {},
+   "debatable_rate": 0.00085,
+   "dropped_by_kind": {
+    "header": 2
+   },
+   "dup_groups": 110,
+   "mappings": [
+    [
+     "C1-ALIAS|location_type|'Residential Building/House'|'Residential Building'",
+     1744,
+     "ok"
+    ],
+    [
+     "C1-CANON|location_type|'RESIDENTIAL BUILDING'|'Residential Building'",
+     1536,
+     "ok"
+    ],
+    [
+     "C1-ALIAS|location_type|'Street'|'Street/Sidewalk'",
+     315,
+     "ok"
+    ],
+    [
+     "C1-ALIAS|location_type|'Sidewalk'|'Street/Sidewalk'",
+     205,
+     "ok"
+    ],
+    [
+     "C1-ALIAS|location_type|'Store/Commercial'|'Commercial'",
+     152,
+     "ok"
+    ],
+    [
+     "C1-ALIAS|location_type|'3+ Family Apt. Building'|'Residential Building'",
+     45,
+     "ok"
+    ],
+    [
+     "C1-ALIAS|location_type|'Restaurant/Bar/Deli/Bakery'|'Club/Bar/Restaurant'",
+     27,
+     "debatable"
+    ],
+    [
+     "C1-ALIAS|location_type|'Park/Playground'|'Park'",
+     21,
+     "ok"
+    ],
+    [
+     "C1-FUZZY|location_type|'Comercial'|'Commercial'",
+     21,
+     "ok"
+    ],
+    [
+     "C1-ALIAS|location_type|'1-2 Family Dwelling'|'Residential Building'",
+     15,
+     "ok"
+    ],
+    [
+     "C1-ALIAS|location_type|'Other (Explain Below)'|'Other'",
+     12,
+     "ok"
+    ],
+    [
+     "C1-ALIAS|location_type|'Business'|'Commercial'",
+     12,
+     "debatable"
+    ],
+    [
+     "C1-ALIAS|location_type|'Residential'|'Residential Building'",
+     6,
+     "ok"
+    ],
+    [
+     "C1-ALIAS|location_type|'3+ Family Apartment Building'|'Residential Building'",
+     6,
+     "ok"
+    ],
+    [
+     "C1-ALIAS|location_type|'Commercial Building'|'Commercial'",
+     5,
+     "ok"
+    ],
+    [
+     "C1-ALIAS|location_type|'3+ Family Mixed Use Building'|'Mixed Use'",
+     4,
+     "ok"
+    ],
+    [
+     "C1-ALIAS|location_type|'Gutter'|'Street/Sidewalk'",
+     2,
+     "ok"
+    ],
+    [
+     "C1-ALIAS|location_type|'Crosswalk'|'Street/Sidewalk'",
+     2,
+     "ok"
+    ],
+    [
+     "C1-ALIAS|location_type|'Curb'|'Street/Sidewalk'",
+     2,
+     "ok"
+    ],
+    [
+     "C1-ALIAS|location_type|'Vacant Lot'|'Lot'",
+     1,
+     "ok"
+    ],
+    [
+     "C1-ALIAS|location_type|'Residence'|'Residential Building'",
+     1,
+     "ok"
+    ],
+    [
+     "C1-ALIAS|location_type|'Street/Curbside'|'Street/Sidewalk'",
+     1,
+     "ok"
+    ]
+   ],
+   "review": 304,
+   "review_patterns": 4,
+   "review_per_1k_rows": 29.8,
+   "rows_out": 10186,
+   "self_check_failed": [],
+   "silent_damage": {},
+   "top_review_patterns": [
+    [
+     "sr",
+     "unique_key",
+     "U2-SUSPECT",
+     248
+    ],
+    [
+     "sr",
+     "location_type",
+     "R4-CATEGORY",
+     31
+    ],
+    [
+     "sr",
+     "incident_zip",
+     "J2-ORPHAN",
+     21
+    ],
+    [
+     "sr",
+     "borough",
+     "R6-CROSS",
+     4
+    ]
+   ],
+   "verdicts": {
+    "debatable": 39,
+    "mechanical": 41987,
+    "ok": 4096,
+    "wrong": 0
+   },
+   "wrong_rate": 0.0
+  },
+  "nycsales:full": {
+   "changes": 169821,
+   "changes_by_rule": {
+    "I1-ID": 169821
+   },
+   "damage_examples": {},
+   "debatable_rate": 0.0,
+   "dropped_by_kind": {
+    "blank": 10,
+    "header": 10,
+    "title": 60
+   },
+   "dup_groups": 29,
+   "mappings": [],
+   "review": 68,
+   "review_patterns": 4,
+   "review_per_1k_rows": 0.4,
+   "rows_out": 169838,
+   "self_check_failed": [],
+   "silent_damage": {},
+   "top_review_patterns": [
+    [
+     "s2022_brooklyn",
+     "(row)",
+     "U2-SUSPECT",
+     45
+    ],
+    [
+     "s2023_brooklyn",
+     "(row)",
+     "U2-SUSPECT",
+     19
+    ],
+    [
+     "s2022_manhattan",
+     "(row)",
+     "U2-SUSPECT",
+     3
+    ],
+    [
+     "s2022_brooklyn",
+     "year_built",
+     "R2-NUMBER",
+     1
+    ]
+   ],
+   "verdicts": {
+    "mechanical": 169821,
+    "wrong": 0
+   },
+   "wrong_rate": 0.0
+  },
+  "phm:full": {
+   "changes": 123,
+   "changes_by_rule": {
+    "T1-NFKC": 77,
+    "T1-WS": 46
+   },
+   "damage_examples": {},
+   "debatable_rate": 0.0,
+   "dropped_by_kind": {
+    "duplicate": 86,
+    "header": 1
+   },
+   "dup_groups": 86,
+   "mappings": [
+    [
+     "T1-NFKC|marks|\"Stamp on reverse, 'WUNDERLICH/TERRA-COTTA FIREPLACE SURROUND/DESIGN No. …….' The number '5' in red ink on reverse.\"|\"Stamp on reverse, 'WUNDERLICH/TERRA-COTTA FIREPLACE SURROUND/DESIGN No. .......' The number '5' in red ink on reverse.\"",
+     2,
+     "ok"
+    ],
+    [
+     "T1-NFKC|description|'Slide rule with case and instructions, Crompton-Gallagher Boiler Efficiency, closed frame, wood / celluloid / cardboard / paper, made by Gallagher and Crompton Manchester, England, 1919 Slide rule, Crompton-Gallagher Boiler Efficiency, special construction, wood, closed frame, dual slides plus transverse sliding chart, single-sided. Wood, celluloid scale faces, in cloth covered card case with stencil printed instructions on Gallagher and Crompton letterhead, Manchester, UK, 1919 Crompton and Gallagher Boiler Efficiency Calculator. Crompton-Gallagher Patent No.128,878/1919 Scales: Stock, upper: (D) Calorific Value of Fuel, British Thermal Units (for low grade fuel, coal, Tar oil, Oils); Pounds of Water Evaporated per Lb. of Fuel Slide, upper stock: (Slide C) Factors of Evaporation, Efficiency %, Pounds of Water Evaporated … Stock, upper mid: (E) Lbs of Water Evaporated per Lb of Fuel Slide, lower: (Slide A) Temperature of Feed Water Stock, lower: (B) Factors of Evaporation. Corrected for Super Heat Transverse slide chart: Nomographs of Superheat Curves for Boiler Pressure and Temperature of Saturated Steam. Three values are needed to use the calculator; the observed Boiler Pressure, the observed Temperature of the Feed-water and the observed degree of superheat. The transverse chart is slid against the bevelled edge of the slide A until it stands at the line that represents the boiler pressure. Slide A is then slid across the chart until the observed feedwater temperature matches the point where the nomograph curve of the degree of superheat intersects the boiler pressure line. The gauge pointer of slide A will then point to the Evaporation Factor on scale B.'|'Slide rule with case and instructions, Crompton-Gallagher Boiler Efficiency, closed frame, wood / celluloid / cardboard / paper, made by Gallagher and Crompton Manchester, England, 1919 Slide rule, Crompton-Gallagher Boiler Efficiency, special construction, wood, closed frame, dual slides plus transverse sliding chart, single-sided. Wood, celluloid scale faces, in cloth covered card case with stencil printed instructions on Gallagher and Crompton letterhead, Manchester, UK, 1919 Crompton and Gallagher Boiler Efficiency Calculator. Crompton-Gallagher Patent No.128,878/1919 Scales: Stock, upper: (D) Calorific Value of Fuel, British Thermal Units (for low grade fuel, coal, Tar oil, Oils); Pounds of Water Evaporated per Lb. of Fuel Slide, upper stock: (Slide C) Factors of Evaporation, Efficiency %, Pounds of Water Evaporated ... Stock, upper mid: (E) Lbs of Water Evaporated per Lb of Fuel Slide, lower: (Slide A) Temperature of Feed Water Stock, lower: (B) Factors of Evaporation. Corrected for Super Heat Transverse slide chart: Nomographs of Superheat Curves for Boiler Pressure and Temperature of Saturated Steam. Three values are needed to use the calculator; the observed Boiler Pressure, the observed Temperature of the Feed-water and the observed degree of superheat. The transverse chart is slid against the bevelled edge of the slide A until it stands at the line that represents the boiler pressure. Slide A is then slid across the chart until the observed feedwater temperature matches the point where the nomograph curve of the degree of superheat intersects the boiler pressure line. The gauge pointer of slide A will then point to the Evaporation Factor on scale B.'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|description|'Slide rule, BRL HF55 - Tarrant Hydraulic, special purpose, promotional, duplex, open frame, metal / plastic, made by Blundell Rules Limited, England, 1956-1964 BRL (Blundell) HF55 - Tarrant Hydraulic Slide Rule: Flow in Open Channels - Janus Series Slide rule, special purpose, promotional, duplex, open frame, stamped metal straps, plastic, double-sided metal and acrylic cursor. In black leatherette covered wooden side-opening box with supports for slide rule. With instruction booklet and other notation sheets. Scales: obverse: Stock, upper: A, Flow (volume per unit of time) Slide: Pipe Diameter, Head Lost, C1 (coefficient of smoothness of pipe), Diameter Stock, lower: Length of Pipe, Velocity (of flow), Proportional Flow, … Depth, … Velocity reverse: Stock, upper: Velocity (of flow) Slide: Hydraulic Radius, Kutter\\'s \"n\", Diameter of Half Round Channel Stock, lower: Slope of Channel, Depth/Diameter, Area/Diameter.'|'Slide rule, BRL HF55 - Tarrant Hydraulic, special purpose, promotional, duplex, open frame, metal / plastic, made by Blundell Rules Limited, England, 1956-1964 BRL (Blundell) HF55 - Tarrant Hydraulic Slide Rule: Flow in Open Channels - Janus Series Slide rule, special purpose, promotional, duplex, open frame, stamped metal straps, plastic, double-sided metal and acrylic cursor. In black leatherette covered wooden side-opening box with supports for slide rule. With instruction booklet and other notation sheets. Scales: obverse: Stock, upper: A, Flow (volume per unit of time) Slide: Pipe Diameter, Head Lost, C1 (coefficient of smoothness of pipe), Diameter Stock, lower: Length of Pipe, Velocity (of flow), Proportional Flow, ... Depth, ... Velocity reverse: Stock, upper: Velocity (of flow) Slide: Hydraulic Radius, Kutter\\'s \"n\", Diameter of Half Round Channel Stock, lower: Slope of Channel, Depth/Diameter, Area/Diameter.'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|description|'Poster, \\'1938 Empire Games / Sydney\\', colour lithograph on paper, designed by Charles Meere, Sydney, New South Wales, Australia, 1938. Poster, 1938 Empire Games, colour lithograph on paper, designed by Charles Meere to advertise the 1938 Empire Games Sydney, rectangular poster in portrait format. The poster depicts a male athlete wearing black spiked shoes, white shorts with a red stripe down the side and a white T-shirt with a design of the Union Jack mid front. He is leaping over an aerial scene of Sydney Harbour, with the Harbour Bridge viewed below him. Signed lower right, \\'Charles Meere\\'. Text inscribed within poster, printed in black, red and white \"FEB. 5 … FEB. 12… / 1938 / EMPIRE GAMES / SYDNEY / CALLS YOU…/ AUSTRALIA\\'S 150 ANNIVERSARY / CELEBRATIONS / JANUARY 26 TO APRIL 25 1938\\''|'Poster, \\'1938 Empire Games / Sydney\\', colour lithograph on paper, designed by Charles Meere, Sydney, New South Wales, Australia, 1938. Poster, 1938 Empire Games, colour lithograph on paper, designed by Charles Meere to advertise the 1938 Empire Games Sydney, rectangular poster in portrait format. The poster depicts a male athlete wearing black spiked shoes, white shorts with a red stripe down the side and a white T-shirt with a design of the Union Jack mid front. He is leaping over an aerial scene of Sydney Harbour, with the Harbour Bridge viewed below him. Signed lower right, \\'Charles Meere\\'. Text inscribed within poster, printed in black, red and white \"FEB. 5 ... FEB. 12... / 1938 / EMPIRE GAMES / SYDNEY / CALLS YOU.../ AUSTRALIA\\'S 150 ANNIVERSARY / CELEBRATIONS / JANUARY 26 TO APRIL 25 1938\\''",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|marks|'Only part of the owner\\'s name is legible and reads \\'…ir.t-Bastet, born to…\\'. This is followed by the shabtis formula (Chapter 6, Book of the Dead) \"O, these shabtis, if one counts (me) off for (my)duties - now indeed an obstacle is implanted for me therewith - as a man at his duties, if one counts off for you at any time which has be passed there make arable the fields, to turn over the shores, to transport by boat the sand of the West and of the East, \\'here you are\\', you shall say\".'|'Only part of the owner\\'s name is legible and reads \\'...ir.t-Bastet, born to...\\'. This is followed by the shabtis formula (Chapter 6, Book of the Dead) \"O, these shabtis, if one counts (me) off for (my)duties - now indeed an obstacle is implanted for me therewith - as a man at his duties, if one counts off for you at any time which has be passed there make arable the fields, to turn over the shores, to transport by boat the sand of the West and of the East, \\'here you are\\', you shall say\".'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|marks|\"Photographer's stamp on reverse, 'TO ORDER & RE-ORDER/Quote No………../Photo by J. J. N. BARNETT/115 LIVERPOOL ST., HOBART'. Photographer's image number, 'C4922' in pencil on reverse. Another stamp on reverse reads, 'ARCHITECTURAL DEPT.' and within it the date '12/3/53' and possibly the photographer's initials have been written in pencil. '(1)' in blue ink on reverse. In pencil on reverse, 'Wunderlich Ltd/Melville St/Hobart/The cement rendering is Suntan [?]/which gives a pleasing contrast to the magenta wall tiles/& is a food background for the stainless steel fascia letters./The return of letters is red. This also applies to the main/which is a sliding one.'\"|\"Photographer's stamp on reverse, 'TO ORDER & RE-ORDER/Quote No.........../Photo by J. J. N. BARNETT/115 LIVERPOOL ST., HOBART'. Photographer's image number, 'C4922' in pencil on reverse. Another stamp on reverse reads, 'ARCHITECTURAL DEPT.' and within it the date '12/3/53' and possibly the photographer's initials have been written in pencil. '(1)' in blue ink on reverse. In pencil on reverse, 'Wunderlich Ltd/Melville St/Hobart/The cement rendering is Suntan [?]/which gives a pleasing contrast to the magenta wall tiles/& is a food background for the stainless steel fascia letters./The return of letters is red. This also applies to the main/which is a sliding one.'\"",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|marks|\"Photographer's stamp on reverse, 'PHIL WARD STUDIOS PTY LTD/296 PITT STREET/SYDNEY/NO……..' Photographer's image number in blue ink on reverse, '10-915-Copy'. In blue ink on reverse, 'MR.ERNEST WUNDERLICH.'\"|\"Photographer's stamp on reverse, 'PHIL WARD STUDIOS PTY LTD/296 PITT STREET/SYDNEY/NO........' Photographer's image number in blue ink on reverse, '10-915-Copy'. In blue ink on reverse, 'MR.ERNEST WUNDERLICH.'\"",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|marks|\"Photographer's stamp on reverse, 'E. A. BRADFORD/24 JAMIESON ST., SYDNEY/No……../DIVISION OF BRADFORD, JOHNSON LTD.' Photographer's image number on reverse in pencil, 'C2926/2'. In pencil on reverse, '1794/diaper/R. Ferris designer'.\"|\"Photographer's stamp on reverse, 'E. A. BRADFORD/24 JAMIESON ST., SYDNEY/No......../DIVISION OF BRADFORD, JOHNSON LTD.' Photographer's image number on reverse in pencil, 'C2926/2'. In pencil on reverse, '1794/diaper/R. Ferris designer'.\"",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|marks|'Photographer\\'s stamp on reverse, \\'E. A. BRADFORD/24 JAMIESON ST., SYDNEY/No……../DIVISION OF BRADFORD, JOHNSON LTD.\\' Photographer\\'s image number on reverse in pencil, \\'C1841\\'. In pencil on reverse, \\'1787/\"April 1937\" ? panelling/(George Paterson)/Steel Cornice No. 1701\\'. Lines drawn in pencil on reverse indicating to the printer the area to be reproduced. Printer\\'s number in pencil on reverse, \"Wunderlich/W239-4\\'.'|'Photographer\\'s stamp on reverse, \\'E. A. BRADFORD/24 JAMIESON ST., SYDNEY/No......../DIVISION OF BRADFORD, JOHNSON LTD.\\' Photographer\\'s image number on reverse in pencil, \\'C1841\\'. In pencil on reverse, \\'1787/\"April 1937\" ? panelling/(George Paterson)/Steel Cornice No. 1701\\'. Lines drawn in pencil on reverse indicating to the printer the area to be reproduced. Printer\\'s number in pencil on reverse, \"Wunderlich/W239-4\\'.'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|marks|'Lines drawn in white paint on the image indicating to the printer the area to be reproduced with the following instructions, \\'WUNDERLICH\\' and \\'BOTH BLOCKS 4\" long/150 SCREEN COPPER H.T.\\' Photographer\\'s stamp on reverse, \\'E. A. BRADFORD/24 JAMIESON ST., SYDNEY/No……../DIVISION OF BRADFORD, JOHNSON LTD.\\' Photographer\\'s image number on reverse in pencil, \\'B3832\\'. In pencil on reverse, \\'#1770/New Design - soffit/G Paterson designer/#1771/Soffit/G. Paterson designer\\'. Stamp with \\'6771\\' on reverse.'|'Lines drawn in white paint on the image indicating to the printer the area to be reproduced with the following instructions, \\'WUNDERLICH\\' and \\'BOTH BLOCKS 4\" long/150 SCREEN COPPER H.T.\\' Photographer\\'s stamp on reverse, \\'E. A. BRADFORD/24 JAMIESON ST., SYDNEY/No......../DIVISION OF BRADFORD, JOHNSON LTD.\\' Photographer\\'s image number on reverse in pencil, \\'B3832\\'. In pencil on reverse, \\'#1770/New Design - soffit/G Paterson designer/#1771/Soffit/G. Paterson designer\\'. Stamp with \\'6771\\' on reverse.'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|marks|'Photographer\\'s stamp on reverse, \\'BRADFORD, JOHNSON PTY.LTD./COMMERCIAL PHOTOGRAPHERS/24 JAMIESON STREET, SYDNEY/B6038/No. ………………\\' Photographer\\'s image number \\'C4659/2\\' in pencil on reverse. In pencil on reverse, \\'1811/\"Feb. 1939\"/?/Ceiling Panel/R. Ferris designer\\'.'|'Photographer\\'s stamp on reverse, \\'BRADFORD, JOHNSON PTY.LTD./COMMERCIAL PHOTOGRAPHERS/24 JAMIESON STREET, SYDNEY/B6038/No. ..................\\' Photographer\\'s image number \\'C4659/2\\' in pencil on reverse. In pencil on reverse, \\'1811/\"Feb. 1939\"/?/Ceiling Panel/R. Ferris designer\\'.'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|description|'Photographic print, black & white, mounted, advertising billboard for Holeproof Hosiery, designed by Rousel Studios, Sydney, New South Wales, Australia, c 1930 Advertising billboard designed by Rousel Studios for Holeproof Hosiery. The sign reads \"HOLEPROOF/ Essence of Modernity/…very breath of/exquisite Femininity - /stockings by Holeproof/international creators of/world-famous hosiery./Chosen by smartest women/….all over the world\". It also features an illustration of a woman on a swing with text to the right of the picture reading, \"Designed/by/ERTE/of/Paris/for HOLEPROOF\". At the bottom of the sign it reads, \"HOLEPROOF HOSIERY/THE MOST BEAUTIFUL STOCKINGS IN AUSTRALIA\".'|'Photographic print, black & white, mounted, advertising billboard for Holeproof Hosiery, designed by Rousel Studios, Sydney, New South Wales, Australia, c 1930 Advertising billboard designed by Rousel Studios for Holeproof Hosiery. The sign reads \"HOLEPROOF/ Essence of Modernity/...very breath of/exquisite Femininity - /stockings by Holeproof/international creators of/world-famous hosiery./Chosen by smartest women/....all over the world\". It also features an illustration of a woman on a swing with text to the right of the picture reading, \"Designed/by/ERTE/of/Paris/for HOLEPROOF\". At the bottom of the sign it reads, \"HOLEPROOF HOSIERY/THE MOST BEAUTIFUL STOCKINGS IN AUSTRALIA\".'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|marks|\"Stamp on reverse, 'WUNDERLICH/TERRA-COTTA FIREPLACE SURROUND/DESIGN No. …….' The number '1' in red ink on reverse.\"|\"Stamp on reverse, 'WUNDERLICH/TERRA-COTTA FIREPLACE SURROUND/DESIGN No. .......' The number '1' in red ink on reverse.\"",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|marks|\"Photographer's stamp embossed on lower right of image, 'COMMERCIAL PHOTOGRAPHIC/COY. MELB.' Photographer's stamp on reverse, 'COMMERCIAL PHOTOGRAPHIC COY.,/224-228 LITTLE COLLINS ST. MELB. C.1./When ordering further prints please/quote No…../CENTRAL 7339'. Photographer's image number '183-1' written in black ink on reverse and also in pencil on reverse. In black pen on reverse, 'A.T. Cotta Fcty./Sunshine/ Modelled Caps to Piers/Wertheims Job/Collins St./Melbourne'. 'Nov. 1929' also in pencil on reverse.\"|\"Photographer's stamp embossed on lower right of image, 'COMMERCIAL PHOTOGRAPHIC/COY. MELB.' Photographer's stamp on reverse, 'COMMERCIAL PHOTOGRAPHIC COY.,/224-228 LITTLE COLLINS ST. MELB. C.1./When ordering further prints please/quote No...../CENTRAL 7339'. Photographer's image number '183-1' written in black ink on reverse and also in pencil on reverse. In black pen on reverse, 'A.T. Cotta Fcty./Sunshine/ Modelled Caps to Piers/Wertheims Job/Collins St./Melbourne'. 'Nov. 1929' also in pencil on reverse.\"",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|marks|\"Photographer's stamp on reverse, 'BRADFORD PTY LTD/COMMERCIAL & ILLUSTRATIVE PHOTOGRAPHERS/24 JAMIESON STREET, SYDNEY/No……'. Photographer's image number '10609/1' in pencil on reverse.\"|\"Photographer's stamp on reverse, 'BRADFORD PTY LTD/COMMERCIAL & ILLUSTRATIVE PHOTOGRAPHERS/24 JAMIESON STREET, SYDNEY/No......'. Photographer's image number '10609/1' in pencil on reverse.\"",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|marks|\"Photographer's stamp on reverse, 'BRADFORD, JOHNSON PTY LTD/COMMERCIAL PHOTOGRAPHERS/24 JAMIESON STREET, SYDNEY/B 6038/No……' Photographer's image number 'C4358/13' in pencil on reverse.\"|\"Photographer's stamp on reverse, 'BRADFORD, JOHNSON PTY LTD/COMMERCIAL PHOTOGRAPHERS/24 JAMIESON STREET, SYDNEY/B 6038/No......' Photographer's image number 'C4358/13' in pencil on reverse.\"",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|marks|\"Photographer's stamp on reverse, 'BRADFORD PTY LTD/COMMERCIAL & ILLUSTRATIVE PHOTOGRAPHERS/24 JAMIESON STREET, SYDNEY/No……' Photographer's image number 'C2657' in pencil on reverse. '1788/1790' in pencil on reverse.\"|\"Photographer's stamp on reverse, 'BRADFORD PTY LTD/COMMERCIAL & ILLUSTRATIVE PHOTOGRAPHERS/24 JAMIESON STREET, SYDNEY/No......' Photographer's image number 'C2657' in pencil on reverse. '1788/1790' in pencil on reverse.\"",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|marks|\"Photographer's stamp on reverse, 'BRADFORD PTY LTD/COMMERCIAL & ILLUSTRATIVE PHOTOGRAPHERS/24 JAMIESON STREET, SYDNEY/No……' Photographer's image number 'C2657' in pencil on reverse. '1788/1790' in pencil on reverse and a red stamp with the number '1987' on the reverse. Various instructions to the printer in pencil on the reverse.\"|\"Photographer's stamp on reverse, 'BRADFORD PTY LTD/COMMERCIAL & ILLUSTRATIVE PHOTOGRAPHERS/24 JAMIESON STREET, SYDNEY/No......' Photographer's image number 'C2657' in pencil on reverse. '1788/1790' in pencil on reverse and a red stamp with the number '1987' on the reverse. Various instructions to the printer in pencil on the reverse.\"",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|marks|\"Photographer's stamp on reverse, 'BRADFORD PTY LTD/COMMERCIAL & ILLUSTRATIVE PHOTOGRAPHERS/24 JAMIESON STREET, SYDNEY/No……' Photographer's image number 'D5484' in pencil on reverse. '#1752' in pencil on reverse.\"|\"Photographer's stamp on reverse, 'BRADFORD PTY LTD/COMMERCIAL & ILLUSTRATIVE PHOTOGRAPHERS/24 JAMIESON STREET, SYDNEY/No......' Photographer's image number 'D5484' in pencil on reverse. '#1752' in pencil on reverse.\"",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|marks|'Photographer\\'s stamp on reverse, \\'E. A. BRADFORD/24 JAMIESON ST., SYDNEY/B 6038/No……../DIVISION OF BRADFORD, JOHNSON LTD.\\' Photographer\\'s image number in pencil on reverse, \\'B3965\\'. Instructions to printer in black ink and pencil on reverse,\\'1 1/16\"?Reduce proportionally/overall/taking the portion between/arrows a. 1 1/16\"./Wunderlich/150 Screen Zinc.\\' Delivery instructions also in black ink on reverse, \\'Deliver Block urgently/to Websdale Shoosmith/Printers Clarence St. (Mr Robinson)\\'. \\'No 1773\\' in pencil on reverse and a purple stamp with the number \\'7755\\' also on reverse.'|'Photographer\\'s stamp on reverse, \\'E. A. BRADFORD/24 JAMIESON ST., SYDNEY/B 6038/No......../DIVISION OF BRADFORD, JOHNSON LTD.\\' Photographer\\'s image number in pencil on reverse, \\'B3965\\'. Instructions to printer in black ink and pencil on reverse,\\'1 1/16\"?Reduce proportionally/overall/taking the portion between/arrows a. 1 1/16\"./Wunderlich/150 Screen Zinc.\\' Delivery instructions also in black ink on reverse, \\'Deliver Block urgently/to Websdale Shoosmith/Printers Clarence St. (Mr Robinson)\\'. \\'No 1773\\' in pencil on reverse and a purple stamp with the number \\'7755\\' also on reverse.'",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|marks|\"Photographer's stamp on reverse, 'BRADFORD, JOHNSON PTY. LTD./24 JAMIESON ST., SYDNEY/B 6038/No……..' Photographer's image number in pencil on reverse, 'C4358/4'.\"|\"Photographer's stamp on reverse, 'BRADFORD, JOHNSON PTY. LTD./24 JAMIESON ST., SYDNEY/B 6038/No........' Photographer's image number in pencil on reverse, 'C4358/4'.\"",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|marks|\"Photographer's stamp on reverse, 'BRADFORD, JOHNSON PTY. LTD./24 JAMIESON ST., SYDNEY/B 6038/No……..' Photographer's image number in pencil on reverse, 'C4358/1'.\"|\"Photographer's stamp on reverse, 'BRADFORD, JOHNSON PTY. LTD./24 JAMIESON ST., SYDNEY/B 6038/No........' Photographer's image number in pencil on reverse, 'C4358/1'.\"",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|marks|\"Photographer's stamp on reverse, 'E. A. BRADFORD/24 JAMIESON ST., SYDNEY/No……../DIVISION OF BRADFORD, JOHNSON LTD.' Photographer's image number on reverse in pencil, '1975/5'. In blue ink on reverse, 'Terra cotta mem Rose Bay'. In pencil on reverse, '1938/TCB 8'.\"|\"Photographer's stamp on reverse, 'E. A. BRADFORD/24 JAMIESON ST., SYDNEY/No......../DIVISION OF BRADFORD, JOHNSON LTD.' Photographer's image number on reverse in pencil, '1975/5'. In blue ink on reverse, 'Terra cotta mem Rose Bay'. In pencil on reverse, '1938/TCB 8'.\"",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|marks|\"Photographer's stamp on reverse, 'BRADFORD PTY LTD/COMMERCIAL & ILLUSTRATIVE PHOTOGRAPHERS/24 JAMIESON STREET, SYDNEY/No……' Photographer's image number 'C5591' in pencil on reverse. '#1817' in pencil on reverse.\"|\"Photographer's stamp on reverse, 'BRADFORD PTY LTD/COMMERCIAL & ILLUSTRATIVE PHOTOGRAPHERS/24 JAMIESON STREET, SYDNEY/No......' Photographer's image number 'C5591' in pencil on reverse. '#1817' in pencil on reverse.\"",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|marks|\"Photographer's stamp on reverse, 'E. A. BRADFORD/24 JAMIESON ST., SYDNEY/No……../DIVISION OF BRADFORD, JOHNSON LTD.' Photographer's image number on reverse in pencil, 'C1124'.\"|\"Photographer's stamp on reverse, 'E. A. BRADFORD/24 JAMIESON ST., SYDNEY/No......../DIVISION OF BRADFORD, JOHNSON LTD.' Photographer's image number on reverse in pencil, 'C1124'.\"",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|marks|\"Photographer's stamp on reverse, 'PHIL WARD STUDIOS PTY LTD/296 PITT STREET/SYDNEY/NO……..' Photographer's image number in black ink on reverse, '16 W'.\"|\"Photographer's stamp on reverse, 'PHIL WARD STUDIOS PTY LTD/296 PITT STREET/SYDNEY/NO........' Photographer's image number in black ink on reverse, '16 W'.\"",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|marks|\"Photographer's stamp on reverse, 'PHIL WARD STUDIOS PTY LTD/296 PITT STREET/SYDNEY/NO……..' Photographer's image number in black ink on reverse, '411-w'. Typed caption stuck on reverse, 'ARCHITECTS GROUP AT WUNDERLICH./DATE: 6th September, 1962./GUESTS: M. Ulrich/J. Davis.'\"|\"Photographer's stamp on reverse, 'PHIL WARD STUDIOS PTY LTD/296 PITT STREET/SYDNEY/NO........' Photographer's image number in black ink on reverse, '411-w'. Typed caption stuck on reverse, 'ARCHITECTS GROUP AT WUNDERLICH./DATE: 6th September, 1962./GUESTS: M. Ulrich/J. Davis.'\"",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|marks|\"Photographer's stamp on reverse, 'PHIL WARD STUDIOS PTY LTD/296 PITT STREET/SYDNEY/NO……..' Photographer's image number in black ink on reverse, '436-w'.\"|\"Photographer's stamp on reverse, 'PHIL WARD STUDIOS PTY LTD/296 PITT STREET/SYDNEY/NO........' Photographer's image number in black ink on reverse, '436-w'.\"",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|marks|\"Photographer's stamp on reverse, 'PHIL WARD STUDIOS PTY LTD/296 PITT STREET/SYDNEY/NO……..' Photographer's image number in black ink on reverse, '416-w'. Typed caption stuck on reverse, 'ARCHITECTS GROUP AT WUNDERLICH./DATE: 6th September, 1962./GUESTS: M. Ulrich/J. Davis.'\"|\"Photographer's stamp on reverse, 'PHIL WARD STUDIOS PTY LTD/296 PITT STREET/SYDNEY/NO........' Photographer's image number in black ink on reverse, '416-w'. Typed caption stuck on reverse, 'ARCHITECTS GROUP AT WUNDERLICH./DATE: 6th September, 1962./GUESTS: M. Ulrich/J. Davis.'\"",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|marks|\"Photographer's stamp on reverse, 'PHIL WARD STUDIOS PTY LTD/296 PITT STREET/SYDNEY/NO……..' Photographer's image number in black ink on reverse, '421-w'. Typed caption stuck on reverse, 'ARCHITECTS GROUP AT WUNDERLICH./DATE: 6th September, 1962./GUESTS: M. Ulrich/J. Davis.'\"|\"Photographer's stamp on reverse, 'PHIL WARD STUDIOS PTY LTD/296 PITT STREET/SYDNEY/NO........' Photographer's image number in black ink on reverse, '421-w'. Typed caption stuck on reverse, 'ARCHITECTS GROUP AT WUNDERLICH./DATE: 6th September, 1962./GUESTS: M. Ulrich/J. Davis.'\"",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|marks|\"Photographer's stamp on reverse, 'PHIL WARD STUDIOS PTY LTD/296 PITT STREET/SYDNEY/NO……..' Photographer's image number in black ink on reverse, '412-w'. Typed caption stuck on reverse, 'ARCHITECTS GROUP AT WUNDERLICH./DATE: 6th September, 1962./GUESTS: M. Ulrich/J. Davis.'\"|\"Photographer's stamp on reverse, 'PHIL WARD STUDIOS PTY LTD/296 PITT STREET/SYDNEY/NO........' Photographer's image number in black ink on reverse, '412-w'. Typed caption stuck on reverse, 'ARCHITECTS GROUP AT WUNDERLICH./DATE: 6th September, 1962./GUESTS: M. Ulrich/J. Davis.'\"",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|marks|\"Photographer's stamp on reverse, 'PHIL WARD STUDIOS PTY LTD/296 PITT STREET/SYDNEY/NO……..' Photographer's image number in blue ink on reverse, '413-w'. Typed caption stuck on reverse, 'ARCHITECTS GROUP AT WUNDERLICH./DATE: 6th September, 1962./GUESTS: M. Ulrich/J. Davis.'\"|\"Photographer's stamp on reverse, 'PHIL WARD STUDIOS PTY LTD/296 PITT STREET/SYDNEY/NO........' Photographer's image number in blue ink on reverse, '413-w'. Typed caption stuck on reverse, 'ARCHITECTS GROUP AT WUNDERLICH./DATE: 6th September, 1962./GUESTS: M. Ulrich/J. Davis.'\"",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|marks|\"Photographer's stamp on reverse, 'PHIL WARD STUDIOS PTY LTD/296 PITT STREET/SYDNEY/NO……..' Photographer's image number in blue ink on reverse, '413-w'.\"|\"Photographer's stamp on reverse, 'PHIL WARD STUDIOS PTY LTD/296 PITT STREET/SYDNEY/NO........' Photographer's image number in blue ink on reverse, '413-w'.\"",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|marks|\"Photographer's stamp on reverse, 'PHIL WARD STUDIOS PTY LTD/296 PITT STREET/SYDNEY/NO……..' Photographer's image number in blue ink on reverse, '17 w'.\"|\"Photographer's stamp on reverse, 'PHIL WARD STUDIOS PTY LTD/296 PITT STREET/SYDNEY/NO........' Photographer's image number in blue ink on reverse, '17 w'.\"",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|marks|\"Photographer's stamp on reverse, 'PHIL WARD STUDIOS PTY LTD/296 PITT STREET/SYDNEY/NO……..' Photographer's image number in blue ink on reverse, '437-w'.\"|\"Photographer's stamp on reverse, 'PHIL WARD STUDIOS PTY LTD/296 PITT STREET/SYDNEY/NO........' Photographer's image number in blue ink on reverse, '437-w'.\"",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|marks|\"Photographer's stamp on reverse, 'PHIL WARD STUDIOS PTY LTD/296 PITT STREET/SYDNEY/NO……..' Photographer's image number in blue ink on reverse, '440-w'.\"|\"Photographer's stamp on reverse, 'PHIL WARD STUDIOS PTY LTD/296 PITT STREET/SYDNEY/NO........' Photographer's image number in blue ink on reverse, '440-w'.\"",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|marks|\"Photographer's stamp on reverse, 'PHIL WARD STUDIOS PTY LTD/296 PITT STREET/SYDNEY/NO……..' Photographer's image number in black ink on reverse, '439-w'.\"|\"Photographer's stamp on reverse, 'PHIL WARD STUDIOS PTY LTD/296 PITT STREET/SYDNEY/NO........' Photographer's image number in black ink on reverse, '439-w'.\"",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|marks|\"Photographer's stamp on reverse, 'PHIL WARD STUDIOS PTY LTD/296 PITT STREET/SYDNEY/NO……..' Photographer's image number in black ink on reverse, '420-w'. Typed caption stuck on reverse with names of individuals not in the image, 'ARCHITECTS GROUP AT WUNDER-/LICH./DATE: September, 6th, 1962./GUESTS: M. Ulrich,/J. Davis.'\"|\"Photographer's stamp on reverse, 'PHIL WARD STUDIOS PTY LTD/296 PITT STREET/SYDNEY/NO........' Photographer's image number in black ink on reverse, '420-w'. Typed caption stuck on reverse with names of individuals not in the image, 'ARCHITECTS GROUP AT WUNDER-/LICH./DATE: September, 6th, 1962./GUESTS: M. Ulrich,/J. Davis.'\"",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|marks|\"Photographer's stamp on reverse, 'PHIL WARD STUDIOS PTY LTD/296 PITT STREET/SYDNEY/NO……..' Photographer's image number in black ink on reverse, '21-w'. In blue pen on reverse, 'Assembly of Architects, Builders,/and Wunderlich personnel at/ Australian Golf Club, being/addressed by Mr. Charles Moran/President of Copples [?] Mftg. Coy./St. Louis, America/approx. early 1960s'.\"|\"Photographer's stamp on reverse, 'PHIL WARD STUDIOS PTY LTD/296 PITT STREET/SYDNEY/NO........' Photographer's image number in black ink on reverse, '21-w'. In blue pen on reverse, 'Assembly of Architects, Builders,/and Wunderlich personnel at/ Australian Golf Club, being/addressed by Mr. Charles Moran/President of Copples [?] Mftg. Coy./St. Louis, America/approx. early 1960s'.\"",
+     1,
+     "ok"
+    ],
+    [
+     "T1-NFKC|marks|\"Photographer's stamp on reverse, 'PHIL WARD STUDIOS PTY LTD/296 PITT STREET/SYDNEY/NO……..' Photographer's image number in black ink on reverse, '791-w'. In black pen on reverse, 'Goulburn Visit to Villawood and Rosehill Factories, 11.9-63/Les Davis/Reg O'Brien/Dudley Harding/Pat Burkes/Eric Duncan/Norm Overard/Lionel Judd/Charles Beaver/Cliff Hodgson'.\"|\"Photographer's stamp on reverse, 'PHIL WARD STUDIOS PTY LTD/296 PITT STREET/SYDNEY/NO........' Photographer's image number in black ink on reverse, '791-w'. In black pen on reverse, 'Goulburn Visit to Villawood and Rosehill Factories, 11.9-63/Les Davis/Reg O'Brien/Dudley Harding/Pat Burkes/Eric Duncan/Norm Overard/Lionel Judd/Charles Beaver/Cliff Hodgson'.\"",
+     1,
+     "ok"
+    ]
+   ],
+   "review": 1,
+   "review_patterns": 1,
+   "review_per_1k_rows": 0.0,
+   "rows_out": 75728,
+   "self_check_failed": [],
+   "silent_damage": {},
+   "top_review_patterns": [
+    [
+     "objects",
+     "record_id",
+     "R7-REQUIRED",
+     1
+    ]
+   ],
+   "verdicts": {
+    "mechanical": 46,
+    "ok": 77,
+    "wrong": 0
+   },
+   "wrong_rate": 0.0
+  }
  }
 }
