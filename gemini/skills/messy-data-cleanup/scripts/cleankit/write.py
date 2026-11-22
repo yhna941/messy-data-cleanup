@@ -70,24 +70,39 @@ def head_row(ws, labels: list[Any]) -> list[Any]:
     return out
 
 
+XLSX_ROWS = 100_000   # rows per sheet in the workbook; beyond this the sheet is a preview and csv/ has everything
+
+
+def cap(reserve: int = 0) -> int:
+    return min(XLSX_ROWS, XLSX_MAX_ROWS - 2) - reserve
+
+
 def sheet(wb: Workbook, title: str, header: list[str], rows: list[list[Any]], widths: dict[int, int] | None = None,
-          spill: Path | None = None, reserve: int = 0, spill_written: bool = False):
-    """Stream one table into a write-only sheet. Past Excel's row limit the sheet ends with a pointer to
-    the CSV `spill`, which holds all rows (written here unless the caller writes it anyway)."""
+          total: int | None = None, spill: Path | None = None, spill_rows=None, reserve: int = 0):
+    """Stream rows into a write-only sheet. If the table has more rows (`total`) than the sheet takes,
+    the sheet ends with a pointer to the CSV `spill`; `spill_rows()` (a generator of all rows) writes it."""
     ws = wb.create_sheet(title[:31])
     for i, h in enumerate(header, start=1):
         w = (widths or {}).get(i) or min(60, max(10, len(str(h)) + 2, *(len(str(r[i - 1])) + 2 for r in rows[:200] if i - 1 < len(r))))
         ws.column_dimensions[get_column_letter(i)].width = w
     ws.freeze_panes = "A2"
     ws.append(head_row(ws, header))
-    cap = XLSX_MAX_ROWS - 2 - reserve
-    for r in rows[:cap]:
+    n = cap(reserve)
+    for r in rows[:n]:
         ws.append([xcell(ws, v) for v in r])
-    if len(rows) > cap:
-        ws.append([f"... {len(rows) - cap:,} more rows: Excel stops at {XLSX_MAX_ROWS:,}; all {len(rows):,} rows are in csv/{spill.name if spill else '?'}"])
-        if spill is not None and not spill_written:
-            write_csv(spill, header, rows)
+    total = len(rows) if total is None else total
+    if total > n:
+        ws.append([f"... {total - n:,} more rows (sheet shows the first {n:,}); all {total:,} rows are in csv/{spill.name if spill else '?'}"])
+        if spill is not None and spill_rows is not None:
+            write_csv(spill, header, spill_rows())
     return ws
+
+
+def big_table(wb, title, header, n, rowfn, items, widths=None, spill=None):
+    """sheet() for a long list: only the preview rows are built in memory; the CSV is streamed."""
+    k = cap()
+    preview = [rowfn(x) for x in items[:k]]
+    return sheet(wb, title, header, preview, widths, total=n, spill=spill, spill_rows=lambda: (rowfn(x) for x in items))
 
 
 def normalize_zip(path: Path) -> None:
@@ -151,44 +166,44 @@ def write_all(run: Run, out_dir: Path, name: str) -> dict:
         for g in grids:
             ws = wb.create_sheet(("Raw_" + (g.sheet or Path(g.source).stem))[:31])
             ws.sheet_properties.tabColor = "BFBFBF"
-            for row in g.cells[:XLSX_MAX_ROWS - 1]:
+            k = cap() + 1
+            for row in g.cells[:k]:
                 ws.append([cell(v) for v in row])
-            if len(g.cells) >= XLSX_MAX_ROWS:
-                ws.append([f"... {len(g.cells) - XLSX_MAX_ROWS + 1:,} more rows: see the original file {g.source} (unchanged)"])
+            if len(g.cells) > k:
+                ws.append([f"... {len(g.cells) - k:,} more rows: see the original file {g.source} (unchanged)"])
             for r1, c1, r2, c2 in g.merges:
-                if r2 < XLSX_MAX_ROWS - 1:
+                if r2 < k:
                     ws.merged_cells.add(f"{get_column_letter(c1 + 1)}{r1 + 1}:{get_column_letter(c2 + 1)}{r2 + 1}")
 
-    # ---- cleaned tables
+    # ---- cleaned tables (CSV always holds every row; the sheet holds up to XLSX_ROWS)
     for tname, recs in run.tables.items():
         t = run.c.tables[tname]
         extras = sorted({k for r in recs for k in r.values if k.startswith("extra:")}) + run.derived.get(tname, [])
         hdr = list(t.columns) + extras + ["_source"]
-        rows = [[r.values.get(c) for c in hdr[:-1]] + [f"{run.sheet_of[tname]}!{r.source_row}"] for r in recs]
-        sheet(wb, f"Cleaned_{tname}", hdr, rows, spill=csv_dir / f"{tname}.csv", spill_written=True)
-        write_csv(csv_dir / f"{tname}.csv", hdr, rows)
-        del rows
+        sh = run.sheet_of[tname]
+        rowfn = lambda r, hdr=hdr, sh=sh: [r.values.get(c) for c in hdr[:-1]] + [f"{sh}!{r.source_row}"]  # noqa: E731
+        big_table(wb, f"Cleaned_{tname}", hdr, len(recs), rowfn, recs, spill=csv_dir / f"{tname}.csv")
+        write_csv(csv_dir / f"{tname}.csv", hdr, (rowfn(r) for r in recs))
     for jname, (cols, rows) in run.joined.items():
-        data = [[r.get(c) for c in cols] for r in rows]
-        sheet(wb, f"Joined_{jname}", cols, data, spill=csv_dir / f"joined_{jname}.csv", spill_written=True)
-        write_csv(csv_dir / f"joined_{jname}.csv", cols, data)
-        del data
+        rowfn = lambda r, cols=cols: [r.get(c) for c in cols]  # noqa: E731
+        big_table(wb, f"Joined_{jname}", cols, len(rows), rowfn, rows, spill=csv_dir / f"joined_{jname}.csv")
+        write_csv(csv_dir / f"joined_{jname}.csv", cols, (rowfn(r) for r in rows))
 
     used = Counter(c.rule for c in a.changes) + Counter(r.flag for r in a.review) + Counter(d.reason.split(":")[0] for d in a.dropped)
     sheet(wb, "Rules", ["rule", "stage", "what it does", "times applied"],
           [[k, st, desc, used.get(k, 0)] for k, (st, desc) in RULES.items()], {3: 100})
-    sheet(wb, "Change log", ["table", "sheet", "row", "column", "before", "after", "rule", "confidence", "evidence"],
-          [[c.table, c.sheet, c.source_row, c.column, show(c.before), show(c.after), c.rule, c.confidence, c.evidence] for c in a.changes],
-          {5: 28, 6: 28, 9: 80}, spill=csv_dir / "_change_log.csv")
-    sheet(wb, "Dropped rows", ["table", "sheet", "row", "kind", "reason", "evidence", "original values"],
-          [[d.table, d.sheet, d.source_row, d.kind, d.reason, d.evidence, d.raw_values] for d in a.dropped], {5: 50, 6: 60, 7: 90},
-          spill=csv_dir / "_dropped_rows.csv")
-    sheet(wb, "Suspected duplicates", ["group", "table", "kind", "rows", "kept row", "similarity", "evidence"],
-          [[g.group, g.table, g.kind, ", ".join(map(str, g.rows)), g.kept, g.similarity, g.evidence] for g in a.dups], {7: 100},
-          spill=csv_dir / "_suspected_duplicates.csv")
+    big_table(wb, "Change log", ["table", "sheet", "row", "column", "before", "after", "rule", "confidence", "evidence"], len(a.changes),
+              lambda c: [c.table, c.sheet, c.source_row, c.column, show(c.before), show(c.after), c.rule, c.confidence, c.evidence],
+              a.changes, {5: 28, 6: 28, 9: 80}, spill=csv_dir / "_change_log.csv")
+    big_table(wb, "Dropped rows", ["table", "sheet", "row", "kind", "reason", "evidence", "original values"], len(a.dropped),
+              lambda d: [d.table, d.sheet, d.source_row, d.kind, d.reason, d.evidence, d.raw_values], a.dropped, {5: 50, 6: 60, 7: 90},
+              spill=csv_dir / "_dropped_rows.csv")
+    big_table(wb, "Suspected duplicates", ["group", "table", "kind", "rows", "kept row", "similarity", "evidence"], len(a.dups),
+              lambda g: [g.group, g.table, g.kind, ", ".join(map(str, g.rows)), g.kept, g.similarity, g.evidence], a.dups, {7: 100},
+              spill=csv_dir / "_suspected_duplicates.csv")
     jr = [list(j.values()) for j in a.joins]
     jh = list(a.joins[0].keys()) if a.joins else ["join"]
-    details = a.join_details[:XLSX_MAX_ROWS - len(jr) - 4]
+    details = a.join_details[:max(0, cap() - len(jr) - 4)]
     ws = sheet(wb, "Join report", jh, jr, reserve=len(details) + 2)
     ws.append([])
     ws.append(head_row(ws, ["join", "step", "left row", "key", "issue", "detail"]))
@@ -196,9 +211,13 @@ def write_all(run: Run, out_dir: Path, name: str) -> dict:
         ws.append([d["join"], d["step"], d["left_row"], d["key"], d["issue"], d["detail"]])
     if len(details) < len(a.join_details):
         ws.append([f"... {len(a.join_details) - len(details):,} more join details: see audit.json"])
-    sheet(wb, "Needs human review", ["table", "sheet", "row", "column", "value", "flag", "suggestion", "question", "decision"],
-          [[r.table, r.sheet, r.source_row, r.column, show(r.value), r.flag, r.suggestion, r.question, ""] for r in a.review], {8: 90},
-          spill=csv_dir / "_needs_review.csv")
+    pats = review_patterns(run)
+    sheet(wb, "Review patterns", ["table", "column", "flag", "cells", "distinct values", "share of rows", "example value", "example question", "hint"],
+          [[p["table"], p["column"], p["flag"], p["cells"], p["distinct_values"], p["share_of_rows"], show(p["example_value"]),
+            p["example_question"], p["hint"]] for p in pats], {8: 80, 9: 60})
+    big_table(wb, "Needs human review", ["table", "sheet", "row", "column", "value", "flag", "suggestion", "question", "decision"], len(a.review),
+              lambda r: [r.table, r.sheet, r.source_row, r.column, show(r.value), r.flag, r.suggestion, r.question, ""], a.review, {8: 90},
+              spill=csv_dir / "_needs_review.csv")
     sheet(wb, "Contract checks", ["table", "column", "type", "violations before", "violations after", "rows"],
           [list(c.values()) for c in a.checks])
     sheet(wb, "Reconcile", list(a.reconcile[0].keys()) if a.reconcile else ["table"], [list(x.values()) for x in a.reconcile])
@@ -221,37 +240,84 @@ def write_all(run: Run, out_dir: Path, name: str) -> dict:
         "contract_checks": a.checks,
         "reconcile": a.reconcile,
         "notes": a.notes + over,
+        "review_patterns": [{k: v for k, v in p.items() if k != "example_value"} | {"example_value": show(p["example_value"])} for p in pats[:30]],
         "n_llm_changes": sum(1 for c in a.changes if c.rule.startswith("llm:")),
         "n_changes": len(a.changes), "n_review": len(a.review), "n_dropped": len(a.dropped), "n_dup_groups": len(a.dups),
     }
-    audit = {"changes": [asdict(c) for c in a.changes], "dropped": [asdict(d) for d in a.dropped],
-             "review": [asdict(r) for r in a.review], "dups": [asdict(d) for d in a.dups], "join_details": a.join_details}
-    for fname, obj in (("run_summary.json", summary), ("audit.json", audit)):
-        p = out_dir / fname
-        tmpj = out_dir / f".{fname}.tmp"
-        tmpj.write_text(json.dumps(obj, ensure_ascii=False, indent=1, default=str), encoding="utf-8")
-        os.replace(tmpj, p)
+    write_json(out_dir / "run_summary.json", summary)
+    write_audit_json(out_dir / "audit.json", a)
     return summary
 
 
+def review_patterns(run: Run) -> list[dict]:
+    """Review items grouped by (table, column, flag): one decision per pattern instead of one per cell.
+
+    A pattern covering most of a column usually means the contract is wrong for that column (a code typed
+    as a number, a missing vocabulary value), which is fixed once in the contract, not cell by cell.
+    """
+    groups: dict[tuple, list] = {}
+    for r in run.audit.review:
+        groups.setdefault((r.table, r.column, r.flag), []).append(r)
+    out = []
+    for (t, c, f), items in groups.items():
+        n_rows = len(run.raw_tables.get(t) or run.tables.get(t) or []) or 1
+        share = len(items) / n_rows
+        distinct = len({repr(x.value) for x in items})
+        hint = ""
+        if len(items) >= 100 and share >= 0.5:
+            hint = "most of the column: likely a contract issue (type, regex or vocabulary) - fix it once in the contract"
+        elif len(items) >= 100 and distinct <= max(5, len(items) // 50):
+            hint = f"only {distinct} distinct value(s): decide per value (contract overrides/vocabulary), not per cell"
+        out.append({"table": t, "column": c, "flag": f, "cells": len(items), "distinct_values": distinct,
+                    "share_of_rows": round(share, 4), "example_value": items[0].value, "example_question": items[0].question, "hint": hint})
+    return sorted(out, key=lambda p: (-p["cells"], p["table"], p["column"], p["flag"]))
+
+
 def big_sheets(run: Run) -> list[str]:
-    """Notes for every sheet that will be cut at Excel's row limit (known before anything is written)."""
-    a, cap, out = run.audit, XLSX_MAX_ROWS - 2, []
+    """Notes for every sheet that will be a preview (known before anything is written)."""
+    a, k, out = run.audit, cap(), []
     sizes = {"Change log": (len(a.changes), "_change_log.csv"), "Dropped rows": (len(a.dropped), "_dropped_rows.csv"),
              "Suspected duplicates": (len(a.dups), "_suspected_duplicates.csv"), "Needs human review": (len(a.review), "_needs_review.csv")}
     sizes.update({f"Cleaned_{t}"[:31]: (len(r), f"{t}.csv") for t, r in run.tables.items()})
     sizes.update({f"Joined_{j}"[:31]: (len(rows), f"joined_{j}.csv") for j, (_, rows) in run.joined.items()})
     for name, (n, spill) in sizes.items():
-        if n > cap:
-            out.append(f"sheet {name!r}: {n:,} rows > Excel limit {XLSX_MAX_ROWS:,}; first {cap:,} shown, all rows in csv/{spill}")
+        if n > k:
+            out.append(f"sheet {name!r}: {n:,} rows; the workbook shows the first {k:,}, csv/{spill} has all of them")
     for grids in run.grids.values():
         for g in grids:
-            if len(g.cells) >= XLSX_MAX_ROWS:
-                out.append(f"sheet 'Raw_{g.sheet or Path(g.source).stem}': {len(g.cells):,} rows > Excel limit; the original file {g.source} has them all")
+            if len(g.cells) > k + 1:
+                out.append(f"sheet 'Raw_{g.sheet or Path(g.source).stem}': first {k + 1:,} of {len(g.cells):,} rows; the original file {g.source} has them all")
     return out
 
 
-def write_csv(path: Path, header: list[str], rows: list[list[Any]]) -> None:
+def write_json(path: Path, obj: Any) -> None:
+    tmp = path.with_name(f".{path.name}.tmp")
+    tmp.write_text(json.dumps(obj, ensure_ascii=False, indent=1, default=str), encoding="utf-8")
+    os.replace(tmp, path)
+
+
+def write_audit_json(path: Path, a) -> None:
+    """Same bytes as json.dumps({...}, indent=1), but streamed item by item (audit lists reach millions)."""
+    parts = (("changes", a.changes, True), ("dropped", a.dropped, True), ("review", a.review, True),
+             ("dups", a.dups, True), ("join_details", a.join_details, False))
+    tmp = path.with_name(f".{path.name}.tmp")
+    with tmp.open("w", encoding="utf-8") as f:
+        f.write("{")
+        for i, (key, items, dc) in enumerate(parts):
+            f.write(("," if i else "") + f'\n "{key}": ')
+            if not items:
+                f.write("[]")
+                continue
+            f.write("[")
+            for j, it in enumerate(items):
+                txt = json.dumps(asdict(it) if dc else it, ensure_ascii=False, indent=1, default=str)
+                f.write(("," if j else "") + "\n  " + txt.replace("\n", "\n  "))
+            f.write("\n ]")
+        f.write("\n}")
+    os.replace(tmp, path)
+
+
+def write_csv(path: Path, header: list[str], rows) -> None:
     tmp = path.with_suffix(".tmp")
     with tmp.open("w", newline="", encoding="utf-8-sig") as f:
         w = csv.writer(f)

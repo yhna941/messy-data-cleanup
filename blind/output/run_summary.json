@@ -464,6 +464,129 @@
   "students: extra:No. is a running row number; ignored when comparing rows for duplicates",
   "students: rows 14, 15 share phone but names differ (name similarity 0.71); not listed as duplicates (shared family/company contact?)"
  ],
+ "review_patterns": [
+  {
+   "table": "enrollments",
+   "column": "course",
+   "flag": "J2-ORPHAN",
+   "cells": 2,
+   "distinct_values": 2,
+   "share_of_rows": 0.1111,
+   "example_question": "course='과탐' not found in courses: typo, or missing master row?",
+   "hint": "",
+   "example_value": "'과탐'"
+  },
+  {
+   "table": "enrollments",
+   "column": "course",
+   "flag": "R4-CATEGORY",
+   "cells": 2,
+   "distinct_values": 2,
+   "share_of_rows": 0.1111,
+   "example_question": "'과탐' is not in the vocabulary (closest '과학 탐구' at 0.67, runner-up '국어 문학' at 0.25): map it, or add it as a new value?",
+   "hint": "",
+   "example_value": "'과탐'"
+  },
+  {
+   "table": "enrollments",
+   "column": "enroll_id",
+   "flag": "U2-SUSPECT",
+   "cells": 2,
+   "distinct_values": 2,
+   "share_of_rows": 0.1111,
+   "example_question": "possible duplicate (same student_id + course) in group enrollments-S1: same record?",
+   "hint": "",
+   "example_value": "'E015'"
+  },
+  {
+   "table": "students",
+   "column": "phone",
+   "flag": "R5-INVALID",
+   "cells": 2,
+   "distinct_values": 2,
+   "share_of_rows": 0.1333,
+   "example_question": "phone '010-4567-890' is not a valid Korean number",
+   "hint": "",
+   "example_value": "'010-4567-890'"
+  },
+  {
+   "table": "students",
+   "column": "student_id",
+   "flag": "U2-SUSPECT",
+   "cells": 2,
+   "distinct_values": 2,
+   "share_of_rows": 0.1333,
+   "example_question": "possible duplicate (same email + phone) in group students-S2: same record?",
+   "hint": "",
+   "example_value": "'S24-002'"
+  },
+  {
+   "table": "attendance",
+   "column": "student_id",
+   "flag": "J2-ORPHAN",
+   "cells": 1,
+   "distinct_values": 1,
+   "share_of_rows": 0.1667,
+   "example_question": "student_id='S24-099' not found in students: typo, or missing master row?",
+   "hint": "",
+   "example_value": "'S24-099'"
+  },
+  {
+   "table": "enrollments",
+   "column": "fee",
+   "flag": "R2-NUMBER",
+   "cells": 1,
+   "distinct_values": 1,
+   "share_of_rows": 0.0556,
+   "example_question": "'150,000원(할인전)' is not a number: what value was meant?",
+   "hint": "",
+   "example_value": "'150,000원(할인전)'"
+  },
+  {
+   "table": "enrollments",
+   "column": "pay_date",
+   "flag": "R1-DATE",
+   "cells": 1,
+   "distinct_values": 1,
+   "share_of_rows": 0.0556,
+   "example_question": "'3/3' is not a valid date (impossible day/month or unknown format): what date was meant?",
+   "hint": "",
+   "example_value": "'3/3'"
+  },
+  {
+   "table": "enrollments",
+   "column": "student_id",
+   "flag": "J2-ORPHAN",
+   "cells": 1,
+   "distinct_values": 1,
+   "share_of_rows": 0.0556,
+   "example_question": "student_id='S24-099' not found in students: typo, or missing master row?",
+   "hint": "",
+   "example_value": "'S24-099'"
+  },
+  {
+   "table": "students",
+   "column": "email",
+   "flag": "R5-INVALID",
+   "cells": 1,
+   "distinct_values": 1,
+   "share_of_rows": 0.0667,
+   "example_question": "email 'yerin@naver,com' is malformed: what is the right address?",
+   "hint": "",
+   "example_value": "'yerin@naver,com'"
+  },
+  {
+   "table": "students",
+   "column": "grade",
+   "flag": "R4-CATEGORY",
+   "cells": 1,
+   "distinct_values": 1,
+   "share_of_rows": 0.0667,
+   "example_question": "'교2' is not in the vocabulary (closest '고2' at 0.67, runner-up '고3' at 0.33): map it, or add it as a new value?",
+   "hint": "",
+   "example_value": "'교2'"
+  }
+ ],
  "n_llm_changes": 0,
  "n_changes": 104,
  "n_review": 16,

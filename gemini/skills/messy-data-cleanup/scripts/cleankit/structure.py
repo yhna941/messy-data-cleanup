@@ -146,6 +146,8 @@ def classify(row: list[Any], header_labels: set[str], key_ok: Callable[[Any], bo
         return RowKind.SUBTOTAL
     if len(nonblank) == 1 or (isinstance(nonblank[0], str) and NOTE_RE.match(nonblank[0])):
         return RowKind.NOTE
+    if len(texts) == len(nonblank) > 1 and len(set(nonblank)) == 1 and len(nonblank[0]) > 20:
+        return RowKind.NOTE   # one long sentence repeated across the row = a merged footnote banner (filled by fill_merges)
     return RowKind.DATA
 
 

@@ -213,6 +213,52 @@
  ],
  "reconcile": [],
  "notes": [],
+ "review_patterns": [
+  {
+   "table": "orders",
+   "column": "payment",
+   "flag": "R4-CATEGORY",
+   "cells": 5,
+   "distinct_values": 5,
+   "share_of_rows": 0.3333,
+   "example_question": "'Master카드' is not in the vocabulary (closest '카드' at 0.57, runner-up '카카오페이' at 0.20): map it, or add it as a new value?",
+   "hint": "",
+   "example_value": "'Master카드'"
+  },
+  {
+   "table": "orders",
+   "column": "status",
+   "flag": "R4-CATEGORY",
+   "cells": 4,
+   "distinct_values": 4,
+   "share_of_rows": 0.2667,
+   "example_question": "'ready for pickup' is not in the vocabulary (closest '픽업대기' at 0.00, runner-up '취소' at 0.00): map it, or add it as a new value?",
+   "hint": "",
+   "example_value": "'ready for pickup'"
+  },
+  {
+   "table": "orders",
+   "column": "pickup_date",
+   "flag": "R1-DATE",
+   "cells": 2,
+   "distinct_values": 2,
+   "share_of_rows": 0.1333,
+   "example_question": "'05/04/2024' could be MDY=2024-05-04, DMY=2024-04-05: which one?",
+   "hint": "",
+   "example_value": "2024-05-04"
+  },
+  {
+   "table": "orders",
+   "column": "customer_id",
+   "flag": "J2-ORPHAN",
+   "cells": 1,
+   "distinct_values": 1,
+   "share_of_rows": 0.0667,
+   "example_question": "customer_id='K009' not found in customers: typo, or missing master row?",
+   "hint": "",
+   "example_value": "'K009'"
+  }
+ ],
  "n_llm_changes": 0,
  "n_changes": 3,
  "n_review": 12,
